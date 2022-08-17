@@ -1,0 +1,304 @@
+﻿<Window x:Class="ReAvix_2022.Views.WindowRegisterStud"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReAvix_2022.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="WindowRegisterStud" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
+    <Grid>
+        <!--#region Задний фон окна-->
+        <Border CornerRadius="20" Grid.Column="1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.8,1">
+                    <GradientStop
+                        Color="#7BC1D7"
+                        Offset="0.2"/>
+                    <GradientStop
+                        Color="#77CA9D"
+                        Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <!--#endregion-->
+        <!--#region Контентная часть окна-->
+        <Grid>
+            <!--#region Контент задней части окна-->
+            <!--#region Разметка контента-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100px"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+            <!--#region Изображение Логотипа-->
+            <Image Grid.Row="0" Source="/Resources/Images/icon_Logo.png" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 20 0 0"/>
+            <!--#endregion-->
+            <!--#region Надпись "Окно регистарции"-->
+            <Label Grid.Row="0" Content="Окно регистрации" Margin="150 50 0 0" FontSize="26" FontWeight="Bold" Foreground="White" FontFamily="Bahnschrift Light SemiCondensed"/>
+            <!--#endregion-->
+            <!--#region Кнопка "Выход"-->
+            <Image Name="icon_Exit" MouseDown="icon_Exit_MouseDown" Grid.Row="0" Height="20" HorizontalAlignment="Right" Margin="0 0 35 25" Width="20">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                                <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <!--#endregion-->
+            <!--#region Кнопка "Назад"-->
+            <Image Grid.Row="1" Name="button_ExitSignWindow" MouseDown="button_ExitSignWindow_MouseDown" Cursor="Hand" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40 0 0 75" Width="50" Source="/Resources/Images/icon_LeftArrow.png"/>
+            <!--#endregion-->
+            <!--#region Декоративный элемент "Прозрачный кружок"-->
+            <Image Grid.Row="1" Height="314" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="314" Source="/Resources/Images/images_Ellips.png"/>
+            <!--#endregion-->
+            <!--#endregion-->
+            <!--#region Основная контентная часть-->
+            <Grid Grid.Row="1" Margin="120 0 110 80">
+                <!--#region Задний фон контентной части окна-->
+                <Border CornerRadius="10" Opacity="0.6" Background="#FFFBFB">
+                    <Border.OpacityMask>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0" Color="#FFFBFB"></GradientStop>
+                            <GradientStop Offset="1" Color="Transparent"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.OpacityMask>
+                </Border>
+                <!--#endregion-->
+                <Grid>
+                    <!--#region Разметка контентной части окна-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <!--#endregion-->
+                    <!--#region TextBox "Имя"-->
+                    <TextBox Grid.Column="0"  Name="textbox_Ima" BorderBrush="#689ADD" Grid.Row="0"  FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Имя:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Фамилия"-->
+                    <TextBox Grid.Column="0" Name="textbox_Fam" BorderBrush="#689ADD" Grid.Row="1" Margin="0 0 0 20" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Фамилия:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Отчество"-->
+                    <TextBox Grid.Column="0" Name="textbox_Otc" BorderBrush="#689ADD" Grid.Row="2" Margin="0 0 0 20" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Отчество:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Логин"-->
+                    <TextBox Grid.Column="0" Name="textbox_Login" BorderBrush="#689ADD" Grid.Row="3" Margin="0 0 0 20" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Логин:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Пароль"-->
+                    <PasswordBox x:Name="textbox_Password" BorderBrush="#689ADD" Margin="0 0 0 20" Foreground="Black" FontSize="20" Grid.Row="4" Grid.Column="0" Height="45" Width="350" materialDesign:HintAssist.Hint="Пароль:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region  TextBox "Повторите пароль"-->
+                    <PasswordBox x:Name="textbox_VerifityPassword" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20" Grid.Row="5" Grid.Column="0" Height="45" Width="350" Foreground="Black" materialDesign:HintAssist.Hint="Подтвердите пароль:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "E-Mail"-->
+                    <TextBox Name="textbox_EMail" materialDesign:TextFieldAssist.LeadingIcon="MailboxOpenUp" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="0" BorderBrush="#689ADD" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="E-mail:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Номер телефона"-->
+                    <TextBox Name="textbox_Phone" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.PrefixText="+7" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="1" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Номер телефона:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Номер тлефона родителей"-->
+                    <TextBox Name="textbox_PhoneRod" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.PrefixText="+7" materialDesign:TextFieldAssist.LeadingIconSize="25"  materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="2" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Номер телефона родителя:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <!--#endregion-->
+                    <!--#region Надпись "Ваша группа"-->
+                    <Label Grid.Column="1" Grid.Row="3" Width="144" Height="35" Content="Ваша группа:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Left" Margin="80 0 0 80"/>
+                    <!--#endregion-->
+                    <!--#region Надпись "Ваша курс"-->
+                    <Label Grid.Column="1" Grid.Row="3" Width="144" Height="35" Content="Ваш курс:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Right" Margin="0 0 110 80"/>
+                    <!--#endregion-->
+                    <!--#region ComboBox "Группа"-->
+                    <ComboBox Name="combobox_Group" ItemsSource="{Binding}" SelectedValuePath="Номер_Группы" DisplayMemberPath="Номер_Группы" FontFamily="Bahnschrift SemiCondensed" Margin="80 0 0 10"  materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" BorderBrush="Black" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontSize="20" Grid.Column="1" Grid.Row="3" Width="135" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
+                    <!--#endregion-->
+                    <!--#region ComboBox "Курс"-->
+                    <ComboBox Name="combobox_Cours"  Margin="0 0 180 10" HorizontalContentAlignment="Left" BorderBrush="Black" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Right"  VerticalAlignment="Bottom" FontSize="20" Grid.Column="1" Grid.Row="3" Width="70" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" FontFamily="Bahnschrift SemiCondensed" >
+                        <ComboBoxItem IsSelected="True" Content="1" />
+                        <ComboBoxItem Content="2" />
+                        <ComboBoxItem Content="3" />
+                        <ComboBoxItem Content="4" />
+                    </ComboBox>
+                    <!--#endregion-->
+                    <!--#region Надпись "Пол"-->
+                    <Label Grid.Column="1" Grid.Row="4" Width="144" Height="35" Content="Пол:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80 10 0 0"/>
+                    <!--#endregion-->
+                    <!--#region RadioButton "Мужской"-->
+                    <RadioButton
+                          Style="{StaticResource MaterialDesignRadioButton}"
+                          Tag="True"
+                          Name="radiobutton_Male"
+                          FontFamily="Bahnschrift SemiLight Condensed"
+                          Height="30"
+                          Margin="82 20 0 20"
+                          Content="Мужской"
+                          Background="#594A4A"
+                          FontSize="20"
+                          Grid.Column="1"
+                          Grid.Row="4">
+                        <RadioButton.IsChecked>
+                            <Binding
+                              Path="Tag"
+                              RelativeSource="{RelativeSource Self}">
+                            </Binding>
+                        </RadioButton.IsChecked>
+                    </RadioButton>
+                    <!--#endregion-->
+                    <!--#region RadioButton "Женский"-->
+                    <RadioButton
+                          Style="{StaticResource MaterialDesignRadioButton}"
+                          Tag="True"
+                          Name="radiobutton_Female"
+                          Background="#594A4A"
+                          Height="30"
+                          FontFamily="Bahnschrift SemiLight Condensed"
+                          HorizontalAlignment="Right"
+                          Content="Женский"
+                          Grid.Column="1"
+                          FontSize="20"
+                          Grid.Row="4"
+                          Width="120"
+                          Margin="0 20 200 20">
+                        <RadioButton.IsChecked>
+                            <Binding
+                              Path="Tag"
+                              RelativeSource="{RelativeSource Self}">
+                            </Binding>
+                        </RadioButton.IsChecked>
+                    </RadioButton>
+                    <!--#endregion-->
+                    <!--#region Надпись "Дата рождения"-->
+                    <Label Grid.Column="1" Grid.Row="4" Width="170" Height="35" Content="Дата рождения:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80 0 0 0" Grid.RowSpan="1"/>
+                    <!--#endregion-->
+                    <!--#region ComboBox "День"-->
+                    <ComboBox Name="combobox_Day"  Margin="80 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="70" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                        <ComboBoxItem IsSelected="True" Content="1" />
+                        <ComboBoxItem Content="2" />
+                        <ComboBoxItem Content="3" />
+                        <ComboBoxItem Content="4" />
+                        <ComboBoxItem Content="5" />
+                        <ComboBoxItem Content="6" />
+                        <ComboBoxItem Content="7" />
+                        <ComboBoxItem Content="8" />
+                        <ComboBoxItem Content="9" />
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="11" />
+                        <ComboBoxItem Content="12" />
+                        <ComboBoxItem Content="13" />
+                        <ComboBoxItem Content="14" />
+                        <ComboBoxItem Content="15" />
+                        <ComboBoxItem Content="16" />
+                        <ComboBoxItem Content="17" />
+                        <ComboBoxItem Content="18" />
+                        <ComboBoxItem Content="19" />
+                        <ComboBoxItem Content="20" />
+                        <ComboBoxItem Content="21" />
+                        <ComboBoxItem Content="22" />
+                        <ComboBoxItem Content="23" />
+                        <ComboBoxItem Content="24" />
+                        <ComboBoxItem Content="25" />
+                        <ComboBoxItem Content="26" />
+                        <ComboBoxItem Content="27" />
+                        <ComboBoxItem Content="28" />
+                        <ComboBoxItem Content="29" />
+                        <ComboBoxItem Content="30" />
+                        <ComboBoxItem Content="31" />
+
+                    </ComboBox>
+                    <!--#endregion-->
+                    <!--#region ComboBox "Месяц"-->
+                    <ComboBox Name="combobox_Montch" Margin="160 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="120" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                        <ComboBoxItem IsSelected="True" Content="Январь" />
+                        <ComboBoxItem  Content="Февраль" />
+                        <ComboBoxItem  Content="Март" />
+                        <ComboBoxItem  Content="Апрель" />
+                        <ComboBoxItem  Content="Май" />
+                        <ComboBoxItem  Content="Июнь" />
+                        <ComboBoxItem  Content="Июль" />
+                        <ComboBoxItem  Content="Август" />
+                        <ComboBoxItem  Content="Октябрь" />
+                        <ComboBoxItem  Content="Ноябрь" />
+                        <ComboBoxItem  Content="Декабрь" />
+
+                    </ComboBox>
+                    <!--#endregion-->
+                    <!--#region ComboBox "Год"-->
+                    <ComboBox Name="combobox_Year" Margin="290 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="105" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                        <ComboBoxItem IsSelected="True" Content="2003" />
+                        <ComboBoxItem IsSelected="True" Content="2002" />
+                        <ComboBoxItem IsSelected="True" Content="2001" />
+                        <ComboBoxItem IsSelected="True" Content="1999" />
+                        <ComboBoxItem IsSelected="True" Content="1998" />
+                        <ComboBoxItem IsSelected="True" Content="1997" />
+                        <ComboBoxItem IsSelected="True" Content="1996" />
+                        <ComboBoxItem IsSelected="True" Content="1995" />
+                        <ComboBoxItem IsSelected="True" Content="1994" />
+                        <ComboBoxItem IsSelected="True" Content="1993" />
+                        <ComboBoxItem IsSelected="True" Content="1992" />
+
+                    </ComboBox>
+                    <!--#endregion-->
+                    <!--#region TextBox "Ваш адрес"-->
+                    <TextBox Name="textbox_Adress" materialDesign:TextFieldAssist.LeadingIcon="Location" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="3" Grid.Row="0" BorderBrush="#689ADD" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Ваш адрес:" Height="60" Width="440" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+                    <!--#endregion-->
+                    <!--#region TextBox "Расскажите о себе"-->
+                    <TextBox Name="textbox_TextMe" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Top"
+                        Height="300"
+                        Margin="40 0 30 0"
+                        FontSize="22"
+                        Grid.Column="3"
+                        Grid.Row="1"
+                        Grid.RowSpan="3"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="Расскажите о себе:"
+                        materialDesign:HintAssist.Background="Transparent"
+                        materialDesign:HintAssist.Foreground="Black"
+                        Foreground="Black"
+                        materialDesign:HintAssist.FloatingScale="0.8"
+                        BorderBrush="White"
+                        MaxLength="400"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}" Background="White"/>
+                    <!--#endregion-->
+                    <!--#region CheckBox "Я принимаю ПС"-->
+                    <CheckBox
+                        x:Name="MaterialDesignFilledTextBoxEnabledComboBox"
+                        IsChecked="False"
+                        Height="40"
+                        Width="450"
+                        Margin="60 0 0 0"
+                        Grid.Column="3"
+                        Grid.Row="3"
+                        FontSize="16"
+                        Background="#397CBA"
+                        FontFamily="Bahnschrift SemiLight Condensed"
+                        materialDesign:RippleAssist.IsDisabled="True"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25">
+                        <TextBlock>
+                           <Run Text="Я принимаю" Foreground="#000000" FontFamily="Bahnschrift Light"/>
+                           <Run Text="Лицензионное соглашение" Foreground="#6100FF" FontFamily="Bahnschrift SemiBold" Cursor="Hand" />
+                        </TextBlock>
+                    </CheckBox>
+                    <!--#endregion-->
+                    <!--#region  Button "Зарегистрироватьтся"-->
+                    <Button Name="button_Register" Click="button_Register_Click" Grid.RowSpan="2" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Style="{StaticResource StyleButtonAllApplication}" Grid.Column="3" Grid.Row="3" Width="252" Height="65" Content="Зарегистрироваться" FontSize="18" VerticalAlignment="Center" Margin="0 0 0 0" FontFamily="Bahnschrift"/>
+                    <!--#endregion-->
+                </Grid>
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Window>
+ 
