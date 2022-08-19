@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
         Title="WindowRegisterStud" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
+    <Window.DataContext>
+        <local1:VMWindowRegisterStud/>
+    </Window.DataContext>
+
     <Grid>
         <!--#region Задний фон окна-->
         <Border CornerRadius="20" Grid.Column="1">
@@ -87,8 +91,7 @@
                     </Grid.RowDefinitions>
                     <!--#endregion-->
                     <!--#region TextBox "Имя"-->
-                    <TextBox Grid.Column="0"  Name="textbox_Ima" BorderBrush="#689ADD" Grid.Row="0"  FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Имя:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
-                    <!--#endregion-->
+                    <TextBox Grid.Column="0" Name="textbox_Ima" BorderBrush="#689ADD" Grid.Row="0"  FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Имя:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
                     <!--#region TextBox "Фамилия"-->
                     <TextBox Grid.Column="0" Name="textbox_Fam" BorderBrush="#689ADD" Grid.Row="1" Margin="0 0 0 20" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Фамилия:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
@@ -102,7 +105,7 @@
                     <PasswordBox x:Name="textbox_Password" BorderBrush="#689ADD" Margin="0 0 0 20" Foreground="Black" FontSize="20" Grid.Row="4" Grid.Column="0" Height="45" Width="350" materialDesign:HintAssist.Hint="Пароль:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region  TextBox "Повторите пароль"-->
-                    <PasswordBox x:Name="textbox_VerifityPassword" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20" Grid.Row="5" Grid.Column="0" Height="45" Width="350" Foreground="Black" materialDesign:HintAssist.Hint="Подтвердите пароль:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <PasswordBox x:Name="textbox_VerifityPassword"  BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20" Grid.Row="5" Grid.Column="0" Height="45" Width="350" Foreground="Black" materialDesign:HintAssist.Hint="Подтвердите пароль:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region TextBox "E-Mail"-->
                     <TextBox Name="textbox_EMail" materialDesign:TextFieldAssist.LeadingIcon="MailboxOpenUp" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="0" BorderBrush="#689ADD" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="E-mail:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
@@ -120,7 +123,7 @@
                     <Label Grid.Column="1" Grid.Row="3" Width="144" Height="35" Content="Ваш курс:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Right" Margin="0 0 110 80"/>
                     <!--#endregion-->
                     <!--#region ComboBox "Группа"-->
-                    <ComboBox Name="combobox_Group" ItemsSource="{Binding}" SelectedValuePath="Номер_Группы" DisplayMemberPath="Номер_Группы" FontFamily="Bahnschrift SemiCondensed" Margin="80 0 0 10"  materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" BorderBrush="Black" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontSize="20" Grid.Column="1" Grid.Row="3" Width="135" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
+                    <ComboBox Name="combobox_Group" ItemsSource="{Binding}" DataContext="{Binding Path=GetGroup}" SelectedValuePath="Номер_Группы" DisplayMemberPath="Номер_Группы" FontFamily="Bahnschrift SemiCondensed" Margin="80 0 0 10"  materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" BorderBrush="Black" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontSize="20" Grid.Column="1" Grid.Row="3" Width="135" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
                     <!--#endregion-->
                     <!--#region ComboBox "Курс"-->
                     <ComboBox Name="combobox_Cours"  Margin="0 0 180 10" HorizontalContentAlignment="Left" BorderBrush="Black" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Right"  VerticalAlignment="Bottom" FontSize="20" Grid.Column="1" Grid.Row="3" Width="70" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" FontFamily="Bahnschrift SemiCondensed" >

@@ -230,7 +230,7 @@
                     <Label Grid.Column="3" Grid.Row="1" Width="280" Height="40" Content="Специальность:" FontSize="20" Foreground="#403F3F" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 50 0 0"/>
                     <!--#endregion-->
                     <!--#region ComboBox "Специальность"-->
-                    <ComboBox Name="combobox_Spec" ItemsSource="{Binding}" DataContext="{Binding Path=GetSpecialnost}" SelectedValuePath="Номер_Специальности" DisplayMemberPath="Название_Специльности" Grid.RowSpan="2" Margin="10 0 0 20" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="3" Grid.Row="1" Width="220" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
+                    <ComboBox Name="combobox_Spec" ItemsSource="{Binding}" DataContext="{Binding Path=GetSpecialnost}" SelectedValuePath="Номер_Специальности" DisplayMemberPath="Название_Специальности" Grid.RowSpan="2" Margin="10 0 0 20" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="3" Grid.Row="1" Width="220" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
                     <!--#endregion-->
                     <!--#region TextBox "Расскажите о себе"-->
                     <TextBox

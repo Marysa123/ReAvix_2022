@@ -16,8 +16,5 @@ namespace ReAvix_2022.Models
     {
         public string Номер_Группы { get; set; }
         public string Полное_Название_группы { get; set; }
-        public Nullable<int> FK_Классный_Руководитель { get; set; }
-    
-        public virtual Преподаватели Преподаватели { get; set; }
     }
 }

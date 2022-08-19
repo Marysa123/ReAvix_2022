@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\App.xaml
-41315654950
+6-1327315904
 22143829015
-231732085153
-20-42696023
-Resources\Styles\ButtonStyle.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;
+281643830550
+211060676848
+Resources\Styles\ButtonStyle.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;
 
-False
+True
 

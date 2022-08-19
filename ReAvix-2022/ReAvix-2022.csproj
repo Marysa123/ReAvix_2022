@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -118,13 +119,22 @@
     <Compile Include="Models\Пропуски.cs">
       <DependentUpon>db_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Специльности.cs">
+    <Compile Include="Models\Специальности.cs">
       <DependentUpon>db_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Студенты.cs">
       <DependentUpon>db_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\VMWindowMainPrep.cs" />
+    <Compile Include="ViewModels\VMWindowMainStudent.cs" />
     <Compile Include="ViewModels\VMWindowRegisterPrep.cs" />
+    <Compile Include="ViewModels\VMWindowRegisterStud.cs" />
+    <Compile Include="Views\WindowMainPrep.xaml.cs">
+      <DependentUpon>WindowMainPrep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowMainStudent.xaml.cs">
+      <DependentUpon>WindowMainStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowRegisterPrep.xaml.cs">
       <DependentUpon>WindowRegisterPrep.xaml</DependentUpon>
     </Compile>
@@ -174,6 +184,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\Styles\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowMainPrep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowMainStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

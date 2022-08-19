@@ -19,7 +19,6 @@ namespace ReAvix_2022.Models
         {
             this.Заметки = new HashSet<Заметки>();
             this.Предметы = new HashSet<Предметы>();
-            this.Группа = new HashSet<Группа>();
         }
     
         public int Номер_Преподавателя { get; set; }
@@ -38,12 +37,11 @@ namespace ReAvix_2022.Models
         public string Специальность { get; set; }
         public string Краткая_Информация { get; set; }
         public string Ведущий_Кружок { get; set; }
+        public string FK_Закреплённая_группа { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заметки> Заметки { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Предметы> Предметы { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Группа> Группа { get; set; }
     }
 }

@@ -72,6 +72,23 @@
           <ScalarProperty Name="Специальность" ColumnName="Специальность" />
           <ScalarProperty Name="Краткая_Информация" ColumnName="Краткая_Информация" />
           <ScalarProperty Name="Ведущий_Кружок" ColumnName="Ведущий_Кружок" />
+          <ScalarProperty Name="FK_Закреплённая_группа" ColumnName="FK_Закреплённая_группа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Специальности">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Специальности">
+        <MappingFragment StoreEntitySet="Специальности">
+          <ScalarProperty Name="Номер_Специальности" ColumnName="Номер_Специальности" />
+          <ScalarProperty Name="Название_Специальности" ColumnName="Название_Специальности" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Специльности">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Специльности">
+        <MappingFragment StoreEntitySet="Специльности">
+          <ScalarProperty Name="Номер_Специальности" ColumnName="Номер_Специальности" />
+          <ScalarProperty Name="Название_Специльности" ColumnName="Название_Специльности" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -84,7 +101,7 @@
           <ScalarProperty Name="Отчество" ColumnName="Отчество" />
           <ScalarProperty Name="Логин" ColumnName="Логин" />
           <ScalarProperty Name="Пароль" ColumnName="Пароль" />
-          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
           <ScalarProperty Name="Номер_Телефона" ColumnName="Номер_Телефона" />
           <ScalarProperty Name="Номер_телефона_Родителей" ColumnName="Номер_телефона_Родителей" />
           <ScalarProperty Name="Курс" ColumnName="Курс" />
@@ -101,7 +118,6 @@
         <MappingFragment StoreEntitySet="Группа">
           <ScalarProperty Name="Номер_Группы" ColumnName="Номер_Группы" />
           <ScalarProperty Name="Полное_Название_группы" ColumnName="Полное_Название_группы" />
-          <ScalarProperty Name="FK_Классный_Руководитель" ColumnName="FK_Классный_Руководитель" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

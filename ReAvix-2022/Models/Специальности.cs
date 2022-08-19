@@ -12,9 +12,9 @@ namespace ReAvix_2022.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Специльности
+    public partial class Специальности
     {
         public int Номер_Специальности { get; set; }
-        public string Название_Специльности { get; set; }
+        public string Название_Специальности { get; set; }
     }
 }
