@@ -19,6 +19,10 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowRegisterPrep.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowRegisterStud.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowSign.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCDosStudent.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCMainStudent.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCProfileStudent.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticStudent.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\App.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022_Content.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -30,6 +34,10 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowRegisterPrep.baml
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowRegisterStud.baml
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowSign.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCDosStudent.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCMainStudent.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCProfileStudent.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticStudent.baml
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.g.resources
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix_2022.Properties.Resources.resources
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.GenerateResource.cache
@@ -37,3 +45,12 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvi
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.CopyComplete
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.exe
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.pdb
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCMainPrep.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCMainPrep.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCListStudentsPrep.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCProfilePrep.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticGroupPrep.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCListStudentsPrep.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCProfilePrep.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticGroupPrep.baml

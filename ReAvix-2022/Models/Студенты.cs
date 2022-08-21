@@ -38,6 +38,7 @@ namespace ReAvix_2022.Models
         public string Адрес { get; set; }
         public string Краткая_Информация { get; set; }
         public string FK_Номер_Группы { get; set; }
+        public byte[] Фотография { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Достижения> Достижения { get; set; }

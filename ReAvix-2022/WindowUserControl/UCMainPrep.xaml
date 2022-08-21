@@ -1,0 +1,352 @@
+﻿<UserControl x:Class="ReAvix_2022.WindowUserControl.UCMainPrep"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1440">
+    <Grid>
+        <!--#region Разметка окна-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+        <!--#region Кнопка Выход(Верхняя)-->
+        <Image Name="icon_ExitTop" MouseDown="icon_ExitTop_MouseDown" Grid.Row="0" Grid.Column="3" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 35 35 0" Width="20">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_ExitTop}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <!--#endregion-->
+        <!--#region Декоративный кружок-->
+        <Image Source="/Resources/Images/images_Ellips_1.png" Height="421" Width="461" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-109,-108,0,0" Grid.RowSpan="2" />
+        <!--#endregion-->
+        <!--#region Надпись ReAvix-->
+        <Image Source="/Resources/Images/images_ReAvix.png" Grid.ColumnSpan="2" Width="380" HorizontalAlignment="Left" Margin="90 70 0 0" VerticalAlignment="Top"/>
+        <!--#endregion-->
+        <!--#region Надпись-->
+        <Image Source="/Resources/Images/images_Text.png" Grid.ColumnSpan="4" Width="670" Grid.RowSpan="2" Height="120" HorizontalAlignment="Center" Margin="220 108 0 0" VerticalAlignment="Top"/>
+        <!--#endregion-->
+        <!--#region Карточки с информацией (8)-->
+        <Border Height="290" x:Name="cardOne" Width="320" Grid.Column="0" Grid.Row="1"  Cursor="Hand" CornerRadius="10" Margin="0 0 0 0">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardOne}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card1" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Clock.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card1, Path=ActualHeight}" 
+                                    Width="{Binding ElementName=container_Card1, Path=ActualWidth}"
+                                    Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_02.png" Height="70" Width="70" Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Экономия вашего времени" Grid.Column="2" Grid.Row="1" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Наше приложение позволяет делать рутинные задачи в два клика."  Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardTwo" Cursor="Hand" Height="290" Width="320" Grid.Column="1" Grid.Row="1" CornerRadius="10" Margin="0 0 10 0">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardTwo}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card2" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Shield.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card2, Path=ActualHeight}" 
+                                    Width="{Binding ElementName=container_Card2, Path=ActualWidth}"
+                                    Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_01.png" Height="70" Width="70"  Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Безопасность информации" Grid.Column="2" Grid.Row="1" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Наша система безопасности находится на высоком уровне."  Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardThree" Cursor="Hand" Height="290" Width="320" Grid.Column="2" Grid.Row="1" CornerRadius="10" Margin="0 0 10 0">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardThree}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card3" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Innovation.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card3, Path=ActualHeight}" 
+                                    Width="{Binding ElementName=container_Card3, Path=ActualWidth}"
+                                    Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_03.png" Height="70" Width="70"  Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Автоматизированная система" Grid.Column="2" Grid.Row="1" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Наша система автоматически обработает всю информацию."  Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardFor" Height="290" Width="320" Cursor="Hand" Grid.Column="3" Grid.Row="1"  CornerRadius="10" Margin="0 0 20 0">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardFor}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card4" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Information.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card4, Path=ActualHeight}" 
+                                    Width="{Binding ElementName=container_Card4, Path=ActualWidth}"
+                                    Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_04.png" Height="70" Width="70"  Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Подсчет статистики" Grid.Column="2" Grid.Row="1" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Приложение быстро проанализирует информацию и отобразит в удобной форме." Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardFive" Height="290" Width="320" Cursor="Hand" Grid.Column="0" Grid.Row="2"  CornerRadius="10" Grid.RowSpan="2" Margin="0 0 0 90">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardFive}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card5" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Eazywork.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card5, Path=ActualHeight}" 
+                                    Width="{Binding ElementName=container_Card5, Path=ActualWidth}"
+                                    Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_05.png" Height="70" Width="70"  Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Удобство работы" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Приложение был разработано в соотвествии с правилами UI/UX дизайна." Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardSex" Height="290" Width="320" Cursor="Hand" Grid.Column="1" Grid.Row="2"   CornerRadius="10" Grid.RowSpan="2" Margin="0 0 10 90">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardSex}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card6" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Test.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card6, Path=ActualHeight}" 
+                            Width="{Binding ElementName=container_Card6, Path=ActualWidth}"
+                            Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_06.png" Height="70" Width="70"  Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Быстродействие выполнения действий" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Платформа WPF обеспечивает быстродействие работы программы." Grid.Column="2" Grid.Row="1" Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardSeven" Height="290" Width="320" Cursor="Hand" Grid.Column="2" Grid.Row="2"   CornerRadius="10" Grid.RowSpan="2" Margin="0 0 10 90">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardSeven}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card7" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Design.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card7, Path=ActualHeight}" 
+                            Width="{Binding ElementName=container_Card7, Path=ActualWidth}"
+                            Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_07.png" Height="70" Width="70"  Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Современный дизайн приложения" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Дизайн приложения был разработан в программе Figma."  Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="cardEight" Height="290" Width="320" Cursor="Hand" Grid.Column="3" Grid.Row="2"   CornerRadius="10" Grid.RowSpan="2" Margin="0 0 20 90">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardEight}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid x:Name="container_Card8" Height="55" Width="55"  Margin="0 30 30 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Images/icon_Report.png" Width="55" Height="55"/>
+                    <Grid.OpacityMask>
+                        <VisualBrush >
+                            <VisualBrush.Visual>
+                                <Border Height="{Binding ElementName=container_Card8, Path=ActualHeight}" 
+                            Width="{Binding ElementName=container_Card8, Path=ActualWidth}"
+                            Background="White" CornerRadius="5" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.OpacityMask>
+                </Grid>
+                <Image Source="/Resources/Images/images_08.png" Height="70" Width="70" Margin="30 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Возможность вывода данных в отчет" Height="54" Width="220" TextWrapping="Wrap" FontSize="20"  Foreground="White" FontWeight="Bold" Margin="0 5 30 30" FontFamily="Bahnschrift"/>
+                <TextBlock Text="Одна из функций программы - это вывод в отчет нужной вам информации." Height="85" Width="280" TextWrapping="Wrap"  FontSize="18"  Foreground="White" VerticalAlignment="Bottom" Margin="30 00 0 30" FontFamily="Segoe UI Light"/>
+            </Grid>
+        </Border>
+        <!--#endregion-->
+    </Grid>
+</UserControl>

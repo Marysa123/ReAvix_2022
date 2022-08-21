@@ -33,7 +33,7 @@ namespace ReAvix_2022.ViewModels
         public void AddInfoStudentInDB(string Ima, string Fam, string Otch, string Login, string Password, string Mail, string NomerTel, string Pol, string Date, string Adress, string LeadingSubject, string DopSubject ,string Spec,string LeadingMugle,string InfoMe,string ZakGroup)
         {
             _Connection.Open(); // Открытие подключения
-            CommandSql.CommandText = "Insert into [Преподаватели] (Имя,Фамилия,Отчество,Логин,Пароль,E_mail,Номер_Телефона,Пол,Дата_рождения,Адрес,Ведущий_Предмет,Дополнительный_Предмет,Специальность,Краткая_Информация,Ведущий_Кружок,FK_Закреплённая_группа) values (@im,@fa,@ot,@lo,@pa,@ma,@no,@po,@da,@ad,@vp,@dp,@cp,@ci,@lm,@za)"; // Строка запроса
+            CommandSql.CommandText = "Insert into [Преподаватели] (Имя,Фамилия,Отчество,Логин,Пароль,E_mail,Номер_Телефона,Пол,Дата_рождения,Адрес,Ведущий_Предмет,Дополнительный_Предмет,Специальность,Краткая_Информация,Ведущий_Кружок,FK_Закреплённая_группа,Фотография) values (@im,@fa,@ot,@lo,@pa,@ma,@no,@po,@da,@ad,@vp,@dp,@cp,@ci,@lm,@za,null)"; // Строка запроса
             CommandSql.Connection = _Connection;
 
             //@im,@fa,@ot,@lo,@pa,@ma,@no,@po,@da,@ad,@vp,@dp,@cp,@ci,@za

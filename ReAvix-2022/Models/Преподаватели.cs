@@ -38,6 +38,7 @@ namespace ReAvix_2022.Models
         public string Краткая_Информация { get; set; }
         public string Ведущий_Кружок { get; set; }
         public string FK_Закреплённая_группа { get; set; }
+        public byte[] Фотография { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заметки> Заметки { get; set; }

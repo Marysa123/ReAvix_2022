@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReAvix_2022.WindowUserControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,36 @@ namespace ReAvix_2022.Views
         }
         public WindowMainPrep(int NomerPrep)
         {
+            int Nomer = NomerPrep;
+            InitializeComponent();
+
+        }
+
+        private void button_ProfilePrep_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCProfilePrep();
+        }
+
+        private void button_List_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCListStudentsPrep();
+        }
+
+        private void button_StaticGroup_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCStatisticGroupPrep();
+        }
+
+        private void button_Home_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCMainPrep();
+        }
+
+        private void button_Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowSign windowSign = new WindowSign();
+            windowSign.Show();
+            Close();
         }
     }
 }

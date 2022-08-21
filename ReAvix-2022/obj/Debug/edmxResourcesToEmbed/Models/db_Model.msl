@@ -73,6 +73,7 @@
           <ScalarProperty Name="Краткая_Информация" ColumnName="Краткая_Информация" />
           <ScalarProperty Name="Ведущий_Кружок" ColumnName="Ведущий_Кружок" />
           <ScalarProperty Name="FK_Закреплённая_группа" ColumnName="FK_Закреплённая_группа" />
+          <ScalarProperty Name="Фотография" ColumnName="Фотография" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -81,14 +82,6 @@
         <MappingFragment StoreEntitySet="Специальности">
           <ScalarProperty Name="Номер_Специальности" ColumnName="Номер_Специальности" />
           <ScalarProperty Name="Название_Специальности" ColumnName="Название_Специальности" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Специльности">
-      <EntityTypeMapping TypeName="db_ReAvixModel.Специльности">
-        <MappingFragment StoreEntitySet="Специльности">
-          <ScalarProperty Name="Номер_Специальности" ColumnName="Номер_Специальности" />
-          <ScalarProperty Name="Название_Специльности" ColumnName="Название_Специльности" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -110,6 +103,7 @@
           <ScalarProperty Name="Адрес" ColumnName="Адрес" />
           <ScalarProperty Name="Краткая_Информация" ColumnName="Краткая_Информация" />
           <ScalarProperty Name="FK_Номер_Группы" ColumnName="FK_Номер_Группы" />
+          <ScalarProperty Name="Фотография" ColumnName="Фотография" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
