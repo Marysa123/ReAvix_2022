@@ -54,8 +54,8 @@ namespace ReAvix_2022.Views
         private void button_Exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             WindowSign windowSign = new WindowSign();
+            Hide();
             windowSign.Show();
-            Close();
         }
     }
 }

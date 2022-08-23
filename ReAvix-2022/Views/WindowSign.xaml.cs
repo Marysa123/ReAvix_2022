@@ -63,7 +63,7 @@ namespace ReAvix_2022
             if (LoginStudent != null)
             {
                 _Connection.Close();
-                WindowMainStudent windowMainStudent = new WindowMainStudent(NomerStudent:(int)LoginStudent);
+                WindowMainStudent windowMainStudent = new WindowMainStudent(NomerSt: (int)LoginStudent);
                 windowMainStudent.Show();
                 Hide();
             }

@@ -211,7 +211,7 @@
             </Border>
             <!--#endregion-->
             <!--#region Контент правой части окна-->
-            <Grid>
+            <Grid Cursor="Hand">
                 <!--#region Разметка правой части окна-->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50px"/>

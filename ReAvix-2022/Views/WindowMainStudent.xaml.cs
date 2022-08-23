@@ -20,13 +20,14 @@ namespace ReAvix_2022.Views
     /// </summary>
     public partial class WindowMainStudent : Window
     {
+        public int Nomer_Student { get; set; }
         public WindowMainStudent()
         {
             InitializeComponent();
         }
-        public WindowMainStudent(int NomerStudent)
+        public WindowMainStudent(int NomerSt)
         {
-            int Nomer = NomerStudent;
+            Nomer_Student = NomerSt;
             InitializeComponent();
         }
 
@@ -35,9 +36,9 @@ namespace ReAvix_2022.Views
             DataContext = new UCMainStudent();
         }
 
-        private void button_Static_MouseDown(object sender, MouseButtonEventArgs e)
+        public void button_Static_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new UCStatisticStudent();
+            DataContext = new UCStatisticStudent(nomer_Student: Nomer_Student);
         }
 
         private void button_Dos_MouseDown(object sender, MouseButtonEventArgs e)
@@ -53,8 +54,9 @@ namespace ReAvix_2022.Views
         private void button_Exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             WindowSign windowSign = new WindowSign();
+            Hide();
             windowSign.Show();
-            Close();
+            
         }
 
     }
