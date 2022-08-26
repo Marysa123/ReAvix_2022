@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\App.xaml
-15-1927237379
-22143829015
-43166678605
-28920488995
-Resources\Styles\ButtonStyle.xaml;Views\WindowAddNotes.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;
+162046362649
+12-2069651486
+45-332222338
+148140384758
+Resources\Styles\ButtonStyle.xaml;Views\WindowAddNotes.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;
 
-False
+True
 

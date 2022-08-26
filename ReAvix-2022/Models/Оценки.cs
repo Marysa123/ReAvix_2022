@@ -18,6 +18,7 @@ namespace ReAvix_2022.Models
         public Nullable<int> FK_Номер_Студента { get; set; }
         public Nullable<int> FK_Номер_Предмета { get; set; }
         public decimal Оценка { get; set; }
+        public string Вид_оценочной_Работы { get; set; }
     
         public virtual Предметы Предметы { get; set; }
         public virtual Студенты Студенты { get; set; }

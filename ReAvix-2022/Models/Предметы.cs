@@ -22,6 +22,7 @@ namespace ReAvix_2022.Models
     
         public int Номер_Предмета { get; set; }
         public string Название_Предмета { get; set; }
+        public string Вид_итоговой_Работы { get; set; }
         public Nullable<int> FK_Номер_Преподавателя { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

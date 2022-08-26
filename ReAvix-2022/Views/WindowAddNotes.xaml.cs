@@ -1,19 +1,7 @@
-﻿using ReAvix_2022.Models;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ReAvix_2022.Views
 {
@@ -24,10 +12,11 @@ namespace ReAvix_2022.Views
     {
         SqlConnection _Connection = new SqlConnection(); //Создание экземпляров
         SqlCommand CommandSql = new SqlCommand();
+
         int NomerStudent;
-        public WindowAddNotes(int NomerNotesStudent)
+        public WindowAddNotes(int NumberSt)
         {
-            NomerStudent = NomerNotesStudent;
+            NomerStudent = NumberSt;
             InitializeComponent();
         }
 
@@ -35,7 +24,9 @@ namespace ReAvix_2022.Views
         {
             AddNotesInBd();
         }
-
+        /// <summary>
+        /// Добавление заметок в Базу данных
+        /// </summary>
         private void AddNotesInBd()
         {
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
@@ -43,14 +34,14 @@ namespace ReAvix_2022.Views
             CommandSql.CommandText = $"insert into [Заметки] VALUES('{textbox_Text.Text}','{combobox_Property.Text}',{NomerStudent},NULL)";
             CommandSql.Connection = _Connection;
             Name = (string)CommandSql.ExecuteScalar();
-
             _Connection.Close();
-            this.Hide();
+
+            Close();
         }
 
         private void icon_Exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

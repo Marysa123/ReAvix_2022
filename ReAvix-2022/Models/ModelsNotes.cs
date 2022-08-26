@@ -18,27 +18,32 @@ namespace ReAvix_2022.Models
     {
         SqlConnection _Connection = new SqlConnection(); //Создание экземпляров
         SqlCommand CommandSql = new SqlCommand();
-        List<int> MassivNomerZam;
-        int Count;
-        public List<Border> borders1;
 
-        public void AddNotes(int nomer_Student)
+        List<int> MassivNomerZam;
+        public List<Border> MainBorders;
+
+        int Count;
+        /// <summary>
+        /// Метод добавления Заметок для студента
+        /// </summary>
+        /// <param name="NumberSt">Номер студента</param>
+        public void AddNotes(int NumberSt)
         {
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open();
-            CommandSql.CommandText = $"select COUNT(*) from [Заметки] where [FK_Номер_Студента] = '{nomer_Student}'";
+            CommandSql.CommandText = $"select COUNT(*) from [Заметки] where [FK_Номер_Студента] = '{NumberSt}'";
             CommandSql.Connection = _Connection;
             Count = (int)CommandSql.ExecuteScalar();
 
-            CommandSql.CommandText = $"select [Номер_заметки] from [Заметки] where [FK_Номер_Студента] = {nomer_Student}";
+            CommandSql.CommandText = $"select [Номер_заметки] from [Заметки] where [FK_Номер_Студента] = {NumberSt}";
 
-            SqlDataReader dataReader = CommandSql.ExecuteReader();
-            MassivNomerZam = new List<int>();
-            while (dataReader.Read())
+            SqlDataReader dataReader = CommandSql.ExecuteReader(); // Считывание данных с запроса
+            MassivNomerZam = new List<int>(); // Создание экземпляра List<Int>
+            while (dataReader.Read()) // Считывание
             {
-                MassivNomerZam.Add((int)dataReader.GetValue(0));
+                MassivNomerZam.Add((int)dataReader.GetValue(0)); // Добавление данных в List
             }
-            dataReader.Close();
+            dataReader.Close(); //Закрытие чтения
 
             var bc = new BrushConverter();
             List<Border> borders = new List<Border>();
@@ -47,40 +52,48 @@ namespace ReAvix_2022.Models
             {
                 #region MyRegion
 
-                Border border1 = new Border();
-                border1.Width = 385;
-                border1.Height = 60;
-                border1.Background = (Brush)bc.ConvertFrom("#204FA9");
-                border1.CornerRadius = new CornerRadius(5);
-                border1.Margin = new Thickness(0, 0, 0, 0);
+                Border border1 = new Border
+                {
+                    Width = 385,
+                    Height = 60,
+                    Background = (Brush)bc.ConvertFrom("#204FA9"),
+                    CornerRadius = new CornerRadius(5),
+                    Margin = new Thickness(0, 0, 0, 0)
+                };
 
                 Grid grid = new Grid();
                 border1.Child = grid;
 
                 CommandSql.CommandText = $"select [Текст] from [Заметки] where [Номер_заметки] = {MassivNomerZam[i]}";
 
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = (string)CommandSql.ExecuteScalar();
-                textBlock.FontSize = 20;
-                textBlock.Foreground = Brushes.White;
-                textBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-                textBlock.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                textBlock.Margin = new System.Windows.Thickness(20, 5, 0, 0);
-                textBlock.FontFamily = new FontFamily("Bahnschrift Condensed");
-                textBlock.TextWrapping = TextWrapping.Wrap;
-                textBlock.Width = 180;
+                TextBlock textBlock = new TextBlock
+                {
+                    Text = (string)CommandSql.ExecuteScalar(),
+                    FontSize = 20,
+                    Foreground = Brushes.White,
+                    HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
+                    VerticalAlignment = System.Windows.VerticalAlignment.Center,
+                    Margin = new System.Windows.Thickness(20, 5, 0, 0),
+                    FontFamily = new FontFamily("Bahnschrift Light SemiCondensed"),
+                    TextWrapping = TextWrapping.Wrap,
+                    Width = 180
+                };
 
-                Border border2 = new Border();
-                border2.Width = 120;
-                border2.Height = 40;
-                border2.CornerRadius = new System.Windows.CornerRadius(5);
-                border2.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
-                border2.Margin = new System.Windows.Thickness(0, 0, 30, 0);
+                Border border2 = new Border
+                {
+                    Width = 120,
+                    Height = 40,
+                    CornerRadius = new System.Windows.CornerRadius(5),
+                    HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
+                    Margin = new System.Windows.Thickness(0, 0, 30, 0)
+                };
 
                 CommandSql.CommandText = $"select [Приоритет] from [Заметки] where [Номер_заметки] = {MassivNomerZam[i]}";
 
-                Label label1 = new Label();
-                label1.Content = CommandSql.ExecuteScalar();
+                Label label1 = new Label
+                {
+                    Content = CommandSql.ExecuteScalar()
+                };
                 string Back = label1.ToString(); ;
                 if (Back == "System.Windows.Controls.Label: Высокий")
                 {
@@ -99,7 +112,7 @@ namespace ReAvix_2022.Models
                 label1.Foreground = Brushes.White;
                 label1.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 label1.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                label1.FontFamily = new FontFamily("Bahnschrift Condensed");
+                label1.FontFamily = new FontFamily("Bahnschrift Light SemiCondensed");
 
                 border2.Child = label1;
 
@@ -107,28 +120,27 @@ namespace ReAvix_2022.Models
                 grid.Children.Add(border2);
 
                 borders.Add(border1);
-                borders1 = borders;
+                MainBorders = borders;
                 
                 #endregion
             }
             _Connection.Close();
         }
-        public void DeleteNotes(int IndexItems)
+        /// <summary>
+        /// Метод удаления заметок для студента
+        /// </summary>
+        /// <param name="IndexItems">Индекс выбранной заметки</param>
+        public void DeleteNotes(int IndexSelectedItems)
         {
             MessageBoxResult messageBoxResult = MessageBox.Show("Вы действительно хотите удалить заметку?", "Диалогове окно", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                int NomerNotes = MassivNomerZam[IndexItems];
+                int NomerNotes = MassivNomerZam[IndexSelectedItems];
                 _Connection.Open();
                 CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
                 CommandSql.ExecuteNonQuery();
                 _Connection.Close();
             }
-            else
-            {
-                
-            }
         }
-
     }
 }

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl" xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:chart="http://schemas.syncfusion.com/wpf" xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1440"
              DataContext="UCStatisticStudent">
@@ -14,14 +15,25 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="540"/>
+            <ColumnDefinition Width="500"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Path=GoodTime}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="220" Height="30" Margin="80 50 0 0" FontFamily="Bahnschrift Light" />
-        <TextBlock Text="{Binding Path=Name}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="260" Height="30" Margin="240 50 0 0" FontFamily="Bahnschrift Light"/>
-        <TextBlock Text="{Binding Path=Date}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="210" Height="30" Margin="80 85 0 0" FontFamily="Bahnschrift Light"/>
-        <TextBlock Text="{Binding Path=Day}" Grid.Row="0" FontSize="20" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="280" Height="30" Margin="285 85 0 0" FontFamily="Bahnschrift Light"/>
-        <TextBlock Text="{Binding Path=Number}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="200" Height="30" Margin="255 85 0 0" FontFamily="Bahnschrift Light"/>
+
+        <Image Name="icon_Exit" Grid.Column="1" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+
+        </Image>
+        <TextBlock Text="{Binding Path=GoodTime}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="300" Height="30" Margin="80 50 0 0" FontFamily="Bahnschrift Light" />
+        <TextBlock Text="{Binding Path=Date}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="310" Height="30" Margin="80 85 0 0" FontFamily="Bahnschrift Light"/>
 
         <Border Grid.Row="1" Grid.Column="0" Width="420" Height="234" VerticalAlignment="Top" Background="#21335B" CornerRadius="5">
             <Grid>
@@ -35,12 +47,12 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.ColumnSpan="2" Content="Количество пропусков занятий" Foreground="White" FontSize="22" HorizontalAlignment="Center" Height="30" FontFamily="Bahnschrift Condensed"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="Уважительные пропуски" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 20" VerticalAlignment="Center" FontFamily="Bahnschrift Condensed"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="Неуважительные пропуски" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 20" VerticalAlignment="Center" FontFamily="Bahnschrift Condensed"/>
-                <Label Grid.Row="3" Grid.Column="0" Content="Пропуски по болезни" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 20" VerticalAlignment="Center" FontFamily="Bahnschrift Condensed"/>
+                <Label Grid.Column="0" Grid.ColumnSpan="2" Content="Количество пропусков занятий" Foreground="White" FontSize="22" HorizontalAlignment="Center" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Уважительные пропуски" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 20" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Неуважительные пропуски" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 20" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Пропуски по болезни" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 20" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
                 <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Height="40" Margin="0 0 30 20">
-                    <Label x:Name="label_YvProp" Content="{Binding Path=RespectfulOmissions}" FontSize="21" Foreground="#00F0FF" FontFamily="Bahnschrift Condensed"/>
+                    <Label x:Name="label_YvProp" Content="{Binding Path=RespectfulOmissions}" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
                     <Border.Style>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="BorderThickness" Value="0 0 0 3"/>
@@ -52,9 +64,10 @@
                             </Style.Triggers>
                         </Style>
                     </Border.Style>
+
                 </Border>
                 <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Height="40" Margin="0 0 30 20">
-                    <Label x:Name="label_NoYvProp" Content="{Binding Path=DisrespectfulOmissions}" Grid.Row="1" FontSize="21" Foreground="#00F0FF" FontFamily="Bahnschrift Condensed"/>
+                    <Label x:Name="label_NoYvProp" Content="{Binding Path=DisrespectfulOmissions}" Grid.Row="1" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
                     <Border.Style>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="BorderThickness" Value="0 0 0 3"/>
@@ -68,7 +81,7 @@
                     </Border.Style>
                 </Border>
                 <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" Height="40" Margin="0 0 30 20">
-                    <Label x:Name="label_PoBolezni" Grid.Row="1" Content="{Binding Path= AbsencesIllness}" FontSize="21" Foreground="#00F0FF" FontFamily="Bahnschrift Condensed"/>
+                    <Label x:Name="label_PoBolezni" Grid.Row="1" Content="{Binding Path= AbsencesIllness}" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
                     <Border.Style>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="BorderThickness" Value="0 0 0 3"/>
@@ -82,20 +95,54 @@
                     </Border.Style>
                 </Border>
             </Grid>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
+            </Border.BitmapEffect>
         </Border>
         <Border  Grid.Column="0"  Grid.Row="1" Width="420" Height="460" Margin="0 120 0 0" Background="#21335B" CornerRadius="5">
             <Grid>
                 <ListBox Grid.Column="0" MouseDoubleClick="BorderMain_MouseDoubleClick" x:Name="BorderMain" Grid.Row="1" Width="420" Height="340" Margin="10 0 10 5" />
-                <Image Source="/Resources/Images/icon_AddZam.png" Width="46" Height="46" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 25 15" x:Name="button_AddZam" MouseDown="button_AddZam_MouseDown"/>
+                <Image Width="46" Height="46" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 25 15" x:Name="button_AddZam" MouseDown="button_AddZam_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_AddZam.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddZam}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_AddNotesV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
             </Grid>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
+            </Border.BitmapEffect>
         </Border>
-        <Label Content="Ваши заметки" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 270" Height="30" FontFamily="Bahnschrift Condensed"/>
-        <Label Content="Обновить" Grid.Row="1" MouseDown="UpdateNotes_MouseDown" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="160 0 0 160" Height="30" FontFamily="Bahnschrift Condensed"/>
+        <Label Content="Ваши заметки" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 270" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Content="Обновить" Name="button_Update" Grid.Row="1" MouseDown="UpdateNotes_MouseDown" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="160 0 5 160" Height="40" FontFamily="Corbel Light" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
+                            <Setter Property="Foreground" Value="#3AFFDC"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
 
-        <Grid Grid.Column="1" Grid.Row="1">
-            
-        </Grid>
-    
-    
+        <Label Grid.Column="1" Grid.ColumnSpan="2" Content="Статистика по вашим предметам за текущий месяц" Foreground="White" FontSize="26" HorizontalAlignment="Left" Margin="15 0 0 5" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.RowSpan="2" Margin="10 132 0 0">
+            <ListBox x:Name="PanelPredmet" MouseDoubleClick="PanelPredmet_MouseDoubleClick">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </UserControl>

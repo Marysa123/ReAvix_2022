@@ -4,25 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1974c67f2ade43a793e6c565e3786896" Name="Diagram1">
-        <EntityTypeShape EntityType="db_ReAvixModel.Достижения" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Заметки" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+      <Diagram DiagramId="f6aa447d8644424a86f7bb79cbbffae1" Name="Diagram1">
+        <EntityTypeShape EntityType="db_ReAvixModel.Достижения" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Заметки" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="db_ReAvixModel.Кружки" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Навыки" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Навыки" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="db_ReAvixModel.Предметы" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Преподаватели" Width="1.5" PointX="1.5" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Специальности" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Студенты" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Группа" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Оценки" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_ReAvixModel.Пропуски" Width="1.5" PointX="2.75" PointY="8.375" IsExpanded="true" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Достижени__FK_Но__3AE1A5DA" ManuallyRouted="false" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Заметки__FK_Номе__2B9F624A" ManuallyRouted="false" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Заметки__FK_Номе__2C938683" ManuallyRouted="false" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Навыки__FK_Номер__371114F6" ManuallyRouted="false" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Оценки__FK_Номер__324C5FD9" ManuallyRouted="false" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Предметы__FK_Ном__2F6FF32E" ManuallyRouted="false" />
-        <AssociationConnector Association="db_ReAvixModel.FK__Оценки__FK_Номер__31583BA0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Преподаватели" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Специальности" Width="1.5" PointX="8.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Студенты" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Группа" Width="1.5" PointX="2.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Оценки" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ReAvixModel.Пропуски" Width="1.5" PointX="8.75" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Достижени__FK_Но__4159993F" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Заметки__FK_Номе__321755AF" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Заметки__FK_Номе__330B79E8" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Навыки__FK_Номер__3D89085B" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Оценки__FK_Номер__38C4533E" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Предметы__FK_Ном__35E7E693" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ReAvixModel.FK__Оценки__FK_Номер__37D02F05" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

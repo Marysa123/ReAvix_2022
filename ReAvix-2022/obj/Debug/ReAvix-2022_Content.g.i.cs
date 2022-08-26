@@ -10,5 +10,15 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/db_model.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("models/db_model.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libharfbuzzsharp.dylib")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libharfbuzzsharp.dylib")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libharfbuzzsharp.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libharfbuzzsharp.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libharfbuzzsharp.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libskiasharp.dylib")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libskiasharp.dylib")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libskiasharp.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libskiasharp.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libskiasharp.dll")]
 
 

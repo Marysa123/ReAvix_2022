@@ -55,11 +55,13 @@
     <Key>
       <PropertyRef Name="Дата" />
       <PropertyRef Name="Оценка" />
+      <PropertyRef Name="Вид_оценочной_Работы" />
     </Key>
     <Property Name="Дата" Type="date" Nullable="false" />
     <Property Name="FK_Номер_Студента" Type="int" />
     <Property Name="FK_Номер_Предмета" Type="int" />
     <Property Name="Оценка" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Вид_оценочной_Работы" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Предметы">
     <Key>
@@ -67,6 +69,7 @@
     </Key>
     <Property Name="Номер_Предмета" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Название_Предмета" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Вид_итоговой_Работы" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="FK_Номер_Преподавателя" Type="int" />
   </EntityType>
   <EntityType Name="Преподаватели">
@@ -134,7 +137,7 @@
     <Property Name="FK_Номер_Группы" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Фотография" Type="image" />
   </EntityType>
-  <Association Name="FK__Достижени__FK_Но__3AE1A5DA">
+  <Association Name="FK__Достижени__FK_Но__4159993F">
     <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
     <End Role="Достижения" Type="Self.Достижения" Multiplicity="*" />
     <ReferentialConstraint>
@@ -146,7 +149,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Заметки__FK_Номе__2B9F624A">
+  <Association Name="FK__Заметки__FK_Номе__321755AF">
     <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
     <End Role="Заметки" Type="Self.Заметки" Multiplicity="*" />
     <ReferentialConstraint>
@@ -158,7 +161,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Заметки__FK_Номе__2C938683">
+  <Association Name="FK__Заметки__FK_Номе__330B79E8">
     <End Role="Преподаватели" Type="Self.Преподаватели" Multiplicity="0..1" />
     <End Role="Заметки" Type="Self.Заметки" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,7 +173,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Навыки__FK_Номер__371114F6">
+  <Association Name="FK__Навыки__FK_Номер__3D89085B">
     <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
     <End Role="Навыки" Type="Self.Навыки" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,7 +185,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Оценки__FK_Номер__31583BA0">
+  <Association Name="FK__Оценки__FK_Номер__37D02F05">
     <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
     <End Role="Оценки" Type="Self.Оценки" Multiplicity="*" />
     <ReferentialConstraint>
@@ -194,7 +197,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Оценки__FK_Номер__324C5FD9">
+  <Association Name="FK__Оценки__FK_Номер__38C4533E">
     <End Role="Предметы" Type="Self.Предметы" Multiplicity="0..1" />
     <End Role="Оценки" Type="Self.Оценки" Multiplicity="*" />
     <ReferentialConstraint>
@@ -206,7 +209,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Предметы__FK_Ном__2F6FF32E">
+  <Association Name="FK__Предметы__FK_Ном__35E7E693">
     <End Role="Преподаватели" Type="Self.Преподаватели" Multiplicity="0..1" />
     <End Role="Предметы" Type="Self.Предметы" Multiplicity="*" />
     <ReferentialConstraint>
@@ -219,11 +222,11 @@
     </ReferentialConstraint>
   </Association>
   <!--Ошибки, обнаруженные при создании:
-предупреждение 6035: В связи "FK__Преподава__FK_За__202DAF9E" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
-        <Association Name="FK__Преподава__FK_За__202DAF9E" />-->
+предупреждение 6035: В связи "FK__Преподава__FK_За__26A5A303" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK__Преподава__FK_За__26A5A303" />-->
   <!--Ошибки, обнаруженные при создании:
-предупреждение 6035: В связи "FK__Студенты__FK_Ном__27CED166" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
-        <Association Name="FK__Студенты__FK_Ном__27CED166" />-->
+предупреждение 6035: В связи "FK__Студенты__FK_Ном__2E46C4CB" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK__Студенты__FK_Ном__2E46C4CB" />-->
   <EntityContainer Name="Хранилище db_ReAvixModelContainer">
     <EntitySet Name="Достижения" EntityType="Self.Достижения" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Заметки" EntityType="Self.Заметки" Schema="dbo" store:Type="Tables" />
@@ -244,7 +247,8 @@
     [Оценки].[Дата] AS [Дата], 
     [Оценки].[FK_Номер_Студента] AS [FK_Номер_Студента], 
     [Оценки].[FK_Номер_Предмета] AS [FK_Номер_Предмета], 
-    [Оценки].[Оценка] AS [Оценка]
+    [Оценки].[Оценка] AS [Оценка], 
+    [Оценки].[Вид_оценочной_Работы] AS [Вид_оценочной_Работы]
     FROM [dbo].[Оценки] AS [Оценки]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Пропуски" EntityType="Self.Пропуски" store:Type="Tables" store:Schema="dbo">
@@ -255,31 +259,31 @@
     [Пропуски].[FK_Номер_Студента] AS [FK_Номер_Студента]
     FROM [dbo].[Пропуски] AS [Пропуски]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__Достижени__FK_Но__3AE1A5DA" Association="Self.FK__Достижени__FK_Но__3AE1A5DA">
+    <AssociationSet Name="FK__Достижени__FK_Но__4159993F" Association="Self.FK__Достижени__FK_Но__4159993F">
       <End Role="Студенты" EntitySet="Студенты" />
       <End Role="Достижения" EntitySet="Достижения" />
     </AssociationSet>
-    <AssociationSet Name="FK__Заметки__FK_Номе__2B9F624A" Association="Self.FK__Заметки__FK_Номе__2B9F624A">
+    <AssociationSet Name="FK__Заметки__FK_Номе__321755AF" Association="Self.FK__Заметки__FK_Номе__321755AF">
       <End Role="Студенты" EntitySet="Студенты" />
       <End Role="Заметки" EntitySet="Заметки" />
     </AssociationSet>
-    <AssociationSet Name="FK__Заметки__FK_Номе__2C938683" Association="Self.FK__Заметки__FK_Номе__2C938683">
+    <AssociationSet Name="FK__Заметки__FK_Номе__330B79E8" Association="Self.FK__Заметки__FK_Номе__330B79E8">
       <End Role="Преподаватели" EntitySet="Преподаватели" />
       <End Role="Заметки" EntitySet="Заметки" />
     </AssociationSet>
-    <AssociationSet Name="FK__Навыки__FK_Номер__371114F6" Association="Self.FK__Навыки__FK_Номер__371114F6">
+    <AssociationSet Name="FK__Навыки__FK_Номер__3D89085B" Association="Self.FK__Навыки__FK_Номер__3D89085B">
       <End Role="Студенты" EntitySet="Студенты" />
       <End Role="Навыки" EntitySet="Навыки" />
     </AssociationSet>
-    <AssociationSet Name="FK__Оценки__FK_Номер__31583BA0" Association="Self.FK__Оценки__FK_Номер__31583BA0">
+    <AssociationSet Name="FK__Оценки__FK_Номер__37D02F05" Association="Self.FK__Оценки__FK_Номер__37D02F05">
       <End Role="Студенты" EntitySet="Студенты" />
       <End Role="Оценки" EntitySet="Оценки" />
     </AssociationSet>
-    <AssociationSet Name="FK__Оценки__FK_Номер__324C5FD9" Association="Self.FK__Оценки__FK_Номер__324C5FD9">
+    <AssociationSet Name="FK__Оценки__FK_Номер__38C4533E" Association="Self.FK__Оценки__FK_Номер__38C4533E">
       <End Role="Предметы" EntitySet="Предметы" />
       <End Role="Оценки" EntitySet="Оценки" />
     </AssociationSet>
-    <AssociationSet Name="FK__Предметы__FK_Ном__2F6FF32E" Association="Self.FK__Предметы__FK_Ном__2F6FF32E">
+    <AssociationSet Name="FK__Предметы__FK_Ном__35E7E693" Association="Self.FK__Предметы__FK_Ном__35E7E693">
       <End Role="Преподаватели" EntitySet="Преподаватели" />
       <End Role="Предметы" EntitySet="Предметы" />
     </AssociationSet>
