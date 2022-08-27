@@ -114,3 +114,12 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.Licensing.dll
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.SfChart.WPF.dll
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.SfChart.WPF.xml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddSkils.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddSkils.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.SfProgressBar.WPF.dll
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.Shared.WPF.dll
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.SfProgressBar.WPF.xml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncfusion.Shared.WPF.xml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutSkils.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutSkils.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Resources\Styles\ButtonStyleDelete.baml

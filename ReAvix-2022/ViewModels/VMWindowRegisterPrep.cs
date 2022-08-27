@@ -134,25 +134,25 @@ namespace ReAvix_2022.ViewModels
 
         public void GetInfoGroup()
         {
-            db_ReAvixEntities dc = new db_ReAvixEntities();
+            db_ReAvixEntities1 dc = new db_ReAvixEntities1();
             var item = dc.Группа.ToList();
             GetGroup = item;
         }
         public void GetInfoPredmets()
         {
-            db_ReAvixEntities dc = new db_ReAvixEntities();
+            db_ReAvixEntities1 dc = new db_ReAvixEntities1();
             var item = dc.Предметы.ToList();
             GetPredmets = item;
         }
         public void GetInfoSpecialnost()
         {
-            db_ReAvixEntities dc = new db_ReAvixEntities();
+            db_ReAvixEntities1 dc = new db_ReAvixEntities1();
             var item = dc.Специальности.ToList();
             GetSpecialnost = item;
         }
         public void GetInfoMugs()
         {
-            db_ReAvixEntities dc = new db_ReAvixEntities();
+            db_ReAvixEntities1 dc = new db_ReAvixEntities1();
             var item = dc.Кружки.ToList();
             GetMugs = item;
         }

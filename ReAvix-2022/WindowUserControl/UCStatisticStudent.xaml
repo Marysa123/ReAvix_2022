@@ -30,8 +30,8 @@
                     </Style.Triggers>
                 </Style>
             </Image.Style>
-
         </Image>
+        
         <TextBlock Text="{Binding Path=GoodTime}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="300" Height="30" Margin="80 50 0 0" FontFamily="Bahnschrift Light" />
         <TextBlock Text="{Binding Path=Date}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="310" Height="30" Margin="80 85 0 0" FontFamily="Bahnschrift Light"/>
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище db_ReAvixModelContainer" CdmEntityContainer="db_ReAvixEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище db_ReAvixModelContainer" CdmEntityContainer="db_ReAvixEntities1">
     <EntitySetMapping Name="Достижения">
       <EntityTypeMapping TypeName="db_ReAvixModel.Достижения">
         <MappingFragment StoreEntitySet="Достижения">
@@ -25,6 +25,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Категории_Навыка">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Категории_Навыка">
+        <MappingFragment StoreEntitySet="Категории_Навыка">
+          <ScalarProperty Name="Номер_Категории" ColumnName="Номер_Категории" />
+          <ScalarProperty Name="Название_Категории" ColumnName="Название_Категории" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Кружки">
       <EntityTypeMapping TypeName="db_ReAvixModel.Кружки">
         <MappingFragment StoreEntitySet="Кружки">
@@ -41,6 +49,18 @@
           <ScalarProperty Name="Мастерство_Навыка" ColumnName="Мастерство_Навыка" />
           <ScalarProperty Name="Описание_Навыка" ColumnName="Описание_Навыка" />
           <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Оценки">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Оценки">
+        <MappingFragment StoreEntitySet="Оценки">
+          <ScalarProperty Name="Номер_оценки" ColumnName="Номер_оценки" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+          <ScalarProperty Name="FK_Номер_Предмета" ColumnName="FK_Номер_Предмета" />
+          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+          <ScalarProperty Name="Вид_оценочной_Работы" ColumnName="Вид_оценочной_Работы" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -113,17 +133,6 @@
         <MappingFragment StoreEntitySet="Группа">
           <ScalarProperty Name="Номер_Группы" ColumnName="Номер_Группы" />
           <ScalarProperty Name="Полное_Название_группы" ColumnName="Полное_Название_группы" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Оценки">
-      <EntityTypeMapping TypeName="db_ReAvixModel.Оценки">
-        <MappingFragment StoreEntitySet="Оценки">
-          <ScalarProperty Name="Дата" ColumnName="Дата" />
-          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
-          <ScalarProperty Name="FK_Номер_Предмета" ColumnName="FK_Номер_Предмета" />
-          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
-          <ScalarProperty Name="Вид_оценочной_Работы" ColumnName="Вид_оценочной_Работы" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

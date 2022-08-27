@@ -13,10 +13,10 @@ namespace ReAvix_2022.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_ReAvixEntities : DbContext
+    public partial class db_ReAvixEntities1 : DbContext
     {
-        public db_ReAvixEntities()
-            : base("name=db_ReAvixEntities")
+        public db_ReAvixEntities1()
+            : base("name=db_ReAvixEntities1")
         {
         }
     
@@ -27,14 +27,15 @@ namespace ReAvix_2022.Models
     
         public virtual DbSet<Достижения> Достижения { get; set; }
         public virtual DbSet<Заметки> Заметки { get; set; }
+        public virtual DbSet<Категории_Навыка> Категории_Навыка { get; set; }
         public virtual DbSet<Кружки> Кружки { get; set; }
         public virtual DbSet<Навыки> Навыки { get; set; }
+        public virtual DbSet<Оценки> Оценки { get; set; }
         public virtual DbSet<Предметы> Предметы { get; set; }
         public virtual DbSet<Преподаватели> Преподаватели { get; set; }
         public virtual DbSet<Специальности> Специальности { get; set; }
         public virtual DbSet<Студенты> Студенты { get; set; }
         public virtual DbSet<Группа> Группа { get; set; }
-        public virtual DbSet<Оценки> Оценки { get; set; }
         public virtual DbSet<Пропуски> Пропуски { get; set; }
     }
 }

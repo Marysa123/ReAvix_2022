@@ -4,9 +4,83 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:chart="http://schemas.syncfusion.com/wpf"
+             xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF" xmlns:Syncfusion="clr-namespace:Syncfusion.UI.Xaml.ProgressBar;assembly=Syncfusion.SfProgressBar.WPF"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Transparent">
-            
+             d:DesignHeight="1000" d:DesignWidth="1440" Background="Transparent" DataContext="VMWindowDosStudent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="/Resources/Images/icon_TrophyBack.png" Grid.RowSpan="2" HorizontalAlignment="Right" Width="716.8" Height="716.8" VerticalAlignment="Bottom" />
+        <Image Name="icon_Exit" Grid.Column="1" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Label Grid.Row="0" Content="Ваши навыки" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+
+        <Label Content="Обновить" Name="button_Update" Grid.Row="0" MouseDown="button_Update_MouseDown" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 225 15" Height="40" FontFamily="Corbel Light" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
+                            <Setter Property="Foreground" Value="#3AFFDC"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Border x:Name="border_AddSliks" MouseDown="border_AddSliks_MouseDown" BorderThickness="2" Width="130" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 85 5" Cursor="Hand">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#A81DFE"
+                                      Offset="0"/>
+                    <GradientStop Color="#E76E8B"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=border_AddSliks}" Value="true">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#A81DFE"
+                                      Offset="0"/>
+                                        <GradientStop Color="#E76E8B"
+                                      Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Label Content="Добавить" FontSize="19" Foreground="White" FontFamily="Bahnschrift Light Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Column="1" Grid.Row="0" Margin="10 70 10 70">
+            <ListBox x:Name="PanelSkils" MouseDoubleClick="PanelSkils_MouseDoubleClick">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </UserControl>

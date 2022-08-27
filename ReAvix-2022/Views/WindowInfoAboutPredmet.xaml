@@ -54,7 +54,7 @@
                 <Label Content="{Binding Path= FIOPrep}" VerticalAlignment="Top" Margin="10 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="22" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             </StackPanel>
         </Border>
-        <Label Content="Окно с информацией о предмете" VerticalAlignment="Top" Margin="30 20 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Окно с информацией о предмете" VerticalAlignment="Top" Margin="30 15 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
 
         <TextBlock Text="Пожалуйста, выберите месяц за который хотите узнать оценки." Width="400" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" Margin="10 10 0 40" HorizontalAlignment="Right" Foreground="White" FontSize="22" Height="80" FontFamily="Bahnschrift Light Condensed"/>
 

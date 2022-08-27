@@ -32,7 +32,7 @@ namespace ReAvix_2022.Views
 
         private void button_Dos_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new UCDosStudent();
+            DataContext = new UCDosStudent(NumberSt: NumberStudent);
         }
 
         private void button_Profile_MouseDown(object sender, MouseButtonEventArgs e)

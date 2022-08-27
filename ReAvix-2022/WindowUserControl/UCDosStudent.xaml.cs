@@ -1,28 +1,76 @@
-﻿using System;
+﻿using LiveChartsCore;
+using ReAvix_2022.ViewModels;
+using ReAvix_2022.Views;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ReAvix_2022.WindowUserControl
 {
     /// <summary>
     /// Логика взаимодействия для UCDosStudent.xaml
     /// </summary>
+
+
     public partial class UCDosStudent : UserControl
     {
-        public UCDosStudent()
+
+        VMWindowDosStudent vMWindowDosStudent;
+        public int NumberStudent;
+        public IEnumerable<ISeries> series { get; set; }
+        List<int> MassivNomerSkils;
+
+
+        public UCDosStudent(int NumberSt)
         {
+            NumberStudent = NumberSt;
             InitializeComponent();
+            vMWindowDosStudent = new VMWindowDosStudent(NumberStudent);
+            DataContext = vMWindowDosStudent;
+            vMWindowDosStudent.AddSkils(out List<Grid> borders, NumberStudent);
+            PanelSkils.ItemsSource = borders;
+
+            MassivNomerSkils = vMWindowDosStudent.MassivNomerSkils;
+
+        }
+ 
+
+
+        private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void border_AddSliks_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowAddSkils windowAddSkils = new WindowAddSkils(NumberStudent);
+            windowAddSkils.Show();
+        }
+
+        private void button_Update_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            vMWindowDosStudent.AddSkils(out List<Grid> GridOut, NumberStudent); // Вызов метода и передача номера студента
+            MassivNomerSkils = vMWindowDosStudent.MassivNomerSkils;
+            PanelSkils.ItemsSource = GridOut; // Устанавливает новые значения
+
+        }
+        WindowAboutSkils windowAboutSkils;
+        private void PanelSkils_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int IndexItem = MassivNomerSkils[PanelSkils.SelectedIndex];
+            VMWindowAboutSkils vMWindowAboutSkils = new VMWindowAboutSkils();
+            vMWindowAboutSkils.CheckSkils(IndexItem,out int Index);
+            if (Index == 1)
+            {
+                MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+            }
+            else
+            {
+                windowAboutSkils = new WindowAboutSkils(IndexItem, NumberStudent);
+                windowAboutSkils.Show();
+            }
         }
     }
 }

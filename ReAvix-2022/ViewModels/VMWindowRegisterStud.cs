@@ -124,7 +124,7 @@ namespace ReAvix_2022.ViewModels
 
         public void GetInfoGroup()
         {
-            db_ReAvixEntities dc = new db_ReAvixEntities();
+            db_ReAvixEntities1 dc = new db_ReAvixEntities1();
             var item = dc.Группа.ToList();
             GetGroup = item;
         }        

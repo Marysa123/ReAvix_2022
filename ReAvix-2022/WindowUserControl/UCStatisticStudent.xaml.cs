@@ -32,6 +32,11 @@ namespace ReAvix_2022.WindowUserControl
         List<int> MassivNomerPred;
         List<Grid> MassivGrid;
 
+        public UCStatisticStudent()
+        {
+
+        }
+
         public UCStatisticStudent(int NumberSt)
         {
             InitializeComponent();
