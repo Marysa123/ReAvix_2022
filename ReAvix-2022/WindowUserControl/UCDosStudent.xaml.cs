@@ -21,6 +21,7 @@ namespace ReAvix_2022.WindowUserControl
         public int NumberStudent;
         public IEnumerable<ISeries> series { get; set; }
         List<int> MassivNomerSkils;
+        List<int> MassivNomerDos;
 
 
         public UCDosStudent(int NumberSt)
@@ -31,9 +32,10 @@ namespace ReAvix_2022.WindowUserControl
             DataContext = vMWindowDosStudent;
             vMWindowDosStudent.AddSkils(out List<Grid> borders, NumberStudent);
             PanelSkils.ItemsSource = borders;
-
+            vMWindowDosStudent.AddDos(NumberStudent, out List<Grid> bordersOut);
+            PanelDos.ItemsSource = bordersOut;
             MassivNomerSkils = vMWindowDosStudent.MassivNomerSkils;
-
+            MassivNomerDos = vMWindowDosStudent.MassivNomerDos;
         }
  
 
@@ -71,6 +73,37 @@ namespace ReAvix_2022.WindowUserControl
                 windowAboutSkils = new WindowAboutSkils(IndexItem, NumberStudent);
                 windowAboutSkils.Show();
             }
+        }
+
+        private void PanelDos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int IndexItem = MassivNomerDos[PanelDos.SelectedIndex];
+            VMWindowAboutDos vMWindowAboutDos = new VMWindowAboutDos();
+            vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
+            if (Index == 1)
+            {
+                MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+            }
+            else
+            {
+                WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem,NumberStudent);
+                windowAboutDos.Show();
+            }
+        }
+
+
+        private void button_UpdateDos_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            vMWindowDosStudent.AddDos(NumberStudent, out List<Grid> bordersOut);
+            MassivNomerDos = vMWindowDosStudent.MassivNomerDos;
+            PanelDos.ItemsSource = bordersOut;
+
+        }
+
+        private void border_AddDos_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowAddDos windowAddDos = new WindowAddDos(NumberStudent);
+            windowAddDos.Show();
         }
     }
 }

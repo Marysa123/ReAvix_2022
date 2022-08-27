@@ -73,7 +73,7 @@
             <Label Content="Добавить" FontSize="19" Foreground="White" FontFamily="Bahnschrift Light Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Column="1" Grid.Row="0" Margin="10 70 10 70">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Row="0" Margin="10 70 10 70">
             <ListBox x:Name="PanelSkils" MouseDoubleClick="PanelSkils_MouseDoubleClick">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -82,5 +82,57 @@
                 </ListBox.ItemsPanel>
             </ListBox>
         </ScrollViewer>
+        <Label Grid.Row="1" Content="Ваши достижения" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Row="1" Margin="10 70 10 100">
+            <ListBox x:Name="PanelDos" MouseDoubleClick="PanelDos_MouseDoubleClick">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </ScrollViewer>
+        <Label Content="Обновить" Name="button_UpdateDos" Grid.Row="1" MouseDown="button_UpdateDos_MouseDown" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 225 45" Height="40" FontFamily="Corbel Light" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_UpdateDos}" Value="true">
+                            <Setter Property="Foreground" Value="#3AFFDC"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Border x:Name="border_AddDos" MouseDown="border_AddDos_MouseDown" Grid.Row="1" BorderThickness="2" Width="130" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 85 35" Cursor="Hand">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#A81DFE"
+                                      Offset="0"/>
+                    <GradientStop Color="#E76E8B"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=border_AddDos}" Value="true">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#A81DFE"
+                                      Offset="0"/>
+                                        <GradientStop Color="#E76E8B"
+                                      Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Label Content="Добавить" FontSize="19" Foreground="White" FontFamily="Bahnschrift Light Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
     </Grid>
 </UserControl>

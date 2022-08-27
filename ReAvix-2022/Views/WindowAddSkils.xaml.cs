@@ -61,6 +61,7 @@ namespace ReAvix_2022.Views
             CommandSql.Connection = _Connection; // Инифиализация подключения
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             _Connection.Close(); // Закрытие подключения
+            MessageBox.Show("Навык успешно добавлен.", "Диалоговое окно");
             Close();
         }
     }

@@ -203,7 +203,9 @@
     <Compile Include="Models\Студенты.cs">
       <DependentUpon>db_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\VMWindowAboutDos.cs" />
     <Compile Include="ViewModels\VMWindowAboutSkils.cs" />
+    <Compile Include="ViewModels\VMWindowAddDos.cs" />
     <Compile Include="ViewModels\VMWindowAddSkils.cs" />
     <Compile Include="ViewModels\VMWindowDosStudent.cs" />
     <Compile Include="ViewModels\VMWindowInfoAboutPredmet.cs" />
@@ -216,8 +218,14 @@
     <Compile Include="ViewModels\VMWindowRegisterStud.cs" />
     <Compile Include="ViewModels\VMWindowStatisticGroupPrep.cs" />
     <Compile Include="ViewModels\VMWindowStatisticStudent.cs" />
+    <Compile Include="Views\WindowAboutDos.xaml.cs">
+      <DependentUpon>WindowAboutDos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowAboutSkils.xaml.cs">
       <DependentUpon>WindowAboutSkils.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowAddDos.xaml.cs">
+      <DependentUpon>WindowAddDos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowAddNotes.xaml.cs">
       <DependentUpon>WindowAddNotes.xaml</DependentUpon>
@@ -314,7 +322,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowAboutDos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowAboutSkils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowAddDos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -470,6 +486,8 @@
       <DependentUpon>db_Model.edmx</DependentUpon>
       <LastGenOutput>db_Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\icon_Arrows.png" />
+    <Resource Include="Resources\Images\images_AddPhoto.png" />
     <Resource Include="Resources\Images\icon_TrophyBack.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

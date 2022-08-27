@@ -49,7 +49,6 @@ namespace ReAvix_2022.Views
 
         private void button_DeleteSkilsStud_Click(object sender, RoutedEventArgs e)
         {
-
             vMWindowAboutSkils.DeleteSkils();
             MessageBox.Show("Навык успешно удалён.", "Диалоговое окно");
             Close();

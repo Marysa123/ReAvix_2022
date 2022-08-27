@@ -73,9 +73,7 @@
             <WrapPanel Height="100" Margin="0 10 0 0" HorizontalAlignment="Center">
                 <Button  Name="button_UpdateSkilsStud" Click="button_UpdateSkilsStud_Click" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Style="{StaticResource StyleButtonAllApplication}" Margin="0 20 30 0" Grid.Column="3" Grid.Row="5" Width="252" Height="65" Content="Изменить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
                 <Button  Name="button_DeleteSkilsStud" Click="button_DeleteSkilsStud_Click" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Style="{StaticResource StyleButtonDelete}" Margin="0 20 0 0" Grid.Column="3" Grid.Row="5" Width="252" Height="65" Content="Удалить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift" Cursor="Hand"/>
-
             </WrapPanel>
-
         </StackPanel>
     </Grid>
 </Window>

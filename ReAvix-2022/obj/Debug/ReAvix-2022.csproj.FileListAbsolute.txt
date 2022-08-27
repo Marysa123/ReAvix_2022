@@ -123,3 +123,7 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Syncf
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutSkils.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutSkils.baml
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Resources\Styles\ButtonStyleDelete.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddDos.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddDos.baml
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutDos.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutDos.baml

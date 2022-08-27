@@ -33,7 +33,6 @@ namespace ReAvix_2022.ViewModels
         private int Count;
 
         public SeriesCollection seriesCollection { get; set; }
-        public List<SeriesCollection> Series;
         public  List<int> MassivNomerPredmet;
         List<Grid> MassivGrid;
 
