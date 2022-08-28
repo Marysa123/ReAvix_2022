@@ -24,16 +24,17 @@ namespace ReAvix_2022.Views
         {
             InitializeComponent();
         }
+        int NumberPrep;
         public WindowMainPrep(int NomerPrep)
         {
-            int Nomer = NomerPrep;
+            NumberPrep = NomerPrep;
             InitializeComponent();
 
         }
 
         private void button_ProfilePrep_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new UCProfilePrep();
+            DataContext = new UCProfilePrep(NumberPrep);
         }
 
         private void button_List_MouseDown(object sender, MouseButtonEventArgs e)

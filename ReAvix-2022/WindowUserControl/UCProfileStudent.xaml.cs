@@ -21,6 +21,10 @@ namespace ReAvix_2022.WindowUserControl
         SqlConnection _Connection = new SqlConnection(); // Создание экземпляров
         SqlCommand CommandSql = new SqlCommand();
 
+        public UCProfileStudent()
+        {
+            InitializeComponent();
+        }
         public UCProfileStudent(int NumberSt)
         {
             InitializeComponent();
@@ -66,6 +70,11 @@ namespace ReAvix_2022.WindowUserControl
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             _Connection.Close(); // Закрытие подключения
             MessageBox.Show("Фотография успешно сохранена.","Диалоговое окно",MessageBoxButton.OK);
+        }
+
+        private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

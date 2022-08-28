@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\App.xaml
-211922662512
-12-2069651486
-54387566251
-150-1068142963
+21687761512
+121229128881
+54674459838
+150-1803930049
 Resources\Styles\ButtonStyle.xaml;Resources\Styles\ButtonStyleDelete.xaml;Views\WindowAboutDos.xaml;Views\WindowAboutSkils.xaml;Views\WindowAddDos.xaml;Views\WindowAddNotes.xaml;Views\WindowAddSkils.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;
 
-True
+False
 

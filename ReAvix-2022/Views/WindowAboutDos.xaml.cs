@@ -28,7 +28,10 @@ namespace ReAvix_2022.Views
         public int NumberDos;
 
 
-        
+        public WindowAboutDos()
+        {
+            InitializeComponent();
+        }
 
         VMWindowAboutDos vMWindowAboutDos;
         public WindowAboutDos(int NomerDos, int NumberSt)

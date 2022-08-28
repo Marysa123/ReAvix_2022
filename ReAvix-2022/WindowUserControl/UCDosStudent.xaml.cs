@@ -23,6 +23,10 @@ namespace ReAvix_2022.WindowUserControl
         List<int> MassivNomerSkils;
         List<int> MassivNomerDos;
 
+        public UCDosStudent()
+        {
+            InitializeComponent();
+        }
 
         public UCDosStudent(int NumberSt)
         {
