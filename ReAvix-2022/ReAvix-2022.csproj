@@ -422,10 +422,8 @@
     <Resource Include="Resources\Images\icon_Shield.png" />
     <Resource Include="Resources\Images\icon_StartUp.png" />
     <Resource Include="Resources\Images\icon_Sver.png" />
-    <Resource Include="Resources\Images\icon_Triangle.png" />
     <Resource Include="Resources\Images\icon_Trophy.png" />
     <Resource Include="Resources\Images\icon_Verify.png" />
-    <Resource Include="Resources\Images\icon_Zoom.png" />
     <Resource Include="Resources\Images\images_Ellips.png" />
     <Resource Include="Resources\Images\images_Ellipse_2.png" />
     <Resource Include="Resources\Images\images_Ellips_1.png" />
@@ -486,6 +484,8 @@
       <DependentUpon>db_Model.edmx</DependentUpon>
       <LastGenOutput>db_Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\icon_OldPhone.png" />
+    <Resource Include="Resources\Images\_8AyKfK3yIA.jpg" />
     <Resource Include="Resources\Images\icon_Arrows.png" />
     <Resource Include="Resources\Images\images_AddPhoto.png" />
     <Resource Include="Resources\Images\icon_TrophyBack.png" />

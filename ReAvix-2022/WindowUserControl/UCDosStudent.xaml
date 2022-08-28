@@ -83,7 +83,7 @@
             </ListBox>
         </ScrollViewer>
         <Label Grid.Row="1" Content="Ваши достижения" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Grid.Row="1" Margin="10 70 10 100">
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="10 70 10 100">
             <ListBox x:Name="PanelDos" MouseDoubleClick="PanelDos_MouseDoubleClick">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
