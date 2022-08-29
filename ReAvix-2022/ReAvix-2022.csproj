@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon_Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -209,6 +212,7 @@
     <Compile Include="ViewModels\VMWindowAddSkils.cs" />
     <Compile Include="ViewModels\VMWindowDosStudent.cs" />
     <Compile Include="ViewModels\VMWindowInfoAboutPredmet.cs" />
+    <Compile Include="ViewModels\VMWindowInfoStudent.cs" />
     <Compile Include="ViewModels\VMWindowListStudentsPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainStudent.cs" />
@@ -235,6 +239,9 @@
     </Compile>
     <Compile Include="Views\WindowInfoAboutPredmet.xaml.cs">
       <DependentUpon>WindowInfoAboutPredmet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowInfoStudent.xaml.cs">
+      <DependentUpon>WindowInfoStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowMainPrep.xaml.cs">
       <DependentUpon>WindowMainPrep.xaml</DependentUpon>
@@ -343,6 +350,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowInfoAboutPredmet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowInfoStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -474,6 +485,7 @@
     <Resource Include="Resources\Images\icon_RightArrow.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="icon_Logo.ico" />
     <Content Include="Models\db_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>db_Model.edmx</DependentUpon>
@@ -484,6 +496,8 @@
       <DependentUpon>db_Model.edmx</DependentUpon>
       <LastGenOutput>db_Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\icon_Logo.ico" />
+    <Resource Include="Resources\Images\images_Line.png" />
     <Resource Include="Resources\Images\icon_OldPhone.png" />
     <Resource Include="Resources\Images\_8AyKfK3yIA.jpg" />
     <Resource Include="Resources\Images\icon_Arrows.png" />

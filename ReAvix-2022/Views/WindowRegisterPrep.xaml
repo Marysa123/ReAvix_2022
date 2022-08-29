@@ -186,16 +186,63 @@
                     <!--#endregion-->
                     <!--#region ComboBox "Год"-->
                     <ComboBox Name="combobox_Year" Margin="290 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="4" Width="105" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
-                        <ComboBoxItem IsSelected="True" Content="2003" />
-                        <ComboBoxItem Content="23-тп" />
-                        <ComboBoxItem Content="22-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
+                        <ComboBoxItem IsSelected="True" Content="2022" />
+                        <ComboBoxItem Content="2021" />
+                        <ComboBoxItem Content="2020" />
+                        <ComboBoxItem Content="2019" />
+                        <ComboBoxItem Content="2018" />
+                        <ComboBoxItem Content="2017" />
+                        <ComboBoxItem Content="2016" />
+                        <ComboBoxItem Content="2015" />
+                        <ComboBoxItem Content="2014" />
+                        <ComboBoxItem Content="2013" />
+                        <ComboBoxItem Content="2012" />
+                        <ComboBoxItem Content="2011" />
+                        <ComboBoxItem Content="2010" />
+                        <ComboBoxItem Content="2009" />
+                        <ComboBoxItem Content="2008" />
+                        <ComboBoxItem Content="2007" />
+                        <ComboBoxItem Content="2006" />
+                        <ComboBoxItem Content="2005" />
+                        <ComboBoxItem Content="2004" />
+                        <ComboBoxItem Content="2003" />
+                        <ComboBoxItem Content="2002" />
+                        <ComboBoxItem Content="2001" />
+                        <ComboBoxItem Content="2000" />
+                        <ComboBoxItem Content="1999" />
+                        <ComboBoxItem Content="1998" />
+                        <ComboBoxItem Content="1997" />
+                        <ComboBoxItem Content="1996" />
+                        <ComboBoxItem Content="1995" />
+                        <ComboBoxItem Content="1994" />
+                        <ComboBoxItem Content="1993" />
+                        <ComboBoxItem Content="1992" />
+                        <ComboBoxItem Content="1991" />
+                        <ComboBoxItem Content="1990" />
+                        <ComboBoxItem Content="1989" />
+                        <ComboBoxItem Content="1988" />
+                        <ComboBoxItem Content="1987" />
+                        <ComboBoxItem Content="1986" />
+                        <ComboBoxItem Content="1985" />
+                        <ComboBoxItem Content="1984" />
+                        <ComboBoxItem Content="1983" />
+                        <ComboBoxItem Content="1982" />
+                        <ComboBoxItem Content="1981" />
+                        <ComboBoxItem Content="1980" />
+                        <ComboBoxItem Content="1979" />
+                        <ComboBoxItem Content="1978" />
+                        <ComboBoxItem Content="1977" />
+                        <ComboBoxItem Content="1976" />
+                        <ComboBoxItem Content="1975" />
+                        <ComboBoxItem Content="1974" />
+                        <ComboBoxItem Content="1973" />
+                        <ComboBoxItem Content="1972" />
+                        <ComboBoxItem Content="1971" />
+                        <ComboBoxItem Content="1970" />
+                        <ComboBoxItem Content="1969" />
+                        <ComboBoxItem Content="1968" />
+                        <ComboBoxItem Content="1967" />
+                        <ComboBoxItem Content="1966" />
                     </ComboBox>
                     <!--#endregion-->
                     <!--#region Надпись "Ответсвенный за группу"-->

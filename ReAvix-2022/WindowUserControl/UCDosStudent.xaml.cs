@@ -19,7 +19,6 @@ namespace ReAvix_2022.WindowUserControl
 
         VMWindowDosStudent vMWindowDosStudent;
         public int NumberStudent;
-        public IEnumerable<ISeries> series { get; set; }
         List<int> MassivNomerSkils;
         List<int> MassivNomerDos;
 
@@ -52,7 +51,7 @@ namespace ReAvix_2022.WindowUserControl
         private void border_AddSliks_MouseDown(object sender, MouseButtonEventArgs e)
         {
             WindowAddSkils windowAddSkils = new WindowAddSkils(NumberStudent);
-            windowAddSkils.Show();
+            windowAddSkils.ShowDialog();
         }
 
         private void button_Update_MouseDown(object sender, MouseButtonEventArgs e)
@@ -75,7 +74,7 @@ namespace ReAvix_2022.WindowUserControl
             else
             {
                 windowAboutSkils = new WindowAboutSkils(IndexItem, NumberStudent);
-                windowAboutSkils.Show();
+                windowAboutSkils.ShowDialog();
             }
         }
 
@@ -91,7 +90,7 @@ namespace ReAvix_2022.WindowUserControl
             else
             {
                 WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem,NumberStudent);
-                windowAboutDos.Show();
+                windowAboutDos.ShowDialog();
             }
         }
 
@@ -107,7 +106,7 @@ namespace ReAvix_2022.WindowUserControl
         private void border_AddDos_MouseDown(object sender, MouseButtonEventArgs e)
         {
             WindowAddDos windowAddDos = new WindowAddDos(NumberStudent);
-            windowAddDos.Show();
+            windowAddDos.ShowDialog();
         }
     }
 }

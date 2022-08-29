@@ -1,21 +1,12 @@
 ﻿using ReAvix_2022.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ReAvix_2022.WindowUserControl
 {
@@ -51,25 +42,39 @@ namespace ReAvix_2022.WindowUserControl
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open(); // Открытие подключения
             CommandSql.CommandText = $"update [Преподаватели] set Фотография = @images where Номер_Преподавателя = {NomerPrep} "; // Создание запроса
-            var data = File.ReadAllBytes(AdressImageOne);
-            CommandSql.Connection = _Connection; // Инициализация подключения
-            CommandSql.Parameters.Add(new SqlParameter("@images", data));
-            CommandSql.ExecuteNonQuery(); // Выполнение запроса
-            _Connection.Close(); // Закрытие подключения
-            MessageBox.Show("Фотография успешно сохранена.", "Диалоговое окно", MessageBoxButton.OK);
+            if (AdressImageOne == null)
+            {
+
+            }
+            else
+            {
+                var data = File.ReadAllBytes(AdressImageOne);
+                CommandSql.Connection = _Connection; // Инициализация подключения
+                CommandSql.Parameters.Add(new SqlParameter("@images", data));
+                CommandSql.ExecuteNonQuery(); // Выполнение запроса
+                _Connection.Close(); // Закрытие подключения
+                MessageBox.Show("Фотография успешно сохранена.", "Диалоговое окно", MessageBoxButton.OK);
+            }
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             vMWindowProfilePrep.AddImage(out string AdressImageOneOut);
-            ImagesProfile.Source = BitmapFrame.Create(new Uri(AdressImageOneOut));
-            AdressImageOne = AdressImageOneOut;
+            if (AdressImageOneOut == "")
+            {
+
+            }
+            else
+            {
+                ImagesProfile.Source = BitmapFrame.Create(new Uri(AdressImageOneOut));
+                AdressImageOne = AdressImageOneOut;
+            }
         }
 
         private void button_AddDop_Click(object sender, RoutedEventArgs e)
         {
+            _Connection.Close();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
-
             CommandSql.Connection = _Connection; // Инициализация подключения
             _Connection.Open();
             CommandSql.CommandText = $"update [Преподаватели] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Дата_рождения] = '{text_boxData.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}',[Ведущий_Предмет] = '{textbox_VedPredmet.Text}',[Дополнительный_Предмет] = '{textbox_DopPredmet.Text}',[Специальность] = '{textbox_Spec.Text}',[Ведущий_Кружок] = '{textbox_Ellipse.Text}' where Номер_Преподавателя = {NomerPrep} "; // Создание запроса

@@ -35,7 +35,7 @@ namespace ReAvix_2022.Views
             CommandSql.Connection = _Connection;
             Name = (string)CommandSql.ExecuteScalar();
             _Connection.Close();
-
+            MessageBox.Show("Заметка успешно добавлена.","Диалоговое окно");
             Close();
         }
 

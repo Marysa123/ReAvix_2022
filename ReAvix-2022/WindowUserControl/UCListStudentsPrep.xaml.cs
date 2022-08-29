@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ReAvix_2022.ViewModels;
+using ReAvix_2022.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,33 @@ namespace ReAvix_2022.WindowUserControl
     /// </summary>
     public partial class UCListStudentsPrep : UserControl
     {
-        public UCListStudentsPrep()
+        int NomerPrep;
+        VMWindowListStudentsPrep vMWindowListStudentsPrep;
+        public List<int> MassivNomerStudent;
+
+        public UCListStudentsPrep(int NumberPrep)
         {
+            NomerPrep = NumberPrep;
             InitializeComponent();
+
+            vMWindowListStudentsPrep = new VMWindowListStudentsPrep(NomerPrep);
+            DataContext = vMWindowListStudentsPrep;
+            vMWindowListStudentsPrep.AddStudent(out List<Grid> borders);
+            PanelStudent.ItemsSource = borders;
+            MassivNomerStudent = vMWindowListStudentsPrep.MassivNomerStudent;
+        }
+
+        private void PanelStudent_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int IndexItem = MassivNomerStudent[PanelStudent.SelectedIndex];
+            WindowInfoStudent windowInfoStudent = new WindowInfoStudent(IndexItem);
+            windowInfoStudent.ShowDialog();
+
+        }
+
+        private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

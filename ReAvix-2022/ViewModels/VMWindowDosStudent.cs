@@ -1,21 +1,8 @@
-﻿using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
-using LiveChartsCore;
-using LiveChartsCore.Measure;
-using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore.SkiaSharpView.Painting;
-using ReAvix_2022.Views;
-using SkiaSharp;
-using Syncfusion.UI.Xaml.ProgressBar;
+﻿using Syncfusion.UI.Xaml.ProgressBar;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -45,7 +32,7 @@ namespace ReAvix_2022.ViewModels
 
         }
 
-        public void AddSkils(out List<Grid> bordersOut,int NumberSt)
+        public void AddSkils(out List<Grid> bordersOut, int NumberSt)
         {
             _Connection.Close();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
@@ -112,12 +99,12 @@ namespace ReAvix_2022.ViewModels
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                     Height = 50,
                     Width = 150,
-                    Margin = new Thickness(0,0,0,10),
+                    Margin = new Thickness(0, 0, 0, 10),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Bottom,
                     TextWrapping = TextWrapping.Wrap,
                     TextAlignment = TextAlignment.Center,
-                    
+
                 };
 
                 NameKategoria.Text = (string)CommandSql.ExecuteScalar();
@@ -134,14 +121,14 @@ namespace ReAvix_2022.ViewModels
                     HorizontalAlignment = HorizontalAlignment.Right,
                     Height = 25,
                     VerticalAlignment = VerticalAlignment.Bottom,
-                    Margin = new Thickness(0,0,10,10),
+                    Margin = new Thickness(0, 0, 10, 10),
                     Source = bit,
                     Cursor = Cursors.Hand
                 };
 
 
-                SfCircularProgressBar Circular = new SfCircularProgressBar { Progress = Number, ProgressColor = new SolidColorBrush(Colors.Aqua),IndicatorInnerRadius = 0.6,IndicatorOuterRadius = 0.75,TrackOuterRadius = 0.7,TrackInnerRadius= 0.65,ShowProgressValue= true,IndicatorCornerRadius =5};
-                Circular.Margin = new Thickness(0,0,0,50);
+                SfCircularProgressBar Circular = new SfCircularProgressBar { Progress = Number, ProgressColor = new SolidColorBrush(Colors.Aqua), IndicatorInnerRadius = 0.6, IndicatorOuterRadius = 0.75, TrackOuterRadius = 0.7, TrackInnerRadius = 0.65, ShowProgressValue = true, IndicatorCornerRadius = 5 };
+                Circular.Margin = new Thickness(0, 0, 0, 50);
                 border.Child = popupBox;
                 grid.Children.Add(border);
                 grid.Children.Add(Circular);
@@ -153,11 +140,11 @@ namespace ReAvix_2022.ViewModels
 
         }
 
-       int CountDos;
-       public  List<int> MassivNomerDos;
+        int CountDos;
+        public List<int> MassivNomerDos;
 
-       public void AddDos(int NumberSt, out List<Grid> GridOut)
-       {
+        public void AddDos(int NumberSt, out List<Grid> GridOut)
+        {
             _Connection.Close();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open();
@@ -283,6 +270,6 @@ namespace ReAvix_2022.ViewModels
 
             }
             GridOut = Borders;
-       }
+        }
     }
 }

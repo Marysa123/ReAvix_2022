@@ -76,7 +76,7 @@ namespace ReAvix_2022.ViewModels
             }
 
             _Connection.Open();
-            CommandSql.CommandText = $"select [Фамилия] + ' ' + [Имя] as FIO from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep} group by [Фамилия],[Имя]";
+            CommandSql.CommandText = $"select [Фамилия] + ' ' + [Имя] + ' ' + Отчество as FIO from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep} group by [Фамилия],[Имя],Отчество ";
             FI = (string)CommandSql.ExecuteScalar();
 
             CommandSql.CommandText = $"select [Ведущий_предмет] from Преподаватели where [Номер_Преподавателя] = {NomerPrep}";

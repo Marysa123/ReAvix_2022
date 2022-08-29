@@ -183,7 +183,7 @@ namespace ReAvix_2022.ViewModels
                     VerticalAlignment = VerticalAlignment.Top
 
                 };
-                CommandSql.CommandText = $"SELECT AVG(CAST([Оценка] as FLOAT)) from [Оценки] WHERE [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                CommandSql.CommandText = $"SELECT ROUND(AVG(CAST([Оценка] as FLOAT)),1) from [Оценки] WHERE [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
 
                 Label AVGPredmet = new Label
                 {

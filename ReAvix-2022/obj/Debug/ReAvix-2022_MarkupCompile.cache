@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\App.xaml
-21687761512
+221813627531
 121229128881
-54674459838
+56500426594
 150-1803930049
-Resources\Styles\ButtonStyle.xaml;Resources\Styles\ButtonStyleDelete.xaml;Views\WindowAboutDos.xaml;Views\WindowAboutSkils.xaml;Views\WindowAddDos.xaml;Views\WindowAddNotes.xaml;Views\WindowAddSkils.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;
+Resources\Styles\ButtonStyle.xaml;Resources\Styles\ButtonStyleDelete.xaml;Views\WindowAboutDos.xaml;Views\WindowAboutSkils.xaml;Views\WindowAddDos.xaml;Views\WindowAddNotes.xaml;Views\WindowAddSkils.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowInfoStudent.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;
 
 False
 

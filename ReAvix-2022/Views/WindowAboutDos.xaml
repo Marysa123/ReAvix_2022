@@ -37,7 +37,7 @@
         <Label Content="Окно просмотра информации о достижении" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="30 20 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
 
         <StackPanel Grid.Column="0">
-            <Label Content="Место в соревновании:" VerticalAlignment="Top" Margin="35 85 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <Label Content="Место в соревновании:" VerticalAlignment="Top" Margin="35 65 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_Mesto"
@@ -45,17 +45,17 @@
                 Height="60"
                 Text="{Binding MestoSorev}"
                 FontSize="20"
-                Width="70"
+                Width="50"
                 HorizontalAlignment="Left"
                 TextWrapping="Wrap"
                 Margin="35 10 35 0"
                 BorderBrush="White"
                 Background="White" Cursor="Arrow"/>
-            <Label Content="Место проведения соревнования:" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <Label Content="Место проведения соревнования:" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_MestoProv"
-                Height="60"
+                Height="90"
                 IsReadOnly="True"
                 Width="330"
                 Text="{Binding MestoPro}"
@@ -66,12 +66,12 @@
                 BorderBrush="White"
                 MaxLength="200"
                 Background="White" Cursor="Arrow"/>
-            <Label Content="Название соревнования:" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <Label Content="Название соревнования:" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_NameSor"
                 Text="{Binding NameSorev}"
-                Height="60"
+                Height="90"
                 IsReadOnly="True"
                 Width="330"
                 HorizontalAlignment="Left"
@@ -81,7 +81,7 @@
                 BorderBrush="White"
                 MaxLength="200"
                 Background="White" Cursor="Arrow"/>
-            <Button  Name="button_DeleteDosStud" Click="button_DeleteDosStud_Click" Style="{StaticResource StyleButtonDelete}" Margin="0 40 0 0" Grid.Column="3" Grid.Row="5" Width="252" Height="65" Content="Удалить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift" Cursor="Hand"/>
+            <Button  Name="button_DeleteDosStud" Click="button_DeleteDosStud_Click" Style="{StaticResource StyleButtonDelete}" Margin="0 25 0 0" Grid.Column="3" Grid.Row="5" Width="252" Height="65" Content="Удалить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift" Cursor="Hand"/>
         </StackPanel>
         <WrapPanel Grid.Column="1">
             <Image Grid.Column="1" Width="380" Height="480" Margin="15 60 0 0" Source="{Binding Path= SourceImage}" x:Name="images"/>

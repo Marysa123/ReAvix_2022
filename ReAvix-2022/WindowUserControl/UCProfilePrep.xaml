@@ -37,12 +37,12 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image Name="ImagesProfile" Source="{Binding Path = SourceIm}" Grid.Column="0" Height="400" Width="400" Margin="0 50 50 0">
+                <Image Name="ImagesProfile" Source="{Binding Path = SourceIm}" Grid.Column="0" Height="440" Width="400" Margin="0 50 50 0">
                     <Image.Clip>
-                        <EllipseGeometry Center="120,130" RadiusX="120" RadiusY="120" />
+                        <EllipseGeometry Center="140,130" RadiusX="120" RadiusY="120" />
                     </Image.Clip>
                 </Image>
-                <Label  Content="Сохранить изображение" Grid.Column="0" Cursor="Hand" MouseDown="Label_MouseDown" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 170 30" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                <Label  Content="Сохранить изображение" Grid.Column="0" Cursor="Hand" MouseDown="Label_MouseDown" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 140 30" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
                 <Image Source="/Resources/Images/icon_AddPhoto.png" Width="65" Height="65" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 140 70" Cursor="Hand" MouseDown="Image_MouseDown"/>
             </Grid>
             <Border.BitmapEffect>
@@ -87,7 +87,7 @@
         <StackPanel Grid.Column="1" Grid.Row="2">
             <TextBox Name="textbox_Phone" materialDesign:HintAssist.Hint="Номер телефона:" materialDesign:TextFieldAssist.LeadingIcon="Phone" Text="{Binding Path=Phone}" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True"  BorderBrush="#689ADD" Margin="40 0 0 40" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow"/>
             <Label Content="Дата рождения:" Grid.Column="1" Margin="100 10 0 0"  Foreground="White" FontSize="22" Height="35" FontFamily="Bahnschrift Light Condensed"/>
-            <TextBox Name="text_boxData" Text="{Binding Path=DataRosh}" BorderBrush="#689ADD" Grid.Row="1" Margin="102 0 0 30" FontSize="20" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="150" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" HorizontalAlignment="Left" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2"/>
+            <TextBox Name="text_boxData" Text="{Binding Path=DataRosh}" IsReadOnly="True" BorderBrush="#689ADD" Grid.Row="1" Margin="102 0 0 30" FontSize="20" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="150" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" HorizontalAlignment="Left" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow"/>
             <TextBox Name="textbox_VedPredmet" materialDesign:HintAssist.Hint="Ведущий предмет:" Text="{Binding Path=VedPredmetTwo}" BorderBrush="#689ADD" Margin="40 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow"/>
             <TextBox Name="textbox_DopPredmet" materialDesign:HintAssist.Hint="Дополнительный предмет:" Text="{Binding Path=DopPredmet}" BorderBrush="#689ADD" Margin="40 0 0 0" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow"/>
             <TextBox Name="textbox_Spec" materialDesign:HintAssist.Hint="Специальность:" Text="{Binding Path=Spec}" BorderBrush="#689ADD" Margin="40 30 0 0" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow"/>
@@ -110,7 +110,7 @@
                         Name="textbox_DateMe"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
-                        Margin="35 15 35 0"
+                        Margin="35 10 35 0"
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Background="Transparent"
                         materialDesign:HintAssist.Foreground="Black"

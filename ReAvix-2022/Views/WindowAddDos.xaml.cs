@@ -51,17 +51,30 @@ namespace ReAvix_2022.Views
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             vMWindowAddDos.AddImage(out string AdressImageOneOut);
-            Image.Source = BitmapFrame.Create(new Uri(AdressImageOneOut));
-            AdressImageOne = AdressImageOneOut;
+            if (AdressImageOneOut =="")
+            {
+
+            }
+            else
+            {
+                Image.Source = BitmapFrame.Create(new Uri(AdressImageOneOut));
+                AdressImageOne = AdressImageOneOut;
+            }
         }
        
 
         private void DopImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             vMWindowAddDos.AddImage(out string AdressImageTwoOut);
-            DopImage.Source = BitmapFrame.Create(new Uri(AdressImageTwoOut));
-            AdressImageTwo = AdressImageTwoOut;
+            if (AdressImageTwoOut == "")
+            {
 
+            }
+            else
+            {
+                DopImage.Source = BitmapFrame.Create(new Uri(AdressImageTwoOut));
+                AdressImageTwo = AdressImageTwoOut;
+            }
         }
 
         private void button_AddDop_Click(object sender, RoutedEventArgs e)
