@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="ReAvix_2022.WindowUserControl.UCAddInfoStudentPrep"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1440" Background="Transparent" DataContext="UCAddInfoStudentPrep">
+    <Grid>
+        <Label Content="Таблица Оценки" Foreground="White" FontSize="26"  Margin="52,36,852,924" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Content="Таблица Предметы" Foreground="White" FontSize="26"  Margin="796,34,108,926" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Content="Таблица Пропуски занятий" Foreground="White" FontSize="26"  Margin="809,416,95,544" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <Button Name="button_DeleteOmissions" Click="button_DeleteOmissions_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="1151,0,0,182" Width="262" Height="66" Content="Обнулить пропуски занятий" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+        <DataGrid
+          Margin="29,82,681,264"
+          AutoGenerateColumns="True"
+          Name="GridView" >
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+        </DataGrid>
+
+        <DataGrid
+          Margin="786,80,24,646"
+          AutoGenerateColumns="True"
+          Name="GridViewPredmet"/>
+        <DataGrid
+          Margin="793,462,12,264"
+          AutoGenerateColumns="True"
+          x:Name="GridViewOmissions">
+        </DataGrid>
+
+        <Label Content="Формат Mесяц/День/Год" Foreground="White" FontSize="20" Height="40" Width="210" FontFamily="Bahnschrift Light SemiCondensed" Margin="34,786,1196,174"/>
+        <WrapPanel Width="760" HorizontalAlignment="Left" VerticalAlignment="Bottom"  DataContext="{Binding ElementName=GridView,Path=SelectedValue}" Margin="30 0 0 39">
+            <StackPanel>
+                <Label Content="Дата" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="105" Height="50" FontSize="22" Foreground="White" Name="textbox_Data" Text="{Binding Дата}" Cursor="Arrow" BorderBrush="White"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Номер Студента" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="30" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerStudent" Text="{Binding Номер Студента}" Cursor="Arrow" BorderBrush="White"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Номер Предмета" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerPredmet" Text="{Binding Номер Предмета}" Cursor="Arrow" BorderBrush="White"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Оценка" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_OChenka" Text="{Binding Оценка}" Cursor="Arrow" BorderBrush="White"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Вид оценочной работы" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="150" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_VidWork" Text="{Binding Вид оценочной работы}" Cursor="Arrow" BorderBrush="White"/>
+            </StackPanel>
+            <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0 0 20 20" Cursor="Hand" MouseDown="Image_MouseDown_1"/>
+            <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Plus.png" Margin="0 0 20 20" Cursor="Hand" MouseDown="Image_MouseDown_2"/>
+
+            <Label Content="{Binding Номер}" Foreground="White" FontSize="20" Visibility="Hidden" Name="label_Номер" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        </WrapPanel>
+
+        <Button Name="button_SelectPredmetGroup" Click="button_SelectPredmetGroup_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="1223,0,0,584" Width="189" Height="55" Content="Предметы группы" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+        <Button  Name="button_SelectAllPredmet" Click="button_SelectAllPredmet_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="995,0,0,584" Width="189" Height="55" Content="Все предметы" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+        
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 35 20" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
+            <Label Content="{Binding ФИО}" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 35 80" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
+            <StackPanel>
+                <Label Content="Уважительные пропуски" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_Yvash" Text="{Binding Уважительные пропуски}" Cursor="Arrow" BorderBrush="White" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Неуважительные пропуски" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="50" Height="50" FontSize="28" HorizontalContentAlignment="Center" Foreground="White" Name="textbox_NoYvash" Text="{Binding Неуважительные пропуски}" BorderBrush="White"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Пропуски по болезни" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" BorderBrush="White"/>
+            </StackPanel>
+            <Label Content="{Binding Номер Студента}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+       
+        </WrapPanel>
+        <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0 0 20 90" Cursor="Hand" MouseDown="Image_MouseDown"/>
+    </Grid>
+</UserControl>

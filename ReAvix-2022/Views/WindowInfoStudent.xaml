@@ -16,9 +16,9 @@
         <Border CornerRadius="10" Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#055583"
+                    <GradientStop Color="#041B3F"
                                       Offset="0"/>
-                    <GradientStop Color="#22279C"
+                    <GradientStop Color="#041B3F"
                                       Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
@@ -65,7 +65,7 @@
                     </WrapPanel>
                     <WrapPanel Margin="0 0 0 20">
                         <Image Width="35" Height="35" Source="/Resources/Images/icon_Location.png"/>
-                        <TextBlock Text="{Binding Path=Adress}" Grid.Column="1" VerticalAlignment="Top" Margin="10 5 0 0" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="White" FontSize="22" FontFamily="Bahnschrift Light Condensed"/>
+                        <TextBlock Text="{Binding Path=Adress}" Grid.Column="1" VerticalAlignment="Top" Margin="10 5 0 0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="White" FontSize="22" FontFamily="Bahnschrift Light Condensed"/>
                     </WrapPanel>
                     <WrapPanel>
                         <Image Width="35" Height="35" Source="/Resources/Images/icon_Age.png"/>

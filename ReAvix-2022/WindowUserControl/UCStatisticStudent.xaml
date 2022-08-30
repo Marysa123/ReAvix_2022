@@ -64,7 +64,6 @@
                             </Style.Triggers>
                         </Style>
                     </Border.Style>
-
                 </Border>
                 <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Height="40" Margin="0 0 30 20">
                     <Label x:Name="label_NoYvProp" Content="{Binding Path=DisrespectfulOmissions}" Grid.Row="1" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>

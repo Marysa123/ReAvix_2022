@@ -1,20 +1,11 @@
-﻿using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
-using ReAvix_2022.Models;
+﻿using ReAvix_2022.Models;
 using ReAvix_2022.ViewModels;
 using ReAvix_2022.Views;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
 
 namespace ReAvix_2022.WindowUserControl
 {
@@ -54,7 +45,7 @@ namespace ReAvix_2022.WindowUserControl
         private void BorderMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             modelsNotes.DeleteNotes(IndexSelectedItems: BorderMain.SelectedIndex);// Вызов метода удаления заметок
-            MessageBox.Show("Заметка успешно удалена.","Диалоговое окно");
+            MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
         }
 
         private void button_AddZam_MouseDown(object sender, MouseButtonEventArgs e)

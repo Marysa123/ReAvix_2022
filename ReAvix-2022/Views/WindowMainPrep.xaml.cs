@@ -33,7 +33,7 @@ namespace ReAvix_2022.Views
 
         private void button_StaticGroup_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DataContext = new UCStatisticGroupPrep();
+            DataContext = new UCStatisticGroupPrep(NumberPrep);
         }
 
         private void button_Home_MouseDown(object sender, MouseButtonEventArgs e)
@@ -46,6 +46,11 @@ namespace ReAvix_2022.Views
             WindowSign windowSign = new WindowSign();
             Hide();
             windowSign.Show();
+        }
+
+        private void button_AddInfoStudentPrep_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCAddInfoStudentPrep(NomerPrep:NumberPrep);
         }
     }
 }

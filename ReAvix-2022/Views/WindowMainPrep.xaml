@@ -25,6 +25,9 @@
         <DataTemplate x:Name="UCProfilePrepTemplate" DataType="{x:Type local1:VMWindowProfilePrep}">
             <windowusercontrol:UCProfilePrep DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="UCAddInfoSrudentPrepTemplate" DataType="{x:Type local1:VMWindowAddInfoStudentPrep}">
+            <windowusercontrol:UCAddInfoStudentPrep DataContext="{Binding}"/>
+        </DataTemplate>
 
     </Window.Resources>
     <Grid>
@@ -39,9 +42,11 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Border Grid.RowSpan="6" CornerRadius="10 0 0 10">
+            <Border Grid.RowSpan="7" CornerRadius="10 0 0 10">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop
@@ -159,7 +164,36 @@
                 </Label>
             </TextBlock>
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
+            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_AddInfoStudentPrep" MouseDown="button_AddInfoStudentPrep_MouseDown" Width="220" Cursor="Hand">
+            <Image Name="icon_AddInfo" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStud.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoStudentPrep}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStudV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="32" Width="90" Content="Таблицы" FontSize="17px" Margin="15 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoStudentPrep}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
+
+
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
             <Image Name="icon_Exit"  Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">

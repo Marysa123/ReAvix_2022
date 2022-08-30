@@ -222,6 +222,7 @@
     <Compile Include="ViewModels\VMWindowRegisterStud.cs" />
     <Compile Include="ViewModels\VMWindowStatisticGroupPrep.cs" />
     <Compile Include="ViewModels\VMWindowStatisticStudent.cs" />
+    <Compile Include="ViewModels\VMWindowAddInfoStudentPrep.cs" />
     <Compile Include="Views\WindowAboutDos.xaml.cs">
       <DependentUpon>WindowAboutDos.xaml</DependentUpon>
     </Compile>
@@ -233,6 +234,9 @@
     </Compile>
     <Compile Include="Views\WindowAddNotes.xaml.cs">
       <DependentUpon>WindowAddNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowAddNotesPrep.xaml.cs">
+      <DependentUpon>WindowAddNotesPrep.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowAddSkils.xaml.cs">
       <DependentUpon>WindowAddSkils.xaml</DependentUpon>
@@ -257,6 +261,9 @@
     </Compile>
     <Compile Include="Views\WindowSign.xaml.cs">
       <DependentUpon>WindowSign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUserControl\UCAddInfoStudentPrep.xaml.cs">
+      <DependentUpon>UCAddInfoStudentPrep.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowUserControl\UCDosStudent.xaml.cs">
       <DependentUpon>UCDosStudent.xaml</DependentUpon>
@@ -345,6 +352,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowAddNotesPrep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowAddSkils.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -374,6 +385,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowSign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCAddInfoStudentPrep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -485,6 +500,10 @@
     <Resource Include="Resources\Images\icon_RightArrow.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\icon_Plus.png" />
+    <Resource Include="Resources\Images\icon_Refresh.png" />
+    <Resource Include="Resources\Images\icon_AddInfoStud.png" />
+    <Resource Include="Resources\Images\icon_AddInfoStudV2.png" />
     <Resource Include="icon_Logo.ico" />
     <Content Include="Models\db_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -4,9 +4,142 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1000" d:DesignWidth="1440" DataContext="VMWindowStatisticStudent">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Path=GoodTime}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="300" Height="30" Margin="40 50 0 0" FontFamily="Bahnschrift Light" />
+        <TextBlock Text="{Binding Path=Date}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="350" Height="30" Margin="40 80 0 0" FontFamily="Bahnschrift Light"/>
+
+        <Border Background="#21335B" CornerRadius="5" Margin="30,135,30,230" Grid.RowSpan="2">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Label Content="Средний балл по дисциплинам" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <ListBox x:Name="BorderMainPredmets" Margin="10 45 10 5" />
+            </Grid>
+        </Border>
+
+        <Border Background="#21335B" CornerRadius="5" Margin="0,135,60,259" Grid.RowSpan="2" Grid.Column="1">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="260"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.ColumnSpan="2" Content="Количество пропусков занятий" Foreground="White" FontSize="22" HorizontalAlignment="Center" Height="30" FontFamily="Bahnschrift Light SemiCondensed" Margin="0 0 0 25"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Уважительные пропуски" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 40" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Неуважительные пропуски" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 40" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Пропуски по болезни" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="10 0 0 40" VerticalAlignment="Center" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Height="40" Margin="0 0 30 20">
+                    <Label x:Name="label_YvProp" Content="{Binding Path=RespectfulOmissions}" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="BorderThickness" Value="0 0 0 3"/>
+                            <Setter Property="CornerRadius" Value="0.5"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" Value="#00DBCE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Height="40" Margin="0 0 30 20">
+                    <Label x:Name="label_NoYvProp" Content="{Binding Path=DisrespectfulOmissions}" Grid.Row="1" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="BorderThickness" Value="0 0 0 3"/>
+                            <Setter Property="CornerRadius" Value="0.5"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" Value="#00DBCE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <Border HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" Height="40" Margin="0 0 30 20">
+                    <Label x:Name="label_PoBolezni" Grid.Row="1" Content="{Binding Path= AbsencesIllness}" FontSize="26" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="BorderThickness" Value="0 0 0 3"/>
+                            <Setter Property="CornerRadius" Value="0.5"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" Value="#00DBCE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border  Grid.Column="0"  Grid.RowSpan="3" Width="420" Height="460" Margin="0 400 0 0" Background="#21335B" CornerRadius="5">
+            <Grid>
+                <ListBox Grid.Column="0" MouseDoubleClick="BorderMain_MouseDoubleClick" x:Name="BorderMain" Grid.Row="1" Width="420" Height="340" Margin="10 0 10 5" />
+                <Image Width="46" Height="46" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 25 15" x:Name="button_AddZam" MouseDown="button_AddZam_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_AddZam.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddZam}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_AddNotesV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Grid>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
+            </Border.BitmapEffect>
+        </Border>
+        <Label Content="Ваши заметки" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Content="Обновить" Name="button_Update" Grid.Row="2" MouseDown="button_Update_MouseDown" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="160 0 0 85" Height="40" FontFamily="Bahnschrift Light SemiCondensed" Cursor="Hand">
+            <Label.Style>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
+                            <Setter Property="Foreground" Value="#3AFFDC"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+
+
+        <Border Background="#21335B" CornerRadius="5" Margin="0,136,0,229" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <Label Content="Высокий показатель пропусков" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <ListBox x:Name="BorderMainStudentOmissons" Margin="10 45 10 5" />
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

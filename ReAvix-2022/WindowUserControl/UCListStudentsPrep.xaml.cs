@@ -26,6 +26,10 @@ namespace ReAvix_2022.WindowUserControl
         VMWindowListStudentsPrep vMWindowListStudentsPrep;
         public List<int> MassivNomerStudent;
 
+        public UCListStudentsPrep()
+        {
+
+        }
         public UCListStudentsPrep(int NumberPrep)
         {
             NomerPrep = NumberPrep;
