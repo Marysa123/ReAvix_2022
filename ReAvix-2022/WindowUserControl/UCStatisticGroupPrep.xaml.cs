@@ -63,5 +63,10 @@ namespace ReAvix_2022.WindowUserControl
             WindowAddNotesPrep windowAddNotesPrep = new WindowAddNotesPrep(NomerPrep);
             windowAddNotesPrep.ShowDialog();
         }
+
+        private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

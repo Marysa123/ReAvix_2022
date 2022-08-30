@@ -39,9 +39,9 @@ namespace ReAvix_2022.ViewModels
         // Объявление полей
         public string Date { get; set; }
         public string GoodTime { get; set; }
-        public byte RespectfulOmissions { get; set; }
-        public byte DisrespectfulOmissions { get; set; }
-        public byte AbsencesIllness { get; set; }
+        public int RespectfulOmissions { get; set; }
+        public int DisrespectfulOmissions { get; set; }
+        public int AbsencesIllness { get; set; }
 
         public VMWindowStatisticStudent(int NumberSt)
         {
@@ -55,13 +55,13 @@ namespace ReAvix_2022.ViewModels
             _Connection.Close(); // Закрытие подключения
             GetAndViewData();
 
-            GetOmissionsStudent("Уважительные_Пропуски", out byte ReOmissons); // Вызов метода с передачей параметров
+            GetOmissionsStudent("Уважительные_Пропуски", out int ReOmissons); // Вызов метода с передачей параметров
             RespectfulOmissions = ReOmissons;
 
-            GetOmissionsStudent("Неуважительные_Пропуски", out byte NoOmissons); // Вызов метода с передачей параметров
+            GetOmissionsStudent("Неуважительные_Пропуски", out int NoOmissons); // Вызов метода с передачей параметров
             DisrespectfulOmissions = NoOmissons;
 
-            GetOmissionsStudent("Пропуски_по_болезни", out byte BolOmissons); // Вызов метода с передачей параметров
+            GetOmissionsStudent("Пропуски_по_болезни", out int BolOmissons); // Вызов метода с передачей параметров
             AbsencesIllness = BolOmissons;
 
         }
@@ -70,11 +70,11 @@ namespace ReAvix_2022.ViewModels
         /// </summary>
         /// <param name="Column">Наименование столбца</param>
         /// <param name="Omissons">Выходной параметр с результатом</param>
-        public void GetOmissionsStudent(string Column, out byte Omissons)
+        public void GetOmissionsStudent(string Column, out int Omissons)
         {
             _Connection.Open();
             CommandSql.CommandText = $"select [{Column}] from [Пропуски] where [FK_Номер_Студента] = {NumberStudent}";
-            Omissons = (byte)CommandSql.ExecuteScalar();
+            Omissons = (int)CommandSql.ExecuteScalar();
             _Connection.Close();
         }
 

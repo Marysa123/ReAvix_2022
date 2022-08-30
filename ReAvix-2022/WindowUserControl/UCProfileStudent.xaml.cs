@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -55,10 +56,11 @@ namespace ReAvix_2022.WindowUserControl
 
         private void button_AddDop_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            _Connection.Close();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open(); // Открытие подключения
 
-            CommandSql.CommandText = $"update [Студенты] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Номер_телефона_Родителей] = '{textbox_PhoneRod.Text}',[Дата_рождения] = '{text_boxData.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}' where Номер_Студента = {NomerStudent} "; // Создание запроса
+            CommandSql.CommandText = $"update [Студенты] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Номер_телефона_Родителей] = '{textbox_PhoneRod.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}' where Номер_Студента = {NomerStudent} "; // Создание запроса
             CommandSql.Connection = _Connection; // Инициализация подключения
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             vMWindowProfileStudent.GetInfoStudent();
@@ -90,6 +92,18 @@ namespace ReAvix_2022.WindowUserControl
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void textbox_Phone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_PhoneRod_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

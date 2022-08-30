@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -77,7 +78,7 @@ namespace ReAvix_2022.WindowUserControl
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             CommandSql.Connection = _Connection; // Инициализация подключения
             _Connection.Open();
-            CommandSql.CommandText = $"update [Преподаватели] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Дата_рождения] = '{text_boxData.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}',[Ведущий_Предмет] = '{textbox_VedPredmet.Text}',[Дополнительный_Предмет] = '{textbox_DopPredmet.Text}',[Специальность] = '{textbox_Spec.Text}',[Ведущий_Кружок] = '{textbox_Ellipse.Text}' where Номер_Преподавателя = {NomerPrep} "; // Создание запроса
+            CommandSql.CommandText = $"update [Преподаватели] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}',[Ведущий_Предмет] = '{textbox_VedPredmet.Text}',[Дополнительный_Предмет] = '{textbox_DopPredmet.Text}',[Специальность] = '{textbox_Spec.Text}',[Ведущий_Кружок] = '{textbox_Ellipse.Text}' where Номер_Преподавателя = {NomerPrep} "; // Создание запроса
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             vMWindowProfilePrep.GetInfoPrep();
             _Connection.Close(); // Закрытие подключения
@@ -87,6 +88,12 @@ namespace ReAvix_2022.WindowUserControl
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void textbox_Phone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

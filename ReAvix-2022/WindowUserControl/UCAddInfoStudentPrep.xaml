@@ -7,6 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1440" Background="Transparent" DataContext="UCAddInfoStudentPrep">
     <Grid>
+        <Image Name="icon_Exit" Grid.Column="1" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <Label Content="Таблица Оценки" Foreground="White" FontSize="26"  Margin="52,36,852,924" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
         <Label Content="Таблица Предметы" Foreground="White" FontSize="26"  Margin="796,34,108,926" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
         <Label Content="Таблица Пропуски занятий" Foreground="White" FontSize="26"  Margin="809,416,95,544" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
@@ -41,15 +53,15 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="Номер Студента" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="30" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerStudent" Text="{Binding Номер Студента}" Cursor="Arrow" BorderBrush="White"/>
+                <TextBox Width="30" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" PreviewTextInput="textbox_NomerStudent_PreviewTextInput" Name="textbox_NomerStudent" Text="{Binding Номер Студента}" Cursor="Arrow" BorderBrush="White"/>
             </StackPanel>
             <StackPanel>
                 <Label Content="Номер Предмета" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerPredmet" Text="{Binding Номер Предмета}" Cursor="Arrow" BorderBrush="White"/>
+                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerPredmet" PreviewTextInput="textbox_NomerPredmet_PreviewTextInput" Text="{Binding Номер Предмета}" Cursor="Arrow" BorderBrush="White"/>
             </StackPanel>
             <StackPanel>
                 <Label Content="Оценка" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_OChenka" Text="{Binding Оценка}" Cursor="Arrow" BorderBrush="White"/>
+                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_OChenka" PreviewTextInput="textbox_OChenka_PreviewTextInput" Text="{Binding Оценка}" Cursor="Arrow" BorderBrush="White"/>
             </StackPanel>
             <StackPanel>
                 <Label Content="Вид оценочной работы" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
@@ -70,15 +82,15 @@
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 35 80" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
             <StackPanel>
                 <Label Content="Уважительные пропуски" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_Yvash" Text="{Binding Уважительные пропуски}" Cursor="Arrow" BorderBrush="White" />
+                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" PreviewTextInput="textbox_Yvash_PreviewTextInput" Name="textbox_Yvash" Text="{Binding Уважительные пропуски}" Cursor="Arrow" BorderBrush="White" />
             </StackPanel>
             <StackPanel>
                 <Label Content="Неуважительные пропуски" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="28" HorizontalContentAlignment="Center" Foreground="White" Name="textbox_NoYvash" Text="{Binding Неуважительные пропуски}" BorderBrush="White"/>
+                <TextBox Width="50" Height="50" FontSize="28" HorizontalContentAlignment="Center" PreviewTextInput="textbox_NoYvash_PreviewTextInput" Foreground="White" Name="textbox_NoYvash" Text="{Binding Неуважительные пропуски}" BorderBrush="White"/>
             </StackPanel>
             <StackPanel>
                 <Label Content="Пропуски по болезни" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" BorderBrush="White"/>
+                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" PreviewTextInput="textbox_Bolezn_PreviewTextInput" HorizontalContentAlignment="Center" Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" BorderBrush="White"/>
             </StackPanel>
             <Label Content="{Binding Номер Студента}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
        

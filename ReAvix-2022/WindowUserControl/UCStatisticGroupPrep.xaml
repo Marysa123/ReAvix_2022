@@ -20,6 +20,18 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Image Name="icon_Exit" Grid.Column="2" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <TextBlock Text="{Binding Path=GoodTime}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="300" Height="30" Margin="40 50 0 0" FontFamily="Bahnschrift Light" />
         <TextBlock Text="{Binding Path=Date}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="350" Height="30" Margin="40 80 0 0" FontFamily="Bahnschrift Light"/>
 

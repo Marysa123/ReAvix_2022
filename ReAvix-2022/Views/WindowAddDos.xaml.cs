@@ -1,21 +1,12 @@
-﻿using Microsoft.Win32;
-using ReAvix_2022.ViewModels;
+﻿using ReAvix_2022.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ReAvix_2022.Views
 {
@@ -51,7 +42,7 @@ namespace ReAvix_2022.Views
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             vMWindowAddDos.AddImage(out string AdressImageOneOut);
-            if (AdressImageOneOut =="")
+            if (AdressImageOneOut == "")
             {
 
             }
@@ -61,7 +52,7 @@ namespace ReAvix_2022.Views
                 AdressImageOne = AdressImageOneOut;
             }
         }
-       
+
 
         private void DopImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -79,15 +70,20 @@ namespace ReAvix_2022.Views
 
         private void button_AddDop_Click(object sender, RoutedEventArgs e)
         {
+            _Connection.Close();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open(); // Открытие подключения
+            if (AdressImageOne == null || AdressImageTwo == null)
+            {
+                return;
+            }
             var data = File.ReadAllBytes(AdressImageOne);
             var dataTwo = File.ReadAllBytes(AdressImageTwo);
 
 
             CommandSql.CommandText = $"insert into [Достижения] ([Изображение], [Дополнительное_Изображение], [Место_в_соревновании],[Место_Проведения],[Название_Соревнования],[FK_Номер_Студента])  VALUES(@images,@imagesDop,{combobox_Mesto.Text},'{textbox_Mesto.Text}','{textbox_Name.Text}',{NumberStudent})"; // Создание запроса
             CommandSql.Connection = _Connection; // Инифиализация подключения
-            CommandSql.Parameters.Add(new SqlParameter ("@images",data));
+            CommandSql.Parameters.Add(new SqlParameter("@images", data));
             CommandSql.Parameters.Add(new SqlParameter("@imagesDop", dataTwo));
 
 

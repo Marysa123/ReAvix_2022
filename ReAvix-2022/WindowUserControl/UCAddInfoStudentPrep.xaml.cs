@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -74,12 +75,7 @@ namespace ReAvix_2022.WindowUserControl
             GridViewOmissions.ItemsSource = dataTableFour.DefaultView;
             sqlDataAdapterFour.Fill(dataTableFour);
 
-
-
-
             _Connection.Close();
-
-
         }
 
         List<int> MassivNomerStudent = new List<int>();
@@ -128,18 +124,23 @@ namespace ReAvix_2022.WindowUserControl
 
             GridViewOmissions.ItemsSource = null;
             GridViewOmissions.ItemsSource = dataTableFour.DefaultView;
-
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (textbox_Bolezn.Text == "")
+            _Connection.Close();
+            if (textbox_Bolezn.Text == "" || textbox_NoYvash.Text == "" || textbox_Yvash.Text == "")
             {
                 MessageBox.Show("Пустые поля.", "Диалоговое окно");
             }
             else
             {
                 _Connection.Open();
+                if (label_NomerStud.Content == null)
+                {
+                    return;
+                }
+
                 sqlCommand.CommandText = $"update Пропуски set [Уважительные_Пропуски] = {textbox_Yvash.Text},[Неуважительные_Пропуски] = {textbox_NoYvash.Text}, [Пропуски_по_болезни] = {textbox_Bolezn.Text} where [FK_Номер_Студента] = {label_NomerStud.Content.ToString()}";
                 sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
@@ -152,14 +153,12 @@ namespace ReAvix_2022.WindowUserControl
                 GridViewOmissions.ItemsSource = dataTableFour.DefaultView;
 
                 _Connection.Close();
-
-
             }
         }
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (textbox_NomerPredmet.Text == "")
+            if (textbox_NomerPredmet.Text == "" || textbox_NomerStudent.Text == "" || textbox_Data.Text == "" || textbox_OChenka.Text == "" || textbox_VidWork.Text == "")
             {
                 MessageBox.Show("Пустые поля.", "Диалоговое окно");
             }
@@ -192,6 +191,10 @@ namespace ReAvix_2022.WindowUserControl
                 {
                     if (Nomer == MassivNomerStudent[i])
                     {
+                        if (label_Номер.Content == null)
+                        {
+                            return;
+                        }
                         sqlCommand.CommandText = "set language english;";
                         sqlCommand.ExecuteNonQuery();
                         sqlCommand.CommandText = $"update Оценки set [Дата] = Convert(datetime,'{textbox_Data.Text}'),FK_Номер_Студента = {textbox_NomerStudent.Text},FK_Номер_Предмета = {textbox_NomerPredmet.Text}, Оценка = {textbox_OChenka.Text}, Вид_оценочной_работы ='{textbox_VidWork.Text}' where Номер_оценки = {label_Номер.Content.ToString()}";
@@ -199,6 +202,7 @@ namespace ReAvix_2022.WindowUserControl
                         MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
 
                         UpdateInfoStudent();
+                      
 
                         GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
 
@@ -217,12 +221,11 @@ namespace ReAvix_2022.WindowUserControl
             System.Data.DataTable dataTable = new System.Data.DataTable("Оценки");
             sqlDataAdapter.Fill(dataTable);
             GridView.ItemsSource = dataTable.DefaultView;
-
         }
 
         private void Image_MouseDown_2(object sender, MouseButtonEventArgs e)
         {
-            if (textbox_NomerPredmet.Text == "")
+            if (textbox_NomerPredmet.Text == "" || textbox_NomerStudent.Text==""|| textbox_Data.Text == "" || textbox_OChenka.Text == "" || textbox_VidWork.Text == "")
             {
                 MessageBox.Show("Пустые поля.", "Диалоговое окно");
             }
@@ -250,37 +253,46 @@ namespace ReAvix_2022.WindowUserControl
                 sqlDataReader.Close();
 
                 int Nomer = int.Parse(textbox_NomerStudent.Text);
+                int Ochenka = int.Parse(textbox_OChenka.Text);
 
-                for (int i = 0; i < Count; i++)
+                if (Ochenka >=2 && Ochenka <=5)
                 {
-                    if (Nomer == MassivNomerStudent[i])
+                    for (int i = 0; i < Count; i++)
                     {
-                        _Connection.Close();
-                        _Connection.Open();
-                        sqlCommand.CommandText = "set language english;";
-                        sqlCommand.ExecuteNonQuery();
-                        sqlCommand.CommandText = $"insert into Оценки values (Convert(date,'{textbox_Data.Text}'),{textbox_NomerStudent.Text},{textbox_NomerPredmet.Text},{textbox_OChenka.Text},'{textbox_VidWork.Text}')";
-                        sqlCommand.ExecuteNonQuery();
-                        MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
+                        if (Nomer == MassivNomerStudent[i])
+                        {
+                            _Connection.Close();
+                            _Connection.Open();
+                            sqlCommand.CommandText = "set language english;";
+                            sqlCommand.ExecuteNonQuery();
+                            sqlCommand.CommandText = $"insert into Оценки values (Convert(date,'{textbox_Data.Text}'),{textbox_NomerStudent.Text},{textbox_NomerPredmet.Text},{textbox_OChenka.Text},'{textbox_VidWork.Text}')";
+                            sqlCommand.ExecuteNonQuery();
+                            MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
 
-                        UpdateInfoStudent();
-                        GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
-                        _Connection.Close();
+                            UpdateInfoStudent();
+                            GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
+                            _Connection.Close();
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Неверные данные.","Диалоговое окно");
+                }
+
+                
+                
             }
         }
 
         private void button_SelectPredmetGroup_Click(object sender, RoutedEventArgs e)
         {
             GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
-
         }
 
         private void button_SelectAllPredmet_Click(object sender, RoutedEventArgs e)
         {
             GetInfoPredmet("select Номер_Предмета as 'Номер Предмета', Название_Предмета as 'Название Предмета' from [Предметы]");
-
         }
 
         private void GetInfoPredmet(string Select)
@@ -345,11 +357,7 @@ namespace ReAvix_2022.WindowUserControl
                                     _Connection.Close();
                                 }
 
-                            }
-
-
-
-                        
+                            }  
                         break;
                     case MessageBoxResult.Cancel:
                         _Connection.Close();
@@ -357,6 +365,47 @@ namespace ReAvix_2022.WindowUserControl
                 }
                 _Connection.Close();
             }
+        }
+
+        private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void textbox_OChenka_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_NomerPredmet_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_NomerStudent_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_Yvash_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_NoYvash_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_Bolezn_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
