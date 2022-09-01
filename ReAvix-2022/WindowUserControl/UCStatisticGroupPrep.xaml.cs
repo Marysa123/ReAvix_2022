@@ -44,6 +44,11 @@ namespace ReAvix_2022.WindowUserControl
 
             DataContext = vMWindowStatisticGroupPrep;
 
+
+            vMWindowStatisticGroupPrep.GetAvgPredmet();
+            BorderMainPredmets.ItemsSource = vMWindowStatisticGroupPrep.Grids;
+
+
         }
 
         private void BorderMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)

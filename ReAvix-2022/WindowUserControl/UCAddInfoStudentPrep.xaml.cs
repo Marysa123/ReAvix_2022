@@ -1,9 +1,11 @@
-﻿using ReAvix_2022.ViewModels;
+﻿using Microsoft.Office.Interop.Excel;
+using ReAvix_2022.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -85,35 +87,45 @@ namespace ReAvix_2022.WindowUserControl
         {
             _Connection.Open();
 
-            sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
-            string NameGroup = (string)sqlCommand.ExecuteScalar();
-
-
-            sqlCommand.CommandText = $"select COUNT(Номер_Студента) from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
-            sqlCommand.Connection = _Connection;
-            int Count = (int)sqlCommand.ExecuteScalar();
-
-            sqlCommand.CommandText = $"select Номер_Студента from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
-
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            MassivNomerStudent = new List<int>();
-            while (sqlDataReader.Read())
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите обнулить пропуски?", "Окно удаления данных", MessageBoxButton.OKCancel);
+            switch (result)
             {
-                MassivNomerStudent.Add((int)sqlDataReader.GetValue(0));
+                case MessageBoxResult.OK:
+                    sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
+                    string NameGroup = (string)sqlCommand.ExecuteScalar();
+
+
+                    sqlCommand.CommandText = $"select COUNT(Номер_Студента) from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
+                    sqlCommand.Connection = _Connection;
+                    int Count = (int)sqlCommand.ExecuteScalar();
+
+                    sqlCommand.CommandText = $"select Номер_Студента from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
+
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    MassivNomerStudent = new List<int>();
+                    while (sqlDataReader.Read())
+                    {
+                        MassivNomerStudent.Add((int)sqlDataReader.GetValue(0));
+                    }
+                    sqlDataReader.Close();
+
+                    for (int i = 0; i < Count; i++)
+                    {
+                        sqlCommand.CommandText = $"update Пропуски set [Уважительные_Пропуски] = 0,[Неуважительные_Пропуски] = 0, [Пропуски_по_болезни] = 0 where [FK_Номер_Студента] = {MassivNomerStudent[i]}";
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Пропуски успешно стёрты.", "Диалоговое окно");
+
+                    UpdateTableOmissions();
+
+                    _Connection.Close();
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+                case MessageBoxResult.Yes:
+                default:
+                    break;
             }
-            sqlDataReader.Close();
-
-            for (int i = 0; i < Count; i++)
-            {
-                sqlCommand.CommandText = $"update Пропуски set [Уважительные_Пропуски] = 0,[Неуважительные_Пропуски] = 0, [Пропуски_по_болезни] = 0 where [FK_Номер_Студента] = {MassivNomerStudent[i]}";
-                sqlCommand.ExecuteNonQuery();
-            }
-            MessageBox.Show("Пропуски успешно стёрты.");
-
-            UpdateTableOmissions();
-
-            _Connection.Close();
-
         }
         private void UpdateTableOmissions()
         {
@@ -406,6 +418,83 @@ namespace ReAvix_2022.WindowUserControl
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void border_AddDos_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            excel.Visible = true;
+            Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+            Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+
+            sheet1.Name = "Отчёт";
+            for (int j = 0; j < GridView.Columns.Count; j++)
+            {
+                Range myRange = (Range)sheet1.Cells[4, j + 1];
+                sheet1.Cells[4, j + 1].Font.Bold = true;
+                sheet1.Columns[j + 1].ColumnWidth = 6;
+                myRange.Value2 = GridView.Columns[j].Header;
+                myRange.Cells.Font.Name = "Times New Roman";
+                myRange.Cells.Font.Size = "16";
+                for (int a = 1; a <= 3; a++)
+                {
+                    sheet1.Columns[a].ColumnWidth = 20;
+                }
+                sheet1.Columns[4].ColumnWidth = 40;
+                sheet1.Columns[5].ColumnWidth = 40;
+                sheet1.Columns[6].ColumnWidth = 20;
+
+                myRange.VerticalAlignment = XlHAlign.xlHAlignCenter;
+                myRange.Cells.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
+
+                myRange.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
+                myRange.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
+                myRange.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
+                myRange.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
+                myRange.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+
+            }
+            for (int i = 0; i < GridView.Columns.Count; i++)
+            {
+                for (int j = 0; j < GridView.Items.Count; j++)
+                {
+                    TextBlock b = GridView.Columns[i].GetCellContent(GridView.Items[j]) as TextBlock;
+                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)sheet1.Cells[j + 5, i + 1];
+                    myRange.Value2 = b.Text;
+                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
+                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
+                    myRange.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
+                    myRange.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
+                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+                }
+            }
+
+            Range rng4 = sheet1.Range[sheet1.Cells[2, 1], sheet1.Cells[GridView.Items.Count + 9, 6]];
+            rng4.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
+            rng4.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
+            rng4.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+            rng4.Borders.get_Item(XlBordersIndex.xlEdgeLeft).LineStyle = XlLineStyle.xlContinuous;
+
+            sheet1.Cells[2, 1] = "Отчёт об успеваемости студентов ?? группы Волчихинский Политехнический колледж за 1 семестр 22-23 уч.года";
+            Range rng = sheet1.Range[sheet1.Cells[2, 1], sheet1.Cells[2, 3]];
+            rng.Cells.Font.Name = "Times New Roman";
+            rng.Cells.Font.Bold = true;
+            rng.Cells.Font.Size = 16;
+            rng.Cells.Font.Color = System.Drawing.Color.Black;
+
+            string currentDate = DateTime.Now.Date.ToString("D");
+
+            sheet1.Cells[GridView.Items.Count + 7, 5] = "Дата создания отчета: " + currentDate + "";
+            Range Rng = sheet1.Range[sheet1.Cells[GridView.Items.Count + 7, 5], sheet1.Cells[GridView.Items.Count + 7, 5]];
+            Rng.Cells.Font.Name = "Times New Roman";
+            Rng.Cells.Font.Size = 16;
+            Rng.Cells.Font.Color = System.Drawing.Color.Black;
+
+            sheet1.Cells[GridView.Items.Count + 7, 1] = "Преподаватель: ?";
+            Range Rng1 = sheet1.Range[sheet1.Cells[GridView.Items.Count + 7, 1], sheet1.Cells[GridView.Items.Count + 7, 1]];
+            Rng1.Cells.Font.Name = "Times New Roman";
+            Rng1.Cells.Font.Size = 16;
+            Rng1.Cells.Font.Color = System.Drawing.Color.Black;
         }
     }
 }

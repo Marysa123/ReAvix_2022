@@ -41,7 +41,7 @@
             </Border.BitmapEffect>
             <Grid>
                 <Label Content="Средний балл по дисциплинам" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <ListBox x:Name="BorderMainPredmets" Margin="10 45 10 5" />
+                <ListBox Name="BorderMainPredmets" Margin="10 45 10 5" />
             </Grid>
         </Border>
 
@@ -142,16 +142,5 @@
                 </Style>
             </Label.Style>
         </Label>
-
-
-        <Border Background="#21335B" CornerRadius="5" Margin="0,136,0,229" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
-            <Border.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
-            </Border.BitmapEffect>
-            <Grid>
-                <Label Content="Высокий показатель пропусков" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <ListBox x:Name="BorderMainStudentOmissons" Margin="10 45 10 5" />
-            </Grid>
-        </Border>
     </Grid>
 </UserControl>

@@ -35,6 +35,37 @@
             </DataGrid.ItemContainerStyle>
         </DataGrid>
 
+        <Border x:Name="border_AddDos" MouseDown="border_AddDos_MouseDown" BorderThickness="2" Width="180" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,681,191" Cursor="Hand">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#A81DFE"
+                                      Offset="0"/>
+                    <GradientStop Color="#E76E8B"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=border_AddDos}" Value="true">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#A81DFE"
+                                      Offset="0"/>
+                                        <GradientStop Color="#E76E8B"
+                                      Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Label Content="Отчет" FontSize="19" Foreground="White" FontFamily="Bahnschrift Light Condensed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
         <DataGrid
           Margin="786,80,24,646"
           AutoGenerateColumns="True"
@@ -75,7 +106,7 @@
 
         <Button Name="button_SelectPredmetGroup" Click="button_SelectPredmetGroup_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="1223,0,0,584" Width="189" Height="55" Content="Предметы группы" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
         <Button  Name="button_SelectAllPredmet" Click="button_SelectAllPredmet_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="995,0,0,584" Width="189" Height="55" Content="Все предметы" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
-        
+
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 35 20" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
             <Label Content="{Binding ФИО}" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
         </WrapPanel>
@@ -93,7 +124,7 @@
                 <TextBox Width="50" Height="50" FontSize="28" Foreground="White" PreviewTextInput="textbox_Bolezn_PreviewTextInput" HorizontalContentAlignment="Center" Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" BorderBrush="White"/>
             </StackPanel>
             <Label Content="{Binding Номер Студента}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-       
+
         </WrapPanel>
         <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0 0 20 90" Cursor="Hand" MouseDown="Image_MouseDown"/>
     </Grid>

@@ -38,6 +38,7 @@ namespace ReAvix_2022.WindowUserControl
 
             MassivNomerPred = vMWindowStatisticStudent.MassivNomerPredmet;
             PanelPredmet.ItemsSource = MassivGridOut;
+
         }
 
 
