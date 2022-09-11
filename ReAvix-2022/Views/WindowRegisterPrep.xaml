@@ -200,15 +200,17 @@
                     <!--#endregion-->
                     <!--#region ComboBox "Месяц"-->
                     <ComboBox Name="combobox_Montch" Margin="160 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="4" Width="120" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
-                        <ComboBoxItem IsSelected="True" Content="Апрель" />
-                        <ComboBoxItem Content="23-тп" />
-                        <ComboBoxItem Content="22-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
-                        <ComboBoxItem Content="21-тп" />
+                        <ComboBoxItem IsSelected="True" Content="Январь" />
+                        <ComboBoxItem  Content="Февраль" />
+                        <ComboBoxItem  Content="Март" />
+                        <ComboBoxItem  Content="Апрель" />
+                        <ComboBoxItem  Content="Май" />
+                        <ComboBoxItem  Content="Июнь" />
+                        <ComboBoxItem  Content="Июль" />
+                        <ComboBoxItem  Content="Август" />
+                        <ComboBoxItem  Content="Октябрь" />
+                        <ComboBoxItem  Content="Ноябрь" />
+                        <ComboBoxItem  Content="Декабрь" />
                     </ComboBox>
                     <!--#endregion-->
                     <!--#region ComboBox "Год"-->

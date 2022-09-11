@@ -16,5 +16,5 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\App.xaml
 153-353086819
 Resources\Styles\ButtonStyle.xaml;Resources\Styles\ButtonStyleDelete.xaml;Views\WindowAboutDos.xaml;Views\WindowAboutSkils.xaml;Views\WindowAddDos.xaml;Views\WindowAddNotes.xaml;Views\WindowAddNotesPrep.xaml;Views\WindowAddSkils.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowInfoStudent.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCAddInfoStudentPrep.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;
 
-True
+False
 

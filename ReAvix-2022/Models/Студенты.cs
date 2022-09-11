@@ -32,7 +32,7 @@ namespace ReAvix_2022.Models
         public string E_mail { get; set; }
         public string Номер_Телефона { get; set; }
         public string Номер_телефона_Родителей { get; set; }
-        public byte Курс { get; set; }
+        public string Курс { get; set; }
         public string Пол { get; set; }
         public System.DateTime Дата_Рождения { get; set; }
         public string Адрес { get; set; }

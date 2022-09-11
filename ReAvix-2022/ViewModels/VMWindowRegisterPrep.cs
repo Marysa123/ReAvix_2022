@@ -23,16 +23,19 @@ namespace ReAvix_2022.ViewModels
 
         public VMWindowRegisterPrep()
         {
-            GetInfoPredmets();
-            GetInfoGroup();
-            GetInfoSpecialnost();
-            GetInfoMugs();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
+            
+            GetInfoGroup();
+            GetInfoMugs();
+            GetInfoSpecialnost();
+            GetInfoPredmets();
         }
 
-        public void AddInfoStudentInDB(string Ima, string Fam, string Otch, string Login, string Password, string Mail, string NomerTel, string Pol, string Date, string Adress, string LeadingSubject, string DopSubject ,string Spec,string LeadingMugle,string InfoMe,string ZakGroup)
+
+        public void AddInfoPrepInDB(string Ima, string Fam, string Otch, string Login, string Password, string Mail, string NomerTel, string Pol, string Date, string Adress, string LeadingSubject, string DopSubject ,string Spec,string LeadingMugle,string InfoMe,string ZakGroup)
         {
             _Connection.Open(); // Открытие подключения
+            CommandSql.CommandText = "set language english;";
             CommandSql.CommandText = "Insert into [Преподаватели] (Имя,Фамилия,Отчество,Логин,Пароль,E_mail,Номер_Телефона,Пол,Дата_рождения,Адрес,Ведущий_Предмет,Дополнительный_Предмет,Специальность,Краткая_Информация,Ведущий_Кружок,FK_Закреплённая_группа,Фотография) values (@im,@fa,@ot,@lo,@pa,@ma,@no,@po,@da,@ad,@vp,@dp,@cp,@ci,@lm,@za,null)"; // Строка запроса
             CommandSql.Connection = _Connection;
 
@@ -102,7 +105,7 @@ namespace ReAvix_2022.ViewModels
         }
         public bool ValidateInfoStudentEmail(string EmailOne, out bool result)
         {
-            _Connection.Open();
+            _Connection.OpenAsync();
             CommandSql.CommandText = $"select [E_mail] from [Преподаватели] where [E_mail] = '{EmailOne}'";
             CommandSql.Connection = _Connection;
             string EmailTwo = (string)CommandSql.ExecuteScalar();

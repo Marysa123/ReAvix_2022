@@ -14,9 +14,9 @@ namespace ReAvix_2022.Models
     
     public partial class Пропуски
     {
-        public byte Уважительные_Пропуски { get; set; }
-        public byte Неуважительные_Пропуски { get; set; }
-        public byte Пропуски_по_болезни { get; set; }
+        public int Уважительные_Пропуски { get; set; }
+        public int Неуважительные_Пропуски { get; set; }
+        public int Пропуски_по_болезни { get; set; }
         public int FK_Номер_Студента { get; set; }
     }
 }

@@ -1,20 +1,8 @@
-﻿using ReAvix_2022.Models;
-using ReAvix_2022.ViewModels;
+﻿using ReAvix_2022.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static ReAvix_2022.ViewModels.VMWindowRegisterPrep;
 
 namespace ReAvix_2022.Views
 {
@@ -55,9 +43,7 @@ namespace ReAvix_2022.Views
 
             VMWindowRegisterPrep vMWindowRegisterPrep = new VMWindowRegisterPrep();
 
-
-
-            vMWindowRegisterPrep.ValidateInfoStudentTextBox(resultTextBox: out bool resultTextBox, textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_EMail.Text, textbox_Phone.Text, textbox_Adress.Text, textbox_MeText.Text,combobox_OtchGroup.Text,combobox_VedPredmet.Text,combobox_DopPredmet.Text,combobox_Spec.Text,combobox_Ellips.Text);
+            vMWindowRegisterPrep.ValidateInfoStudentTextBox(resultTextBox: out bool resultTextBox, textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_EMail.Text, textbox_Phone.Text, textbox_Adress.Text, textbox_MeText.Text, combobox_OtchGroup.Text, combobox_VedPredmet.Text, combobox_DopPredmet.Text, combobox_Spec.Text, combobox_Ellips.Text);
             if (resultTextBox == true)
             {
                 vMWindowRegisterPrep.ValidateInfoStudentPasswordBox(PasswordOne: textbox_Password.Password.ToString(), PasswordTwo: textbox_VerifityPassword.Password.ToString(), out bool resultPassword);
@@ -72,7 +58,7 @@ namespace ReAvix_2022.Views
                             vMWindowRegisterPrep.ValidateInfoStudentPhone(PhoneOne: textbox_Phone.Text, out bool resultPhone);
                             if (resultPhone == true)
                             {
-                                vMWindowRegisterPrep.AddInfoStudentInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_VedPredmet.Text, combobox_DopPredmet.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
+                                vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_VedPredmet.Text, combobox_DopPredmet.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
                                 MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
                                 windowSign.Show();
                                 Close();
@@ -111,7 +97,6 @@ namespace ReAvix_2022.Views
             {
                 MessageBox.Show("Отсутсвует значение в одном из полей!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
     }
 }

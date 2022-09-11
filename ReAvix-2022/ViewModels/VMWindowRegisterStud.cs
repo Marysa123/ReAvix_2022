@@ -1,16 +1,8 @@
 ﻿using ReAvix_2022.Models;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
 using System.Configuration;
-using ReAvix_2022.Views;
-using System.Windows.Media;
-using System.Windows;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace ReAvix_2022.ViewModels
 {
@@ -24,27 +16,28 @@ namespace ReAvix_2022.ViewModels
             GetInfoGroup();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
         }
-        public void AddInfoStudentInDB(string Ima,string Fam,string Otch,string Login,string Password,string Mail,string NomerTel,string NomerTelRod,string Course,string Pol,string Date,string Adress,string InfoMe,string NomerGroup)
+        public void AddInfoStudentInDB(string Ima, string Fam, string Otch, string Login, string Password, string Mail, string NomerTel, string NomerTelRod, string Course, string Pol, string Date, string Adress, string InfoMe, string NomerGroup)
         {
-                _Connection.Open(); // Открытие подключения
-                CommandSql.CommandText = "Insert into [Студенты] (Имя,Фамилия,Отчество,Логин,Пароль,E_mail,Номер_Телефона,Номер_телефона_Родителей,Курс,Пол,Дата_рождения,Адрес,Краткая_Информация,FK_Номер_Группы,Фотография) values (@im,@fa,@ot,@lo,@pa,@ma,@no,@tr,@cu,@po,@da,@ad,@cr,@gr,null)"; // Строка запроса
-                CommandSql.Connection = _Connection;
-                CommandSql.Parameters.AddWithValue("@im", Ima); // Параметры строки запроса
-                CommandSql.Parameters.AddWithValue("@fa", Fam);
-                CommandSql.Parameters.AddWithValue("@ot", Otch);
-                CommandSql.Parameters.AddWithValue("@lo", Login);
-                CommandSql.Parameters.AddWithValue("@pa", Password);
-                CommandSql.Parameters.AddWithValue("@ma", Mail);
-                CommandSql.Parameters.AddWithValue("@no", NomerTel);
-                CommandSql.Parameters.AddWithValue("@tr", NomerTelRod);
-                CommandSql.Parameters.AddWithValue("@cu", Course);
-                CommandSql.Parameters.AddWithValue("@po", Pol);
-                CommandSql.Parameters.AddWithValue("@da", Date);
-                CommandSql.Parameters.AddWithValue("@ad", Adress);
-                CommandSql.Parameters.AddWithValue("@cr", InfoMe);
-                CommandSql.Parameters.AddWithValue("@gr", NomerGroup);
-                CommandSql.ExecuteNonQuery(); // Выплнение запроса SQL
-                _Connection.Close(); // Закрытие подключения
+            _Connection.Open(); // Открытие подключения
+            CommandSql.CommandText = "set language english;";
+            CommandSql.CommandText = "Insert into [Студенты] (Имя,Фамилия,Отчество,Логин,Пароль,E_mail,Номер_Телефона,Номер_телефона_Родителей,Курс,Пол,Дата_рождения,Адрес,Краткая_Информация,FK_Номер_Группы,Фотография) values (@im,@fa,@ot,@lo,@pa,@ma,@no,@tr,@cu,@po,@da,@ad,@cr,@gr,null)"; // Строка запроса
+            CommandSql.Connection = _Connection;
+            CommandSql.Parameters.AddWithValue("@im", Ima); // Параметры строки запроса
+            CommandSql.Parameters.AddWithValue("@fa", Fam);
+            CommandSql.Parameters.AddWithValue("@ot", Otch);
+            CommandSql.Parameters.AddWithValue("@lo", Login);
+            CommandSql.Parameters.AddWithValue("@pa", Password);
+            CommandSql.Parameters.AddWithValue("@ma", Mail);
+            CommandSql.Parameters.AddWithValue("@no", NomerTel);
+            CommandSql.Parameters.AddWithValue("@tr", NomerTelRod);
+            CommandSql.Parameters.AddWithValue("@cu", Course);
+            CommandSql.Parameters.AddWithValue("@po", Pol);
+            CommandSql.Parameters.AddWithValue("@da", Date);
+            CommandSql.Parameters.AddWithValue("@ad", Adress);
+            CommandSql.Parameters.AddWithValue("@cr", InfoMe);
+            CommandSql.Parameters.AddWithValue("@gr", NomerGroup);
+            CommandSql.ExecuteNonQuery(); // Выплнение запроса SQL
+            _Connection.Close(); // Закрытие подключения
         }
         public bool ValidateInfoStudentTextBox(out bool resultTextBox, string Ima, string Fam, string Otch, string Login, string Mail, string NomerTel, string NomerTelRo, string Adress, string InfoMe, string NomerGroup)
         {
@@ -55,7 +48,7 @@ namespace ReAvix_2022.ViewModels
             return resultTextBox = true;
 
         }
-        public bool ValidateInfoStudentPasswordBox(string PasswordOne, string PasswordTwo,out bool result)
+        public bool ValidateInfoStudentPasswordBox(string PasswordOne, string PasswordTwo, out bool result)
         {
             if (PasswordOne != PasswordTwo)
             {
@@ -84,7 +77,7 @@ namespace ReAvix_2022.ViewModels
                 {
                     _Connection.Close();
                     return result = false;
-                } 
+                }
             }
             _Connection.Close();
             return result = true;
@@ -127,6 +120,6 @@ namespace ReAvix_2022.ViewModels
             db_ReAvixEntities1 dc = new db_ReAvixEntities1();
             var item = dc.Группа.ToList();
             GetGroup = item;
-        }        
+        }
     }
 }

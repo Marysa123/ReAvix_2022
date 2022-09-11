@@ -505,16 +505,6 @@
     <Resource Include="Resources\Images\icon_AddInfoStud.png" />
     <Resource Include="Resources\Images\icon_AddInfoStudV2.png" />
     <Resource Include="icon_Logo.ico" />
-    <Content Include="Models\db_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_Model.edmx</DependentUpon>
-      <LastGenOutput>db_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\db_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_Model.edmx</DependentUpon>
-      <LastGenOutput>db_Model.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\Images\icon_Logo.ico" />
     <Resource Include="Resources\Images\images_Line.png" />
     <Resource Include="Resources\Images\icon_OldPhone.png" />
@@ -551,6 +541,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\db_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>db_Model.edmx</DependentUpon>
+      <LastGenOutput>db_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\db_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>db_Model.edmx</DependentUpon>
+      <LastGenOutput>db_Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.6.0-ci259\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.0-ci259\build\MaterialDesignThemes.targets')" />
