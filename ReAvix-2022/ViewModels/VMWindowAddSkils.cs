@@ -16,7 +16,7 @@ namespace ReAvix_2022.ViewModels
 
         public void GetInfokat()
         {
-            db_ReAvixEntities1 dc = new db_ReAvixEntities1();
+            db_ReAvixEntities dc = new db_ReAvixEntities();
             var item = dc.Категории_Навыка.ToList();
             GetNameKat = item;
         }

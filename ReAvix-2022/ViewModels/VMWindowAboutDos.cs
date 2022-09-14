@@ -22,7 +22,7 @@ namespace ReAvix_2022.ViewModels
         int NumberDos;
 
         public string SourceImage { get; set; }
-        public byte MestoSorev { get; set; }
+        public string MestoSorev { get; set; }
         public string MestoPro { get; set; }
         public string NameSorev { get; set; }
 
@@ -41,9 +41,8 @@ namespace ReAvix_2022.ViewModels
 
 
             GetDataSkils();
-
-
         }
+
         public VMWindowAboutDos()
         {
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
@@ -80,7 +79,7 @@ namespace ReAvix_2022.ViewModels
             CommandSql.Connection = _Connection;
             _Connection.Open();
             CommandSql.CommandText = $"select [Место_в_соревновании] from Достижения where [Номер_Достижения] = {NumberDos} and [FK_Номер_Студента] = {NumberStudent}";
-            MestoSorev = (byte)CommandSql.ExecuteScalar();
+            MestoSorev = (string)CommandSql.ExecuteScalar();
 
             CommandSql.CommandText = $"select [Место_Проведения] from Достижения where [Номер_Достижения] = {NumberDos} and [FK_Номер_Студента] = {NumberStudent}";
             MestoPro = (string)CommandSql.ExecuteScalar();

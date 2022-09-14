@@ -41,7 +41,7 @@ namespace ReAvix_2022.ViewModels
             NamePredmet = "Наименование предмета: " + (string)CommandSql.ExecuteScalar();
             string Name = (string)CommandSql.ExecuteScalar();
 
-            CommandSql.CommandText = $"select [Фамилия] + ' ' + [Имя] + ' ' + [Отчество] as FIO from [Преподаватели] where [Ведущий_Предмет] = '{Name}' or [Дополнительный_Предмет] = '{Name}' group by [Фамилия],[Имя],[Отчество]";
+            CommandSql.CommandText = $"select [ФИО_Преподавателя] from [Предметы] where [Номер_Предмета] = {NomerPred}";
             FIOPrep = "ФИО преподавателя: " + (string)CommandSql.ExecuteScalar();
 
 

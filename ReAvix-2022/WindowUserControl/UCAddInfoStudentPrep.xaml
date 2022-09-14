@@ -96,7 +96,7 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="Вид оценочной работы" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="150" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_VidWork" Text="{Binding Вид оценочной работы}" Cursor="Arrow" BorderBrush="White"/>
+                <TextBox Width="145" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_VidWork" Text="{Binding Вид оценочной работы}" Cursor="Arrow" BorderBrush="White"/>
             </StackPanel>
             <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0 0 20 20" Cursor="Hand" MouseDown="Image_MouseDown_1"/>
             <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Plus.png" Margin="0 0 20 20" Cursor="Hand" MouseDown="Image_MouseDown_2"/>

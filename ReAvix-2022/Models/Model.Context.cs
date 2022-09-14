@@ -13,10 +13,10 @@ namespace ReAvix_2022.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_ReAvixEntities1 : DbContext
+    public partial class db_ReAvixEntities : DbContext
     {
-        public db_ReAvixEntities1()
-            : base("name=db_ReAvixEntities1")
+        public db_ReAvixEntities()
+            : base("name=db_ReAvixEntities")
         {
         }
     

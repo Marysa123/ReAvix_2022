@@ -45,7 +45,7 @@
                 Height="60"
                 Text="{Binding MestoSorev}"
                 FontSize="20"
-                Width="50"
+                Width="150"
                 HorizontalAlignment="Left"
                 TextWrapping="Wrap"
                 Margin="35 10 35 0"
@@ -85,7 +85,7 @@
         </StackPanel>
         <WrapPanel Grid.Column="1">
             <Image Grid.Column="1" Width="380" Height="480" Margin="15 60 0 0" Source="{Binding Path= SourceImage}" x:Name="images"/>
-            <Image Grid.Column="1" Width="380" Height="480" Margin="0 60 0 0" Source="{Binding Path= SourceImage}" x:Name="imagesTwo"/>
+            <Image Grid.Column="1" Width="380" Height="480" Margin="10 60 0 0" Source="{Binding Path= SourceImage}" x:Name="imagesTwo"/>
         </WrapPanel>
 
     </Grid>

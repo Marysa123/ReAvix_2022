@@ -81,7 +81,7 @@ namespace ReAvix_2022.Views
             var dataTwo = File.ReadAllBytes(AdressImageTwo);
 
 
-            CommandSql.CommandText = $"insert into [Достижения] ([Изображение], [Дополнительное_Изображение], [Место_в_соревновании],[Место_Проведения],[Название_Соревнования],[FK_Номер_Студента])  VALUES(@images,@imagesDop,{combobox_Mesto.Text},'{textbox_Mesto.Text}','{textbox_Name.Text}',{NumberStudent})"; // Создание запроса
+            CommandSql.CommandText = $"insert into [Достижения] ([Изображение], [Дополнительное_Изображение], [Место_в_соревновании],[Место_Проведения],[Название_Соревнования],[FK_Номер_Студента])  VALUES(@images,@imagesDop,'{combobox_Mesto.Text}','{textbox_Mesto.Text}','{textbox_Name.Text}',{NumberStudent})"; // Создание запроса
             CommandSql.Connection = _Connection; // Инифиализация подключения
             CommandSql.Parameters.Add(new SqlParameter("@images", data));
             CommandSql.Parameters.Add(new SqlParameter("@imagesDop", dataTwo));

@@ -294,7 +294,10 @@
                     <Label Grid.Column="3" Grid.Row="0" Width="280" Height="40" Content="Ведущий предмет:" FontSize="20" Foreground="#403F3F" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 50 0 0"/>
                     <!--#endregion-->
                     <!--#region ComboBox "Дополнительный"-->
-                    <ComboBox  Name="combobox_DopPredmet" ItemsSource="{Binding}" DataContext="{Binding Path=GetPredmets}" SelectedValuePath="Номер_Предмета" DisplayMemberPath="Название_Предмета" Grid.RowSpan="2" Margin="10 0 0 20" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="3" Grid.Row="0" Width="220" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
+                    <ComboBox  Name="combobox_DopPredmet" ItemsSource="{Binding}" DataContext="{Binding Path=GetPredmets}" SelectedValuePath="Номер_Предмета" DisplayMemberPath="Название_Предмета" Grid.RowSpan="2" Margin="10 0 0 20" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="3" Grid.Row="0" Width="220" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
+                            
+                        
+                    </ComboBox>
                     <!--#endregion-->
                     <!--#region Надпись "Специальность"-->
                     <Label Grid.Column="3" Grid.Row="1" Width="270" Height="40" Content="Ведущий кружок:" FontSize="20" Foreground="#403F3F" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 50 0 0"/>

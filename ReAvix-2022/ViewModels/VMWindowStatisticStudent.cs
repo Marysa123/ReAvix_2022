@@ -169,15 +169,16 @@ namespace ReAvix_2022.ViewModels
 
                 CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {MassivNomerPredmet[i]}";
 
-                Label NamePredmet = new Label
+                TextBlock NamePredmet = new TextBlock
                 {
-                    Content = CommandSql.ExecuteScalar(),
+                    Text = (string)CommandSql.ExecuteScalar(),
+                    TextWrapping = TextWrapping.Wrap,
                     Foreground = System.Windows.Media.Brushes.White,
-                    FontSize = 22,
+                    FontSize = 18,
                     FontWeight = FontWeights.Bold,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                     Margin = new Thickness(15, 15, 0, 0),
-                    Height = 35,
+                    Height = 55,
                     Width = 260,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top

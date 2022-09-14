@@ -40,16 +40,18 @@
             <TextBlock Text="Пожалуйста, добавьте фото грамоты, кубка или иного доказательства" Foreground="#ADADAD" TextWrapping="Wrap" Width="470" FontSize="20" HorizontalAlignment="Left" Margin="35 0 0 0" VerticalAlignment="Top" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <Image Margin="20" Name="Image" Height="270" Width="470" MouseDown="Image_MouseDown" Cursor="Hand" Source="{Binding Path= SourceIm}"/>
             <Label Content="Укажите место в соревновании" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
-            <ComboBox Name="combobox_Mesto" FontFamily="Bahnschrift SemiCondensed" Margin="35 10 0 10" Text="{Binding Path=LevelsMaster}" materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" FontSize="21" Grid.Column="1" Grid.Row="3" Width="85" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
+            <ComboBox Name="combobox_Mesto" FontFamily="Bahnschrift SemiCondensed" Margin="35 10 0 10" Text="{Binding Path=LevelsMaster}" materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" BorderBrush="Black" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left" FontSize="21" Grid.Column="1" Grid.Row="3" Width="185" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
                 <ComboBoxItem IsSelected="True" Content="1"/>
                 <ComboBoxItem Content="2"/>
                 <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="Участник"/>
+
             </ComboBox>
             <Label Content="Укажите место проведения соревнования" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_Mesto"
-                Height="60"
+                Height="65"
                 FontSize="20"
                 TextWrapping="Wrap"
                 Margin="35 10 35 0"
@@ -60,7 +62,7 @@
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_Name"
-                Height="60"
+                Height="65"
                 FontSize="20"
                 TextWrapping="Wrap"
                 Margin="35 10 35 0"

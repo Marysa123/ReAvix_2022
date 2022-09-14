@@ -94,12 +94,12 @@ namespace ReAvix_2022.ViewModels
                 TextBlock NameKategoria = new TextBlock
                 {
                     Foreground = System.Windows.Media.Brushes.White,
-                    FontSize = 18,
+                    FontSize = 16,
                     FontWeight = FontWeights.Bold,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
-                    Height = 50,
-                    Width = 150,
-                    Margin = new Thickness(0, 0, 0, 10),
+                    Height = 60,
+                    Width = 200,
+                    Margin = new Thickness(0, 0, 0, 0),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Bottom,
                     TextWrapping = TextWrapping.Wrap,
@@ -114,14 +114,14 @@ namespace ReAvix_2022.ViewModels
                 double Number = (double)CommandSql.ExecuteScalar();
 
 
-                BitmapImage bit = new BitmapImage(new Uri("/Resources/Images/icon_Arrows.png", UriKind.Relative));
+                BitmapImage bit = new BitmapImage(new Uri("/Resources/Images/images_information.png", UriKind.Relative));
 
                 Image popupBox = new Image
                 {
                     HorizontalAlignment = HorizontalAlignment.Right,
                     Height = 25,
-                    VerticalAlignment = VerticalAlignment.Bottom,
-                    Margin = new Thickness(0, 0, 10, 10),
+                    VerticalAlignment = VerticalAlignment.Top,
+                    Margin = new Thickness(0, 10, 10, 0),
                     Source = bit,
                     Cursor = Cursors.Hand
                 };
@@ -142,6 +142,8 @@ namespace ReAvix_2022.ViewModels
 
         int CountDos;
         public List<int> MassivNomerDos;
+        TextBlock MestoDos;
+        TextBlock MestoDos1;
 
         public void AddDos(int NumberSt, out List<Grid> GridOut)
         {
@@ -220,21 +222,46 @@ namespace ReAvix_2022.ViewModels
 
                 CommandSql.CommandText = $"select [Место_в_соревновании] from Достижения where [Номер_Достижения] = {MassivNomerDos[i]}";
 
-                TextBlock MestoDos = new TextBlock
+                if ((string)CommandSql.ExecuteScalar() == "Участник")
                 {
-                    Text = CommandSql.ExecuteScalar() + " Место",
-                    Foreground = System.Windows.Media.Brushes.White,
-                    FontSize = 24,
-                    FontWeight = FontWeights.Regular,
-                    FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
-                    Height = 40,
-                    Width = 120,
-                    Margin = new Thickness(0, 0, 35, 8),
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    VerticalAlignment = VerticalAlignment.Bottom,
-                    TextWrapping = TextWrapping.Wrap,
-                    TextAlignment = TextAlignment.Center,
-                };
+                    MestoDos1 = new TextBlock
+                    {
+                        Text = CommandSql.ExecuteScalar().ToString(),
+                        Foreground = System.Windows.Media.Brushes.White,
+                        FontSize = 24,
+                        FontWeight = FontWeights.Regular,
+                        FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
+                        Height = 40,
+                        Width = 110,
+                        Margin = new Thickness(0, 0, 55, 8),
+                        HorizontalAlignment = HorizontalAlignment.Right,
+                        VerticalAlignment = VerticalAlignment.Bottom,
+                        TextWrapping = TextWrapping.Wrap,
+                        TextAlignment = TextAlignment.Center,
+                    };
+
+                }
+                else
+                {
+                    MestoDos = new TextBlock
+                    {
+                        Text = CommandSql.ExecuteScalar() + " Место",
+                        Foreground = System.Windows.Media.Brushes.White,
+                        FontSize = 24,
+                        FontWeight = FontWeights.Regular,
+                        FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
+                        Height = 40,
+                        Width = 90,
+                        Margin = new Thickness(0, 0, 55, 8),
+                        HorizontalAlignment = HorizontalAlignment.Right,
+                        VerticalAlignment = VerticalAlignment.Bottom,
+                        TextWrapping = TextWrapping.Wrap,
+                        TextAlignment = TextAlignment.Center,
+                    };
+                }
+
+
+
 
                 BitmapImage bit = new BitmapImage(new Uri("/Resources/Images/icon_Trophy.png", UriKind.Relative));
 
@@ -262,9 +289,19 @@ namespace ReAvix_2022.ViewModels
 
                 grid.Children.Add(border);
                 grid.Children.Add(NameDos);
-                grid.Children.Add(MestoDos);
                 grid.Children.Add(popupBox);
                 grid.Children.Add(popupBox1);
+
+                CommandSql.CommandText = $"select [Место_в_соревновании] from Достижения where [Номер_Достижения] = {MassivNomerDos[i]}";
+
+                if (CommandSql.ExecuteScalar().ToString() == "Участник")
+                {
+                    grid.Children.Add(MestoDos1);
+                }
+                else
+                {
+                    grid.Children.Add(MestoDos);
+                }
 
                 Borders.Add(grid);
 
