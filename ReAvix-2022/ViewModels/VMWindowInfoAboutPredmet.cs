@@ -1,9 +1,6 @@
-﻿using LiveCharts;
-using LiveCharts.Wpf;
-using LiveChartsCore;
+﻿using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
-using ReAvix_2022.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;

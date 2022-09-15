@@ -99,7 +99,7 @@ namespace ReAvix_2022.ViewModels
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                     Height = 60,
                     Width = 200,
-                    Margin = new Thickness(0, 0, 0, 0),
+                    Margin = new Thickness(0, 0, 0, 10),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Bottom,
                     TextWrapping = TextWrapping.Wrap,
@@ -145,6 +145,11 @@ namespace ReAvix_2022.ViewModels
         TextBlock MestoDos;
         TextBlock MestoDos1;
 
+        public static byte[] Image { get; set; }
+        public BitmapImage newBitmapImage;
+
+
+
         public void AddDos(int NumberSt, out List<Grid> GridOut)
         {
             _Connection.Close();
@@ -177,8 +182,8 @@ namespace ReAvix_2022.ViewModels
             {
                 Grid grid = new Grid
                 {
-                    Height = 240,
-                    Width = 310,
+                    Height = 410,
+                    Width = 390,
                 };
 
                 DropShadowEffect dropShadowEffect = new DropShadowEffect
@@ -190,8 +195,8 @@ namespace ReAvix_2022.ViewModels
 
                 Border border = new Border
                 {
-                    Width = 310,
-                    Height = 240,
+                    Width = 380,
+                    Height = 400,
                     CornerRadius = new System.Windows.CornerRadius(10),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
@@ -199,6 +204,31 @@ namespace ReAvix_2022.ViewModels
                     Effect = dropShadowEffect,
 
                 };
+
+
+                CommandSql.CommandText = $"select [Изображение] from Достижения where [Номер_Достижения] = {MassivNomerDos[i]} and [FK_Номер_Студента] = {NumberStudent}";
+                Image = (byte[])CommandSql.ExecuteScalar();
+
+                System.IO.MemoryStream ms = new System.IO.MemoryStream(Image);
+                ms.Seek(0, System.IO.SeekOrigin.Begin);
+
+                newBitmapImage = new BitmapImage();
+                newBitmapImage.BeginInit();
+                newBitmapImage.StreamSource = ms;
+                newBitmapImage.EndInit();
+
+
+                Image popupBox2 = new Image
+                {
+                    Height = 290,
+                    Width = 290,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Margin = new Thickness(0,0,0,80),
+                    Source = newBitmapImage
+                };
+
+
 
                 CommandSql.CommandText = $"select [Название_Соревнования] from Достижения where [Номер_Достижения] = {MassivNomerDos[i]}";
 
@@ -208,14 +238,12 @@ namespace ReAvix_2022.ViewModels
                 {
                     Text = (string)CommandSql.ExecuteScalar(),
                     Foreground = System.Windows.Media.Brushes.White,
-                    FontSize = 24,
+                    FontSize = 20,
                     FontWeight = FontWeights.SemiBold,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
-                    Height = 80,
-                    Width = 120,
-                    Margin = new Thickness(0, 10, 0, 0),
+                    Margin = new Thickness(0, 0, 0, 45),
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Bottom,
                     TextWrapping = TextWrapping.Wrap,
                     TextAlignment = TextAlignment.Center,
                 };
@@ -228,12 +256,12 @@ namespace ReAvix_2022.ViewModels
                     {
                         Text = CommandSql.ExecuteScalar().ToString(),
                         Foreground = System.Windows.Media.Brushes.White,
-                        FontSize = 24,
+                        FontSize = 20,
                         FontWeight = FontWeights.Regular,
                         FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                         Height = 40,
                         Width = 110,
-                        Margin = new Thickness(0, 0, 55, 8),
+                        Margin = new Thickness(0, 0, 40, 0),
                         HorizontalAlignment = HorizontalAlignment.Right,
                         VerticalAlignment = VerticalAlignment.Bottom,
                         TextWrapping = TextWrapping.Wrap,
@@ -247,12 +275,12 @@ namespace ReAvix_2022.ViewModels
                     {
                         Text = CommandSql.ExecuteScalar() + " Место",
                         Foreground = System.Windows.Media.Brushes.White,
-                        FontSize = 24,
+                        FontSize = 20,
                         FontWeight = FontWeights.Regular,
                         FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                         Height = 40,
                         Width = 90,
-                        Margin = new Thickness(0, 0, 55, 8),
+                        Margin = new Thickness(0, 0, 55, 0),
                         HorizontalAlignment = HorizontalAlignment.Right,
                         VerticalAlignment = VerticalAlignment.Bottom,
                         TextWrapping = TextWrapping.Wrap,
@@ -270,7 +298,7 @@ namespace ReAvix_2022.ViewModels
                     HorizontalAlignment = HorizontalAlignment.Right,
                     Height = 30,
                     VerticalAlignment = VerticalAlignment.Bottom,
-                    Margin = new Thickness(0, 0, 20, 20),
+                    Margin = new Thickness(0, 0, 20, 15),
                     Source = bit,
                 };
 
@@ -290,7 +318,9 @@ namespace ReAvix_2022.ViewModels
                 grid.Children.Add(border);
                 grid.Children.Add(NameDos);
                 grid.Children.Add(popupBox);
+                grid.Children.Add(popupBox2);
                 grid.Children.Add(popupBox1);
+
 
                 CommandSql.CommandText = $"select [Место_в_соревновании] from Достижения where [Номер_Достижения] = {MassivNomerDos[i]}";
 

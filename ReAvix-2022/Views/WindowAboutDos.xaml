@@ -55,7 +55,8 @@
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_MestoProv"
-                Height="90"
+                VerticalScrollBarVisibility="Auto"
+                Height="100"
                 IsReadOnly="True"
                 Width="330"
                 Text="{Binding MestoPro}"
@@ -70,8 +71,9 @@
             <TextBox
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 Name="textbox_NameSor"
+                VerticalScrollBarVisibility="Auto"
                 Text="{Binding NameSorev}"
-                Height="90"
+                Height="120"
                 IsReadOnly="True"
                 Width="330"
                 HorizontalAlignment="Left"

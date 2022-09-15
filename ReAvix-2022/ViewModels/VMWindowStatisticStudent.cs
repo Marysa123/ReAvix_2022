@@ -167,6 +167,9 @@ namespace ReAvix_2022.ViewModels
                 };
 
 
+
+
+
                 CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {MassivNomerPredmet[i]}";
 
                 TextBlock NamePredmet = new TextBlock
