@@ -49,7 +49,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel>
-                <TextBlock Text="{Binding Path= NamePredmet}" VerticalAlignment="Top" TextWrapping="Wrap" Margin="15 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
+                <TextBlock Text="{Binding Path= NamePredmet}" VerticalAlignment="Top" Width="450" TextWrapping="Wrap" Margin="15 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
                 <Label Content="{Binding Path= NameWork}" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="30" FontFamily="Bahnschrift Light Condensed"/>
                 <Label Content="{Binding Path= FIOPrep}" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             </StackPanel>

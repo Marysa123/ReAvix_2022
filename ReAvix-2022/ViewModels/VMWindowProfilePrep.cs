@@ -79,9 +79,6 @@ namespace ReAvix_2022.ViewModels
             CommandSql.CommandText = $"select [Фамилия] + ' ' + [Имя] + ' ' + Отчество as FIO from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep} group by [Фамилия],[Имя],Отчество ";
             FI = (string)CommandSql.ExecuteScalar();
 
-            CommandSql.CommandText = $"select [Ведущий_предмет] from Преподаватели where [Номер_Преподавателя] = {NomerPrep}";
-            VedPredmetTwo = (string)CommandSql.ExecuteScalar();
-            VedPredmet = "Преподаватель. Ведущий предмет: " + (string)CommandSql.ExecuteScalar();
 
             CommandSql.CommandText = $"select [Номер_Телефона] from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
             Phone = (string)CommandSql.ExecuteScalar();
@@ -116,8 +113,6 @@ namespace ReAvix_2022.ViewModels
             CommandSql.CommandText = $"select [Краткая_Информация]  from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
             InfoMe = (string)CommandSql.ExecuteScalar();
 
-            CommandSql.CommandText = $"select [Дополнительный_Предмет]  from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
-            DopPredmet = (string)CommandSql.ExecuteScalar();
 
             CommandSql.CommandText = $"select [Специальность]  from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
             Spec = (string)CommandSql.ExecuteScalar();

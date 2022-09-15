@@ -74,6 +74,7 @@ namespace ReAvix_2022.Views
                 windowAboutDos.textbox_MestoProv.IsReadOnly = true;
                 windowAboutDos.textbox_NameSor.IsReadOnly = true;
                 windowAboutDos.button_DeleteDosStud.IsEnabled = false;
+                windowAboutDos.button_DeleteDosStud.Visibility = Visibility.Hidden;
                 windowAboutDos.ShowDialog();
             }
         }
@@ -93,6 +94,8 @@ namespace ReAvix_2022.Views
                 WindowAboutSkils windowAboutSkils = new WindowAboutSkils(IndexItem, NomerStudent);
                 windowAboutSkils.button_UpdateSkilsStud.IsEnabled = false;
                 windowAboutSkils.button_DeleteSkilsStud.IsEnabled = false;
+                windowAboutSkils.button_DeleteSkilsStud.Visibility = Visibility.Hidden;
+                windowAboutSkils.button_UpdateSkilsStud.Visibility = Visibility.Hidden;
                 windowAboutSkils.textbox_TextSkils.IsReadOnly = true;
                 windowAboutSkils.combobox_ValueMaster.IsEnabled = false;
 

@@ -31,8 +31,6 @@ namespace ReAvix_2022.Models
         public string Пол { get; set; }
         public System.DateTime Дата_Рождения { get; set; }
         public string Адрес { get; set; }
-        public string Ведущий_Предмет { get; set; }
-        public string Дополнительный_Предмет { get; set; }
         public string Специальность { get; set; }
         public string Краткая_Информация { get; set; }
         public string Ведущий_Кружок { get; set; }

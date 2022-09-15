@@ -14,8 +14,6 @@ create table [Преподаватели](
 [Пол] varchar(7) NOT NULL default 'Мужской',
 [Дата_Рождения] date NOT NULL,
 [Адрес] varchar(120) NOT NULL,
-[Ведущий_Предмет] varchar(50) NOT NULL,
-[Дополнительный_Предмет] varchar(80),
 [Специальность] varchar(50) NOT NULL,
 [Краткая_Информация] varchar(400) NOT NULL,
 [Ведущий_Кружок] varchar(50) NOT NULL,

@@ -88,8 +88,6 @@
           <ScalarProperty Name="Пол" ColumnName="Пол" />
           <ScalarProperty Name="Дата_Рождения" ColumnName="Дата_Рождения" />
           <ScalarProperty Name="Адрес" ColumnName="Адрес" />
-          <ScalarProperty Name="Ведущий_Предмет" ColumnName="Ведущий_Предмет" />
-          <ScalarProperty Name="Дополнительный_Предмет" ColumnName="Дополнительный_Предмет" />
           <ScalarProperty Name="Специальность" ColumnName="Специальность" />
           <ScalarProperty Name="Краткая_Информация" ColumnName="Краткая_Информация" />
           <ScalarProperty Name="Ведущий_Кружок" ColumnName="Ведущий_Кружок" />

@@ -43,7 +43,7 @@ namespace ReAvix_2022.Views
 
             VMWindowRegisterPrep vMWindowRegisterPrep = new VMWindowRegisterPrep();
 
-            vMWindowRegisterPrep.ValidateInfoStudentTextBox(resultTextBox: out bool resultTextBox, textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_EMail.Text, textbox_Phone.Text, textbox_Adress.Text, textbox_MeText.Text, combobox_OtchGroup.Text, combobox_VedPredmet.Text, combobox_DopPredmet.Text, combobox_Spec.Text, combobox_Ellips.Text);
+            vMWindowRegisterPrep.ValidateInfoStudentTextBox(resultTextBox: out bool resultTextBox, textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_EMail.Text, textbox_Phone.Text, textbox_Adress.Text, textbox_MeText.Text, combobox_OtchGroup.Text, combobox_Spec.Text, combobox_Ellips.Text);
             if (resultTextBox == true)
             {
                 vMWindowRegisterPrep.ValidateInfoStudentPasswordBox(PasswordOne: textbox_Password.Password.ToString(), PasswordTwo: textbox_VerifityPassword.Password.ToString(), out bool resultPassword);
@@ -58,7 +58,7 @@ namespace ReAvix_2022.Views
                             vMWindowRegisterPrep.ValidateInfoStudentPhone(PhoneOne: textbox_Phone.Text, out bool resultPhone);
                             if (resultPhone == true)
                             {
-                                vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_VedPredmet.Text, combobox_DopPredmet.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
+                                vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
                                 MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
                                 windowSign.Show();
                                 Close();

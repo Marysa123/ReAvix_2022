@@ -199,7 +199,7 @@ namespace ReAvix_2022.ViewModels
                 Image popupBox = new Image
                 {
                     HorizontalAlignment = HorizontalAlignment.Right,
-                    Height = 35,
+                    Height = 25,
                     VerticalAlignment = VerticalAlignment.Top,
                     Margin = new Thickness(0, 10, 10, 20),
                     Source = bit,
@@ -408,8 +408,8 @@ namespace ReAvix_2022.ViewModels
             {
                 Grid ContainerGrid = new Grid
                 {
-                    Width = 380,
-                    Height = 260,
+                    Width = 400,
+                    Height = 280,
                     Margin = new System.Windows.Thickness(0, 0, 0, 0)
                 };
 
@@ -431,16 +431,17 @@ namespace ReAvix_2022.ViewModels
 
                 CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {MassivNomerPredmet[i]}";
 
-                Label NamePredmet = new Label
+                TextBlock NamePredmet = new TextBlock
                 {
-                    Content = CommandSql.ExecuteScalar(),
+                    Text = (string)CommandSql.ExecuteScalar(),
+                    TextWrapping = TextWrapping.Wrap,
                     Foreground = System.Windows.Media.Brushes.White,
-                    FontSize = 22,
+                    FontSize = 18,
                     FontWeight = FontWeights.Bold,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                     Margin = new Thickness(15, 15, 0, 0),
-                    Height = 35,
-                    Width = 260,
+                    Height = 65,
+                    Width = 240,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top
 
@@ -449,12 +450,12 @@ namespace ReAvix_2022.ViewModels
 
                 Label AVGPredmet = new Label
                 {
-                    Content = "                                AVG: " + CommandSql.ExecuteScalar(),
+                    Content = "                                Cреднее: " + CommandSql.ExecuteScalar(),
                     Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#3AFFDC"),
-                    FontSize = 22,
+                    FontSize = 18,
                     FontWeight = FontWeights.Bold,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
-                    Margin = new Thickness(0, 15, 0, 0),
+                    Margin = new Thickness(20, 25, 0, 0),
                     Height = 35,
                     Width = 260,
                     HorizontalAlignment = HorizontalAlignment.Right,

@@ -146,8 +146,8 @@ namespace ReAvix_2022.ViewModels
             {
                 Grid ContainerGrid = new Grid
                 {
-                    Width = 380,
-                    Height = 260,
+                    Width = 400,
+                    Height = 280,
                     Margin = new System.Windows.Thickness(0, 0, 0, 0)
                 };
 
@@ -188,14 +188,13 @@ namespace ReAvix_2022.ViewModels
 
                 Label AVGPredmet = new Label
                 {
-                    Content = "                                AVG: " + CommandSql.ExecuteScalar(),
+                    Content = "                                Среднее: " + CommandSql.ExecuteScalar(),
                     Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#3AFFDC"),
-                    FontSize = 22,
+                    FontSize = 18,
                     FontWeight = FontWeights.Bold,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
-                    Margin = new Thickness(0, 15, 0, 0),
+                    Margin = new Thickness(0, 25, 20, 0),
                     Height = 35,
-                    Width = 260,
                     HorizontalAlignment = HorizontalAlignment.Right,
                     VerticalAlignment = VerticalAlignment.Top
 

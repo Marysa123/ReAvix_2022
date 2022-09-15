@@ -161,21 +161,22 @@ namespace ReAvix_2022.ViewModels
                     Content = MassivOchenkaCount[i],
                     HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
                     VerticalAlignment = System.Windows.VerticalAlignment.Center,
-                    Margin = new System.Windows.Thickness(40, 0, 0, 0),
+                    Margin = new System.Windows.Thickness(0, 0, 0, 0),
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
                     Foreground = System.Windows.Media.Brushes.White,
                     FontSize = 20
                 };
 
-                Label NamePredmet = new Label
+                TextBlock NamePredmet = new TextBlock
                 {
-                    Content = MassivStringStudent[i],
+                    Text = MassivStringStudent[i],
+                    TextWrapping = System.Windows.TextWrapping.Wrap,
                     HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
                     VerticalAlignment = System.Windows.VerticalAlignment.Center,
                     Margin = new System.Windows.Thickness(40, 0, 0, 0),
                     Foreground = System.Windows.Media.Brushes.White,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
-                    FontSize = 24
+                    FontSize = 20
                 };
                 grid.Children.Add(NamePredmet);
                 grid.Children.Add(AvgPredmet);

@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_ReAvixModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Достижения">
+    <Key>
+      <PropertyRef Name="Номер_Достижения" />
+    </Key>
+    <Property Name="Номер_Достижения" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Изображение" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Дополнительное_Изображение" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Место_в_соревновании" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Место_Проведения" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Название_Соревнования" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Номер_Студента" Type="Int32" />
+    <NavigationProperty Name="Студенты" Relationship="Self.FK__Достижени__FK_Но__01D345B0" FromRole="Достижения" ToRole="Студенты" />
+  </EntityType>
+  <EntityType Name="Заметки">
+    <Key>
+      <PropertyRef Name="Номер_заметки" />
+    </Key>
+    <Property Name="Номер_заметки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Текст" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Приоритет" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Номер_Студента" Type="Int32" />
+    <Property Name="FK_Номер_Преподавателя" Type="Int32" />
+    <NavigationProperty Name="Студенты" Relationship="Self.FK__Заметки__FK_Номе__04AFB25B" FromRole="Заметки" ToRole="Студенты" />
+    <NavigationProperty Name="Преподаватели" Relationship="Self.FK__Заметки__FK_Номе__05A3D694" FromRole="Заметки" ToRole="Преподаватели" />
+  </EntityType>
+  <EntityType Name="Категории_Навыка">
+    <Key>
+      <PropertyRef Name="Номер_Категории" />
+    </Key>
+    <Property Name="Номер_Категории" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название_Категории" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Кружки">
+    <Key>
+      <PropertyRef Name="Номер_Кружка" />
+    </Key>
+    <Property Name="Номер_Кружка" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название_Кружка" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Навыки">
+    <Key>
+      <PropertyRef Name="Номер_Навыка" />
+    </Key>
+    <Property Name="Номер_Навыка" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Категория_Навыка" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Мастерство_Навыка" Type="Byte" Nullable="false" />
+    <Property Name="Описание_Навыка" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Номер_Студента" Type="Int32" />
+    <NavigationProperty Name="Студенты" Relationship="Self.FK__Навыки__FK_Номер__7EF6D905" FromRole="Навыки" ToRole="Студенты" />
+  </EntityType>
+  <EntityType Name="Оценки">
+    <Key>
+      <PropertyRef Name="Номер_оценки" />
+    </Key>
+    <Property Name="Номер_оценки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Дата" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FK_Номер_Студента" Type="Int32" />
+    <Property Name="FK_Номер_Предмета" Type="Int32" />
+    <Property Name="Оценка" Type="Int32" Nullable="false" />
+    <Property Name="Вид_оценочной_Работы" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Студенты" Relationship="Self.FK__Оценки__FK_Номер__793DFFAF" FromRole="Оценки" ToRole="Студенты" />
+    <NavigationProperty Name="Предметы" Relationship="Self.FK__Оценки__FK_Номер__7A3223E8" FromRole="Оценки" ToRole="Предметы" />
+  </EntityType>
+  <EntityType Name="Предметы">
+    <Key>
+      <PropertyRef Name="Номер_Предмета" />
+    </Key>
+    <Property Name="Номер_Предмета" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название_Предмета" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Вид_итоговой_Работы" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ФИО_Преподавателя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Оценки" Relationship="Self.FK__Оценки__FK_Номер__7A3223E8" FromRole="Предметы" ToRole="Оценки" />
+  </EntityType>
+  <EntityType Name="Преподаватели">
+    <Key>
+      <PropertyRef Name="Номер_Преподавателя" />
+    </Key>
+    <Property Name="Номер_Преподавателя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Отчество" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Логин" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пароль" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_Телефона" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пол" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Дата_Рождения" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Адрес" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Специальность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Краткая_Информация" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ведущий_Кружок" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Закреплённая_группа" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Фотография" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Заметки" Relationship="Self.FK__Заметки__FK_Номе__05A3D694" FromRole="Преподаватели" ToRole="Заметки" />
+  </EntityType>
+  <EntityType Name="Специальности">
+    <Key>
+      <PropertyRef Name="Номер_Специальности" />
+    </Key>
+    <Property Name="Номер_Специальности" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название_Специальности" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Студенты">
+    <Key>
+      <PropertyRef Name="Номер_Студента" />
+    </Key>
+    <Property Name="Номер_Студента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фамилия" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Отчество" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Логин" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пароль" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_Телефона" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Номер_телефона_Родителей" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Курс" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Пол" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Дата_Рождения" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Адрес" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Краткая_Информация" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_Номер_Группы" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Фотография" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Достижения" Relationship="Self.FK__Достижени__FK_Но__01D345B0" FromRole="Студенты" ToRole="Достижения" />
+    <NavigationProperty Name="Заметки" Relationship="Self.FK__Заметки__FK_Номе__04AFB25B" FromRole="Студенты" ToRole="Заметки" />
+    <NavigationProperty Name="Навыки" Relationship="Self.FK__Навыки__FK_Номер__7EF6D905" FromRole="Студенты" ToRole="Навыки" />
+    <NavigationProperty Name="Оценки" Relationship="Self.FK__Оценки__FK_Номер__793DFFAF" FromRole="Студенты" ToRole="Оценки" />
+  </EntityType>
+  <EntityType Name="Группа">
+    <Key>
+      <PropertyRef Name="Номер_Группы" />
+      <PropertyRef Name="Полное_Название_группы" />
+    </Key>
+    <Property Name="Номер_Группы" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Полное_Название_группы" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Пропуски">
+    <Key>
+      <PropertyRef Name="Уважительные_Пропуски" />
+      <PropertyRef Name="Неуважительные_Пропуски" />
+      <PropertyRef Name="Пропуски_по_болезни" />
+      <PropertyRef Name="FK_Номер_Студента" />
+    </Key>
+    <Property Name="Уважительные_Пропуски" Type="Int32" Nullable="false" />
+    <Property Name="Неуважительные_Пропуски" Type="Int32" Nullable="false" />
+    <Property Name="Пропуски_по_болезни" Type="Int32" Nullable="false" />
+    <Property Name="FK_Номер_Студента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK__Достижени__FK_Но__01D345B0">
+    <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
+    <End Role="Достижения" Type="Self.Достижения" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Студенты">
+        <PropertyRef Name="Номер_Студента" />
+      </Principal>
+      <Dependent Role="Достижения">
+        <PropertyRef Name="FK_Номер_Студента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Заметки__FK_Номе__04AFB25B">
+    <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
+    <End Role="Заметки" Type="Self.Заметки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Студенты">
+        <PropertyRef Name="Номер_Студента" />
+      </Principal>
+      <Dependent Role="Заметки">
+        <PropertyRef Name="FK_Номер_Студента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Заметки__FK_Номе__05A3D694">
+    <End Role="Преподаватели" Type="Self.Преподаватели" Multiplicity="0..1" />
+    <End Role="Заметки" Type="Self.Заметки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Преподаватели">
+        <PropertyRef Name="Номер_Преподавателя" />
+      </Principal>
+      <Dependent Role="Заметки">
+        <PropertyRef Name="FK_Номер_Преподавателя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Навыки__FK_Номер__7EF6D905">
+    <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
+    <End Role="Навыки" Type="Self.Навыки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Студенты">
+        <PropertyRef Name="Номер_Студента" />
+      </Principal>
+      <Dependent Role="Навыки">
+        <PropertyRef Name="FK_Номер_Студента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Оценки__FK_Номер__793DFFAF">
+    <End Role="Студенты" Type="Self.Студенты" Multiplicity="0..1" />
+    <End Role="Оценки" Type="Self.Оценки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Студенты">
+        <PropertyRef Name="Номер_Студента" />
+      </Principal>
+      <Dependent Role="Оценки">
+        <PropertyRef Name="FK_Номер_Студента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Оценки__FK_Номер__7A3223E8">
+    <End Role="Предметы" Type="Self.Предметы" Multiplicity="0..1" />
+    <End Role="Оценки" Type="Self.Оценки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Предметы">
+        <PropertyRef Name="Номер_Предмета" />
+      </Principal>
+      <Dependent Role="Оценки">
+        <PropertyRef Name="FK_Номер_Предмета" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_ReAvixEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Достижения" EntityType="Self.Достижения" />
+    <EntitySet Name="Заметки" EntityType="Self.Заметки" />
+    <EntitySet Name="Категории_Навыка" EntityType="Self.Категории_Навыка" />
+    <EntitySet Name="Кружки" EntityType="Self.Кружки" />
+    <EntitySet Name="Навыки" EntityType="Self.Навыки" />
+    <EntitySet Name="Оценки" EntityType="Self.Оценки" />
+    <EntitySet Name="Предметы" EntityType="Self.Предметы" />
+    <EntitySet Name="Преподаватели" EntityType="Self.Преподаватели" />
+    <EntitySet Name="Специальности" EntityType="Self.Специальности" />
+    <EntitySet Name="Студенты" EntityType="Self.Студенты" />
+    <EntitySet Name="Группа" EntityType="Self.Группа" />
+    <EntitySet Name="Пропуски" EntityType="Self.Пропуски" />
+    <AssociationSet Name="FK__Достижени__FK_Но__01D345B0" Association="Self.FK__Достижени__FK_Но__01D345B0">
+      <End Role="Студенты" EntitySet="Студенты" />
+      <End Role="Достижения" EntitySet="Достижения" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Заметки__FK_Номе__04AFB25B" Association="Self.FK__Заметки__FK_Номе__04AFB25B">
+      <End Role="Студенты" EntitySet="Студенты" />
+      <End Role="Заметки" EntitySet="Заметки" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Заметки__FK_Номе__05A3D694" Association="Self.FK__Заметки__FK_Номе__05A3D694">
+      <End Role="Преподаватели" EntitySet="Преподаватели" />
+      <End Role="Заметки" EntitySet="Заметки" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Навыки__FK_Номер__7EF6D905" Association="Self.FK__Навыки__FK_Номер__7EF6D905">
+      <End Role="Студенты" EntitySet="Студенты" />
+      <End Role="Навыки" EntitySet="Навыки" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Оценки__FK_Номер__793DFFAF" Association="Self.FK__Оценки__FK_Номер__793DFFAF">
+      <End Role="Студенты" EntitySet="Студенты" />
+      <End Role="Оценки" EntitySet="Оценки" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Оценки__FK_Номер__7A3223E8" Association="Self.FK__Оценки__FK_Номер__7A3223E8">
+      <End Role="Предметы" EntitySet="Предметы" />
+      <End Role="Оценки" EntitySet="Оценки" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

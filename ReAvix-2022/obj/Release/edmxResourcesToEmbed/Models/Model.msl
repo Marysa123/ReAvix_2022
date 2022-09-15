@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище db_ReAvixModelContainer" CdmEntityContainer="db_ReAvixEntities">
+    <EntitySetMapping Name="Достижения">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Достижения">
+        <MappingFragment StoreEntitySet="Достижения">
+          <ScalarProperty Name="Номер_Достижения" ColumnName="Номер_Достижения" />
+          <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+          <ScalarProperty Name="Дополнительное_Изображение" ColumnName="Дополнительное_Изображение" />
+          <ScalarProperty Name="Место_в_соревновании" ColumnName="Место_в_соревновании" />
+          <ScalarProperty Name="Место_Проведения" ColumnName="Место_Проведения" />
+          <ScalarProperty Name="Название_Соревнования" ColumnName="Название_Соревнования" />
+          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заметки">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Заметки">
+        <MappingFragment StoreEntitySet="Заметки">
+          <ScalarProperty Name="Номер_заметки" ColumnName="Номер_заметки" />
+          <ScalarProperty Name="Текст" ColumnName="Текст" />
+          <ScalarProperty Name="Приоритет" ColumnName="Приоритет" />
+          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+          <ScalarProperty Name="FK_Номер_Преподавателя" ColumnName="FK_Номер_Преподавателя" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Категории_Навыка">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Категории_Навыка">
+        <MappingFragment StoreEntitySet="Категории_Навыка">
+          <ScalarProperty Name="Номер_Категории" ColumnName="Номер_Категории" />
+          <ScalarProperty Name="Название_Категории" ColumnName="Название_Категории" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Кружки">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Кружки">
+        <MappingFragment StoreEntitySet="Кружки">
+          <ScalarProperty Name="Номер_Кружка" ColumnName="Номер_Кружка" />
+          <ScalarProperty Name="Название_Кружка" ColumnName="Название_Кружка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Навыки">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Навыки">
+        <MappingFragment StoreEntitySet="Навыки">
+          <ScalarProperty Name="Номер_Навыка" ColumnName="Номер_Навыка" />
+          <ScalarProperty Name="Категория_Навыка" ColumnName="Категория_Навыка" />
+          <ScalarProperty Name="Мастерство_Навыка" ColumnName="Мастерство_Навыка" />
+          <ScalarProperty Name="Описание_Навыка" ColumnName="Описание_Навыка" />
+          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Оценки">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Оценки">
+        <MappingFragment StoreEntitySet="Оценки">
+          <ScalarProperty Name="Номер_оценки" ColumnName="Номер_оценки" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+          <ScalarProperty Name="FK_Номер_Предмета" ColumnName="FK_Номер_Предмета" />
+          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+          <ScalarProperty Name="Вид_оценочной_Работы" ColumnName="Вид_оценочной_Работы" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Предметы">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Предметы">
+        <MappingFragment StoreEntitySet="Предметы">
+          <ScalarProperty Name="Номер_Предмета" ColumnName="Номер_Предмета" />
+          <ScalarProperty Name="Название_Предмета" ColumnName="Название_Предмета" />
+          <ScalarProperty Name="Вид_итоговой_Работы" ColumnName="Вид_итоговой_Работы" />
+          <ScalarProperty Name="ФИО_Преподавателя" ColumnName="ФИО_Преподавателя" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Преподаватели">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Преподаватели">
+        <MappingFragment StoreEntitySet="Преподаватели">
+          <ScalarProperty Name="Номер_Преподавателя" ColumnName="Номер_Преподавателя" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+          <ScalarProperty Name="Номер_Телефона" ColumnName="Номер_Телефона" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="Дата_Рождения" ColumnName="Дата_Рождения" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Специальность" ColumnName="Специальность" />
+          <ScalarProperty Name="Краткая_Информация" ColumnName="Краткая_Информация" />
+          <ScalarProperty Name="Ведущий_Кружок" ColumnName="Ведущий_Кружок" />
+          <ScalarProperty Name="FK_Закреплённая_группа" ColumnName="FK_Закреплённая_группа" />
+          <ScalarProperty Name="Фотография" ColumnName="Фотография" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Специальности">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Специальности">
+        <MappingFragment StoreEntitySet="Специальности">
+          <ScalarProperty Name="Номер_Специальности" ColumnName="Номер_Специальности" />
+          <ScalarProperty Name="Название_Специальности" ColumnName="Название_Специальности" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Студенты">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Студенты">
+        <MappingFragment StoreEntitySet="Студенты">
+          <ScalarProperty Name="Номер_Студента" ColumnName="Номер_Студента" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Логин" ColumnName="Логин" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+          <ScalarProperty Name="Номер_Телефона" ColumnName="Номер_Телефона" />
+          <ScalarProperty Name="Номер_телефона_Родителей" ColumnName="Номер_телефона_Родителей" />
+          <ScalarProperty Name="Курс" ColumnName="Курс" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="Дата_Рождения" ColumnName="Дата_Рождения" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Краткая_Информация" ColumnName="Краткая_Информация" />
+          <ScalarProperty Name="FK_Номер_Группы" ColumnName="FK_Номер_Группы" />
+          <ScalarProperty Name="Фотография" ColumnName="Фотография" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Группа">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Группа">
+        <MappingFragment StoreEntitySet="Группа">
+          <ScalarProperty Name="Номер_Группы" ColumnName="Номер_Группы" />
+          <ScalarProperty Name="Полное_Название_группы" ColumnName="Полное_Название_группы" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Пропуски">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Пропуски">
+        <MappingFragment StoreEntitySet="Пропуски">
+          <ScalarProperty Name="Уважительные_Пропуски" ColumnName="Уважительные_Пропуски" />
+          <ScalarProperty Name="Неуважительные_Пропуски" ColumnName="Неуважительные_Пропуски" />
+          <ScalarProperty Name="Пропуски_по_болезни" ColumnName="Пропуски_по_болезни" />
+          <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
