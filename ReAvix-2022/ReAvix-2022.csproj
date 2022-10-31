@@ -216,6 +216,7 @@
     <Compile Include="ViewModels\VMWindowListStudentsPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainStudent.cs" />
+    <Compile Include="ViewModels\VMWindowPosvStud.cs" />
     <Compile Include="ViewModels\VMWindowProfilePrep.cs" />
     <Compile Include="ViewModels\VMWindowProfileStudent.cs" />
     <Compile Include="ViewModels\VMWindowRegisterPrep.cs" />
@@ -277,6 +278,9 @@
     <Compile Include="WindowUserControl\UCMainStudent.xaml.cs">
       <DependentUpon>UCMainStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowUserControl\UCPosvStud.xaml.cs">
+      <DependentUpon>UCPosvStud.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowUserControl\UCProfilePrep.xaml.cs">
       <DependentUpon>UCProfilePrep.xaml</DependentUpon>
     </Compile>
@@ -312,6 +316,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagramReAvix.cd" />
     <None Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
@@ -405,6 +410,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowUserControl\UCMainStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCPosvStud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -19,15 +19,10 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Label Content="Таблица Оценки" Foreground="White" FontSize="26"  Margin="52,36,852,924" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-        <Label Content="Таблица Предметы" Foreground="White" FontSize="26"  Margin="796,34,108,926" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-        <Label Content="Таблица Пропуски занятий" Foreground="White" FontSize="26"  Margin="809,416,95,544" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Content="Окно заполнения данных об успеваемости студентов" Foreground="White" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 20 0 0" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Content="Предметы" Foreground="White" FontSize="26" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 30 410 0" FontFamily="Bahnschrift Light SemiCondensed"/>
 
-        <Button Name="button_DeleteOmissions" Click="button_DeleteOmissions_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="1151,0,0,182" Width="262" Height="66" Content="Обнулить пропуски занятий" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
-        <DataGrid
-          Margin="29,82,681,264"
-          AutoGenerateColumns="True"
-          Name="GridView" >
+        <DataGrid Margin="29,82,542,12" AutoGenerateColumns="True" Name="GridView" IsReadOnly="True">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
@@ -35,7 +30,7 @@
             </DataGrid.ItemContainerStyle>
         </DataGrid>
 
-        <Border x:Name="border_AddDos" MouseDown="border_AddDos_MouseDown" BorderThickness="2" Width="180" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,681,191" Cursor="Hand">
+        <Border x:Name="border_AddDos" MouseDown="border_AddDos_MouseDown" BorderThickness="2" Width="180" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,43,33" Cursor="Hand">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="#A81DFE"
@@ -67,65 +62,57 @@
         </Border>
 
         <DataGrid
-          Margin="786,80,24,646"
+          Margin="913,82,8,644"
           AutoGenerateColumns="True"
           Name="GridViewPredmet"/>
-        <DataGrid
-          Margin="793,462,12,264"
-          AutoGenerateColumns="True"
-          x:Name="GridViewOmissions">
-        </DataGrid>
 
-        <Label Content="Формат Mесяц/День/Год" Foreground="White" FontSize="20" Height="40" Width="210" FontFamily="Bahnschrift Light SemiCondensed" Margin="34,786,1196,174"/>
-        <WrapPanel Width="760" HorizontalAlignment="Left" VerticalAlignment="Bottom"  DataContext="{Binding ElementName=GridView,Path=SelectedValue}" Margin="30 0 0 39">
-            <StackPanel>
-                <Label Content="Дата" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="105" Height="50" FontSize="22" Foreground="White" Name="textbox_Data" Text="{Binding Дата}" Cursor="Arrow" BorderBrush="White"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Номер Студента" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="30" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" PreviewTextInput="textbox_NomerStudent_PreviewTextInput" Name="textbox_NomerStudent" Text="{Binding Номер Студента}" Cursor="Arrow" BorderBrush="White"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Номер Предмета" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerPredmet" PreviewTextInput="textbox_NomerPredmet_PreviewTextInput" Text="{Binding Номер Предмета}" Cursor="Arrow" BorderBrush="White"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Оценка" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_OChenka" PreviewTextInput="textbox_OChenka_PreviewTextInput" Text="{Binding Оценка}" Cursor="Arrow" BorderBrush="White"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Вид оценочной работы" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="145" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_VidWork" Text="{Binding Вид оценочной работы}" Cursor="Arrow" BorderBrush="White"/>
-            </StackPanel>
-            <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0 0 20 20" Cursor="Hand" MouseDown="Image_MouseDown_1"/>
-            <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Plus.png" Margin="0 0 20 20" Cursor="Hand" MouseDown="Image_MouseDown_2"/>
+        <Border Width="500" Margin="914,450,26,106" CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2668C1" Offset="0.127"/>
+                    <GradientStop Color="#FF2E3BFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <TextBlock Text="Формат Даты: Mесяц/День/Год" TextWrapping="Wrap" Foreground="White" FontSize="18" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,126,11" Width="140"/>
+                <TextBlock Text="Карточка заполнения данных" TextWrapping="Wrap" Foreground="White" FontSize="24" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"/>
+                <WrapPanel Width="456" DataContext="{Binding ElementName=GridView,Path=SelectedValue}" Margin="22,56,22,-1">
+                    <StackPanel>
+                        <Label Content="ФИО Студента:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Left"/>
+                        <TextBox Width="460" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_Fam" Text="{Binding ФИО_Студента}" Cursor="Arrow" BorderBrush="White"/>
+                    </StackPanel>
+                    <StackPanel Margin="0 20 0 0">
+                        <Label Content="Название предмета" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                        <TextBox Width="460" Height="50" FontSize="22" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_NomerPredmet" Text="{Binding Название Предмета}" Cursor="Arrow" BorderBrush="White"/>
+                    </StackPanel>
+                    <StackPanel Margin="0 20 0 0">
+                        <Label Content="Вид оценочной работы" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                        <TextBox Width="192" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_VidWork" Text="{Binding Вид оценочной работы}" Cursor="Arrow" BorderBrush="White"/>
+                    </StackPanel>
+                    <StackPanel Margin="20 20 0 0">
+                        <Label Content="Дата" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                        <TextBox Width="120" Height="50" FontSize="22" Foreground="White" Name="textbox_Data" Text="{Binding Дата}" Cursor="Arrow" BorderBrush="White"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Оценка" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed" Margin="20 20 0 0"/>
+                        <TextBox Width="50" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Center" Name="textbox_OChenka" Margin="25 0 0 0" PreviewTextInput="textbox_OChenka_PreviewTextInput" Text="{Binding Оценка}" Cursor="Arrow" BorderBrush="White"/>
+                    </StackPanel>
+                    <Image Height="40" Width="40"  Source="/Resources/Images/icon_Refresh.png" Margin="20 20 0 20" Cursor="Hand" MouseDown="Image_MouseDown_1"/>
+                    <Image Height="40" Width="40"  Source="/Resources/Images/icon_Plus.png" Margin="20 20 0 20" Cursor="Hand" MouseDown="Image_MouseDown_2"/>
 
-            <Label Content="{Binding Номер}" Foreground="White" FontSize="20" Visibility="Hidden" Name="label_Номер" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-        </WrapPanel>
+                    <Label Content="{Binding Номер}" Foreground="White" FontSize="20" Visibility="Hidden" Name="label_Номер" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                </WrapPanel>
+            </Grid>
+        </Border>
 
-        <Button Name="button_SelectPredmetGroup" Click="button_SelectPredmetGroup_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="1223,0,0,584" Width="189" Height="55" Content="Предметы группы" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
-        <Button  Name="button_SelectAllPredmet" Click="button_SelectAllPredmet_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="995,0,0,584" Width="189" Height="55" Content="Все предметы" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+
+
+
+        <Button Name="button_SelectPredmetGroup" Click="button_SelectPredmetGroup_Click" Style="{StaticResource StyleButtonAllApplication}" Width="190" Height="56" Content="Предметы группы" FontSize="18" VerticalAlignment="Top"  FontFamily="Bahnschrift" Margin="925,379,325,0"/>
+        <Button  Name="button_SelectAllPredmet" Click="button_SelectAllPredmet_Click" Style="{StaticResource StyleButtonAllApplication}"  Width="190" Height="56" Content="Все предметы" FontSize="18" VerticalAlignment="Top"  FontFamily="Bahnschrift" Margin="1126,379,124,0"/>
 
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 35 20" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
             <Label Content="{Binding ФИО}" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
         </WrapPanel>
-        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 35 80" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
-            <StackPanel>
-                <Label Content="Уважительные пропуски" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" PreviewTextInput="textbox_Yvash_PreviewTextInput" Name="textbox_Yvash" Text="{Binding Уважительные пропуски}" Cursor="Arrow" BorderBrush="White" />
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Неуважительные пропуски" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="28" HorizontalContentAlignment="Center" PreviewTextInput="textbox_NoYvash_PreviewTextInput" Foreground="White" Name="textbox_NoYvash" Text="{Binding Неуважительные пропуски}" BorderBrush="White"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Пропуски по болезни" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                <TextBox Width="50" Height="50" FontSize="28" Foreground="White" PreviewTextInput="textbox_Bolezn_PreviewTextInput" HorizontalContentAlignment="Center" Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" BorderBrush="White"/>
-            </StackPanel>
-            <Label Content="{Binding Номер Студента}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-
-        </WrapPanel>
-        <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0 0 20 90" Cursor="Hand" MouseDown="Image_MouseDown"/>
     </Grid>
 </UserControl>

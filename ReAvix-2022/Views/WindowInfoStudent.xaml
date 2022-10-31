@@ -52,12 +52,16 @@
                     </Image.Clip>
                 </Image>
                 <StackPanel Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 20 30 10">
-                    <Image  Source="/Resources/Images/images_Line.png" Grid.Column="0" HorizontalAlignment="Center" Height="5" Width="300" Margin="20 20 0 0" VerticalAlignment="Center"/>
+                    <Image  Source="/Resources/Images/images_Line.png" Grid.Column="0" HorizontalAlignment="Center" Height="5" Width="300" Margin="20 30 0 0" VerticalAlignment="Center"/>
                     <Label  Content="{Binding Path=FI}" VerticalAlignment="Top" Margin="0 20 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="30" Height="45" FontFamily="Bahnschrift Light Condensed"/>
                     <Label Content="{Binding Path=Cours}" VerticalAlignment="Top" Margin="0 0 0 20" HorizontalAlignment="Left" Foreground="#A4A1A1" FontSize="20" Height="34" FontFamily="Bahnschrift Light Condensed"/>
                     <WrapPanel Margin="0 0 0 20">
                         <Image Width="35" Height="35" Source="/Resources/Images/icon_OldPhone.png"/>
                         <Label Content="{Binding Path=Phone}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="0 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_OldPhone.png"/>
+                        <Label Content="{Binding Path=PhoneRod}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
                     </WrapPanel>
                     <WrapPanel Margin="0 0 0 20">
                         <Image Width="35" Height="35" Source="/Resources/Images/icon_EMail.png"/>
@@ -72,7 +76,7 @@
                         <Label Content="{Binding Path=Age}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="22" Height="30" FontFamily="Bahnschrift Light Condensed"/>
                     </WrapPanel>
                 </StackPanel>
-                <Label Content="Информация о студенте" Foreground="White" FontSize="24" Margin="30 0 0 190" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+                <Label Content="Информация о студенте" Foreground="White" FontSize="24" Margin="30 0 0 180" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light Condensed"/>
                 <TextBox
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         Name="textbox_TextSkils"

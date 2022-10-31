@@ -134,3 +134,5 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddInfoStudentPrep.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddInfoStudentPrep.baml
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.ResolveComReference.cache
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCPosvStud.g.cs
+C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCPosvStud.baml

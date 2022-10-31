@@ -37,6 +37,8 @@ namespace ReAvix_2022.ViewModels
         public string FI { get; set; }
         public string Cours { get; set; }
         public string Phone { get; set; }
+        public string PhoneRod { get; set; }
+
         public string Mail { get; set; }
         public string Adress { get; set; }
         public int Age { get; set; }
@@ -92,6 +94,10 @@ namespace ReAvix_2022.ViewModels
 
             CommandSql.CommandText = $"select [Номер_Телефона] from [Студенты] where [Номер_Студента] = {NomerStudent}";
             Phone = (string)CommandSql.ExecuteScalar();
+
+            CommandSql.CommandText = $"select [Номер_телефона_родителей] from [Студенты] where [Номер_Студента] = {NomerStudent}";
+            PhoneRod = (string)CommandSql.ExecuteScalar();
+            PhoneRod = "Номер телефона родителей: " + PhoneRod;
 
             CommandSql.CommandText = $"select [E_mail]  from [Студенты] where [Номер_Студента] = {NomerStudent}";
             Mail = (string)CommandSql.ExecuteScalar();

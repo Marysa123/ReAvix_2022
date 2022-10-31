@@ -89,8 +89,6 @@ namespace ReAvix_2022.ViewModels
                 };
                 CommandSql.CommandText = $"select [Категория_Навыка] from [Навыки] where [Номер_Навыка] = {MassivNomerSkils[i]}";
 
-
-
                 TextBlock NameKategoria = new TextBlock
                 {
                     Foreground = System.Windows.Media.Brushes.White,

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ReAvix_2022.WindowUserControl.UCPosvStud"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1440" Background="Transparent" DataContext="VMWindowPosvStud">
+    <Grid>
+        <Label Content="Окно заполнения данных о посещаемости студентов" Foreground="White" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40 10 0 0" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Image Name="icon_Exit" Grid.Column="1" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <DataGrid
+            Width="1400"
+            Height="800"
+            Margin="0 0 0 80"
+            AutoGenerateColumns="True"
+            x:Name="GridViewOmissions"/>
+        <Button Name="button_DeleteOmissions" Click="button_DeleteOmissions_Click" Style="{StaticResource StyleButtonAllApplication}" Width="262" Height="66" Content="Обнулить пропуски занятий" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,68" FontFamily="Bahnschrift"/>
+        <Button Name="button_AddOtch" Click="button_AddOtch_Click" Style="{StaticResource StyleButtonAllApplication}" Width="200" Height="60" Content="Создать отчёт" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,22,5" FontFamily="Bahnschrift"/>
+
+        <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="24,0,0,0" DataContext="{Binding ElementName=GridViewOmissions,Path=SelectedValue}">
+            <StackPanel>
+                <Border CornerRadius="10" Width="240">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF2A62BD"/>
+                            <GradientStop Color="#FF3BB9DA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <Label Content="Уважительные пропуски" Foreground="White" FontSize="22"  Height="70"  FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center"/>
+                        <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center"  PreviewTextInput="textbox_Yvash_PreviewTextInput" Name="textbox_Yvash" Margin="0 0 0 10" Text="{Binding Уважительные пропуски}" Cursor="Arrow" BorderBrush="White" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="20 0 0 0">
+                <Border CornerRadius="10" Width="260">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF2A62BD"/>
+                            <GradientStop Color="#FF3BB9DA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <Label Content="Неуважительные пропуски" Foreground="White" FontSize="22"   Height="70" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center"/>
+                        <TextBox Width="50" Height="50" FontSize="28" HorizontalContentAlignment="Center" PreviewTextInput="textbox_NoYvash_PreviewTextInput" Foreground="White" Name="textbox_NoYvash" Margin="0 0 0 10" Text="{Binding Неуважительные пропуски}" BorderBrush="White"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Margin="20 0 0 5">
+                <Border CornerRadius="10" Width="215">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF2A62BD"/>
+                            <GradientStop Color="#FF3BB9DA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+                        <Label Content="Пропуски по болезни" Foreground="White" FontSize="22"   Height="70" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center"/>
+                        <TextBox Width="50" Height="50" FontSize="28" Foreground="White" PreviewTextInput="textbox_Bolezn_PreviewTextInput" HorizontalContentAlignment="Center" Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" Margin="0 0 0 10" BorderBrush="White" Cursor="Arrow"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <Label Content="{Binding Номер Студента}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+            <Label Content="{Binding ФИО}" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="50" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        </WrapPanel>
+        <Label Content="ФИО студента:" Foreground="White" FontSize="22" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontFamily="Bahnschrift Light SemiCondensed" Margin="0,0,510,78"/>
+        <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Margin="0,0,312,17" Cursor="Hand" MouseDown="Image_MouseDown"/>
+    </Grid>
+</UserControl>

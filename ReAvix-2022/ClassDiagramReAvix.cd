@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReAvix_2022.ViewModels.VMWindowAboutDos" Collapsed="true">
+    <Position X="11.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAEAAAAAAAAAgAEAAMARBAQIAUCAACAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowAboutDos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowAboutSkils" Collapsed="true">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAEAAAAAAAgACAAAAAIQAAQIAEAAAAAgQA=</HashCode>
+      <FileName>ViewModels\VMWindowAboutSkils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowAddDos" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAACAIA=</HashCode>
+      <FileName>ViewModels\VMWindowAddDos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowAddInfoStudentPrep" Collapsed="true">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAQAAAAAAAAAAQAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowAddInfoStudentPrep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowAddSkils" Collapsed="true">
+    <Position X="13" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowAddSkils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowDosStudent" Collapsed="true">
+    <Position X="14.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAEAAAAAAAAAAQBAAAARBAAIAAABABAAAk=</HashCode>
+      <FileName>ViewModels\VMWindowDosStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowInfoAboutPredmet" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQBAAAAAAABABAAgAAAAAAAAAARAAAIAAACgAAAAE=</HashCode>
+      <FileName>ViewModels\VMWindowInfoAboutPredmet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowInfoStudent" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAIAAAACIAQAAMAAAIQBAIwARBAAIAEAJQBAAAk=</HashCode>
+      <FileName>ViewModels\VMWindowInfoStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowListStudentsPrep" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAQARRAAIAIAAAAACAA=</HashCode>
+      <FileName>ViewModels\VMWindowListStudentsPrep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowMainPrep" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowMainPrep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowMainStudent" Collapsed="true">
+    <Position X="14.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowMainStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowPosvStud" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAACBAAAAgIAAAAAAAAQQAAAAACAAQAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowPosvStud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowProfilePrep" Collapsed="true">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAQgACCQgAAAEAAAAAACAwARBAEIAAAYQACyIA=</HashCode>
+      <FileName>ViewModels\VMWindowProfilePrep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowProfileStudent" Collapsed="true">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAQgQACAgQAAcAAAAAAAAwARBAAIAAAIQACgIA=</HashCode>
+      <FileName>ViewModels\VMWindowProfileStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowRegisterPrep" Collapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACMABAAAAAAAAAAAAAAQAAAAABAhQAAEIACAAIAAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowRegisterPrep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowRegisterStud" Collapsed="true">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMABAAAAAAAAACAAAAAAAAAAAAAQAAEIACAAIAAAAA=</HashCode>
+      <FileName>ViewModels\VMWindowRegisterStud.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowStatisticGroupPrep">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIARgAAAAQEAAgBQAgBABQAABIBAAAAECDAg=</HashCode>
+      <FileName>ViewModels\VMWindowStatisticGroupPrep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.ViewModels.VMWindowStatisticStudent" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAIAQkIAAAAEAAgBQAgJABQAABIBEAAAACBAg=</HashCode>
+      <FileName>ViewModels\VMWindowStatisticStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowAboutDos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAAEAACAIAA=</HashCode>
+      <FileName>Views\WindowAboutDos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowAboutSkils" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAKAAEEAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\WindowAboutSkils.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowAddDos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAEAAEkAAAAAAAAAAAAAAAAQAAAIAAAgAAAABA=</HashCode>
+      <FileName>Views\WindowAddDos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowAddNotes" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAQAAAAAAAAAAAAAYAAAMAAAAAAAAAA=</HashCode>
+      <FileName>Views\WindowAddNotes.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowAddNotesPrep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAQAAAAAAAYAAAIAAAAAAACAA=</HashCode>
+      <FileName>Views\WindowAddNotesPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowAddSkils" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQEAAAEEAAAAAAAAAAAAAAAAQAAAIAAAAAAAIAA=</HashCode>
+      <FileName>Views\WindowAddSkils.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowInfoAboutPredmet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEMAAAAAAAAAAQAAAAAAAAAAgQAAAAAAAE=</HashCode>
+      <FileName>Views\WindowInfoAboutPredmet.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowInfoStudent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAAAAAAEAAAQAAAAIAAAAAAAAAAAQCAAAAABAAAg=</HashCode>
+      <FileName>Views\WindowInfoStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowMainPrep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACCgAEAAAAAAABEAAAAAACAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\WindowMainPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowMainStudent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgIAAAAAAAEAAAAAAIAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\WindowMainStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowRegisterPrep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAAABAA=</HashCode>
+      <FileName>Views\WindowRegisterPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Views.WindowRegisterStud" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAAABAA=</HashCode>
+      <FileName>Views\WindowRegisterStud.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowSign" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAgAAAAEAAAAAAAAAAAAgEAAAQAAAIAAAABAAAAA=</HashCode>
+      <FileName>Views\WindowSign.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCAddInfoStudentPrep" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQgAQAEABBIAAQCAAAACAYAARSABAAACAAQAAIQ=</HashCode>
+      <FileName>WindowUserControl\UCAddInfoStudentPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCDosStudent" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAEEAAACAEAIAAAAAAAAAAAUAAAAAABAEAg=</HashCode>
+      <FileName>WindowUserControl\UCDosStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCListStudentsPrep" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAEAAAAAAAAAAAAAAAAAAQAAQAAAAAAACAA=</HashCode>
+      <FileName>WindowUserControl\UCListStudentsPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCMainPrep" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WindowUserControl\UCMainPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCMainStudent" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WindowUserControl\UCMainStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCPosvStud" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAEQAEAAAAAAAiAAAAAAAgAQACAAAACAAQAAIA=</HashCode>
+      <FileName>WindowUserControl\UCPosvStud.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCProfilePrep" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAEgAAQAAAAAAAAAAIAAQAAEIAAAAAAACBA=</HashCode>
+      <FileName>WindowUserControl\UCProfilePrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCProfileStudent" BaseTypeListCollapsed="true">
+    <Position X="13" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAEgAAQAAAAAAAAAAIAAQAAEIAAAEAAAADA=</HashCode>
+      <FileName>WindowUserControl\UCProfileStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCStatisticGroupPrep" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAEAAQACAAAAAAAAAAAIAAAAAAAAAAAAGAA=</HashCode>
+      <FileName>WindowUserControl\UCStatisticGroupPrep.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.WindowUserControl.UCStatisticStudent" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAEEAQAAAAAAAAAAAAAIAAAACAiAAAAAEAA=</HashCode>
+      <FileName>WindowUserControl\UCStatisticStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ReAvix_2022.Models.ModelsNotes">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAADAAACAAAQAAAEAQAAAIAgAQAEAAAg=</HashCode>
+      <FileName>Models\ModelsNotes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
