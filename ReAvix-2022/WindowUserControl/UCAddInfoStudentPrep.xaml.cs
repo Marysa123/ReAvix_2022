@@ -232,7 +232,7 @@ namespace ReAvix_2022.WindowUserControl
                                 {
 
 
-                                    sqlCommand.CommandText = $"delete from Оценки where [Номер_оценки] = {Name}";
+                                    sqlCommand.CommandText = $"delete from Оценки_2 where [Номер_оценки] = {Name}";
                                     sqlCommand.ExecuteNonQuery();
                                     MessageBox.Show("Запись удалена!");
                                     UpdateInfoStudent();

@@ -35,8 +35,8 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Label Grid.Column="0" Content="Личная карточка студента" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="40 40 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
-        <Border CornerRadius="10" Grid.Column="0" Margin="40 90 0 40">
+        <Label Grid.Column="0" Content="Личная карточка студента" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="40 10 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+        <Border CornerRadius="10" Grid.Column="0" Margin="40 60 0 40">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="#3243DE"

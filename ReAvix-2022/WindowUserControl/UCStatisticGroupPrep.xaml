@@ -142,5 +142,7 @@
                 </Style>
             </Label.Style>
         </Label>
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="1" x:Name="ContainerGrid" Margin="20"/>
+
     </Grid>
 </UserControl>

@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Controls;
+using LiveChartsCore;
+using LiveChartsCore.Defaults;
+using LiveChartsCore.SkiaSharpView;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Data.SqlClient;
+
 
 namespace ReAvix_2022.ViewModels
 {
@@ -41,7 +49,6 @@ namespace ReAvix_2022.ViewModels
             Name = (string)CommandSql.ExecuteScalar(); // Выполнение запроса
             _Connection.Close(); // Закрытие подключения
             GetAndViewData();
-
         }
         private void GetAndViewData()
         {
@@ -183,6 +190,73 @@ namespace ReAvix_2022.ViewModels
                 Grids.Add(grid);
             }
             _Connection.Close();
+        }
+
+        public static ObservableCollection<ISeries> Series { get; set; }
+        public static ObservableCollection<ObservablePoint> observables;
+
+        List<double> listOchenok;
+        List<int> listDate;
+
+       // int NomerPred, int NumberSt, int IndexMontch,
+        public void AddGraph(out ObservableCollection<ISeries> SeriesOut)
+        {
+            if (Series == null || observables == null) // Проверка на null, поля должны быть пустые
+            {
+
+            }
+            else
+            {
+                Series.Clear();
+                observables.Clear();
+            }
+
+            _Connection.Open();
+            CommandSql.Connection = _Connection;
+
+
+            CommandSql.CommandText = $" SELECT DISTINCT(DATEPART(MONTH,[Дата])) from [Оценки_2] WHERE [ФИО_Студента] = 'Сердцев Дмитрий Витальевич'";
+            SqlDataReader sqlDataReader1 = CommandSql.ExecuteReader();
+            listDate = new List<int>();
+
+            while (sqlDataReader1.Read())
+            {
+                listDate.Add((int)sqlDataReader1.GetValue(0));
+            }
+            sqlDataReader1.Close();
+
+            CommandSql.CommandText = $"select ROUND(AVG(CAST([Оценка] as FLOAT)),1)  from [Оценки_2] where [Название_Предмета] = 'Математика' and [ФИО_Студента] = 'Сердцев Дмитрий Витальевич' and DATEPART(MONTH,[Дата]) = 09";
+            SqlDataReader sqlDataReader = CommandSql.ExecuteReader();
+            listOchenok = new List<double>();
+
+            while (sqlDataReader.Read())
+            {
+                listOchenok.Add((double)sqlDataReader.GetValue(0));
+            }
+            sqlDataReader.Close();
+
+
+            observables = new ObservableCollection<ObservablePoint>
+            {
+                new ObservablePoint(0,0)
+            };
+
+
+            for (int i = 0; i < 1; i++)
+            {
+                Series = new ObservableCollection<ISeries>
+                {
+                    new LineSeries<ObservablePoint>
+                    {
+                        Values = observables,
+                        Fill = null
+                    }
+                };
+
+                observables.Add(new ObservablePoint(listDate[i], listOchenok[i]));
+            }
+            _Connection.Close();
+            SeriesOut = Series;
         }
     }
 }
