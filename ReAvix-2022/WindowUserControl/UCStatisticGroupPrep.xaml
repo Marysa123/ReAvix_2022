@@ -142,6 +142,12 @@
                 </Style>
             </Label.Style>
         </Label>
+        <ComboBox Name="combobox_Fio" Margin="479,243,0,21" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Width="262" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Column="1" Grid.ColumnSpan="2" >
+            <ComboBoxItem IsSelected="True" Content="Сердцев Дмитрий Витальевич" />
+        </ComboBox>
+        <ComboBox Name="combobox_Predmet" Margin="290,243,0,21" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Width="144" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Column="2" >
+            <ComboBoxItem IsSelected="True" Content="Математика" />
+        </ComboBox>
         <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="1" x:Name="ContainerGrid" Margin="20"/>
 
     </Grid>
