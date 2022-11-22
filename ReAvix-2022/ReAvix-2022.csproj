@@ -210,12 +210,15 @@
     <Compile Include="ViewModels\VMWindowAboutSkils.cs" />
     <Compile Include="ViewModels\VMWindowAddDos.cs" />
     <Compile Include="ViewModels\VMWindowAddSkils.cs" />
+    <Compile Include="ViewModels\VMWindowChangePassword.cs" />
+    <Compile Include="ViewModels\VMWindowConfirmationEmail.cs" />
     <Compile Include="ViewModels\VMWindowDosStudent.cs" />
     <Compile Include="ViewModels\VMWindowInfoAboutPredmet.cs" />
     <Compile Include="ViewModels\VMWindowInfoStudent.cs" />
     <Compile Include="ViewModels\VMWindowListStudentsPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainStudent.cs" />
+    <Compile Include="ViewModels\VMWindowPasswordRecovery.cs" />
     <Compile Include="ViewModels\VMWindowPosvStud.cs" />
     <Compile Include="ViewModels\VMWindowProfilePrep.cs" />
     <Compile Include="ViewModels\VMWindowProfileStudent.cs" />
@@ -242,6 +245,12 @@
     <Compile Include="Views\WindowAddSkils.xaml.cs">
       <DependentUpon>WindowAddSkils.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowChangePassword.xaml.cs">
+      <DependentUpon>WindowChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowConfirmationEmail.xaml.cs">
+      <DependentUpon>WindowConfirmationEmail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowInfoAboutPredmet.xaml.cs">
       <DependentUpon>WindowInfoAboutPredmet.xaml</DependentUpon>
     </Compile>
@@ -253,6 +262,9 @@
     </Compile>
     <Compile Include="Views\WindowMainStudent.xaml.cs">
       <DependentUpon>WindowMainStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowPasswordRecovery.xaml.cs">
+      <DependentUpon>WindowPasswordRecovery.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowRegisterPrep.xaml.cs">
       <DependentUpon>WindowRegisterPrep.xaml</DependentUpon>
@@ -365,6 +377,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowConfirmationEmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowInfoAboutPredmet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -378,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowMainStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowPasswordRecovery.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

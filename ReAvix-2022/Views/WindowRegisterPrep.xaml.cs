@@ -58,10 +58,19 @@ namespace ReAvix_2022.Views
                             vMWindowRegisterPrep.ValidateInfoStudentPhone(PhoneOne: textbox_Phone.Text, out bool resultPhone);
                             if (resultPhone == true)
                             {
-                                vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
-                                MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
-                                windowSign.Show();
-                                Close();
+                                WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(textbox_EMail.Text);
+                                windowConfirmationEmail.ShowDialog();
+                                if (windowConfirmationEmail.ResultConfirmation == false)
+                                {
+                                    MessageBox.Show("Неверный код!", "Диалоговое окно", MessageBoxButton.OK);
+                                }
+                                else
+                                {
+                                    vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
+                                    MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
+                                    windowSign.Show();
+                                    Close();
+                                }
                             }
                             else
                             {

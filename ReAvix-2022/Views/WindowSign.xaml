@@ -359,7 +359,7 @@
                 </Button>
                 <!--#endregion-->
                 <!--#region Кнопка "Забыли пароль?"-->
-                <Label Name="button_ChangePasssowrd" PreviewMouseLeftButtonDown="button_ChangePasssowrd_PreviewMouseLeftButtonDown" Cursor="Hand" Content="Забыли пароль?" Margin="0 0 80 30"  HorizontalAlignment="Right" FontSize="18" Foreground="#2FB0F8" VerticalAlignment="Bottom" Opacity="0.3" Grid.Row="4">
+                <Label Name="button_ChangePasssowrd" PreviewMouseLeftButtonDown="button_ChangePasssowrd_PreviewMouseLeftButtonDown" Cursor="Hand" Content="Забыли пароль?" Margin="0 0 80 30"  HorizontalAlignment="Right" FontSize="18" Foreground="#2FB0F8" VerticalAlignment="Bottom" Opacity="0.3" Grid.Row="4" MouseDown="button_ChangePasssowrd_MouseDown">
                     <Label.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>

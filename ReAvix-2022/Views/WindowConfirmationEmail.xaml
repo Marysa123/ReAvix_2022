@@ -1,0 +1,43 @@
+﻿<Window x:Class="ReAvix_2022.Views.WindowConfirmationEmail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReAvix_2022.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="WindowConfirmationEmail" Height="360" Width="550" AllowsTransparency="True"  WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" DataContext="VMWindowConfirmationEmail">
+    <Grid>
+        <Border CornerRadius="20" Grid.Column="1">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop
+                        Color="#2493D1"
+                        Offset="0.4"/>
+                    <GradientStop
+                        Color="#3358DC"
+                        Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Image Name="icon_Exit" MouseDown="icon_Exit_MouseDown" Grid.Row="0" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 25 25 0" Width="20">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Grid.Row="0" Content="Окно подтверждения почты" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 30 0 0" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBlock Text="Вам необходимо подтвердить почту указанную при регистрации.
+Пожалуйсат введите код, указанный в письме. " HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Margin="10 70 0 0" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <TextBox Name="textbox_Code" Margin="50 40 0 0" HorizontalAlignment="Left" materialDesign:TextFieldAssist.LeadingIcon="Onepassword" materialDesign:TextFieldAssist.LeadingIconSize="30" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="0" BorderBrush="White" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Код подтверждения:" Height="70" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" PreviewTextInput="textbox_Code_PreviewTextInput"/>
+                <Button Name="button_Confirmation" Click="button_Confirmation_Click" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}" Style="{StaticResource StyleButtonAllApplication}" Width="252" Height="65" Content="Подтвердить" FontSize="18" VerticalAlignment="Bottom" Margin="0 0 0 30" FontFamily="Bahnschrift"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

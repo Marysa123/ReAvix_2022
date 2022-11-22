@@ -60,10 +60,19 @@ namespace ReAvix_2022.Views
                             vMWindowRegisterStud.ValidateInfoStudentPhone(PhoneOne: textbox_Phone.Text, out bool resultPhone);
                             if (resultPhone == true)
                             {
-                                vMWindowRegisterStud.AddInfoStudentInDB(textbox_Ima.Text, textbox_Fam.Text, textbox_Otc.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, textbox_PhoneRod.Text, combobox_Cours.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, textbox_TextMe.Text, combobox_Group.Text);
-                                MessageBox.Show("Вы успешно зарегистрировались!","Диалоговое окно",MessageBoxButton.OK);
-                                windowSign.Show();
-                                Close();
+                                WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(textbox_EMail.Text);
+                                windowConfirmationEmail.ShowDialog();
+                                if (windowConfirmationEmail.ResultConfirmation == false)
+                                {
+                                    MessageBox.Show("Неверный код!","Диалоговое окно",MessageBoxButton.OK);
+                                }
+                                else
+                                {
+                                    vMWindowRegisterStud.AddInfoStudentInDB(textbox_Ima.Text, textbox_Fam.Text, textbox_Otc.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, textbox_PhoneRod.Text, combobox_Cours.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, textbox_TextMe.Text, combobox_Group.Text);
+                                    MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
+                                    windowSign.Show();
+                                    Close();
+                                }  
                             }
                             else
                             {

@@ -89,7 +89,12 @@ namespace ReAvix_2022
                     textbox_Password.BorderBrush = Brushes.Red;
                 }
             }
+        }
 
+        private void button_ChangePasssowrd_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowPasswordRecovery windowPasswordRecovery = new WindowPasswordRecovery();
+            windowPasswordRecovery.ShowDialog();
         }
     }
 }
