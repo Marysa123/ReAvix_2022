@@ -31,21 +31,21 @@ namespace ReAvix_2022.ViewModels
 
         public void GetInfoPredmet(int NomerPred)
         {
-            _Connection.Open();
-            CommandSql.Connection = _Connection;
+            //_Connection.Open();
+            //CommandSql.Connection = _Connection;
 
-            CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {NomerPred}";
-            NamePredmet = "Наименование предмета: " + (string)CommandSql.ExecuteScalar();
-            string Name = (string)CommandSql.ExecuteScalar();
+            //CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {NomerPred}";
+            //NamePredmet = "Наименование предмета: " + (string)CommandSql.ExecuteScalar();
+            //string Name = (string)CommandSql.ExecuteScalar();
 
-            CommandSql.CommandText = $"select [ФИО_Преподавателя] from [Предметы] where [Номер_Предмета] = {NomerPred}";
-            FIOPrep = "ФИО преподавателя: " + (string)CommandSql.ExecuteScalar();
+            //CommandSql.CommandText = $"select [ФИО_Преподавателя] from [Предметы] where [Номер_Предмета] = {NomerPred}";
+            //FIOPrep = "ФИО преподавателя: " + (string)CommandSql.ExecuteScalar();
 
 
-            CommandSql.CommandText = $"select [Вид_итоговой_Работы] from [Предметы] where [Номер_Предмета] = {NomerPred}";
-            NameWork = "Вид итоговой работы: " + (string)CommandSql.ExecuteScalar();
+            //CommandSql.CommandText = $"select [Вид_итоговой_Работы] from [Предметы] where [Номер_Предмета] = {NomerPred}";
+            //NameWork = "Вид итоговой работы: " + (string)CommandSql.ExecuteScalar();
 
-            _Connection.Close();
+            //_Connection.Close();
         }
 
         public void AddGraph(int NomerPred, int NumberSt, int IndexMontch, out ObservableCollection<ISeries> SeriesOut)

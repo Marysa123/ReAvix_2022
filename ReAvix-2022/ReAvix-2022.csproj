@@ -73,6 +73,10 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.6.0-ci259\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -191,7 +195,13 @@
     <Compile Include="Models\Оценки.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Оценки_2.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Предметы.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Предметы_Преподавателя.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Преподаватели.cs">
@@ -207,8 +217,11 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\VMWindowAboutDos.cs" />
+    <Compile Include="ViewModels\VMWindowAboutPredmet.cs" />
     <Compile Include="ViewModels\VMWindowAboutSkils.cs" />
     <Compile Include="ViewModels\VMWindowAddDos.cs" />
+    <Compile Include="ViewModels\VMWindowAddInfoPredmetsPrep.cs" />
+    <Compile Include="ViewModels\VMWindowAddPredmetsPrep.cs" />
     <Compile Include="ViewModels\VMWindowAddSkils.cs" />
     <Compile Include="ViewModels\VMWindowChangePassword.cs" />
     <Compile Include="ViewModels\VMWindowConfirmationEmail.cs" />
@@ -230,11 +243,17 @@
     <Compile Include="Views\WindowAboutDos.xaml.cs">
       <DependentUpon>WindowAboutDos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowAboutPredmet.xaml.cs">
+      <DependentUpon>WindowAboutPredmet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowAboutSkils.xaml.cs">
       <DependentUpon>WindowAboutSkils.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowAddDos.xaml.cs">
       <DependentUpon>WindowAddDos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowAddInfoPredmetsPrep.xaml.cs">
+      <DependentUpon>WindowAddInfoPredmetsPrep.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WindowAddNotes.xaml.cs">
       <DependentUpon>WindowAddNotes.xaml</DependentUpon>
@@ -305,6 +324,9 @@
     <Compile Include="WindowUserControl\UCStatisticStudent.xaml.cs">
       <DependentUpon>UCStatisticStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowUserControl\UCAddPredmetsPrep.xaml.cs">
+      <DependentUpon>UCAddPredmetsPrep.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -324,11 +346,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagramReAvix.cd" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagramReAvix.cd" />
     <None Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
@@ -357,11 +379,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowAboutPredmet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowAboutSkils.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WindowAddDos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowAddInfoPredmetsPrep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -454,6 +484,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowUserControl\UCStatisticStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCAddPredmetsPrep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -552,25 +586,7 @@
       <VersionMajor>2</VersionMajor>
       <VersionMinor>8</VersionMinor>
       <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>9</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
+      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
@@ -578,6 +594,9 @@
   <ItemGroup>
     <Resource Include="Resources\Images\icon_photo.png" />
     <Resource Include="Resources\Images\images_information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">

@@ -31,7 +31,9 @@ namespace ReAvix_2022.Models
         public virtual DbSet<Кружки> Кружки { get; set; }
         public virtual DbSet<Навыки> Навыки { get; set; }
         public virtual DbSet<Оценки> Оценки { get; set; }
+        public virtual DbSet<Оценки_2> Оценки_2 { get; set; }
         public virtual DbSet<Предметы> Предметы { get; set; }
+        public virtual DbSet<Предметы_Преподавателя> Предметы_Преподавателя { get; set; }
         public virtual DbSet<Преподаватели> Преподаватели { get; set; }
         public virtual DbSet<Специальности> Специальности { get; set; }
         public virtual DbSet<Студенты> Студенты { get; set; }

@@ -46,7 +46,6 @@ namespace ReAvix_2022.WindowUserControl
         private void BorderMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             modelsNotes.DeleteNotes(IndexSelectedItems: BorderMain.SelectedIndex);// Вызов метода удаления заметок
-            MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
         }
 
         private void button_AddZam_MouseDown(object sender, MouseButtonEventArgs e)
@@ -68,9 +67,17 @@ namespace ReAvix_2022.WindowUserControl
 
         private void PanelPredmet_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int NomerPredmet = MassivNomerPred[PanelPredmet.SelectedIndex];
-            WindowInfoAboutPredmet windowInfoAboutPredmet = new WindowInfoAboutPredmet(NomerPredmet, NumberStudent);
-            windowInfoAboutPredmet.ShowDialog();
+            try
+            {
+                int NomerPredmet = MassivNomerPred[PanelPredmet.SelectedIndex];
+                WindowInfoAboutPredmet windowInfoAboutPredmet = new WindowInfoAboutPredmet(NomerPredmet, NumberStudent);
+                windowInfoAboutPredmet.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("В списке нет предметов","Диалоговое окно");
+            }
+            
         }
     }
 }

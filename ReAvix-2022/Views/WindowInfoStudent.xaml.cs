@@ -60,56 +60,80 @@ namespace ReAvix_2022.Views
 
         private void PanelDos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int IndexItem = MassivNomerDos[PanelDos.SelectedIndex];
-            VMWindowAboutDos vMWindowAboutDos = new VMWindowAboutDos();
-            vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
-            if (Index == 1)
+            try
             {
-                MessageBox.Show("Этот элемент удален.", "Диалоговое окно");
+                int IndexItem = MassivNomerDos[PanelDos.SelectedIndex];
+                VMWindowAboutDos vMWindowAboutDos = new VMWindowAboutDos();
+                vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
+                if (Index == 1)
+                {
+                    MessageBox.Show("Этот элемент удален.", "Диалоговое окно");
+                }
+                else
+                {
+                    WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem, NomerStudent);
+                    windowAboutDos.textbox_Mesto.IsReadOnly = true;
+                    windowAboutDos.textbox_MestoProv.IsReadOnly = true;
+                    windowAboutDos.textbox_NameSor.IsReadOnly = true;
+                    windowAboutDos.button_DeleteDosStud.IsEnabled = false;
+                    windowAboutDos.button_DeleteDosStud.Visibility = Visibility.Hidden;
+                    windowAboutDos.ShowDialog();
+                }
             }
-            else
+            catch (Exception)
             {
-                WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem, NomerStudent);
-                windowAboutDos.textbox_Mesto.IsReadOnly = true;
-                windowAboutDos.textbox_MestoProv.IsReadOnly = true;
-                windowAboutDos.textbox_NameSor.IsReadOnly = true;
-                windowAboutDos.button_DeleteDosStud.IsEnabled = false;
-                windowAboutDos.button_DeleteDosStud.Visibility = Visibility.Hidden;
-                windowAboutDos.ShowDialog();
+                MessageBox.Show("В списке нет достижений", "Диалоговое окно");
             }
+
         }
 
         private void PanelSkils_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int IndexItem = MassivNomerSkils[PanelSkils.SelectedIndex];
-            VMWindowAboutSkils vMWindowAboutSkils = new VMWindowAboutSkils();
-            vMWindowAboutSkils.CheckSkils(IndexItem, out int Index);
-            if (Index == 1)
+            try
             {
-                MessageBox.Show("Этот элемент удален.", "Диалоговое окно");
+                int IndexItem = MassivNomerSkils[PanelSkils.SelectedIndex];
+                VMWindowAboutSkils vMWindowAboutSkils = new VMWindowAboutSkils();
+                vMWindowAboutSkils.CheckSkils(IndexItem, out int Index);
+                if (Index == 1)
+                {
+                    MessageBox.Show("Этот элемент удален.", "Диалоговое окно");
+                }
+                else
+                {
+
+                    WindowAboutSkils windowAboutSkils = new WindowAboutSkils(IndexItem, NomerStudent);
+                    windowAboutSkils.button_UpdateSkilsStud.IsEnabled = false;
+                    windowAboutSkils.button_DeleteSkilsStud.IsEnabled = false;
+                    windowAboutSkils.button_DeleteSkilsStud.Visibility = Visibility.Hidden;
+                    windowAboutSkils.button_UpdateSkilsStud.Visibility = Visibility.Hidden;
+                    windowAboutSkils.textbox_TextSkils.IsReadOnly = true;
+                    windowAboutSkils.combobox_ValueMaster.IsEnabled = false;
+
+
+
+                    windowAboutSkils.ShowDialog();
+                }
             }
-            else
+            catch (Exception)
             {
+                MessageBox.Show("В списке нет навыков", "Диалоговое окно");
 
-                WindowAboutSkils windowAboutSkils = new WindowAboutSkils(IndexItem, NomerStudent);
-                windowAboutSkils.button_UpdateSkilsStud.IsEnabled = false;
-                windowAboutSkils.button_DeleteSkilsStud.IsEnabled = false;
-                windowAboutSkils.button_DeleteSkilsStud.Visibility = Visibility.Hidden;
-                windowAboutSkils.button_UpdateSkilsStud.Visibility = Visibility.Hidden;
-                windowAboutSkils.textbox_TextSkils.IsReadOnly = true;
-                windowAboutSkils.combobox_ValueMaster.IsEnabled = false;
-
-
-
-                windowAboutSkils.ShowDialog();
             }
         }
 
         private void PanelPredmet_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int NomerPredmet = MassivNomerPred[PanelPredmet.SelectedIndex];
-            WindowInfoAboutPredmet windowInfoAboutPredmet = new WindowInfoAboutPredmet(NomerPredmet, NomerStudent);
-            windowInfoAboutPredmet.ShowDialog();
+            try
+            {
+                int NomerPredmet = MassivNomerPred[PanelPredmet.SelectedIndex];
+                WindowInfoAboutPredmet windowInfoAboutPredmet = new WindowInfoAboutPredmet(NomerPredmet, NomerStudent);
+                windowInfoAboutPredmet.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("В списке нет предметов", "Диалоговое окно");
+            }
+
         }
     }
 }

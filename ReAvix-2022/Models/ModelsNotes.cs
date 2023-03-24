@@ -139,11 +139,25 @@ namespace ReAvix_2022.Models
             MessageBoxResult messageBoxResult = MessageBox.Show("Вы действительно хотите удалить заметку?", "Диалогове окно", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                int NomerNotes = MassivNomerZamPrep[IndexSelectedItems];
-                _Connection.Open();
-                CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
-                CommandSql.ExecuteNonQuery();
-                _Connection.Close();
+                try
+                {
+                    int NomerNotes = MassivNomerZamPrep[IndexSelectedItems];
+                    _Connection.Open();
+                    CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
+                    CommandSql.ExecuteNonQuery();
+                    _Connection.Close();
+                    MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("В списке нет заметок","Диалоговое окно");
+                }
+                
+
+            }
+            else
+            {
+                //Ничего
             }
         }
         public void DeleteNotes(int IndexSelectedItems)
@@ -151,11 +165,23 @@ namespace ReAvix_2022.Models
             MessageBoxResult messageBoxResult = MessageBox.Show("Вы действительно хотите удалить заметку?", "Диалогове окно", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                int NomerNotes = MassivNomerZam[IndexSelectedItems];
-                _Connection.Open();
-                CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
-                CommandSql.ExecuteNonQuery();
-                _Connection.Close();
+                try
+                {
+                    int NomerNotes = MassivNomerZam[IndexSelectedItems];
+                    _Connection.Open();
+                    CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
+                    CommandSql.ExecuteNonQuery();
+                    _Connection.Close();
+                    MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("В списке нет заметок", "Диалоговое окно");
+                }
+            }
+            else
+            {
+                //Ничего
             }
         }
         public void AddNotesPrep(int NumberPrep)

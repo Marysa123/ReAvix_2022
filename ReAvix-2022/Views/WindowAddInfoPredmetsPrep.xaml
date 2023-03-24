@@ -1,0 +1,82 @@
+﻿<Window x:Class="ReAvix_2022.Views.WindowAddInfoPredmetsPrep"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ReAvix_2022.Views"
+        mc:Ignorable="d"
+        Title="WindowAddInfoPredmetsPrep" DataContext="VNWindowAddInfoPredmetsPrep" Height="770" Width="1050" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    <Grid>
+        <Border CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#112035"
+                                      Offset="0"/>
+                    <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Image Name="icon_Exit" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Label Content="Окно добавления предметов для группы" VerticalAlignment="Top" Margin="30 20 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Выберите из списка предмет, который хотите добавить:" VerticalAlignment="Top" Margin="30 60 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Выберите из списка вид итоговой работы:" VerticalAlignment="Top" Margin="30 190 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Введите ФИО ведущего преподавателя:" VerticalAlignment="Top" Margin="30 310 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Введите отведенное количество часов на дисциплину:" Margin="30 100 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+
+        <TextBox  Name="textbox_Fio" BorderBrush="#689ADD" FontSize="20" Margin="40 0 0 0" HorizontalAlignment="Left" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="ФИО*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2"/>
+        <TextBox  Name="textbox_KolvoTime" PreviewTextInput="textbox_KolvoTime_PreviewTextInput" BorderBrush="#689ADD" FontSize="20" HorizontalAlignment="Left" Margin="40 200 0 0" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="60" Width="100" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" />
+
+        <ComboBox Name="combobox_Predmets" ItemsSource="{Binding}" DataContext="{Binding Path=GetListPredmets}" SelectedValuePath="Номер_Предмета" DisplayMemberPath="Название_Предмета" HorizontalContentAlignment="Left" VerticalAlignment="Top" Margin="40 100 0 0" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Row="0" Width="380" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
+        <ComboBox Name="combobox_KindsJob" HorizontalContentAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" Margin="40 230 0 0" HorizontalAlignment="Left"  FontSize="20" Grid.Row="0" Width="320" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
+            <ComboBoxItem Content="Зачёт"/>
+            <ComboBoxItem Content="Дифференцированный зачёт"/>
+            <ComboBoxItem Content="Экзамен"/>
+            <ComboBoxItem Content="Демонстрационный экзамен"/>
+        </ComboBox>
+        <TextBox
+             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+             Name="textbox_InformationPredmet"
+             VerticalAlignment="Bottom"
+             HorizontalAlignment="Left"
+             Height="210"
+             FontSize="20"
+             AcceptsReturn="True"
+             TextWrapping="Wrap"
+             VerticalScrollBarVisibility="Auto"
+             materialDesign:HintAssist.Hint="Введите описание предмета:"
+             materialDesign:HintAssist.Background="Transparent"
+             materialDesign:HintAssist.Foreground="Black"
+             Foreground="Black"
+             materialDesign:HintAssist.FloatingScale="0.8"
+             BorderBrush="White"
+             MaxLength="500"
+             Background="White" Margin="40,0,0,20" Width="484"/>
+
+
+        <Label Content="Предоставьте документ КТП*:" VerticalAlignment="Top" Margin="0 60 30 0" HorizontalAlignment="Right" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Предоставьте документ ФОС*:" VerticalAlignment="Top" Margin="0 180 30 0" HorizontalAlignment="Right" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Content="Выберите нужный вам документ для этого предмета*:" VerticalAlignment="Top" Margin="0 300 30 0" HorizontalAlignment="Right" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+
+        <Button Name="button_AddKTP" Click="button_AddKTP_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Прикрепить документ" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 100 30 0"/>
+        <Button Name="button_AddFOS" Click="button_AddFOS_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Прикрепить документ" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 220 30 0"/>
+        <Button Name="button_AddDoc" Click="button_AddDoc_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Прикрепить документ" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 340 30 0"/>
+
+        <Button Name="button_AddPred" Click="button_AddPred_Click" Style="{StaticResource StyleButtonAllApplication}" Width="252" Height="65" Content="Добавить предмет" FontSize="18" HorizontalAlignment="Right" Margin="0 150 90 0" FontFamily="Bahnschrift"/>
+
+
+
+    </Grid>
+</Window>

@@ -18,6 +18,7 @@ namespace ReAvix_2022.Models
         public Преподаватели()
         {
             this.Заметки = new HashSet<Заметки>();
+            this.Предметы_Преподавателя = new HashSet<Предметы_Преподавателя>();
         }
     
         public int Номер_Преподавателя { get; set; }
@@ -39,5 +40,7 @@ namespace ReAvix_2022.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заметки> Заметки { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Предметы_Преподавателя> Предметы_Преподавателя { get; set; }
     }
 }

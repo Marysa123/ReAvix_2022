@@ -58,8 +58,8 @@ namespace ReAvix_2022.WindowUserControl
             vMWindowStatisticGroupPrep.GetAvgPredmet();
             BorderMainPredmets.ItemsSource = vMWindowStatisticGroupPrep.Grids;
 
-            vMWindowStatisticGroupPrep.AddGraph(out ObservableCollection<ISeries> SeriesOut);
-            Series = SeriesOut; // Присовения значения для поля из входящего параметра
+            //vMWindowStatisticGroupPrep.AddGraph(out ObservableCollection<ISeries> SeriesOut);
+            //Series = SeriesOut; // Присовения значения для поля из входящего параметра
 
             cartesianChart = new LiveChartsCore.SkiaSharpView.WPF.CartesianChart() // Создание графика
             {
@@ -74,7 +74,6 @@ namespace ReAvix_2022.WindowUserControl
         private void BorderMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             modelsNotes.DeleteNotesPrep(IndexSelectedItems: BorderMain.SelectedIndex);// Вызов метода удаления заметок
-            MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
         }
 
         private void button_Update_MouseDown(object sender, MouseButtonEventArgs e)

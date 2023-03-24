@@ -86,6 +86,7 @@ namespace ReAvix_2022.WindowUserControl
 
                     UpdateInfoStudent();
 
+                    
 
                     GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
 

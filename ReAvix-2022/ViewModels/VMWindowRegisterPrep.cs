@@ -150,7 +150,6 @@ namespace ReAvix_2022.ViewModels
             db_ReAvixEntities dc = new db_ReAvixEntities();
             var item = dc.Специальности.ToList();
             GetSpecialnost = item;
-
         }
         public void GetInfoMugs()
         {

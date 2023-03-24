@@ -6,9 +6,19 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         mc:Ignorable="d"
-        Title="WindowAddNotesPrep" Height="270" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="WindowAddNotesPrep" Height="280" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border Background="#1B5293" CornerRadius="5">
+        <Border CornerRadius="5">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop
+                        Color="#FF3D46E0"
+                        Offset="0.813"/>
+                    <GradientStop
+                        Color="#FF1E3AAB"
+                        Offset="0.229"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <Grid>
                 <Image Name="icon_Exit" MouseDown="icon_Exit_MouseDown" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 15 15 0" Width="20">
                     <Image.Style>
@@ -23,13 +33,14 @@
                     </Image.Style>
                 </Image>
                 <Label Content="Добавление заметки" Foreground="White" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 20 0 0" Height="30" FontFamily="Bahnschrift Condensed"/>
-                <TextBox Name="textbox_Text" BorderBrush="#689ADD" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 0 0 40" FontSize="18" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Введите текст заметки:" Height="60" Width="250" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow"/>
-                <ComboBox Name="combobox_Property" FontFamily="Bahnschrift SemiCondensed"  materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" Margin="0 0 40 50" BorderBrush="Black" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Right"  VerticalAlignment="Center" FontSize="20" Width="135" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
+                <TextBox Name="textbox_Text" BorderBrush="#689ADD" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 15 0 10" FontSize="18" Foreground="White" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Введите заметку:" Height="60" Width="250" materialDesign:TextFieldAssist.UnderlineBrush="#3DD796" materialDesign:HintAssist.Foreground="White" BorderThickness="0 0 0 2" Cursor="Arrow" MaxLength="35"/>
+                <TextBlock Text="Приоритет:" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 75 105 0" FontSize="16" FontWeight="Bold" Foreground="White" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <ComboBox Name="combobox_Property" FontFamily="Bahnschrift SemiCondensed"  materialDesign:TextFieldAssist.TrailingIcon="ArrowBottom" Margin="0 10 40 15" BorderBrush="Black" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Right"  VerticalAlignment="Center" FontSize="20" Width="135" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
                     <ComboBoxItem Content="Высокий" IsSelected="True"/>
                     <ComboBoxItem Content="Средний" />
                     <ComboBoxItem Content="Низкий" />
                 </ComboBox>
-                <Button  Name="button_AddNotes" Click="button_AddNotes_Click" Style="{StaticResource StyleButtonAllApplication}" VerticalAlignment="Bottom" Margin="0 0 0 20" Width="150" Height="65" Content="Добавить" FontSize="18" FontFamily="Bahnschrift"/>
+                <Button  Name="button_AddNotes" Click="button_AddNotes_Click" Style="{StaticResource StyleButtonAllApplication}" VerticalAlignment="Bottom" Margin="0 0 0 20" Width="130" Height="55" Content="Добавить" FontSize="18" FontFamily="Bahnschrift"/>
             </Grid>
         </Border>
     </Grid>

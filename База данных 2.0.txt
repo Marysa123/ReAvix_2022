@@ -1,0 +1,139 @@
+create database db_TestReAvix
+Use db_TestReAvix
+
+create table [Группа](
+[Номер_Группы] varchar(20) UNIQUE NOT NULL,
+[Полное_Название_группы] varchar(80) NOT NULL)
+
+create table [Преподаватели](
+[Номер_Преподавателя] int primary key identity(1,1),
+[Имя] varchar(40) NOT NULL,
+[Фамилия] varchar(40) NOT NULL,
+[Отчество] varchar(40) NOT NULL,
+[Логин] varchar(40) UNIQUE NOT NULL,
+[Пароль] varchar(40) NOT NULL,
+[E_mail] varchar(50) UNIQUE NOT NULL,
+[Номер_Телефона] varchar(40) UNIQUE NOT NULL,
+[Пол] varchar(7) NOT NULL,
+[Дата_Рождения] date NOT NULL,
+[Адрес] varchar(120) NOT NULL,
+[Специальность] varchar(120) NOT NULL,
+[Краткая_Информация] varchar(400) NOT NULL,
+[Ведущий_Кружок] varchar(50) NOT NULL,
+[FK_Закреплённая_группа] varchar(20)FOREIGN KEY REFERENCES [Группа]([Номер_Группы]),
+[Фотография] image)
+
+create table [Студенты](
+[Номер_Студента] int primary key identity(1,1),
+[Имя] varchar(40) NOT NULL,
+[Фамилия] varchar(40) NOT NULL,
+[Отчество] varchar(40) NOT NULL,
+[Логин] varchar(30) NOT NULL UNIQUE,
+[Пароль] varchar(40) NOT NULL,
+[E_mail] varchar(50) NOT NULL UNIQUE,
+[Номер_Телефона] varchar(40) NOT NULL UNIQUE,
+[Номер_телефона_Родителей] varchar(40) NOT NULL,
+[Курс] varchar(1) NOT NULL,
+[Пол] varchar(7) NOT NULL default 'Мужской',
+[Дата_Рождения] date NOT NULL,
+[Адрес] varchar(120) NOT NULL,
+[Краткая_Информация] varchar(400) NOT NULL,
+[FK_Номер_Группы] varchar(20) FOREIGN KEY REFERENCES [Группа] ([Номер_Группы]) NOT NULL,
+[Фотография] image)
+
+create table [Пропуски](
+[Уважительные_Пропуски] int NOT NULL,
+[Неуважительные_Пропуски] int NOT NULL,
+[Пропуски_по_болезни] int NOT NULL,
+[FK_Номер_Студента] int identity(1,1))
+
+create table [Заметки](
+[Номер_заметки] int primary key identity(1,1),
+[Текст] varchar(600) NOT NULL,
+[Приоритет] varchar(7) not null,
+[FK_Номер_Студента] int FOREIGN KEY REFERENCES [Студенты]([Номер_Студента]),
+[FK_Номер_Преподавателя] int FOREIGN KEY REFERENCES [Преподаватели]([Номер_Преподавателя]))
+
+create table [Предметы](
+[Номер_Предмета] int primary key identity(1,1),
+[Название_Предмета] varchar(90) NOT NULL)
+
+create table [Предметы_Преподавателя](
+[Номер_Предмета] int primary key identity(1,1),
+[Название_Предмета] varchar(90) NOT NULL,
+[Ведущий_Преподаватель] varchar(120) NOT NULL,
+[FK_Номер_Преподавателя] int FOREIGN KEY REFERENCES [Преподаватели]([Номер_Преподавателя]),
+[Описание_предмета] varchar (500) NOT NULL,
+[Итоговая_работа] varchar(100) NOT NULL,
+[Количество_часов] int NOT NULL,
+[Документ_Первый] varbinary(max),
+[Документ_Второй] varbinary(max),
+[Документ_Третий] varbinary(max))
+
+insert into [Предметы_Преподавателя] values ('Русский язык','Федорищева Марина Александровна',1,'123132','Экзамен',80,null,null,null)
+insert into [Предметы_Преподавателя] values ('МДК 01.04 Инструментальные средства разработки программного обеспечения','Сердцев ДМмитрий ВИтальеви',1,'1232','Экзамен',90,null,null,null)
+insert into [Предметы_Преподавателя] values ('МДК 01.04 Инструментальные средства разработки программного обеспечения','Сердцев ДМмитрий ВИтальевич',1,'1232','Экзамен',90,null,null,null)
+delete [Предметы_Преподавателя] where Номер_Предмета = 4
+create table [Оценки](
+[Номер_оценки] int primary key identity(1,1),
+[Дата] date not null,
+[FK_Номер_Студента] int FOREIGN KEY REFERENCES [Студенты](Номер_Студента),
+[FK_Номер_Предмета] int FOREIGN KEY REFERENCES [Предметы](Номер_Предмета),
+[Оценка] int not null check ([Оценка] >=2 and [Оценка] <=5),
+[Вид_оценочной_Работы] varchar(100) not null)
+
+insert into [Оценки] values ('12.12.2023',1,1,5,'Экзамен')
+
+create table [Оценки_2](
+[Номер_оценки] int primary key identity(1,1),
+[Дата] date not null,
+[ФИО_Студента] varchar(90) NOT NULL,
+[Название_Предмета] varchar(120) NOT NULL,
+[Оценка] int not null check ([Оценка] >=2 and [Оценка] <=5),
+[Вид_оценочной_Работы] varchar(100) not null)
+
+
+create table [Навыки](
+[Номер_Навыка] int primary key identity(1,1),
+[Категория_Навыка] varchar(120) NOT NULL,
+[Мастерство_Навыка] tinyint check ([Мастерство_Навыка] >=0 and [Мастерство_Навыка] <=10) NOT NULL,
+[Описание_Навыка] varchar(400) NOT NULL,
+[FK_Номер_Студента] int FOREIGN KEY REFERENCES [Студенты](Номер_Студента))
+
+create table [Достижения](
+[Номер_Достижения] int primary key identity(1,1) NOT NULL,
+[Изображение] image,
+[Дополнительное_Изображение] image,
+[Место_в_соревновании] varchar(40) not null,
+[Место_Проведения] varchar(80) not null,
+[Название_Соревнования] varchar(80) not null,
+[FK_Номер_Студента] int FOREIGN KEY REFERENCES [Студенты](Номер_Студента))
+
+create table [Кружки](
+[Номер_Кружка] int primary key identity(1,1) NOT NULL,
+[Название_Кружка] varchar(60) NOT NULL)
+
+create table [Специальности](
+[Номер_Специальности] int primary key identity(1,1) NOT NULL,
+[Название_Специальности] varchar(120) NOT NULL)
+
+create table [Категории_Навыка](
+[Номер_Категории] int primary key identity(1,1) NOT NULL,
+[Название_Категории] varchar(70) NOT NULL)
+
+--Триггеры
+--CREATE TRIGGER [Студенты_Добавление_Пропусков]
+--ON [Студенты]
+--AFTER INSERT
+--AS INSERT [Пропуски] values ('0','0','0')
+
+insert into [Предметы] values('Русский язык')
+insert into [Предметы] values('Литература')
+insert into [Предметы] values('Иностранный язык')
+
+select COUNT(Номер_Предмета) FROM [Предметы_Преподавателя] where [FK_Номер_Преподавателя] = 1
+select [Название_Предмета] from [Предметы_Преподавателя] where Номер_Предмета = 1
+select Номер_Предмета from [Предметы_Преподавателя] where [FK_Номер_Преподавателя] = 1
+select [Документ_Первый] from Предметы_Преподавателя where Номер_Предмета = 7 
+
+insert into [Предметы_Преподавателя] ([Название_Предмета], [Ведущий_Преподаватель], [FK_Номер_Преподавателя],[Описание_предмета],[Итоговая_работа],[Количество_часов],[Документ_Первый],[Документ_Второй],[Документ_Третий]) VALUES('{combobox_Predmets.Text}','{textbox_Fio.Text}',{NumberPrep},'{textbox_InformationPredmet.Text}','{combobox_KindsJob.Text}','{textbox_KolvoTime.Text},@docKTP,@docFOS,@docMen')

@@ -64,13 +64,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Оценки_2">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Оценки_2">
+        <MappingFragment StoreEntitySet="Оценки_2">
+          <ScalarProperty Name="Номер_оценки" ColumnName="Номер_оценки" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="ФИО_Студента" ColumnName="ФИО_Студента" />
+          <ScalarProperty Name="Название_Предмета" ColumnName="Название_Предмета" />
+          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+          <ScalarProperty Name="Вид_оценочной_Работы" ColumnName="Вид_оценочной_Работы" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Предметы">
       <EntityTypeMapping TypeName="db_ReAvixModel.Предметы">
         <MappingFragment StoreEntitySet="Предметы">
           <ScalarProperty Name="Номер_Предмета" ColumnName="Номер_Предмета" />
           <ScalarProperty Name="Название_Предмета" ColumnName="Название_Предмета" />
-          <ScalarProperty Name="Вид_итоговой_Работы" ColumnName="Вид_итоговой_Работы" />
-          <ScalarProperty Name="ФИО_Преподавателя" ColumnName="ФИО_Преподавателя" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Предметы_Преподавателя">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Предметы_Преподавателя">
+        <MappingFragment StoreEntitySet="Предметы_Преподавателя">
+          <ScalarProperty Name="Номер_Предмета" ColumnName="Номер_Предмета" />
+          <ScalarProperty Name="Название_Предмета" ColumnName="Название_Предмета" />
+          <ScalarProperty Name="Ведущий_Преподаватель" ColumnName="Ведущий_Преподаватель" />
+          <ScalarProperty Name="FK_Номер_Преподавателя" ColumnName="FK_Номер_Преподавателя" />
+          <ScalarProperty Name="Описание_предмета" ColumnName="Описание_предмета" />
+          <ScalarProperty Name="Итоговая_работа" ColumnName="Итоговая_работа" />
+          <ScalarProperty Name="Количество_часов" ColumnName="Количество_часов" />
+          <ScalarProperty Name="Документ_Первый" ColumnName="Документ_Первый" />
+          <ScalarProperty Name="Документ_Второй" ColumnName="Документ_Второй" />
+          <ScalarProperty Name="Документ_Третий" ColumnName="Документ_Третий" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

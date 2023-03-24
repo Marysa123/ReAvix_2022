@@ -44,10 +44,16 @@ namespace ReAvix_2022.WindowUserControl
 
         private void PanelStudent_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int IndexItem = MassivNomerStudent[PanelStudent.SelectedIndex];
-            WindowInfoStudent windowInfoStudent = new WindowInfoStudent(IndexItem);
-            windowInfoStudent.ShowDialog();
-
+            try
+            {
+                int IndexItem = MassivNomerStudent[PanelStudent.SelectedIndex];
+                WindowInfoStudent windowInfoStudent = new WindowInfoStudent(IndexItem);
+                windowInfoStudent.ShowDialog();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("В списке нет студентов", "Диалоговое окно");
+            }
         }
 
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

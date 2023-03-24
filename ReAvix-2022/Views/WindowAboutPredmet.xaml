@@ -1,0 +1,152 @@
+﻿<Window x:Class="ReAvix_2022.Views.WindowAboutPredmet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReAvix_2022.Views"
+        mc:Ignorable="d"
+        Title="WindowAboutPredmet" Height="700" Width="1200" WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="10" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#112035"
+                                      Offset="0"/>
+                    <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Image Name="icon_Exit" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" Grid.Column="1" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+
+        <Label Content="Окно с информацией о предмете" VerticalAlignment="Top" Margin="30 20 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+        
+        <StackPanel>
+            <Label Content="Номер предмета" VerticalAlignment="Top" Margin="30 60 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Name="textbox_NomerPred"
+                Text="{Binding NumberPred}"
+                Height="60"
+                IsReadOnly="True"
+                Width="80"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Margin="35 10 35 0"
+                BorderBrush="White"
+                Background="White" Cursor="Arrow"/>
+            <Label Content="Название предмета:" VerticalAlignment="Top" Margin="30 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Name="textbox_NamePred"
+                Text="{Binding NamePred}"
+                Height="60"
+                IsReadOnly="True"
+                Width="480"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Margin="35 10 35 0"
+                BorderBrush="White"
+                Background="White" Cursor="Arrow"/>
+            <Label Content="Ведущий преподаватель:" VerticalAlignment="Top" Margin="30 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Name="textbox_MainPrep"
+                Text="{Binding MainPrep}"
+                Height="60"
+                Width="480"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Margin="35 10 35 0"
+                BorderBrush="White"
+                Background="White" Cursor="Arrow"/>
+            <Label Content="Описание предмета:" VerticalAlignment="Top" Margin="30 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Name="textbox_AboutPred"
+                Text="{Binding AboutPred}"
+                Height="150"
+                Width="480"
+                VerticalScrollBarVisibility="Auto"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Margin="35 10 35 0"
+                BorderBrush="White"
+                MaxLength="500"
+                Background="White" Cursor="Arrow"/>
+         
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Content="Итоговая работа:" VerticalAlignment="Top" Margin="30 65 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Name="textbox_EndJob"
+                Text="{Binding EndJob}"
+                Height="60"
+                Width="480"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Margin="35 10 35 0"
+                BorderBrush="White"
+                Background="White" Cursor="Arrow"/>
+            
+            <Label Content="Количество часов:" VerticalAlignment="Top" Margin="30 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Name="textbox_KolTime"
+                Text="{Binding KolTime}"
+                Height="60"
+                Width="80"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                TextWrapping="Wrap"
+                Margin="35 10 35 0"
+                BorderBrush="White"
+                Background="White" Cursor="Arrow"/>
+            <Label Content="Документ КТП:" VerticalAlignment="Top" Margin="30 10 0 10" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <WrapPanel>
+                <Button Name="button_DownloadKTP" Margin="30 0 20 0" Click="button_DownloadKTP_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Скачать" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Name="button_DeleteKTP"  Margin="0 0 20 0"  Click="button_DeleteKTP_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Удалить" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Name="button_AddDocKTP" Click="button_AddDocKTP_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Прикрепить" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </WrapPanel>
+            <Label Content="Документ ФОС:" VerticalAlignment="Top" Margin="30 35 0 10" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <WrapPanel>
+                <Button Name="button_DownloadFOS"  Margin="30 0 20 0"  Click="button_DownloadFOS_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Скачать" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Name="button_DeleteFOS"  Margin="0 0 20 0"  Click="button_DeleteFOS_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Удалить" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Name="button_AddDocFOS" Click="button_AddDocFOS_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Прикрепить" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </WrapPanel>
+            <Label Content="Прикрепленный документ:" VerticalAlignment="Top" Margin="30 30 0 10" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <WrapPanel>
+                <Button Name="button_DownloadMen"  Margin="30 0 20 0"  Click="button_DownloadMen_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Скачать" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Name="button_DeleteMen"  Margin="0 0 20 0"  Click="button_DeleteMen_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Удалить" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Name="button_AddDocMen" Click="button_AddDocMen_Click" Style="{StaticResource StyleButtonAllApplication}" Width="152" Height="36" Content="Прикрепить" FontSize="14"  FontFamily="Bahnschrift" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </WrapPanel>
+            
+        </StackPanel>
+
+
+        <Button  Name="button_UpdatePredmetPrep"  HorizontalAlignment="Left" Margin="20 0 0 30" VerticalAlignment="Bottom" Grid.Column="1" Click="button_UpdatePredmetPrep_Click"  Style="{StaticResource StyleButtonAllApplication}"  Width="252" Height="65" Content="Изменить" FontSize="18"  FontFamily="Bahnschrift"/>
+        <Button  Name="button_DeleteDocPrep" HorizontalAlignment="Right" Margin="0 0 20 30" VerticalAlignment="Bottom"   Grid.Column="1" Click="button_DeleteDocPrep_Click" Style="{StaticResource StyleButtonDelete}" Width="252" Height="65" Content="Удалить" FontSize="18" FontFamily="Bahnschrift" Cursor="Hand"/>
+
+    </Grid>
+</Window>

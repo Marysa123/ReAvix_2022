@@ -64,34 +64,50 @@ namespace ReAvix_2022.WindowUserControl
         WindowAboutSkils windowAboutSkils;
         private void PanelSkils_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int IndexItem = MassivNomerSkils[PanelSkils.SelectedIndex];
-            VMWindowAboutSkils vMWindowAboutSkils = new VMWindowAboutSkils();
-            vMWindowAboutSkils.CheckSkils(IndexItem,out int Index);
-            if (Index == 1)
+            try
             {
-                MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                int IndexItem = MassivNomerSkils[PanelSkils.SelectedIndex];
+                VMWindowAboutSkils vMWindowAboutSkils = new VMWindowAboutSkils();
+                vMWindowAboutSkils.CheckSkils(IndexItem, out int Index);
+                if (Index == 1)
+                {
+                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                }
+                else
+                {
+                    windowAboutSkils = new WindowAboutSkils(IndexItem, NumberStudent);
+                    windowAboutSkils.ShowDialog();
+                }
             }
-            else
+            catch (Exception)
             {
-                windowAboutSkils = new WindowAboutSkils(IndexItem, NumberStudent);
-                windowAboutSkils.ShowDialog();
+                MessageBox.Show("В списке нет навыков", "Диалоговое окно");
             }
+           
         }
 
         private void PanelDos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int IndexItem = MassivNomerDos[PanelDos.SelectedIndex];
-            VMWindowAboutDos vMWindowAboutDos = new VMWindowAboutDos();
-            vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
-            if (Index == 1)
+            try
             {
-                MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                int IndexItem = MassivNomerDos[PanelDos.SelectedIndex];
+                VMWindowAboutDos vMWindowAboutDos = new VMWindowAboutDos();
+                vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
+                if (Index == 1)
+                {
+                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                }
+                else
+                {
+                    WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem, NumberStudent);
+                    windowAboutDos.ShowDialog();
+                }
             }
-            else
+            catch (Exception)
             {
-                WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem,NumberStudent);
-                windowAboutDos.ShowDialog();
+                MessageBox.Show("В списке нет достижений","Диалоговое окно");
             }
+            
         }
 
 
