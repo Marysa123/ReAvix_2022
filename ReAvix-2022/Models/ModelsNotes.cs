@@ -28,7 +28,7 @@ namespace ReAvix_2022.Models
         int Count;
         int CountPrep;
         /// <summary>
-        /// Метод добавления Заметок для студента
+        /// Метод добавления заметки для студента
         /// </summary>
         /// <param name="NumberSt">Номер студента</param>
         public void AddNotes(int NumberSt)
@@ -160,6 +160,10 @@ namespace ReAvix_2022.Models
                 //Ничего
             }
         }
+        /// <summary>
+        /// Метод удаления заметки преподавателя
+        /// </summary>
+        /// <param name="IndexSelectedItems">Индекс выбранной заметки</param>
         public void DeleteNotes(int IndexSelectedItems)
         {
             MessageBoxResult messageBoxResult = MessageBox.Show("Вы действительно хотите удалить заметку?", "Диалогове окно", MessageBoxButton.YesNo);
@@ -184,6 +188,10 @@ namespace ReAvix_2022.Models
                 //Ничего
             }
         }
+        /// <summary>
+        /// Метод добавления заметки для преподавателя
+        /// </summary>
+        /// <param name="NumberPrep">Номер преподавателя</param>
         public void AddNotesPrep(int NumberPrep)
         {
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта

@@ -35,8 +35,8 @@ namespace ReAvix_2022.ViewModels
         public VMWindowAboutSkils()
         {
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
-
         }
+
         public int CheckSkils(int NomerSkils,out int NomerSkilsOut)
         {
             CommandSql.Connection = _Connection;

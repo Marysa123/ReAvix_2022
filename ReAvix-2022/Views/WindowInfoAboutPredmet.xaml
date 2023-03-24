@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
-        Title="WindowInfoAboutPredmet" Height="600" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" DataContext="VMWindowInfoAboutPredmet" Background="Transparent" AllowsTransparency="True">
+        Title="WindowInfoAboutPredmet" Height="650" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" DataContext="VMWindowInfoAboutPredmet" Background="Transparent" AllowsTransparency="True">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Border CornerRadius="10" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="10" Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop 
@@ -25,7 +25,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Image Name="icon_Exit" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+        <Image Name="icon_Exit" Grid.Column="1" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
                     <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
@@ -37,7 +37,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Border Width="490" Height="130" Grid.Row="0" HorizontalAlignment="Left" CornerRadius="10" Margin="30 60 0 0" >
+        <Border Width="500" Height="570" Margin="0 40 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop 
@@ -49,16 +49,27 @@
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel>
-                <TextBlock Text="{Binding Path= NamePredmet}" VerticalAlignment="Top" Width="450" TextWrapping="Wrap" Margin="15 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
-                <Label Content="{Binding Path= NameWork}" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="30" FontFamily="Bahnschrift Light Condensed"/>
-                <Label Content="{Binding Path= FIOPrep}" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                <Label Content="Название предмета:" Margin="20 10 0 0" VerticalAlignment="Top"  HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="35" FontFamily="Bahnschrift Light Condensed"/>
+                <TextBlock Text="{Binding Path= NamePredmet}" VerticalAlignment="Top" Width="450" TextWrapping="Wrap" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
+
+                <Label Content="ФИО ведущего преподавателя:" Margin="20 0 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="35" FontFamily="Bahnschrift Light Condensed"/>
+                <TextBlock Text="{Binding Path= FIOPrep}" VerticalAlignment="Top" Width="450" TextWrapping="Wrap" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
+
+                <Label Content="Описание предмета:" Margin="20 0 0 0" VerticalAlignment="Top"  HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="35" FontFamily="Bahnschrift Light Condensed"/>
+                <TextBox  Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalScrollBarVisibility="Auto" Text="{Binding AboutPredmet}" Height="120"  IsReadOnly="True"  Width="430"  HorizontalAlignment="Left"  FontSize="20" TextWrapping="Wrap"  Margin="25 10 35 0" BorderBrush="White" Background="White" Cursor="Arrow"/>
+                <Label Content="Итоговая работа:" Margin="20 10 0 0" VerticalAlignment="Top"  HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="35" FontFamily="Bahnschrift Light Condensed"/>
+                <TextBlock Text="{Binding Path= MainJob}" VerticalAlignment="Top" Width="450" TextWrapping="Wrap" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
+
+                <Label Content="Количество часов:" Margin="20 10 0 0" VerticalAlignment="Top"  HorizontalAlignment="Left" Foreground="White" FontSize="24" Height="35" FontFamily="Bahnschrift Light Condensed"/>
+                <TextBlock Text="{Binding Path= KolHour}" VerticalAlignment="Top" Width="70" TextWrapping="Wrap" Margin="35 0 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="21" Height="50" FontFamily="Bahnschrift Light Condensed"/>
+
             </StackPanel>
         </Border>
         <Label Content="Окно с информацией о предмете" VerticalAlignment="Top" Margin="30 15 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
 
-        <TextBlock Text="Пожалуйста, выберите месяц за который хотите узнать оценки." Width="360" TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" Margin="10 10 0 40" HorizontalAlignment="Right" Foreground="White" FontSize="22" Height="80" FontFamily="Bahnschrift Light Condensed"/>
+        <TextBlock Text="Выберите месяц за который хотите узнать оценки." Width="360" TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Top" Margin="10 60 0 40" HorizontalAlignment="Left" Foreground="White" FontSize="22" Height="80" FontFamily="Bahnschrift Light Condensed"/>
 
-        <ComboBox Name="combobox_Montch" Margin="0 0 40 280" HorizontalContentAlignment="Left" SelectionChanged="combobox_Montch_SelectionChanged" Grid.RowSpan="2" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Right"  FontSize="20" Grid.Row="0" Width="120" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+        <ComboBox Name="combobox_Montch" Margin="0 60 180 0" Grid.Column="1" HorizontalContentAlignment="Left" VerticalAlignment="Top" SelectionChanged="combobox_Montch_SelectionChanged" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Right"  FontSize="20" Width="120" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
             <ComboBoxItem  Content="Январь" />
             <ComboBoxItem  Content="Февраль" />
             <ComboBoxItem  Content="Март" />
@@ -72,6 +83,6 @@
             <ComboBoxItem  Content="Ноябрь" />
             <ComboBoxItem  Content="Декабрь" />
         </ComboBox>
-        <Grid Grid.Row="1" x:Name="ContainerGrid" Margin="20"/>
+        <Grid x:Name="ContainerGrid" Margin="0 150 0 0" Grid.Column="1"/>
     </Grid>
 </Window>

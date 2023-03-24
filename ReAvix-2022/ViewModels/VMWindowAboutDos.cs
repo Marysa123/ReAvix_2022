@@ -48,7 +48,9 @@ namespace ReAvix_2022.ViewModels
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
 
         }
-
+        /// <summary>
+        /// Удаление достижения
+        /// </summary>
         public void DeleteDos()
         {
             _Connection.Open();
@@ -57,6 +59,12 @@ namespace ReAvix_2022.ViewModels
             CommandSql.ExecuteNonQuery();
             _Connection.Close();
         }
+        /// <summary>
+        /// Метод для проверки существует ли данное достижение
+        /// </summary>
+        /// <param name="NomerDos">Номер достижения</param>
+        /// <param name="NomerDosOut">Выходной параметр номера достижения</param>
+        /// <returns></returns>
         public int CheckSkils(int NomerDos, out int NomerDosOut)
         {
             CommandSql.Connection = _Connection;
@@ -72,7 +80,9 @@ namespace ReAvix_2022.ViewModels
                 return NomerDosOut = 0;
             }
         }
-
+        /// <summary>
+        /// Получение данных о достижении
+        /// </summary>
         public void GetDataSkils()
         {
 

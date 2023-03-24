@@ -29,7 +29,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Label Grid.Row="0" Content="Ваш профиль" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+        <Label Grid.Row="0" Content="Ваш профиль" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
         <Border  Width="1380" Height="380" VerticalAlignment="Top" Grid.ColumnSpan="3" Background="#21335B" CornerRadius="10" Margin="0 80 0 0">
             <Grid>
                 <Grid.ColumnDefinitions>

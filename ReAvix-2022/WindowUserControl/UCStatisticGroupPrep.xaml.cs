@@ -61,14 +61,12 @@ namespace ReAvix_2022.WindowUserControl
             //vMWindowStatisticGroupPrep.AddGraph(out ObservableCollection<ISeries> SeriesOut);
             //Series = SeriesOut; // Присовения значения для поля из входящего параметра
 
-            cartesianChart = new LiveChartsCore.SkiaSharpView.WPF.CartesianChart() // Создание графика
-            {
-                Series = Series,
-                ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X,
-            };
-            ContainerGrid.Children.Add(cartesianChart); // Добавление графика в Grid
-
-
+            //cartesianChart = new LiveChartsCore.SkiaSharpView.WPF.CartesianChart() // Создание графика
+            //{
+            //    Series = Series,
+            //    ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X,
+            //};
+            //ContainerGrid.Children.Add(cartesianChart); // Добавление графика в Grid
         }
 
         private void BorderMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)

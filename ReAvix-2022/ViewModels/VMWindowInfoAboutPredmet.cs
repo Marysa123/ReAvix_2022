@@ -1,6 +1,7 @@
 ﻿using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
+using ReAvix_2022.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
@@ -15,8 +16,10 @@ namespace ReAvix_2022.ViewModels
         SqlCommand CommandSql = new SqlCommand();
 
         public string NamePredmet { get; set; }
-        public string NameWork { get; set; }
         public string FIOPrep { get; set; }
+        public string AboutPredmet { get; set; }
+        public string MainJob { get; set; }
+        public int KolHour { get; set; }
 
         List<int> listOchenok;
         List<int> listDate;
@@ -31,21 +34,31 @@ namespace ReAvix_2022.ViewModels
 
         public void GetInfoPredmet(int NomerPred)
         {
-            //_Connection.Open();
-            //CommandSql.Connection = _Connection;
+            _Connection.Open();
+            CommandSql.Connection = _Connection;
 
-            //CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {NomerPred}";
-            //NamePredmet = "Наименование предмета: " + (string)CommandSql.ExecuteScalar();
-            //string Name = (string)CommandSql.ExecuteScalar();
+            CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {NomerPred}";
+            string NamePredmetInTablePrepmet = (string)CommandSql.ExecuteScalar();
 
-            //CommandSql.CommandText = $"select [ФИО_Преподавателя] from [Предметы] where [Номер_Предмета] = {NomerPred}";
-            //FIOPrep = "ФИО преподавателя: " + (string)CommandSql.ExecuteScalar();
+            CommandSql.CommandText = $"select Номер_Предмета from Предметы_Преподавателя where Название_Предмета = '{NamePredmetInTablePrepmet}'";
+            int NomerPredmetInTablePredmetPrep = (int)CommandSql.ExecuteScalar();
 
+            CommandSql.CommandText = $"select [Название_Предмета] from [Предметы_Преподавателя] where [Номер_Предмета] = {NomerPredmetInTablePredmetPrep}";
+            NamePredmet = (string)CommandSql.ExecuteScalar();
 
-            //CommandSql.CommandText = $"select [Вид_итоговой_Работы] from [Предметы] where [Номер_Предмета] = {NomerPred}";
-            //NameWork = "Вид итоговой работы: " + (string)CommandSql.ExecuteScalar();
+            CommandSql.CommandText = $"select [Ведущий_Преподаватель] from [Предметы_Преподавателя] where [Номер_Предмета] = {NomerPredmetInTablePredmetPrep}";
+            FIOPrep = (string)CommandSql.ExecuteScalar();
 
-            //_Connection.Close();
+            CommandSql.CommandText = $"select [Описание_предмета] from [Предметы_Преподавателя] where [Номер_Предмета] = {NomerPredmetInTablePredmetPrep}";
+            AboutPredmet = (string)CommandSql.ExecuteScalar();
+
+            CommandSql.CommandText = $"select [Итоговая_работа] from [Предметы_Преподавателя] where [Номер_Предмета] = {NomerPredmetInTablePredmetPrep}";
+            MainJob = (string)CommandSql.ExecuteScalar();
+
+            CommandSql.CommandText = $"select [Количество_часов] from [Предметы_Преподавателя] where [Номер_Предмета] = {NomerPredmetInTablePredmetPrep}";
+            KolHour = (int)CommandSql.ExecuteScalar();
+
+            _Connection.Close();
         }
 
         public void AddGraph(int NomerPred, int NumberSt, int IndexMontch, out ObservableCollection<ISeries> SeriesOut)

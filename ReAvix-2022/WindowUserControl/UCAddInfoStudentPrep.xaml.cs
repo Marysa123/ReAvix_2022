@@ -58,7 +58,8 @@ namespace ReAvix_2022.WindowUserControl
             NameGroup = (string)sqlCommand.ExecuteScalar();
 
             UpdateInfoStudent();
-            GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
+
+            GetInfoPredmet($"select Предметы.Номер_Предмета as 'Номер предмета',Предметы_Преподавателя.Название_Предмета as 'Название предмета' from Предметы_Преподавателя,Предметы where FK_Номер_Преподавателя = {NumberPrep} and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета");
 
             _Connection.Close();
         }
@@ -71,26 +72,65 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NomerPredmet.Text == "" || textbox_Fam.Text == "" || textbox_Data.Text == "" || textbox_OChenka.Text == "" || textbox_VidWork.Text == "")
             {
-                MessageBox.Show("Пустые поля.", "Диалоговое окно");
+                MessageBox.Show("Пустые поля", "Диалоговое окно");
             }
             else
             {
                 _Connection.Close();
+
                 _Connection.Open();
+                sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
+                string NameGroup = (string)sqlCommand.ExecuteScalar();
 
-                    sqlCommand.CommandText = "set language english;";
-                    sqlCommand.ExecuteNonQuery();
-                    sqlCommand.CommandText = $"update Оценки_2 set [Дата] = Convert(datetime,'{textbox_Data.Text}'),ФИО_Студента ={textbox_Fam.Text},Название_Предмета = {textbox_NomerPredmet.Text}, Оценка = {textbox_OChenka.Text}, Вид_оценочной_работы ='{textbox_VidWork.Text}' where Номер_оценки = {label_Номер.Content}";
-                    sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
 
-                    UpdateInfoStudent();
+                sqlCommand.CommandText = $"select COUNT(Номер_Студента) from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
+                sqlCommand.Connection = _Connection;
+                int Count = (int)sqlCommand.ExecuteScalar();
 
-                    
+                sqlCommand.CommandText = $"select Номер_Студента from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
 
-                    GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                MassivNomerStudent = new List<int>();
+                while (sqlDataReader.Read())
+                {
+                    MassivNomerStudent.Add((int)sqlDataReader.GetValue(0));
+                }
+                sqlDataReader.Close();
 
-                   _Connection.Close();
+                int Nomer = int.Parse(textbox_Fam.Text);
+                int Ochenka = int.Parse(textbox_OChenka.Text);
+
+                if (Ochenka >= 2 && Ochenka <= 5)
+                {
+                    for (int i = 0; i < Count; i++)
+                    {
+                        if (Nomer == MassivNomerStudent[i])
+                        {
+
+                            sqlCommand.CommandText = "set language english;";
+                            sqlCommand.ExecuteNonQuery();
+                            sqlCommand.CommandText = $"update Оценки set [Дата] = Convert(datetime,'{textbox_Data.Text}'),[FK_Номер_Студента] ={textbox_Fam.Text},[FK_Номер_Предмета] = {textbox_NomerPredmet.Text}, Оценка = {textbox_OChenka.Text}, Вид_оценочной_работы ='{textbox_VidWork.Text}' where Номер_оценки = {label_Номер.Content}";
+                            try
+                            {
+                                sqlCommand.ExecuteNonQuery();
+                                MessageBox.Show("Данные успешно обновлены", "Диалоговое окно");
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Выберите строку!", "Диалоговое окно");
+                            }
+
+                            UpdateInfoStudent();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Неверные данные", "Диалоговое окно");
+                }
+
+                GetInfoPredmet($"select DISTINCT(Предметы.[Номер_Предмета]) as 'Номер предмета',Предметы.[Название_Предмета] as 'Название предмета' from [Оценки],[Студенты],[Предметы],[Предметы_Преподавателя] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Предметы.Номер_Предмета and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета group by FK_Номер_Предмета,Предметы.Название_Предмета,Предметы.Номер_Предмета");
+                _Connection.Close();
                     
             }
         }
@@ -98,86 +138,74 @@ namespace ReAvix_2022.WindowUserControl
         private void UpdateInfoStudent()
         {
             GridViewPredmet.ItemsSource = null;
-            sqlCommand.CommandText = $"select Номер_оценки as 'Номер строки',Convert(date, Дата,101) as Дата,ФИО_Студента,[Оценки_2].Название_Предмета as 'Название Предмета',[Оценка],[Вид_оценочной_работы] as 'Вид оценочной работы' from [Оценки_2],[Студенты] where FK_Номер_Группы = '{NameGroup}' and ФИО_Студента = Фамилия + ' ' + Имя + ' ' + Отчество";
+            //  sqlCommand.CommandText = $"select Номер_оценки as 'Номер строки',Convert(date, Дата,101) as Дата,ФИО_Студента,[Оценки_2].Название_Предмета as 'Название Предмета',[Оценка],[Вид_оценочной_работы] as 'Вид оценочной работы' from [Оценки_2],[Студенты] where FK_Номер_Группы = '{NameGroup}' and ФИО_Студента = Фамилия + ' ' + Имя + ' ' + Отчество";
+            sqlCommand.CommandText = $"select Номер_Оценки as 'Номер',Дата,Оценка,Вид_оценочной_Работы as 'Вид оценочной работы',Имя,Фамилия,Название_Предмета as 'Название предмета' from [Оценки],[Студенты],Предметы where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             System.Data.DataTable dataTable = new System.Data.DataTable("Оценки");
             sqlDataAdapter.Fill(dataTable);
             GridView.ItemsSource = dataTable.DefaultView;
+
+            GetInfoPredmet($"select Предметы.Номер_Предмета as 'Номер предмета',Предметы_Преподавателя.Название_Предмета as 'Название предмета' from Предметы_Преподавателя,Предметы where FK_Номер_Преподавателя = {NumberPrep} and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета");
+
         }
 
         private void Image_MouseDown_2(object sender, MouseButtonEventArgs e)
         {
-            //if (textbox_NomerPredmet.Text == "" || textbox_Fam.Text == "" || textbox_Ima.Text == "" || textbox_Otch.Text == "" || textbox_Data.Text == "" || textbox_OChenka.Text == "" || textbox_VidWork.Text == "")
-            //{
-            //    MessageBox.Show("Пустые поля.", "Диалоговое окно");
-            //}
-            //else
-            //{
-            //    _Connection.Close();
+            if (textbox_NomerPredmet.Text == "" || textbox_Fam.Text == "" || textbox_Data.Text == "" || textbox_OChenka.Text == "" || textbox_VidWork.Text == "")
+            {
+                MessageBox.Show("Пустые поля", "Диалоговое окно");
+            }
+            else
+            {
+                _Connection.Close();
 
-            //    _Connection.Open();
-            //    sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
-            //    string NameGroup = (string)sqlCommand.ExecuteScalar();
-
-
-            //    sqlCommand.CommandText = $"select COUNT(Номер_Студента) from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
-            //    sqlCommand.Connection = _Connection;
-            //    int Count = (int)sqlCommand.ExecuteScalar();
-
-            //    sqlCommand.CommandText = $"select Номер_Студента from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
-
-            //    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            //    MassivNomerStudent = new List<int>();
-            //    while (sqlDataReader.Read())
-            //    {
-            //        MassivNomerStudent.Add((int)sqlDataReader.GetValue(0));
-            //    }
-            //    sqlDataReader.Close();
-
-            //    //sqlCommand.CommandText = $"select Номер_Студента from Студенты where Фамилия = '{textbox_Fam.Text}' and Имя = '{textbox_Ima.Text}' and Отчество = '{textbox_Otch.Text}' and FK_Номер_Группы = '{NumberPrep}'";
-            //    int Nomer = (int)sqlCommand.ExecuteScalar();
-            //    int Ochenka = int.Parse(textbox_OChenka.Text);
-
-            //    if (Ochenka >=2 && Ochenka <=5)
-            //    {
-            //        for (int i = 0; i < Count; i++)
-            //        {
-            //            if (Nomer == MassivNomerStudent[i])
-            //            {
-            //                _Connection.Close();
-            //                _Connection.Open();
-            //                sqlCommand.CommandText = "set language english;";
-            //                sqlCommand.ExecuteNonQuery();
-
-            //                sqlCommand.CommandText = "";
+                _Connection.Open();
+                sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
+                string NameGroup = (string)sqlCommand.ExecuteScalar();
 
 
-            //                MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
+                sqlCommand.CommandText = $"select COUNT(Номер_Студента) from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
+                sqlCommand.Connection = _Connection;
+                int Count = (int)sqlCommand.ExecuteScalar();
 
-            //                UpdateInfoStudent();
-            //                GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
-            //                _Connection.Close();
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Неверные данные.","Диалоговое окно");
-            //    }
+                sqlCommand.CommandText = $"select Номер_Студента from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
 
-                
-                
-            //}
-        }
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                MassivNomerStudent = new List<int>();
+                while (sqlDataReader.Read())
+                {
+                    MassivNomerStudent.Add((int)sqlDataReader.GetValue(0));
+                }
+                sqlDataReader.Close();
 
-        private void button_SelectPredmetGroup_Click(object sender, RoutedEventArgs e)
-        {
-            GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
-        }
+                int Nomer = int.Parse(textbox_Fam.Text);
+                int Ochenka = int.Parse(textbox_OChenka.Text);
 
-        private void button_SelectAllPredmet_Click(object sender, RoutedEventArgs e)
-        {
-            GetInfoPredmet("select Номер_Предмета as 'Номер Предмета', Название_Предмета as 'Название Предмета' from [Предметы]");
+                if (Ochenka >= 2 && Ochenka <= 5)
+                {
+                    for (int i = 0; i < Count; i++)
+                    {
+                        if (Nomer == MassivNomerStudent[i])
+                        {
+                            _Connection.Close();
+                            _Connection.Open();
+                            sqlCommand.CommandText = "set language english;";
+                            sqlCommand.ExecuteNonQuery();
+
+                            sqlCommand.CommandText = $"insert into [Оценки] values ('{textbox_Data.Text}',{textbox_Fam.Text},{textbox_NomerPredmet.Text},{textbox_OChenka.Text},'{textbox_VidWork.Text}')";
+                            sqlCommand.ExecuteNonQuery();
+                            MessageBox.Show("Данные успешно добавлены", "Диалоговое окно");
+
+                            UpdateInfoStudent();
+                            _Connection.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Неверные данные", "Диалоговое окно");
+                }
+            }
         }
 
         private void GetInfoPredmet(string Select)
@@ -201,51 +229,45 @@ namespace ReAvix_2022.WindowUserControl
                 {
                     case MessageBoxResult.OK:
 
+                    _Connection.Close();
+
+                    _Connection.Open();
+                    sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
+                    string NameGroup = (string)sqlCommand.ExecuteScalar();
+
+                    sqlCommand.CommandText = $"select COUNT (Номер_Оценки) from [Студенты],[Оценки] where [FK_Номер_Студента] = [Номер_Студента]  and FK_Номер_Группы = '{NameGroup}'";
+                    sqlCommand.Connection = _Connection;
+                    int Count = (int)sqlCommand.ExecuteScalar();
+
+                    sqlCommand.CommandText = $"select Номер_Оценки from [Студенты],[Оценки] where [FK_Номер_Студента] = [Номер_Студента]  and FK_Номер_Группы = '{NameGroup}'";
+
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    MassivNomerOchenok = new List<int>();
+                    while (sqlDataReader.Read())
+                    {
+                       MassivNomerOchenok.Add((int)sqlDataReader.GetValue(0));
+                    }
+                    sqlDataReader.Close();
+
+                    var Name = ((DataRowView)GridView.SelectedItems[0]).Row["Номер"].ToString();
 
 
-                        _Connection.Close();
-
-                            _Connection.Open();
-                            sqlCommand.CommandText = $"select FK_Закреплённая_Группа from [Преподаватели] where [Номер_Преподавателя] = {NumberPrep}";
-                            string NameGroup = (string)sqlCommand.ExecuteScalar();
-
-
-                            sqlCommand.CommandText = $"select COUNT (Номер_Оценки) from [Студенты],[Оценки] where [FK_Номер_Студента] = [Номер_Студента]  and FK_Номер_Группы = '{NameGroup}'";
-                            sqlCommand.Connection = _Connection;
-                            int Count = (int)sqlCommand.ExecuteScalar();
-
-                            sqlCommand.CommandText = $"select Номер_Оценки from [Студенты],[Оценки] where [FK_Номер_Студента] = [Номер_Студента]  and FK_Номер_Группы = '{NameGroup}'";
-
-                            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                            MassivNomerOchenok = new List<int>();
-                            while (sqlDataReader.Read())
-                            {
-                                MassivNomerOchenok.Add((int)sqlDataReader.GetValue(0));
-                            }
-                            sqlDataReader.Close();
-
-                            var Name = ((DataRowView)GridView.SelectedItems[0]).Row["Номер"].ToString();
-
-
-                            for (int i = 0; i < Count; i++)
-                            {
-                                if (Name == MassivNomerOchenok[i].ToString())
-                                {
-
-
-                                    sqlCommand.CommandText = $"delete from Оценки_2 where [Номер_оценки] = {Name}";
-                                    sqlCommand.ExecuteNonQuery();
-                                    MessageBox.Show("Запись удалена!");
-                                    UpdateInfoStudent();
-                                    GetInfoPredmet($"select DISTINCT([FK_Номер_Предмета]) as 'Номер Предмета',[Название_Предмета] as 'Название Предмета' from [Оценки],[Студенты],[Предметы] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета group by FK_Номер_Предмета,Название_Предмета");
-                                    _Connection.Close();
-                                }
-
-                            }  
-                        break;
+                    for (int i = 0; i < Count; i++)
+                    {
+                        if (Name == MassivNomerOchenok[i].ToString())
+                        {
+                            sqlCommand.CommandText = $"delete from Оценки where [Номер_оценки] = {Name}";
+                            sqlCommand.ExecuteNonQuery();
+                            MessageBox.Show("Запись удалена!");
+                            UpdateInfoStudent();
+                            GetInfoPredmet($"select Предметы.Номер_Предмета as 'Номер предмета',Предметы_Преподавателя.Название_Предмета as 'Название предмета' from Предметы_Преподавателя,Предметы where FK_Номер_Преподавателя = {NumberPrep} and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета");
+                            _Connection.Close();
+                        }
+                    }  
+                    break;
                     case MessageBoxResult.Cancel:
                         _Connection.Close();
-                        break;
+                    break;
                 }
                 _Connection.Close();
             }
@@ -355,6 +377,21 @@ namespace ReAvix_2022.WindowUserControl
             Rng1.Cells.Font.Name = "Times New Roman";
             Rng1.Cells.Font.Size = 16;
             Rng1.Cells.Font.Color = System.Drawing.Color.Black;
+        }
+
+        private void button_ListPredmets_Click(object sender, RoutedEventArgs e)
+        {
+            GetInfoPredmet($"select Предметы.Номер_Предмета as 'Номер предмета',Предметы_Преподавателя.Название_Предмета as 'Название предмета' from Предметы_Преподавателя,Предметы where FK_Номер_Преподавателя = {NumberPrep} and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета");
+        }
+
+        private void button_ListStudent_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewPredmet.ItemsSource = null;
+            sqlCommand.CommandText = $"select Номер_Студента as 'Номер студента',Фамилия,Имя,Отчество from [Студенты] where [FK_Номер_Группы] = '{NameGroup}'";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            System.Data.DataTable dataTable = new System.Data.DataTable("Студенты");
+            sqlDataAdapter.Fill(dataTable);
+            GridViewPredmet.ItemsSource = dataTable.DefaultView;
         }
     }
 }

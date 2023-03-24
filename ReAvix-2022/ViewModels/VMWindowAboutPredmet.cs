@@ -51,10 +51,12 @@ namespace ReAvix_2022.ViewModels
             KolTime = CommandSql.ExecuteScalar().ToString();
             _Connection.Close();
         }
-
-        public void GetDataPredmet(string NameDocument) //Рабочий метод
+        /// <summary>
+        /// Получение данных о предмете
+        /// </summary>
+        /// <param name="NameDocument">Название предмета</param>
+        public void GetDataPredmet(string NameDocument)
         {
-
             _Connection.Close();
             _Connection.Open();
 
@@ -89,6 +91,10 @@ namespace ReAvix_2022.ViewModels
                 MessageBox.Show("Файла отсутствует", "Диалоговое окно");
             }
         }
+        /// <summary>
+        /// Удаление документов в предмете
+        /// </summary>
+        /// <param name="NameDocument">Название документа</param>
         public void DeleteDocumentPredmets(string NameDocument)
         {
             _Connection.Close();
@@ -101,6 +107,11 @@ namespace ReAvix_2022.ViewModels
                 MessageBox.Show("Успешное удаление файла!","Диалоговое окно");
             }
         }
+        /// <summary>
+        /// Добавление документов в предмет
+        /// </summary>
+        /// <param name="Url">Вдрес документа</param>
+        /// <returns></returns>
         public string AddDocument(out string Url)
         {
             OpenFileDialog openFile = new OpenFileDialog();// создаем диалоговое окно
@@ -108,6 +119,11 @@ namespace ReAvix_2022.ViewModels
             string FileName = openFile.FileName;
             return Url = FileName;
         }
+        /// <summary>
+        /// Проверка на существование файла в БД
+        /// </summary>
+        /// <param name="NameDoc"></param>
+        /// <returns></returns>
         private bool CheckFailInDataBase(string NameDoc)
         {
             CommandSql.CommandText = $"select [{NameDoc}] from Предметы_Преподавателя where Номер_Предмета = {NumberPred} and {NameDoc} is not null";
