@@ -216,6 +216,8 @@
     <Compile Include="Models\Студенты.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\VMWindowAddNewsAdmin.cs" />
     <Compile Include="ViewModels\VMWindowAboutDos.cs" />
     <Compile Include="ViewModels\VMWindowAboutPredmet.cs" />
     <Compile Include="ViewModels\VMWindowAboutSkils.cs" />
@@ -223,6 +225,7 @@
     <Compile Include="ViewModels\VMWindowAddInfoPredmetsPrep.cs" />
     <Compile Include="ViewModels\VMWindowAddPredmetsPrep.cs" />
     <Compile Include="ViewModels\VMWindowAddSkils.cs" />
+    <Compile Include="ViewModels\VMWindowAdministrator.cs" />
     <Compile Include="ViewModels\VMWindowChangePassword.cs" />
     <Compile Include="ViewModels\VMWindowConfirmationEmail.cs" />
     <Compile Include="ViewModels\VMWindowDosStudent.cs" />
@@ -264,6 +267,9 @@
     <Compile Include="Views\WindowAddSkils.xaml.cs">
       <DependentUpon>WindowAddSkils.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WindowAdministrator.xaml.cs">
+      <DependentUpon>WindowAdministrator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WindowChangePassword.xaml.cs">
       <DependentUpon>WindowChangePassword.xaml</DependentUpon>
     </Compile>
@@ -296,6 +302,9 @@
     </Compile>
     <Compile Include="WindowUserControl\UCAddInfoStudentPrep.xaml.cs">
       <DependentUpon>UCAddInfoStudentPrep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUserControl\UCAddNewsAdmin.xaml.cs">
+      <DependentUpon>UCAddNewsAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowUserControl\UCDosStudent.xaml.cs">
       <DependentUpon>UCDosStudent.xaml</DependentUpon>
@@ -407,6 +416,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WindowAdministrator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WindowChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -448,6 +461,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowUserControl\UCAddInfoStudentPrep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCAddNewsAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -609,6 +626,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\icon_AddNewsV1.png" />
+    <Resource Include="Resources\Images\icon_AddNewsV2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.6.0-ci259\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.0-ci259\build\MaterialDesignThemes.targets')" />

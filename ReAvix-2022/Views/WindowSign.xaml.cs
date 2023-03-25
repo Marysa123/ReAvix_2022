@@ -22,6 +22,10 @@ namespace ReAvix_2022
             InitializeComponent();
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
+
+        
+        
+        
         }
 
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -42,16 +46,15 @@ namespace ReAvix_2022
         private void button_RegisterPrep_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             WindowRegisterPrep windowRegisterPrep = new WindowRegisterPrep();
-            this.Hide();
+            Hide();
             windowRegisterPrep.Show();
         }
 
         private void button_RegisterStud_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             WindowRegisterStud windowRegisterStud = new WindowRegisterStud();
-            this.Hide();
+            Hide();
             windowRegisterStud.Show();
-
         }
 
         private void button_Sign_Click(object sender, RoutedEventArgs e)
@@ -83,10 +86,19 @@ namespace ReAvix_2022
                 {
                     _Connection.Close();
 
-                    textbox_Login.Clear();
-                    textbox_Password.Clear();
-                    textbox_Login.BorderBrush = Brushes.Red;
-                    textbox_Password.BorderBrush = Brushes.Red;
+                    if (textbox_Login.Text == ConfigurationManager.AppSettings["Login"] && textbox_Password.Password.ToString() == ConfigurationManager.AppSettings["Password"])
+                    {
+                        WindowAdministrator windowAdministrator = new WindowAdministrator();
+                        windowAdministrator.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        textbox_Login.Clear();
+                        textbox_Password.Clear();
+                        textbox_Login.BorderBrush = Brushes.Red;
+                        textbox_Password.BorderBrush = Brushes.Red;
+                    }  
                 }
             }
         }

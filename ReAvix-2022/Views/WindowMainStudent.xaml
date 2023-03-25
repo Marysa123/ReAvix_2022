@@ -28,7 +28,7 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-      <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>

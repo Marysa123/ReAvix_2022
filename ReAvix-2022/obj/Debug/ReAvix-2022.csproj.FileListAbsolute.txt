@@ -223,11 +223,14 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Resources\Styles\ButtonStyle.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Resources\Styles\ButtonStyleDelete.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutDos.g.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutPredmet.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutSkils.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddDos.g.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddInfoPredmetsPrep.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddNotes.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddNotesPrep.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddSkils.g.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAdministrator.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowChangePassword.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowConfirmationEmail.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowInfoAboutPredmet.g.cs
@@ -239,6 +242,7 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowRegisterStud.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowSign.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddInfoStudentPrep.g.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddNewsAdmin.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCDosStudent.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCListStudentsPrep.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCMainPrep.g.cs
@@ -248,6 +252,7 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCProfileStudent.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticGroupPrep.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticStudent.g.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddPredmetsPrep.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\App.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022_Content.g.cs
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -255,11 +260,14 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022_MarkupCompile.lref
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\App.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutDos.baml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutPredmet.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutSkils.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddDos.baml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddInfoPredmetsPrep.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddNotes.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddNotesPrep.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddSkils.baml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAdministrator.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowChangePassword.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowConfirmationEmail.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowInfoAboutPredmet.baml
@@ -271,6 +279,7 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowRegisterStud.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowSign.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddInfoStudentPrep.baml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddNewsAdmin.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCDosStudent.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCListStudentsPrep.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCMainPrep.baml
@@ -280,6 +289,7 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCProfileStudent.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticGroupPrep.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCStatisticStudent.baml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddPredmetsPrep.baml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.g.resources
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix_2022.Properties.Resources.resources
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.GenerateResource.cache
@@ -287,9 +297,3 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.CopyComplete
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.exe
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.pdb
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddInfoPredmetsPrep.g.cs
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddPredmetsPrep.g.cs
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAddInfoPredmetsPrep.baml
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\WindowUserControl\UCAddPredmetsPrep.baml
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutPredmet.g.cs
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutPredmet.baml
