@@ -1,0 +1,290 @@
+USE [db_ReAvix]
+GO
+/****** Object:  Table [dbo].[Группа]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Группа](
+	[Номер_Группы] [varchar](20) NOT NULL,
+	[Полное_Название_группы] [varchar](80) NOT NULL,
+UNIQUE NONCLUSTERED 
+(
+	[Номер_Группы] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Достижения]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Достижения](
+	[Номер_Достижения] [int] IDENTITY(1,1) NOT NULL,
+	[Изображение] [image] NULL,
+	[Дополнительное_Изображение] [image] NULL,
+	[Место_в_соревновании] [varchar](40) NOT NULL,
+	[Место_Проведения] [varchar](80) NOT NULL,
+	[Название_Соревнования] [varchar](80) NOT NULL,
+	[FK_Номер_Студента] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Достижения] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Заметки]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Заметки](
+	[Номер_заметки] [int] IDENTITY(1,1) NOT NULL,
+	[Текст] [varchar](600) NOT NULL,
+	[Приоритет] [varchar](7) NOT NULL,
+	[FK_Номер_Студента] [int] NULL,
+	[FK_Номер_Преподавателя] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_заметки] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Категории_Навыка]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Категории_Навыка](
+	[Номер_Категории] [int] IDENTITY(1,1) NOT NULL,
+	[Название_Категории] [varchar](70) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Категории] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Кружки]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Кружки](
+	[Номер_Кружка] [int] IDENTITY(1,1) NOT NULL,
+	[Название_Кружка] [varchar](60) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Кружка] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Навыки]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Навыки](
+	[Номер_Навыка] [int] IDENTITY(1,1) NOT NULL,
+	[Категория_Навыка] [varchar](120) NOT NULL,
+	[Мастерство_Навыка] [tinyint] NOT NULL,
+	[Описание_Навыка] [varchar](400) NOT NULL,
+	[FK_Номер_Студента] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Навыка] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Оценки]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Оценки](
+	[Номер_оценки] [int] IDENTITY(1,1) NOT NULL,
+	[Дата] [date] NOT NULL,
+	[FK_Номер_Студента] [int] NULL,
+	[FK_Номер_Предмета] [int] NULL,
+	[Оценка] [int] NOT NULL,
+	[Вид_оценочной_Работы] [varchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_оценки] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Предметы]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Предметы](
+	[Номер_Предмета] [int] IDENTITY(1,1) NOT NULL,
+	[Название_Предмета] [varchar](90) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Предмета] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Предметы_Преподавателя]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Предметы_Преподавателя](
+	[Номер_Предмета] [int] IDENTITY(1,1) NOT NULL,
+	[Название_Предмета] [varchar](90) NOT NULL,
+	[Ведущий_Преподаватель] [varchar](120) NOT NULL,
+	[FK_Номер_Преподавателя] [int] NULL,
+	[Описание_предмета] [varchar](500) NOT NULL,
+	[Итоговая_работа] [varchar](100) NOT NULL,
+	[Количество_часов] [int] NOT NULL,
+	[Документ_Первый] [varbinary](max) NULL,
+	[Документ_Второй] [varbinary](max) NULL,
+	[Документ_Третий] [varbinary](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Предмета] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Преподаватели]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Преподаватели](
+	[Номер_Преподавателя] [int] IDENTITY(1,1) NOT NULL,
+	[Имя] [varchar](40) NOT NULL,
+	[Фамилия] [varchar](40) NOT NULL,
+	[Отчество] [varchar](40) NOT NULL,
+	[Логин] [varchar](40) NOT NULL,
+	[Пароль] [varchar](40) NOT NULL,
+	[E_mail] [varchar](50) NOT NULL,
+	[Номер_Телефона] [varchar](40) NOT NULL,
+	[Пол] [varchar](7) NOT NULL,
+	[Дата_Рождения] [date] NOT NULL,
+	[Адрес] [varchar](120) NOT NULL,
+	[Специальность] [varchar](120) NOT NULL,
+	[Краткая_Информация] [varchar](400) NOT NULL,
+	[Ведущий_Кружок] [varchar](50) NOT NULL,
+	[FK_Закреплённая_группа] [varchar](20) NULL,
+	[Фотография] [image] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Преподавателя] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[E_mail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Логин] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Номер_Телефона] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Пропуски]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Пропуски](
+	[Уважительные_Пропуски] [int] NOT NULL,
+	[Неуважительные_Пропуски] [int] NOT NULL,
+	[Пропуски_по_болезни] [int] NOT NULL,
+	[FK_Номер_Студента] [int] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Специальности]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Специальности](
+	[Номер_Специальности] [int] IDENTITY(1,1) NOT NULL,
+	[Название_Специальности] [varchar](120) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Специальности] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Студенты]    Script Date: 25.03.2023 22:37:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Студенты](
+	[Номер_Студента] [int] IDENTITY(1,1) NOT NULL,
+	[Имя] [varchar](40) NOT NULL,
+	[Фамилия] [varchar](40) NOT NULL,
+	[Отчество] [varchar](40) NOT NULL,
+	[Логин] [varchar](30) NOT NULL,
+	[Пароль] [varchar](40) NOT NULL,
+	[E_mail] [varchar](50) NOT NULL,
+	[Номер_Телефона] [varchar](40) NOT NULL,
+	[Номер_телефона_Родителей] [varchar](40) NOT NULL,
+	[Курс] [varchar](1) NOT NULL,
+	[Пол] [varchar](7) NOT NULL,
+	[Дата_Рождения] [date] NOT NULL,
+	[Адрес] [varchar](120) NOT NULL,
+	[Краткая_Информация] [varchar](400) NOT NULL,
+	[FK_Номер_Группы] [varchar](20) NOT NULL,
+	[Фотография] [image] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Номер_Студента] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[E_mail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Логин] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Номер_Телефона] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Студенты] ADD  DEFAULT ('Мужской') FOR [Пол]
+GO
+ALTER TABLE [dbo].[Достижения]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Студента])
+REFERENCES [dbo].[Студенты] ([Номер_Студента])
+GO
+ALTER TABLE [dbo].[Заметки]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Студента])
+REFERENCES [dbo].[Студенты] ([Номер_Студента])
+GO
+ALTER TABLE [dbo].[Заметки]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Преподавателя])
+REFERENCES [dbo].[Преподаватели] ([Номер_Преподавателя])
+GO
+ALTER TABLE [dbo].[Навыки]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Студента])
+REFERENCES [dbo].[Студенты] ([Номер_Студента])
+GO
+ALTER TABLE [dbo].[Оценки]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Студента])
+REFERENCES [dbo].[Студенты] ([Номер_Студента])
+GO
+ALTER TABLE [dbo].[Оценки]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Предмета])
+REFERENCES [dbo].[Предметы] ([Номер_Предмета])
+GO
+ALTER TABLE [dbo].[Предметы_Преподавателя]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Преподавателя])
+REFERENCES [dbo].[Преподаватели] ([Номер_Преподавателя])
+GO
+ALTER TABLE [dbo].[Преподаватели]  WITH CHECK ADD FOREIGN KEY([FK_Закреплённая_группа])
+REFERENCES [dbo].[Группа] ([Номер_Группы])
+GO
+ALTER TABLE [dbo].[Студенты]  WITH CHECK ADD FOREIGN KEY([FK_Номер_Группы])
+REFERENCES [dbo].[Группа] ([Номер_Группы])
+GO
+ALTER TABLE [dbo].[Навыки]  WITH CHECK ADD CHECK  (([Мастерство_Навыка]>=(0) AND [Мастерство_Навыка]<=(10)))
+GO
+ALTER TABLE [dbo].[Оценки]  WITH CHECK ADD CHECK  (([Оценка]>=(2) AND [Оценка]<=(5)))
+GO
