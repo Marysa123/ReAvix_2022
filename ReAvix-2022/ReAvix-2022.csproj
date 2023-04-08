@@ -626,6 +626,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\image_Png.png" />
     <Resource Include="Resources\Images\icon_AddNewsV1.png" />
     <Resource Include="Resources\Images\icon_AddNewsV2.png" />
   </ItemGroup>

@@ -14,13 +14,25 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+#pragma warning disable CS0105 // Директива using для "LiveChartsCore" ранее встречалась в этом пространстве имен
 using LiveChartsCore;
+#pragma warning restore CS0105 // Директива using для "LiveChartsCore" ранее встречалась в этом пространстве имен
 using LiveChartsCore.SkiaSharpView.WPF;
+#pragma warning disable CS0105 // Директива using для "ReAvix_2022.ViewModels" ранее встречалась в этом пространстве имен
 using ReAvix_2022.ViewModels;
+#pragma warning restore CS0105 // Директива using для "ReAvix_2022.ViewModels" ранее встречалась в этом пространстве имен
+#pragma warning disable CS0105 // Директива using для "System.Collections.ObjectModel" ранее встречалась в этом пространстве имен
 using System.Collections.ObjectModel;
+#pragma warning restore CS0105 // Директива using для "System.Collections.ObjectModel" ранее встречалась в этом пространстве имен
+#pragma warning disable CS0105 // Директива using для "System.Windows" ранее встречалась в этом пространстве имен
 using System.Windows;
+#pragma warning restore CS0105 // Директива using для "System.Windows" ранее встречалась в этом пространстве имен
+#pragma warning disable CS0105 // Директива using для "System.Windows.Controls" ранее встречалась в этом пространстве имен
 using System.Windows.Controls;
+#pragma warning restore CS0105 // Директива using для "System.Windows.Controls" ранее встречалась в этом пространстве имен
+#pragma warning disable CS0105 // Директива using для "System.Windows.Input" ранее встречалась в этом пространстве имен
 using System.Windows.Input;
+#pragma warning restore CS0105 // Директива using для "System.Windows.Input" ранее встречалась в этом пространстве имен
 
 namespace ReAvix_2022.WindowUserControl
 {
@@ -34,7 +46,9 @@ namespace ReAvix_2022.WindowUserControl
         ModelsNotes modelsNotes = new ModelsNotes();
 
         public ObservableCollection<ISeries> Series { get; set; }
+#pragma warning disable CS0169 // Поле "UCStatisticGroupPrep.cartesianChart" никогда не используется.
         LiveChartsCore.SkiaSharpView.WPF.CartesianChart cartesianChart;
+#pragma warning restore CS0169 // Поле "UCStatisticGroupPrep.cartesianChart" никогда не используется.
 
 
         public UCStatisticGroupPrep()

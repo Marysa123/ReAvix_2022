@@ -6,10 +6,16 @@ using System.Windows.Controls;
 using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
+#pragma warning disable CS0105 // Директива using для "System.Collections.Generic" ранее встречалась в этом пространстве имен
 using System.Collections.Generic;
+#pragma warning restore CS0105 // Директива using для "System.Collections.Generic" ранее встречалась в этом пространстве имен
 using System.Collections.ObjectModel;
+#pragma warning disable CS0105 // Директива using для "System.Configuration" ранее встречалась в этом пространстве имен
 using System.Configuration;
+#pragma warning restore CS0105 // Директива using для "System.Configuration" ранее встречалась в этом пространстве имен
+#pragma warning disable CS0105 // Директива using для "System.Data.SqlClient" ранее встречалась в этом пространстве имен
 using System.Data.SqlClient;
+#pragma warning restore CS0105 // Директива using для "System.Data.SqlClient" ранее встречалась в этом пространстве имен
 
 
 namespace ReAvix_2022.ViewModels

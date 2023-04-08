@@ -4,9 +4,100 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1440" Background="Transparent">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+
+        <Border CornerRadius="10" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#112035"
+                                      Offset="0"/>
+                    <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        
+        <Image Name="icon_Exit" MouseLeftButtonDown="icon_Exit_MouseLeftButtonDown" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Margin="0 25 25 0" Width="17">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Source" Value="/Resources/Images/icon_Exit.png"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=icon_Exit}" Value="true">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitStatus2.png"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <StackPanel>
+            <Label Content="Окно добавления записей в раздел новостей" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="30 20 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="26" Height="40" FontFamily="Bahnschrift Light Condensed"/>
+            <Expander HorizontalAlignment="Stretch" Header="Обязательное изображение" Margin="20 0 20 0" Foreground="White" FontFamily="Bahnschrift Light Condensed">
+                <Expander.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#2124"
+                                      Offset="0"/>
+                        <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                    </LinearGradientBrush>
+                </Expander.Background>
+                <StackPanel Margin="24,8,24,16" Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                    <TextBlock Text="Пожалуйста, добавьте фото, касающиеся создаваемой вами новости" Foreground="#ADADAD" TextWrapping="Wrap" Width="470" FontSize="20" HorizontalAlignment="Left" Margin="35 0 0 0" VerticalAlignment="Top" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                    <Image Margin="20" Name="Image_One" Height="270" Width="470" MouseDown="Image_One_MouseDown" Cursor="Hand" Source="{Binding Path= SourceIm}"/>
+                </StackPanel>
+            </Expander>
+
+            <Expander HorizontalAlignment="Stretch" Header="Дополнительное изображение" Margin="20 0 20 0" Foreground="White" FontFamily="Bahnschrift Light Condensed">
+                <Expander.Background>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#2124"
+                                      Offset="0"/>
+                            <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                        </LinearGradientBrush>
+                </Expander.Background>
+                <StackPanel Margin="24,8,24,16" Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                    <Label Content="Можете указать дополнительное фото (обязательно):" VerticalAlignment="Top" Margin="35 52 0 0"  HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                    <Image Margin="20" Name="Image_Two" Height="270" Width="470" MouseDown="Image_Two_MouseDown" Cursor="Hand" Source="{Binding Path= SourceIm}"/>
+                </StackPanel>
+            </Expander>
+
+            <Expander HorizontalAlignment="Stretch" Header="Дополнительное изображение" Margin="20 0 20 0" Foreground="White" FontFamily="Bahnschrift Light Condensed">
+                <Expander.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#2124"
+                                      Offset="0"/>
+                        <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                    </LinearGradientBrush>
+                </Expander.Background>
+                <StackPanel Margin="24,8,24,16" Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                    <Label Content="Можете указать дополнительное фото (обязательно):" VerticalAlignment="Top" Margin="35 52 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                    <Image Margin="20" Name="Image_Three" Height="270" Width="470" MouseDown="Image_Three_MouseDown" Cursor="Hand" Source="{Binding Path= SourceIm}"/>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="0 90 0 0">
+            <Label Content="Укажите заголовок новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_MainTextCaption" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="100" Background="White"/>
+
+            <Label Content="Укажите описание новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_TextNew" Height="265" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="500" Background="White"/>
+
+            <Label Content="Укажите автора новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_AvtorNew" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="100" Background="White"/>
+
+            <Label Content="Укажите категории новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_KatNew" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="200" Background="White"/>
+
+            <Button Name="button_AddNews" Click="button_AddNews_Click" Style="{StaticResource StyleButtonAllApplication}" Margin="0 40 30 0" Width="252" Height="65" Content="Добавить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift"/>
+        </StackPanel>
     </Grid>
 </UserControl>

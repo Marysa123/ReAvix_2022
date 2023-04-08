@@ -22,10 +22,14 @@ namespace ReAvix_2022
             InitializeComponent();
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
+            if (CheckingDatabaseConnection())
+            {
 
-        
-        
-        
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
 
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -40,6 +44,27 @@ namespace ReAvix_2022
 
         private void button_ChangePasssowrd_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
+        }
+        /// <summary>
+        /// Проверка для подключения к БД
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckingDatabaseConnection()
+        {
+            SqlConnection _Connection = new SqlConnection();
+            _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
+            try
+            {
+                _Connection.Open();
+                _Connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Нет соединения с сервером.","Диалоговое окно");
+                return false;
+            }
 
         }
 

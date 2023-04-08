@@ -121,6 +121,17 @@ create table [Категории_Навыка](
 [Номер_Категории] int primary key identity(1,1) NOT NULL,
 [Название_Категории] varchar(70) NOT NULL)
 
+create table [Новости](
+[Номер_Новости] int primary key identity(1,1) not null,
+[Заголовок_Новости] varchar(100) NOT NULL,
+[Описание_Новости] varchar(500) NOT NULL,
+[Автор_Новости] varchar(100) NOT NULL,
+[Дата_Создания] varchar(30) NOT NULL,
+[Категрии_Новости] varchar(200) NOT NULL,
+[Фотография_Первая] image,
+[Фотография_Вторая] image,
+[Фотография_Третья] image,)
+
 --Триггеры
 --CREATE TRIGGER [Студенты_Добавление_Пропусков]
 --ON [Студенты]

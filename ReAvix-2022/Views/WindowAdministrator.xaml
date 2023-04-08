@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="WindowAdministrator" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
     <Window.Resources>
-        <DataTemplate x:Name="UCAddNewsAdmin" DataType="{x:Type local1:VMWindowAddNewsAdmin}">
+        <DataTemplate x:Name="UCAddNewsAdmin" DataType="{x:Type local1:VMWindowAdministrator}">
             <windowusercontrol:UCAddNewsAdmin DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>

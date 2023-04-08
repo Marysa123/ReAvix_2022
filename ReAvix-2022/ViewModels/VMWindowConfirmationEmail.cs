@@ -19,7 +19,9 @@ namespace ReAvix_2022.ViewModels
             try
             {
                 string from = @"m4rysa123@yandex.ru"; // адреса отправителя
+#pragma warning disable CS0219 // Переменной "pass" присвоено значение, но оно ни разу не использовано.
                 string pass = "Marysa123!"; // пароль отправителя
+#pragma warning restore CS0219 // Переменной "pass" присвоено значение, но оно ни разу не использовано.
                 MailMessage mess = new MailMessage();
                 mess.To.Add(Email); // адрес получателя
                 mess.From = new MailAddress(from);
