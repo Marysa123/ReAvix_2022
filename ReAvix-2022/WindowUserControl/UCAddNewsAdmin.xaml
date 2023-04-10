@@ -83,13 +83,32 @@
                     <Image Margin="20" Name="Image_Three" Height="270" Width="470" MouseDown="Image_Three_MouseDown" Cursor="Hand" Source="{Binding Path= SourceIm}"/>
                 </StackPanel>
             </Expander>
+
+            <Expander HorizontalAlignment="Stretch" Header="Удаление новостей" Margin="20 0 20 0" Foreground="White" FontFamily="Bahnschrift Light Condensed">
+                <Expander.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#2124"
+                                      Offset="0"/>
+                        <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                    </LinearGradientBrush>
+                </Expander.Background>
+                <StackPanel Margin="0,0,0,0" Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                    <DataGrid AutoGenerateColumns="True" Name="GridViewNews" Margin="15 15 15 0" FontSize="20"/>
+                    <Label Content="Укажите номер новости, чтобы ее удалить:" VerticalAlignment="Top" Margin="35 15 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="90" Name="textbox_NomerNews" HorizontalAlignment="Left" Height="60" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="5" Background="White"/>
+
+                    <Button  Name="button_DeleteNews" Click="button_DeleteNews_Click" Style="{StaticResource StyleButtonDelete}" Margin="0 25 0 0" Width="252" Height="65" Content="Удалить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift" Cursor="Hand"/>
+
+                </StackPanel>
+            </Expander>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="0 90 0 0">
             <Label Content="Укажите заголовок новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_MainTextCaption" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="100" Background="White"/>
 
             <Label Content="Укажите описание новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
-            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_TextNew" Height="265" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="500" Background="White"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_TextNew" Height="265" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="1500" Background="White"/>
 
             <Label Content="Укажите автора новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_AvtorNew" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="100" Background="White"/>

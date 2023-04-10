@@ -62,5 +62,10 @@ namespace ReAvix_2022.Views
         {
             DataContext = new UСAddPredmetsPrep(NumberPrep:NumberPrep);
         }
+
+        private void button_News_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCListNews();
+        }
     }
 }

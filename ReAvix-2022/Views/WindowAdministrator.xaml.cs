@@ -33,5 +33,12 @@ namespace ReAvix_2022.Views
         {
             DataContext = new UCAddNewsAdmin();
         }
+
+        private void button_Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowSign windowSign = new WindowSign();
+            windowSign.Show();
+            Close();
+        }
     }
 }

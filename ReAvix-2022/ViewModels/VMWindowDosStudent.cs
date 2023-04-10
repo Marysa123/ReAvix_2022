@@ -54,8 +54,6 @@ namespace ReAvix_2022.ViewModels
 
             List<Grid> Borders = new List<Grid>();
 
-            var bc = new BrushConverter();
-
             LinearGradientBrush LGB = new LinearGradientBrush();
             LGB.StartPoint = new Point(0, 0);
             LGB.EndPoint = new Point(1, 1);

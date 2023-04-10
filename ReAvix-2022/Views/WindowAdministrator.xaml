@@ -67,6 +67,33 @@
                     </Label.Style>
                 </Label>
             </TextBlock>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
+            <Image Name="icon_Exit"  Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_ExitV1.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Exit}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_ExitV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="32" Width="70" Content="Выйти" FontSize="18px" Margin="30 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Exit}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
         </Grid>
 
         <Grid Grid.Column="1">

@@ -26,6 +26,9 @@
         <DataTemplate x:Name="UCProfileWindowTemplate" DataType="{x:Type local1:VMWindowProfileStudent}">
             <windowusercontrol:UCProfileStudent DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="UCNewsWindowTemplate" DataType="{x:Type local1:VMWindowListNews}">
+            <windowusercontrol:UCListNews DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,9 +42,10 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Border Grid.RowSpan="6" CornerRadius="10 0 0 10">
+            <Border Grid.RowSpan="7" CornerRadius="10 0 0 10">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop
@@ -158,8 +162,34 @@
                     </Label.Style>
                 </Label>
             </TextBlock>
+            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_News" MouseDown="button_News_MouseDown" Width="200" Cursor="Hand">
+            <Image Name="icon_News" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_NewsV1.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_News}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_NewsV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="32" Width="90" Content="Новости" FontSize="17px" Margin="20 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_News}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
+            <TextBlock Grid.Row="6" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
             <Image Name="icon_Exit"  Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">

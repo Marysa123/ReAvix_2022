@@ -48,5 +48,9 @@ namespace ReAvix_2022.Views
 
         }
 
+        private void button_News_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCListNews();
+        }
     }
 }
