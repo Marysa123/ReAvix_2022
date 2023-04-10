@@ -105,5 +105,12 @@ namespace ReAvix_2022.WindowUserControl
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        private void textbox_Regex_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[а-яА-Я]"))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

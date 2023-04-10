@@ -107,5 +107,12 @@ namespace ReAvix_2022.Views
                 MessageBox.Show("Отсутсвует значение в одном из полей!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void textbox_Regex_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[а-яА-Я]"))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

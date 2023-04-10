@@ -1,0 +1,6 @@
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ClassLibraryReAvix\bin\Debug\ClassLibraryReAvix.dll
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ClassLibraryReAvix\bin\Debug\ClassLibraryReAvix.pdb
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ClassLibraryReAvix\obj\Debug\ClassLibraryReAvix.csproj.AssemblyReference.cache
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ClassLibraryReAvix\obj\Debug\ClassLibraryReAvix.csproj.CoreCompileInputs.cache
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ClassLibraryReAvix\obj\Debug\ClassLibraryReAvix.dll
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ClassLibraryReAvix\obj\Debug\ClassLibraryReAvix.pdb

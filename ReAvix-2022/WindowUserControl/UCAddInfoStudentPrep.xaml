@@ -85,11 +85,11 @@
                 <WrapPanel Width="456" DataContext="{Binding ElementName=GridView,Path=SelectedValue}" Margin="22,56,22,-1">
                     <StackPanel>
                         <Label Content="Номер студента:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Left"/>
-                        <TextBox Width="460" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_Fam" Text="{Binding ФИО_Студента}" Cursor="Arrow" BorderBrush="White" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                        <TextBox Width="460" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_Fam" Text="{Binding ФИО_Студента}" Cursor="Arrow" BorderBrush="White" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" PreviewTextInput="textbox_Fam_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel Margin="0 20 0 0">
                         <Label Content="Номер предмета" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
-                        <TextBox Width="460" Height="50" FontSize="22" Foreground="White" HorizontalContentAlignment="Left" Name="textbox_NomerPredmet" Text="{Binding Название Предмета}" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                        <TextBox Width="460" Height="50" FontSize="22" Foreground="White" HorizontalContentAlignment="Left" Name="textbox_NomerPredmet" Text="{Binding Название Предмета}" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" PreviewTextInput="textbox_NomerPredmet_PreviewTextInput"/>
                     </StackPanel>
                     <StackPanel Margin="0 20 0 0">
                         <Label Content="Вид оценочной работы" Foreground="White" FontSize="20"   Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>

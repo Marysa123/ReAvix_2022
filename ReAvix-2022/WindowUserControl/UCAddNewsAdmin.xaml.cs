@@ -157,5 +157,12 @@ namespace ReAvix_2022.WindowUserControl
                     break;
             }
         }
+        private void textbox_Regex_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(e.Text, "^[а-яА-Я]"))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

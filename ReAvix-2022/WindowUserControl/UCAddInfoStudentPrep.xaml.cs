@@ -393,5 +393,17 @@ namespace ReAvix_2022.WindowUserControl
             sqlDataAdapter.Fill(dataTable);
             GridViewPredmet.ItemsSource = dataTable.DefaultView;
         }
+
+        private void textbox_Fam_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void textbox_NomerPredmet_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }

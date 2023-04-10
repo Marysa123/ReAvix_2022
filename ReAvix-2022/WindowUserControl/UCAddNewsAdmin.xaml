@@ -111,7 +111,7 @@
             <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_TextNew" Height="265" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="1500" Background="White"/>
 
             <Label Content="Укажите автора новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
-            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_AvtorNew" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="100" Background="White"/>
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_AvtorNew" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="100" Background="White" PreviewTextInput="textbox_Regex_PreviewTextInput"/>
 
             <Label Content="Укажите категории новости*" VerticalAlignment="Top" Margin="35 10 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
             <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Name="textbox_KatNew" Height="65" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="200" Background="White"/>
