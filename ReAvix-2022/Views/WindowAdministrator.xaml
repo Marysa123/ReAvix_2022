@@ -26,9 +26,12 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Border Grid.RowSpan="6" CornerRadius="10 0 0 10">
+            <Border Grid.RowSpan="8" CornerRadius="10 0 0 10">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop
@@ -41,7 +44,7 @@
                 </Border.Background>
             </Border>
             <Image Source="/Resources/Images/icon_Logo.png" Grid.Column="0" Grid.Row="0" Height="95" Width="95"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Height="50" Name="button_AddNews" Width="220" Cursor="Hand" MouseDown="button_AddNews_MouseDown">
+            <TextBlock Grid.Row="1" Grid.Column="0" Height="50" Name="button_AddNews" Width="250" Cursor="Hand" MouseDown="button_AddNews_MouseDown">
             <Image Name="icon_Home" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
@@ -54,7 +57,7 @@
                         </Style>
                     </Image.Style>
                 </Image>
-                <Label Height="30" Content="Добавление новостей" FontSize="17px" Margin="10 0 0 5">
+                <Label Height="30" Content="Добавление новостей" FontSize="17px" Margin="5 0 0 2">
                     <Label.Style>
                         <Style TargetType="{x:Type Label}">
                             <Setter Property="Foreground" Value="#1A9699"/>
@@ -68,7 +71,143 @@
                 </Label>
             </TextBlock>
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
+            <TextBlock Grid.Row="2" Grid.Column="0" Height="50" Name="button_AddInfoAdmin" Width="250" Cursor="Hand" MouseDown="button_AddInfoAdmin_MouseDown">
+            <Image Name="icon_Info" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStud.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoAdmin}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStudV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="30" Content="Группы, кружки, категории" FontSize="17px" Margin="5 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoAdmin}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Height="50" Name="button_AddInfoPredmetsAndSpec" Width="250" Cursor="Hand" MouseDown="button_AddInfoPredmetsAndSpec_MouseDown">
+            <Image Name="icon_InfoPredmetsAndSpec" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStud.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoPredmetsAndSpec}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStudV2.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="30" Content="Предметы, специальности" FontSize="17px" Margin="5 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoPredmetsAndSpec}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Height="50" Name="button_InfoPrepod" Width="250" Cursor="Hand" MouseDown="button_InfoPrepod_MouseDown">
+            <Image Name="icon_InfoPrepod" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_TeacherAdminWindowV2.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_InfoPrepod}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_TeacherAdminWindowV1.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="30" Content="Преподаватели" FontSize="17px" Margin="5 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_InfoPrepod}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_InfoStudents" Width="250" Cursor="Hand" MouseDown="button_InfoStudents_MouseDown">
+            <Image Name="icon_InfoStudents" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_StudentsAdminWindowV2.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_InfoStudents}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_StudentsAdminWindowV1.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="30" Content="Студенты" FontSize="17px" Margin="5 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_InfoStudents}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Height="50" Name="button_InfoStatisticCollege" Width="250" Cursor="Hand" MouseDown="button_InfoStatisticCollege_MouseDown">
+            <Image Name="icon_InfoStatistic" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Resources/Images/icon_StatisticAdminWindowV2.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_InfoStatisticCollege}" Value="true">
+                                    <Setter Property="Source" Value="/Resources/Images/icon_StatisticAdminWindowV1.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label Height="30" Content="Общая статистика" FontSize="17px" Margin="5 0 0 5">
+                    <Label.Style>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="#1A9699"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_InfoStatisticCollege}" Value="true">
+                                    <Setter Property="Foreground" Value="#3AFFDC"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </TextBlock>
+
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Height="50" Name="button_Exit" Width="200" Cursor="Hand" MouseDown="button_Exit_MouseDown" VerticalAlignment="Bottom" Margin="0 0 0 40" materialDesign:BottomDashedLineAdorner.Brush="Aqua">
             <Image Name="icon_Exit"  Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
@@ -109,7 +248,7 @@
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
-            <ContentControl Grid.Column="1" Height="1000" Content="{Binding}" />
+            <ContentControl Grid.Column="1" Height="980" Content="{Binding}" />
         </Grid>
     </Grid>
 </Window>

@@ -99,7 +99,6 @@
                     <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="90" Name="textbox_NomerNews" HorizontalAlignment="Left" Height="60" FontSize="20" TextWrapping="Wrap" Margin="35 10 35 0" BorderBrush="White" MaxLength="5" Background="White"/>
 
                     <Button  Name="button_DeleteNews" Click="button_DeleteNews_Click" Style="{StaticResource StyleButtonDelete}" Margin="0 25 0 0" Width="252" Height="65" Content="Удалить" FontSize="18" VerticalAlignment="Top" FontFamily="Bahnschrift" Cursor="Hand"/>
-
                 </StackPanel>
             </Expander>
         </StackPanel>

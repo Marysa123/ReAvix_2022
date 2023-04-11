@@ -40,5 +40,30 @@ namespace ReAvix_2022.Views
             windowSign.Show();
             Close();
         }
+
+        private void button_AddInfoAdmin_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCAddInfoAdministrator();
+        }
+
+        private void button_AddInfoPredmetsAndSpec_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCAddInfoPredmetsAndSpec();
+        }
+
+        private void button_InfoPrepod_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCInfoPrepodAdmin();
+        }
+
+        private void button_InfoStudents_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCInfoStudentsAdmin();
+        }
+
+        private void button_InfoStatisticCollege_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DataContext = new UCStatisticCollegeAdmin();
+        }
     }
 }

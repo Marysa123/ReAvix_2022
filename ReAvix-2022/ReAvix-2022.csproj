@@ -217,6 +217,8 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\VMWIndowAddInfoAdministrator.cs" />
+    <Compile Include="ViewModels\VMWindowAddInfoPredmetsAndSpec.cs" />
     <Compile Include="ViewModels\VMWindowAddNewsAdmin.cs" />
     <Compile Include="ViewModels\VMWindowAboutDos.cs" />
     <Compile Include="ViewModels\VMWindowAboutPredmet.cs" />
@@ -230,7 +232,9 @@
     <Compile Include="ViewModels\VMWindowConfirmationEmail.cs" />
     <Compile Include="ViewModels\VMWindowDosStudent.cs" />
     <Compile Include="ViewModels\VMWindowInfoAboutPredmet.cs" />
+    <Compile Include="ViewModels\VMWindowInfoPrepodAdmin.cs" />
     <Compile Include="ViewModels\VMWindowInfoStudent.cs" />
+    <Compile Include="ViewModels\VMWindowInfoStudentsAdmin.cs" />
     <Compile Include="ViewModels\VMWindowListNews.cs" />
     <Compile Include="ViewModels\VMWindowListStudentsPrep.cs" />
     <Compile Include="ViewModels\VMWindowMainPrep.cs" />
@@ -241,6 +245,7 @@
     <Compile Include="ViewModels\VMWindowProfileStudent.cs" />
     <Compile Include="ViewModels\VMWindowRegisterPrep.cs" />
     <Compile Include="ViewModels\VMWindowRegisterStud.cs" />
+    <Compile Include="ViewModels\VMWindowStatisticCollegeAdmin.cs" />
     <Compile Include="ViewModels\VMWindowStatisticGroupPrep.cs" />
     <Compile Include="ViewModels\VMWindowStatisticStudent.cs" />
     <Compile Include="ViewModels\VMWindowAddInfoStudentPrep.cs" />
@@ -301,6 +306,12 @@
     <Compile Include="Views\WindowSign.xaml.cs">
       <DependentUpon>WindowSign.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowUserControl\UCAddInfoAdministrator.xaml.cs">
+      <DependentUpon>UCAddInfoAdministrator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUserControl\UCAddInfoPredmetsAndSpec.xaml.cs">
+      <DependentUpon>UCAddInfoPredmetsAndSpec.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowUserControl\UCAddInfoStudentPrep.xaml.cs">
       <DependentUpon>UCAddInfoStudentPrep.xaml</DependentUpon>
     </Compile>
@@ -309,6 +320,12 @@
     </Compile>
     <Compile Include="WindowUserControl\UCDosStudent.xaml.cs">
       <DependentUpon>UCDosStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUserControl\UCInfoPrepodAdmin.xaml.cs">
+      <DependentUpon>UCInfoPrepodAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUserControl\UCInfoStudentsAdmin.xaml.cs">
+      <DependentUpon>UCInfoStudentsAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowUserControl\UCListNews.xaml.cs">
       <DependentUpon>UCListNews.xaml</DependentUpon>
@@ -330,6 +347,9 @@
     </Compile>
     <Compile Include="WindowUserControl\UCProfileStudent.xaml.cs">
       <DependentUpon>UCProfileStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUserControl\UCStatisticCollegeAdmin.xaml.cs">
+      <DependentUpon>UCStatisticCollegeAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowUserControl\UCStatisticGroupPrep.xaml.cs">
       <DependentUpon>UCStatisticGroupPrep.xaml</DependentUpon>
@@ -464,6 +484,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WindowUserControl\UCAddInfoAdministrator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCAddInfoPredmetsAndSpec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowUserControl\UCAddInfoStudentPrep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -473,6 +501,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowUserControl\UCDosStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCInfoPrepodAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCInfoStudentsAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -501,6 +537,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowUserControl\UCProfileStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUserControl\UCStatisticCollegeAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -634,6 +674,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\icon_TeacherAdminWindowV1.png" />
+    <Resource Include="Resources\Images\icon_TeacherAdminWindowV2.png" />
+    <Resource Include="Resources\Images\icon_StudentsAdminWindowV1.png" />
+    <Resource Include="Resources\Images\icon_StudentsAdminWindowV2.png" />
+    <Resource Include="Resources\Images\icon_StatisticAdminWindowV1.png" />
+    <Resource Include="Resources\Images\icon_StatisticAdminWindowV2.png" />
     <Resource Include="Resources\Images\icon_NewsV1.png" />
     <Resource Include="Resources\Images\icon_NewsV2.png" />
     <Resource Include="Resources\Images\icon_AddNewsV1.png" />
