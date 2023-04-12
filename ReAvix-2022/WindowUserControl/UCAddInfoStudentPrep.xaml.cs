@@ -126,7 +126,7 @@ namespace ReAvix_2022.WindowUserControl
                 }
                 else
                 {
-                    MessageBox.Show("Неверные данные", "Диалоговое окно");
+                    MessageBox.Show("Неверные данные.", "Диалоговое окно");
                 }
 
                 GetInfoPredmet($"select DISTINCT(Предметы.[Номер_Предмета]) as 'Номер предмета',Предметы.[Название_Предмета] as 'Название предмета' from [Оценки],[Студенты],[Предметы],[Предметы_Преподавателя] where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Предметы.Номер_Предмета and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета group by FK_Номер_Предмета,Предметы.Название_Предмета,Предметы.Номер_Предмета");
@@ -153,7 +153,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NomerPredmet.Text == "" || textbox_Fam.Text == "" || textbox_Data.Text == "" || textbox_OChenka.Text == "" || textbox_VidWork.Text == "")
             {
-                MessageBox.Show("Пустые поля", "Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно");
             }
             else
             {
@@ -203,7 +203,7 @@ namespace ReAvix_2022.WindowUserControl
                 }
                 else
                 {
-                    MessageBox.Show("Неверные данные", "Диалоговое окно");
+                    MessageBox.Show("Неверные данные.", "Диалоговое окно");
                 }
             }
         }
