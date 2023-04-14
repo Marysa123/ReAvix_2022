@@ -26,8 +26,8 @@ namespace ReAvix_2022.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-46N8HM1\\SQLEXPRESS;Initial Catalog=db_ReAvix;Integrated Secur" +
-            "ity=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=62.78.81.19;Initial Catalog=db_ReAvix;User ID=25-тпСердцевДмВ;Passwor" +
+            "d=228322")]
         public string Параметр {
             get {
                 return ((string)(this["Параметр"]));

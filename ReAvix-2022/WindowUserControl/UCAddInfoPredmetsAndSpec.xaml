@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ReAvix_2022.WindowUserControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1440" Background="Transparent">
     <Grid>
@@ -29,5 +30,106 @@
                 </Style>
             </Image.Style>
         </Image>
+
+        <ScrollViewer Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" Margin="0 70 0 0">
+            <StackPanel>
+                <Expander HorizontalAlignment="Stretch" Header="Информация о предметах" Margin="20 0 20 0" Foreground="White" FontFamily="Bahnschrift Light Condensed">
+                    <Expander.Background>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#2124"
+                                      Offset="0"/>
+                            <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                        </LinearGradientBrush>
+                    </Expander.Background>
+                    <Grid Margin="24,8,24,16" TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Список актуальных групп:" Grid.Column="0" VerticalAlignment="Top" Margin="35 12 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+
+                        <DataGrid AutoGenerateColumns="True" Name="GridViewGroup" Grid.Column="0" Margin="35 60 0 10" FontSize="22" IsReadOnly="True">
+                            <DataGrid.ItemContainerStyle>
+                                <Style TargetType="DataGridRow">
+                                </Style>
+                            </DataGrid.ItemContainerStyle>
+                        </DataGrid>
+
+                        <Border Width="540" CornerRadius="20" Grid.Column="1" Height="450" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 70 30 10">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF2668C1" Offset="0.127"/>
+                                    <GradientStop Color="#FF2E3BFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel DataContext="{Binding ElementName=GridViewGroup,Path=SelectedValue}">
+                                <TextBlock Text="Карточка заполнения данных" TextWrapping="Wrap" Foreground="White" FontSize="24" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"/>
+                                <StackPanel Margin="35 20 0 0" HorizontalAlignment="Left">
+                                    <Label Content="Номер предмета:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Left"/>
+                                    <TextBox Width="100" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_NomerPredmet" Text="{Binding Номер Предмета}" Cursor="Arrow" BorderBrush="White" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                                </StackPanel>
+                                <StackPanel Margin="30 20 0 0" HorizontalAlignment="Left">
+                                    <Label Content="Полное название предмета:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                                    <TextBox Width="460" Height="50" FontSize="22" Foreground="White" Name="textbox_NamePredmet" Text="{Binding Название Предмета}" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:TextFieldAssist.HasClearButton="True"/>
+                                </StackPanel>
+                                <WrapPanel Margin="0 40 0 0">
+                                    <Button  Name="button_UpdatePredmets" Click="button_UpdatePredmets_Click" Margin="10 0 0 0" Style="{StaticResource StyleButtonAllApplication}"  Width="252" Height="65" Content="Изменить" FontSize="18"  FontFamily="Bahnschrift"/>
+                                    <Button  Name="button_AddPredmets" Click="button_AddPredmets_Click" Margin="10 0 0 0" Style="{StaticResource StyleButtonAllApplication}"  Width="252" Height="65" Content="Добавить" FontSize="18"  FontFamily="Bahnschrift"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Expander>
+                <Expander HorizontalAlignment="Stretch" Header="Информация о специальностях" Margin="20 0 20 0" Foreground="White" FontFamily="Bahnschrift Light Condensed">
+                    <Expander.Background>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="#2124"
+                                      Offset="0"/>
+                            <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                        </LinearGradientBrush>
+                    </Expander.Background>
+                    <Grid Margin="24,8,24,16" TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Список названий категорий навыка:" Grid.Column="0" VerticalAlignment="Top" Margin="35 12 0 0" HorizontalAlignment="Left" Foreground="White" FontSize="20" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+
+                        <DataGrid AutoGenerateColumns="True" Name="GridViewNameKat" Grid.Column="0" Margin="35 60 0 10"  FontSize="22" IsReadOnly="True">
+                            <DataGrid.ItemContainerStyle>
+                                <Style TargetType="DataGridRow"> 
+                                </Style>
+                            </DataGrid.ItemContainerStyle>
+                        </DataGrid>
+
+                        <Border Width="540" CornerRadius="20" Grid.Column="1" Height="450" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 70 30 10">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF2668C1" Offset="0.127"/>
+                                    <GradientStop Color="#FF2E3BFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel DataContext="{Binding ElementName=GridViewNameKat,Path=SelectedValue}">
+                                <TextBlock Text="Карточка заполнения данных" TextWrapping="Wrap" Foreground="White" FontSize="24" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"/>
+                                <StackPanel Margin="0 20 0 0" HorizontalAlignment="Left">
+                                    <Label Content="Номер специальности:" Foreground="White" FontSize="20" Height="40" Margin="35 0 0 0" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Left"/>
+                                    <TextBox Width="100" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" Margin="0 0 20 0" x:Name="textbox_NomerSpec" Text="{Binding Номер Категории}" IsReadOnly="True" Cursor="Arrow" BorderBrush="White" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                                </StackPanel>
+                                <StackPanel Margin="35 20 0 0" HorizontalAlignment="Left">
+                                    <Label Content="Название специальности:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                                    <TextBox Width="460" Height="50" FontSize="22" Foreground="White" Name="textbox_NameSpec" Text="{Binding Название Категории}" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:TextFieldAssist.HasClearButton="True"/>
+                                </StackPanel>
+                                <WrapPanel Margin="0 40 0 0">
+                                    <Button  Name="button_UpdateSpec" Click="button_UpdateSpec_Click" Margin="10 0 0 0" Style="{StaticResource StyleButtonAllApplication}"  Width="252" Height="65" Content="Изменить" FontSize="18"  FontFamily="Bahnschrift"/>
+                                    <Button  Name="button_AddSpec" Click="button_AddSpec_Click" Margin="10 0 0 0" Style="{StaticResource StyleButtonAllApplication}"  Width="252" Height="65" Content="Добавить" FontSize="18"  FontFamily="Bahnschrift"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Expander>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

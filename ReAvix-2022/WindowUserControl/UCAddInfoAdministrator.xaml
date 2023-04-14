@@ -66,9 +66,9 @@
                             </Border.Background>
                             <StackPanel DataContext="{Binding ElementName=GridViewGroup,Path=SelectedValue}">
                                 <TextBlock Text="Карточка заполнения данных" TextWrapping="Wrap" Foreground="White" FontSize="24" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"/>
-                                <StackPanel Margin="30 20 0 0" HorizontalAlignment="Left">
+                                <StackPanel Margin="25 20 0 0" HorizontalAlignment="Left">
                                     <Label Content="Номер группы:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Left"/>
-                                    <TextBox Width="200" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_NomerGroup" Text="{Binding Номер Группы}" Cursor="Arrow" BorderBrush="White" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                                    <TextBox Width="100" Height="50" FontSize="24" Foreground="White" HorizontalContentAlignment="Left" x:Name="textbox_NomerGroup" Text="{Binding Номер Группы}" Cursor="Arrow" BorderBrush="White" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
                                 </StackPanel>
                                 <StackPanel Margin="30 20 0 0" HorizontalAlignment="Left">
                                     <Label Content="Полное описание группы:" Foreground="White" FontSize="20" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>

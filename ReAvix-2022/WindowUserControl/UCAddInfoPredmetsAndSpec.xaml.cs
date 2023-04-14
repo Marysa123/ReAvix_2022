@@ -33,5 +33,25 @@ namespace ReAvix_2022.WindowUserControl
         {
             Environment.Exit(0);
         }
+
+        private void button_UpdatePredmets_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_AddPredmets_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_UpdateSpec_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_AddSpec_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace ReAvix_2022.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Диалоговое окно");
+                MessageBox.Show("Данная группа уже есть списке.", "Диалоговое окно");
             }
         }
         public void AddInfoMugs(string NameMugs)

@@ -52,6 +52,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Новости">
+      <EntityTypeMapping TypeName="db_ReAvixModel.Новости">
+        <MappingFragment StoreEntitySet="Новости">
+          <ScalarProperty Name="Номер_Новости" ColumnName="Номер_Новости" />
+          <ScalarProperty Name="Заголовок_Новости" ColumnName="Заголовок_Новости" />
+          <ScalarProperty Name="Описание_Новости" ColumnName="Описание_Новости" />
+          <ScalarProperty Name="Автор_Новости" ColumnName="Автор_Новости" />
+          <ScalarProperty Name="Дата_Создания" ColumnName="Дата_Создания" />
+          <ScalarProperty Name="Категории_Новости" ColumnName="Категории_Новости" />
+          <ScalarProperty Name="Фотография_Первая" ColumnName="Фотография_Первая" />
+          <ScalarProperty Name="Фотография_Вторая" ColumnName="Фотография_Вторая" />
+          <ScalarProperty Name="Фотография_Третья" ColumnName="Фотография_Третья" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Оценки">
       <EntityTypeMapping TypeName="db_ReAvixModel.Оценки">
         <MappingFragment StoreEntitySet="Оценки">
@@ -59,18 +74,6 @@
           <ScalarProperty Name="Дата" ColumnName="Дата" />
           <ScalarProperty Name="FK_Номер_Студента" ColumnName="FK_Номер_Студента" />
           <ScalarProperty Name="FK_Номер_Предмета" ColumnName="FK_Номер_Предмета" />
-          <ScalarProperty Name="Оценка" ColumnName="Оценка" />
-          <ScalarProperty Name="Вид_оценочной_Работы" ColumnName="Вид_оценочной_Работы" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Оценки_2">
-      <EntityTypeMapping TypeName="db_ReAvixModel.Оценки_2">
-        <MappingFragment StoreEntitySet="Оценки_2">
-          <ScalarProperty Name="Номер_оценки" ColumnName="Номер_оценки" />
-          <ScalarProperty Name="Дата" ColumnName="Дата" />
-          <ScalarProperty Name="ФИО_Студента" ColumnName="ФИО_Студента" />
-          <ScalarProperty Name="Название_Предмета" ColumnName="Название_Предмета" />
           <ScalarProperty Name="Оценка" ColumnName="Оценка" />
           <ScalarProperty Name="Вид_оценочной_Работы" ColumnName="Вид_оценочной_Работы" />
         </MappingFragment>

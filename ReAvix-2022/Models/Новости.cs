@@ -12,13 +12,16 @@ namespace ReAvix_2022.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Оценки_2
+    public partial class Новости
     {
-        public int Номер_оценки { get; set; }
-        public System.DateTime Дата { get; set; }
-        public string ФИО_Студента { get; set; }
-        public string Название_Предмета { get; set; }
-        public int Оценка { get; set; }
-        public string Вид_оценочной_Работы { get; set; }
+        public int Номер_Новости { get; set; }
+        public string Заголовок_Новости { get; set; }
+        public string Описание_Новости { get; set; }
+        public string Автор_Новости { get; set; }
+        public string Дата_Создания { get; set; }
+        public string Категории_Новости { get; set; }
+        public byte[] Фотография_Первая { get; set; }
+        public byte[] Фотография_Вторая { get; set; }
+        public byte[] Фотография_Третья { get; set; }
     }
 }
