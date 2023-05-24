@@ -281,8 +281,7 @@
                     <Label Grid.Column="1" Grid.Row="4" Grid.RowSpan="3" Width="270" Height="40" Content="Отвественный за группу:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Left" Margin="80 0 0 30"/>
                     <!--#endregion-->
                     <!--#region ComboBox "Отвественный за группу"-->
-                    <ComboBox Name="combobox_OtchGroup" ItemsSource="{Binding}" DataContext="{Binding Path=GetGroup}" SelectedValuePath="Номер_Группы" DisplayMemberPath="Номер_Группы" Margin="80 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="270" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}">
-                    </ComboBox>
+                    <ComboBox Name="combobox_OtchGroup" ItemsSource="{Binding}" DataContext="{Binding Path=GetGroup}" SelectedValuePath="Номер_Группы" DisplayMemberPath="Номер_Группы" Margin="80 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="270" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}"/>
                     <!--#endregion-->
                     <!--#region Надпись "Специальность"-->
                     <Label Grid.Column="3" Grid.Row="0" Width="270" Height="40" Content="Ведущий кружок:" FontSize="20" Foreground="#403F3F" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 50 0 0"/>

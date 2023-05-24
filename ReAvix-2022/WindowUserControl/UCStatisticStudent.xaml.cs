@@ -67,12 +67,16 @@ namespace ReAvix_2022.WindowUserControl
 
         private void PanelPredmet_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-           
+            try
+            {
                 int NomerPredmet = MassivNomerPred[PanelPredmet.SelectedIndex];
                 WindowInfoAboutPredmet windowInfoAboutPredmet = new WindowInfoAboutPredmet(NomerPredmet, NumberStudent);
                 windowInfoAboutPredmet.ShowDialog();
-           
-            
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("В списке нет предметов", "Диалоговое окно");
+            }
         }
     }
 }

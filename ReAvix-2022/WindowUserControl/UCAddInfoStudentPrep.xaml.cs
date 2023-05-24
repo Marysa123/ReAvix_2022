@@ -139,7 +139,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             GridViewPredmet.ItemsSource = null;
             //  sqlCommand.CommandText = $"select Номер_оценки as 'Номер строки',Convert(date, Дата,101) as Дата,ФИО_Студента,[Оценки_2].Название_Предмета as 'Название Предмета',[Оценка],[Вид_оценочной_работы] as 'Вид оценочной работы' from [Оценки_2],[Студенты] where FK_Номер_Группы = '{NameGroup}' and ФИО_Студента = Фамилия + ' ' + Имя + ' ' + Отчество";
-            sqlCommand.CommandText = $"select Номер_Оценки as 'Номер',Дата,Оценка,Вид_оценочной_Работы as 'Вид оценочной работы',Имя,Фамилия,Название_Предмета as 'Название предмета' from [Оценки],[Студенты],Предметы where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета";
+            sqlCommand.CommandText = $"select Номер_Оценки as 'Номер',CONVERT(VARCHAR(10), getdate(), 111) as Дата,Оценка,Вид_оценочной_Работы as 'Вид оценочной работы',Имя,Фамилия,Название_Предмета as 'Название предмета' from [Оценки],[Студенты],Предметы where [FK_Номер_Студента] = [Номер_Студента] and FK_Номер_Группы = '{NameGroup}' and FK_Номер_Предмета = Номер_Предмета";
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             System.Data.DataTable dataTable = new System.Data.DataTable("Оценки");
             sqlDataAdapter.Fill(dataTable);
@@ -258,7 +258,7 @@ namespace ReAvix_2022.WindowUserControl
                         {
                             sqlCommand.CommandText = $"delete from Оценки where [Номер_оценки] = {Name}";
                             sqlCommand.ExecuteNonQuery();
-                            MessageBox.Show("Запись удалена!");
+                            MessageBox.Show("Запись удалена!","Диалоговое окно");
                             UpdateInfoStudent();
                             GetInfoPredmet($"select Предметы.Номер_Предмета as 'Номер предмета',Предметы_Преподавателя.Название_Предмета as 'Название предмета' from Предметы_Преподавателя,Предметы where FK_Номер_Преподавателя = {NumberPrep} and Предметы.Название_Предмета = Предметы_Преподавателя.Название_Предмета");
                             _Connection.Close();
