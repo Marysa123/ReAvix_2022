@@ -27,9 +27,9 @@
         <DataGrid
             Width="900"
             Height="900"
-            Margin="0 50 0 0"
+            Margin="20,75,23,25"
             AutoGenerateColumns="True"
-            x:Name="GridViewOmissions"/>
+            Name="GridViewOmissions"/>
 
 
         <Border Grid.Column="1" CornerRadius="20" Margin="0 70 25 0" Height="400" VerticalAlignment="Top">
@@ -54,16 +54,19 @@
                         <Label Content="Пропуски по болезни" Foreground="White" FontSize="22" Margin="0 30 0 0"  Height="50" FontFamily="Bahnschrift Light SemiCondensed" HorizontalAlignment="Center"/>
                         <TextBox Width="50" Height="50" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" Margin="150 10 0 0" PreviewTextInput="textbox_Bolezn_PreviewTextInput"  Name="textbox_Bolezn" Text="{Binding Пропуски по болезни}" BorderBrush="White" Cursor="Arrow"/>
                     </WrapPanel>
-                    <Label Content="{Binding Номер Студента}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+                    <Label Content="{Binding Н}" Visibility="Hidden" Name="label_NomerStud" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
                     <Label Content="Выбранный вами студент:" Foreground="White" FontSize="18" Margin="0 40 0 0"  FontFamily="Bahnschrift Light SemiCondensed"/>
-                    <Label Content="{Binding ФИО}" Foreground="White" FontSize="24" Margin="0 30 0 0"  Height="50" FontFamily="Bahnschrift Light SemiCondensed"/>
+                    <Label Content="{Binding Фамилия и имя}" Foreground="White" FontSize="22" Margin="0 30 0 0"  Height="50" FontFamily="Bahnschrift Light SemiCondensed"/>
                 </WrapPanel>
-                <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Cursor="Hand" MouseDown="Image_MouseDown" Margin="0 0 20 10"/>
+                <Image Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Resources/Images/icon_Refresh.png" Cursor="Hand" MouseDown="Image_MouseDown" Margin="0 0 65 20"/>
 
             </Grid>
         </Border>
-        
+
         <Button Name="button_DeleteOmissions" Grid.Column="1" Click="button_DeleteOmissions_Click" Style="{StaticResource StyleButtonAllApplication}" Width="262" Height="60" Content="Обнулить пропуски занятий" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 40 0 0" FontFamily="Bahnschrift"/>
         <Button Name="button_AddOtch" Grid.Column="1" Click="button_AddOtch_Click" Style="{StaticResource StyleButtonAllApplication}" Width="200" Height="60" Content="Создать отчёт" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 40 20 0" FontFamily="Bahnschrift"/>
+
+        <Border Grid.Column="0" Background="White" Width="40" HorizontalAlignment="Left" Margin="20,75,0,25"/>
+
     </Grid>
 </UserControl>

@@ -146,11 +146,11 @@ namespace ReAvix_2022.Models
                     CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
                     CommandSql.ExecuteNonQuery();
                     _Connection.Close();
-                    MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
+                    MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно",MessageBoxButton.OK,MessageBoxImage.Information);
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("В списке нет заметок","Диалоговое окно");
+                    MessageBox.Show("В списке нет заметок", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 
 
@@ -176,11 +176,11 @@ namespace ReAvix_2022.Models
                     CommandSql.CommandText = $"delete [Заметки] where [Номер_заметки] = {NomerNotes}";
                     CommandSql.ExecuteNonQuery();
                     _Connection.Close();
-                    MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно");
+                    MessageBox.Show("Заметка успешно удалена.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("В списке нет заметок", "Диалоговое окно");
+                    MessageBox.Show("В списке нет заметок", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else

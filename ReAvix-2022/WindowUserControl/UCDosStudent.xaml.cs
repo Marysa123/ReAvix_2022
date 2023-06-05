@@ -52,15 +52,12 @@ namespace ReAvix_2022.WindowUserControl
         {
             WindowAddSkils windowAddSkils = new WindowAddSkils(NumberStudent);
             windowAddSkils.ShowDialog();
-        }
-
-        private void button_Update_MouseDown(object sender, MouseButtonEventArgs e)
-        {
             vMWindowDosStudent.AddSkils(out List<Grid> GridOut, NumberStudent); // Вызов метода и передача номера студента
+            PanelSkils.ItemsSource = null;
             MassivNomerSkils = vMWindowDosStudent.MassivNomerSkils;
-            PanelSkils.ItemsSource = GridOut; // Устанавливает новые значения
-
+            PanelSkils.ItemsSource = GridOut;
         }
+
         WindowAboutSkils windowAboutSkils;
         private void PanelSkils_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -71,17 +68,21 @@ namespace ReAvix_2022.WindowUserControl
                 vMWindowAboutSkils.CheckSkils(IndexItem, out int Index);
                 if (Index == 1)
                 {
-                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     windowAboutSkils = new WindowAboutSkils(IndexItem, NumberStudent);
                     windowAboutSkils.ShowDialog();
+                    vMWindowDosStudent.AddSkils(out List<Grid> GridOut, NumberStudent); // Вызов метода и передача номера студента
+                    PanelSkils.ItemsSource = null;
+                    MassivNomerSkils = vMWindowDosStudent.MassivNomerSkils;
+                    PanelSkils.ItemsSource = GridOut;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет навыков", "Диалоговое окно");
+                MessageBox.Show("В списке нет навыков", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
            
         }
@@ -95,34 +96,33 @@ namespace ReAvix_2022.WindowUserControl
                 vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
                 if (Index == 1)
                 {
-                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     WindowAboutDos windowAboutDos = new WindowAboutDos(IndexItem, NumberStudent);
                     windowAboutDos.ShowDialog();
+                    vMWindowDosStudent.AddDos(NumberStudent, out List<Grid> bordersOut);
+                    PanelDos.ItemsSource = null;
+                    MassivNomerDos = vMWindowDosStudent.MassivNomerDos;
+                    PanelDos.ItemsSource = bordersOut;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет достижений","Диалоговое окно");
+                MessageBox.Show("В списке нет достижений", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
-        }
-
-
-        private void button_UpdateDos_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            vMWindowDosStudent.AddDos(NumberStudent, out List<Grid> bordersOut);
-            MassivNomerDos = vMWindowDosStudent.MassivNomerDos;
-            PanelDos.ItemsSource = bordersOut;
-
         }
 
         private void border_AddDos_MouseDown(object sender, MouseButtonEventArgs e)
         {
             WindowAddDos windowAddDos = new WindowAddDos(NumberStudent);
             windowAddDos.ShowDialog();
+            vMWindowDosStudent.AddDos(NumberStudent, out List<Grid> bordersOut);
+            PanelDos.ItemsSource = null;
+            MassivNomerDos = vMWindowDosStudent.MassivNomerDos;
+            PanelDos.ItemsSource = bordersOut;
         }
     }
 }

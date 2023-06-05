@@ -108,9 +108,11 @@ namespace ReAvix_2022.ViewModels
                 captionText.Margin = new Thickness(30,0,0,0);
 
                 Image image = new Image();
-                image.HorizontalAlignment= HorizontalAlignment.Left;
+                image.HorizontalAlignment= HorizontalAlignment.Center;
                 image.Margin = new Thickness(30,10,0,0);
                 image.Source = newBitmapImage;
+                image.Width = 500;
+                image.Height = 500;
 
 
                 CommandSql.CommandText = $"select [Фотография_Вторая] from Новости where [Номер_Новости] = {MassivNomerNews[i]}";
@@ -125,9 +127,11 @@ namespace ReAvix_2022.ViewModels
                 newBitmapImage.EndInit();
 
                 Image imageTwo = new Image();
-                imageTwo.HorizontalAlignment = HorizontalAlignment.Left;
+                imageTwo.HorizontalAlignment = HorizontalAlignment.Center;
                 imageTwo.Margin = new Thickness(30,20,0,0);
                 imageTwo.Source = newBitmapImage;
+                imageTwo.Width = 500;
+                imageTwo.Height = 500;
 
 
                 CommandSql.CommandText = $"select [Фотография_Третья] from Новости where [Номер_Новости] = {MassivNomerNews[i]}";
@@ -142,9 +146,11 @@ namespace ReAvix_2022.ViewModels
                 newBitmapImage.EndInit();
 
                 Image imageThree = new Image();
-                imageThree.HorizontalAlignment = HorizontalAlignment.Left;
-                imageThree.Margin = new Thickness(30,20,0,0);
+                imageThree.HorizontalAlignment = HorizontalAlignment.Center;
+                imageThree.Margin = new Thickness(30,20,0,20);
                 imageThree.Source = newBitmapImage;
+                imageThree.Width = 500;
+                imageThree.Height = 500;
 
                 StackPanel stackPanelBorderInfoNews = new StackPanel();
 

@@ -84,11 +84,11 @@ namespace ReAvix_2022.ViewModels
 
                 BinaryWriter binaryWriter = new BinaryWriter(fileStream);
                 binaryWriter.Write(Document, 0, Document.Length);
-                MessageBox.Show("Успешное скачивание файла", "Диалоговое окно");
+                MessageBox.Show("Успешное скачивание файла", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("Файла отсутствует", "Диалоговое окно");
+                MessageBox.Show("Файла отсутствует", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -104,7 +104,7 @@ namespace ReAvix_2022.ViewModels
             {
                 CommandSql.CommandText = $"Update Предметы_Преподавателя set {NameDocument} = null where Номер_Предмета = {NumberPred}";
                 CommandSql.ExecuteNonQuery();
-                MessageBox.Show("Успешное удаление файла!","Диалоговое окно");
+                MessageBox.Show("Успешное удаление файла!","Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         /// <summary>

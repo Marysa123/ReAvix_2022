@@ -43,15 +43,20 @@ namespace ReAvix_2022.Views
         private void button_UpdateSkilsStud_Click(object sender, RoutedEventArgs e)
         {
             vMWindowAboutSkils.UpdateSkils();
-            MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно");
+            MessageBox.Show("Данные успешно обновлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
 
         private void button_DeleteSkilsStud_Click(object sender, RoutedEventArgs e)
         {
             vMWindowAboutSkils.DeleteSkils();
-            MessageBox.Show("Навык успешно удалён.", "Диалоговое окно");
+            MessageBox.Show("Навык успешно удалён.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NomerGroup.Text == "" || textbox_DescriptionGroup.Text == "")
             {
-                MessageBox.Show("Пустые поля.", "Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -56,7 +56,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NomerGroup.Text == "" || textbox_DescriptionGroup.Text == "")
             {
-                MessageBox.Show("Пустые поля.","Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -69,7 +69,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NameKat.Text == "")
             {
-                MessageBox.Show("Пустые поля.", "Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -82,7 +82,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NameKat.Text == "")
             {
-                MessageBox.Show("Пустые поля.", "Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -95,7 +95,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NameMugs.Text == "")
             {
-                MessageBox.Show("Пустые поля.", "Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -108,7 +108,7 @@ namespace ReAvix_2022.WindowUserControl
         {
             if (textbox_NameMugs.Text == "")
             {
-                MessageBox.Show("Пустые поля.", "Диалоговое окно");
+                MessageBox.Show("Пустые поля.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

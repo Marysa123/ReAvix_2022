@@ -47,5 +47,10 @@ namespace ReAvix_2022.Views
         {
             Close();
         }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace ReAvix_2022.ViewModels
             NumberStudent = NomerSt;
             NumberDos = NomerDos;
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
-
+            CommandSql.Connection = _Connection;
 
             GetDataSkils();
         }
@@ -46,7 +46,7 @@ namespace ReAvix_2022.ViewModels
         public VMWindowAboutDos()
         {
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
-
+            CommandSql.Connection = _Connection;
         }
         /// <summary>
         /// Удаление достижения
@@ -54,7 +54,6 @@ namespace ReAvix_2022.ViewModels
         public void DeleteDos()
         {
             _Connection.Open();
-            CommandSql.Connection = _Connection;
             CommandSql.CommandText = $"delete [Достижения] where Номер_Достижения = {NumberDos}";
             CommandSql.ExecuteNonQuery();
             _Connection.Close();
@@ -67,7 +66,6 @@ namespace ReAvix_2022.ViewModels
         /// <returns></returns>
         public int CheckSkils(int NomerDos, out int NomerDosOut)
         {
-            CommandSql.Connection = _Connection;
             _Connection.Open();
             CommandSql.CommandText = $"select Номер_Достижения from Достижения where Номер_Достижения = {NomerDos}";
             var Nomer = CommandSql.ExecuteScalar();
@@ -85,8 +83,6 @@ namespace ReAvix_2022.ViewModels
         /// </summary>
         public void GetDataSkils()
         {
-
-            CommandSql.Connection = _Connection;
             _Connection.Open();
             CommandSql.CommandText = $"select [Место_в_соревновании] from Достижения where [Номер_Достижения] = {NumberDos} and [FK_Номер_Студента] = {NumberStudent}";
             MestoSorev = (string)CommandSql.ExecuteScalar();

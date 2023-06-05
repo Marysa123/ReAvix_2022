@@ -12,26 +12,28 @@ namespace ReAvix_2022.ViewModels
 {
     internal class VMWindowConfirmationEmail
     {
-        public void ConfirmationEmail(string Email,out int Code)
+        public void ConfirmationEmail(string Email, out bool PassEmail, out int CodeEmail)
         {
             Random random = new Random();
             int KodIntRan = random.Next(0, 1000000);
             try
             {
                 string from = @"m4rysa123@yandex.ru"; // адреса отправителя
-#pragma warning disable CS0219 // Переменной "pass" присвоено значение, но оно ни разу не использовано.
                 string pass = "Marysa123!"; // пароль отправителя
-#pragma warning restore CS0219 // Переменной "pass" присвоено значение, но оно ни разу не использовано.
                 MailMessage mess = new MailMessage();
                 mess.To.Add(Email); // адрес получателя
                 mess.From = new MailAddress(from);
-                mess.Subject = "Ваш пароль для регистрации в приложении:" + KodIntRan; // тема
-                mess.Body = "asd"; // текст сообщения
-                SmtpClient client = new SmtpClient();
-                client.UseDefaultCredentials = false;
-                System.Net.NetworkCredential NetworkCred = new System.Net.NetworkCredential();
-                NetworkCred.UserName = "m4rysa123@yandex.ru";
-                NetworkCred.Password = "Marysa123!";
+                mess.Subject = "Код для регистрации"; // тема
+                mess.Body = "Код для регистрации в приложении ReAvix:" + KodIntRan; // текст сообщения
+                SmtpClient client = new SmtpClient
+                {
+                    UseDefaultCredentials = false
+                };
+                System.Net.NetworkCredential NetworkCred = new System.Net.NetworkCredential
+                {
+                    UserName = "m4rysa123@yandex.ru",
+                    Password = "Marysa123!"
+                };
                 client.Credentials = NetworkCred;
                 client.Host = "smtp.yandex.com"; //smtp-сервер отправителя
                 client.Port = 25;
@@ -39,13 +41,14 @@ namespace ReAvix_2022.ViewModels
 
                 client.Send(mess); // отправка пользователю
 
-                Code = KodIntRan;
+                CodeEmail = KodIntRan;
+                PassEmail = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Ошибка" + ex);
-                throw;
+                CodeEmail = 0;
+                PassEmail = false;
             }
-        }
+        } 
     }
 }

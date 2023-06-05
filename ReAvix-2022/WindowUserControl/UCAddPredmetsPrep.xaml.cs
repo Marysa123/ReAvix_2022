@@ -46,18 +46,14 @@ namespace ReAvix_2022.WindowUserControl
             Environment.Exit(0);
         }
 
-        private void button_Update_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            vMWindowAddPredmetsPrep.ViewPredmets(out List<Grid> GridOut);
-            PanelPredmets.ItemsSource = null;
-            MassivNomerPred = vMWindowAddPredmetsPrep.MassivNomerPredmets;
-            PanelPredmets.ItemsSource = GridOut;
-        }
-
         private void border_AddPredmets_MouseDown(object sender, MouseButtonEventArgs e)
         {
             WindowAddInfoPredmetsPrep windowAddInfoPredmetsPrep = new WindowAddInfoPredmetsPrep(NomerPrep:NumberPrep);
             windowAddInfoPredmetsPrep.ShowDialog();
+            vMWindowAddPredmetsPrep.ViewPredmets(out List<Grid> GridOut);
+            PanelPredmets.ItemsSource = null;
+            MassivNomerPred = vMWindowAddPredmetsPrep.MassivNomerPredmets;
+            PanelPredmets.ItemsSource = GridOut;
         }
 
         private void PanelPredmets_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -68,17 +64,21 @@ namespace ReAvix_2022.WindowUserControl
                 vMWindowAddPredmetsPrep.CheckPredmets(IndexItem, out int Index);
                 if (Index == 1)
                 {
-                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно");
+                    MessageBox.Show("Этот элемент удален, пожалуйста обновите окно!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
                     WindowAboutPredmet windowAboutPredmet = new WindowAboutPredmet(IndexItem);
                     windowAboutPredmet.ShowDialog();
+                    vMWindowAddPredmetsPrep.ViewPredmets(out List<Grid> GridOut);
+                    PanelPredmets.ItemsSource = null;
+                    MassivNomerPred = vMWindowAddPredmetsPrep.MassivNomerPredmets;
+                    PanelPredmets.ItemsSource = GridOut;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет предметов", "Диалоговое окно");
+                MessageBox.Show("В списке нет предметов", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
         }

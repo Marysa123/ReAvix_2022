@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -119,12 +120,10 @@ namespace ReAvix_2022.ViewModels
                         *ptr = char.IsLetter(prev) ? char.ToLower(*ptr) : char.ToUpper(*ptr);
             }
         }
-        public List<Grid> AddPredmet(out List<Grid> Massivgrid)
+        public void AddPredmet(out List<Grid> Massivgrid)
         {
-            _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open();
             CommandSql.CommandText = $"select COUNT(DISTINCT [FK_Номер_Предмета]) from [Оценки] where [FK_Номер_Студента] = {NumberStudent}";
-            CommandSql.Connection = _Connection;
             Count = (int)CommandSql.ExecuteScalar();
 
             CommandSql.CommandText = $"select DISTINCT ([FK_Номер_Предмета]) from [Оценки] where [FK_Номер_Студента] = {NumberStudent}";
@@ -306,7 +305,195 @@ namespace ReAvix_2022.ViewModels
 
             }
             _Connection.Close();
-            return (Massivgrid = MassivGrid);
+            Massivgrid = MassivGrid;
+
+        }
+        public void AddPredmetAll(out List<Grid> Massivgrid)
+        {
+            _Connection.Open();
+            CommandSql.CommandText = $"select COUNT(DISTINCT [FK_Номер_Предмета]) from [Оценки] where [FK_Номер_Студента] = {NumberStudent}";
+            Count = (int)CommandSql.ExecuteScalar();
+
+            CommandSql.CommandText = $"select DISTINCT ([FK_Номер_Предмета]) from [Оценки] where [FK_Номер_Студента] = {NumberStudent}";
+
+            SqlDataReader sqlDataReader = CommandSql.ExecuteReader();
+            MassivNomerPredmet = new List<int>();
+            while (sqlDataReader.Read())
+            {
+                MassivNomerPredmet.Add((int)sqlDataReader.GetValue(0));
+            }
+            sqlDataReader.Close();
+
+            var bc = new System.Windows.Media.BrushConverter();
+
+            List<Grid> Grids = new List<Grid>();
+
+
+            for (int i = 0; i < Count; i++)
+            {
+                Grid ContainerGrid = new Grid
+                {
+                    Width = 400,
+                    Height = 280,
+                    Margin = new System.Windows.Thickness(0, 0, 0, 0)
+                };
+
+
+                DropShadowEffect dropShadowEffect = new DropShadowEffect
+                {
+                    Color = System.Windows.Media.Colors.Black,
+                    ShadowDepth = 15,
+                    BlurRadius = 20
+                };
+
+                Border BackGroundBorder = new Border
+                {
+                    Background = (System.Windows.Media.Brush)bc.ConvertFrom("#3446A9"),
+                    CornerRadius = new System.Windows.CornerRadius(5),
+                    Effect = dropShadowEffect,
+                };
+
+
+
+                CommandSql.CommandText = $"select [Название_предмета] from [Предметы] where [Номер_Предмета] = {MassivNomerPredmet[i]}";
+
+                TextBlock NamePredmet = new TextBlock
+                {
+                    Text = (string)CommandSql.ExecuteScalar(),
+                    TextWrapping = TextWrapping.Wrap,
+                    Foreground = System.Windows.Media.Brushes.White,
+                    FontSize = 18,
+                    FontWeight = FontWeights.Bold,
+                    FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
+                    Margin = new Thickness(15, 15, 0, 0),
+                    Height = 55,
+                    Width = 260,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    VerticalAlignment = VerticalAlignment.Top
+
+                };
+                CommandSql.CommandText = $"SELECT ROUND(AVG(CAST([Оценка] as FLOAT)),1) from [Оценки] WHERE [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent}";
+
+                Label AVGPredmet = new Label
+                {
+                    Content = "                                Среднее: " + CommandSql.ExecuteScalar(),
+                    Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#3AFFDC"),
+                    FontSize = 18,
+                    FontWeight = FontWeights.Bold,
+                    FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light SemiCondensed"),
+                    Margin = new Thickness(0, 25, 20, 0),
+                    Height = 35,
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    VerticalAlignment = VerticalAlignment.Top
+
+                };
+
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 5 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                int Count5 = (int)CommandSql.ExecuteScalar();
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 4 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                int Count4 = (int)CommandSql.ExecuteScalar();
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 3 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                int Count3 = (int)CommandSql.ExecuteScalar();
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 2 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                int Count2 = (int)CommandSql.ExecuteScalar();
+
+                seriesCollection = new SeriesCollection
+                    {
+                        new PieSeries
+                        {
+                            Title ="Оценка 5",
+                            Values = new ChartValues<ObservableValue> {new ObservableValue(Count5) },
+                            DataLabels = true,
+                            FontSize = 16,
+                            Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#2195F2"),
+                            Stroke = (System.Windows.Media.Brush)bc.ConvertFrom("#1C00ff00")
+
+                        },
+                        new PieSeries
+                        {
+                            Title ="Оценка 4",
+                            Values = new ChartValues<ObservableValue> {new ObservableValue(Count4) },
+                            DataLabels = true,
+                            FontSize = 16,
+                            Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#F34336"),
+                            Stroke = (System.Windows.Media.Brush)bc.ConvertFrom("#1C00ff00")
+
+
+                        },
+                        new PieSeries
+                        {
+                            Title ="Оценка 3",
+                            Values = new ChartValues<ObservableValue> {new ObservableValue(Count3) },
+                            DataLabels = true,
+                            FontSize = 16,
+                            Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#FEC007"),
+                            Stroke = (System.Windows.Media.Brush)bc.ConvertFrom("#1C00ff00")
+
+                        },
+                        new PieSeries
+                        {
+                            FontSize = 16,
+                            Title ="Оценка 2",
+                            Values = new ChartValues<ObservableValue> {new ObservableValue(Count2) },
+                            DataLabels = true,
+                            Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#607D8A"),
+                            Stroke = (System.Windows.Media.Brush)bc.ConvertFrom("#1C00ff00")
+
+                        },
+                };
+
+
+
+                PieChart pieChart = new PieChart
+                {
+                    HoverPushOut = 10,
+                    InnerRadius = 40,
+                    Series = seriesCollection,
+                    DataContext = seriesCollection,
+                    LegendLocation = LegendLocation.Right,
+                    Margin = new Thickness(0, 45, 10, 0),
+                    Height = 200,
+                    FontSize = 12,
+                    Width = 310,
+                    Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#ffffff"),
+
+
+
+                };
+
+                ((DefaultLegend)pieChart.ChartLegend).BulletSize = 16;
+                ((DefaultLegend)pieChart.ChartLegend).FontSize = 16;
+                ((DefaultTooltip)pieChart.DataTooltip).BulletSize = 20;
+                ((DefaultTooltip)pieChart.DataTooltip).Background = System.Windows.Media.Brushes.Black;
+
+
+
+                BitmapImage bit = new BitmapImage(new Uri("/Resources/Images/icon_RightArrow.png", UriKind.Relative));
+
+                Image popupBox = new Image
+                {
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    Height = 30,
+                    VerticalAlignment = VerticalAlignment.Bottom,
+                    Margin = new Thickness(10),
+                    Source = bit,
+                    Cursor = Cursors.Hand
+                };
+
+
+                ContainerGrid.Children.Add(BackGroundBorder);
+                ContainerGrid.Children.Add(pieChart);
+                ContainerGrid.Children.Add(NamePredmet);
+                ContainerGrid.Children.Add(AVGPredmet);
+                ContainerGrid.Children.Add(popupBox);
+
+                Grids.Add(ContainerGrid);
+                MassivGrid = Grids;
+
+
+            }
+            _Connection.Close();
+            Massivgrid = MassivGrid;
 
         }
     }

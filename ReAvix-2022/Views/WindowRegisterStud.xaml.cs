@@ -1,5 +1,6 @@
 ﻿using ReAvix_2022.ViewModels;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -61,19 +62,29 @@ namespace ReAvix_2022.Views
                             vMWindowRegisterStud.ValidateInfoStudentPhone(PhoneOne: textbox_Phone.Text, out bool resultPhone);
                             if (resultPhone == true)
                             {
-                                WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(textbox_EMail.Text);
-                                windowConfirmationEmail.ShowDialog();
-                                if (windowConfirmationEmail.ResultConfirmation == false)
+                                VMWindowConfirmationEmail VMwindowConfirmationEmail = new VMWindowConfirmationEmail();
+                                VMwindowConfirmationEmail.ConfirmationEmail(textbox_EMail.Text, out bool ResultConfirmation, out int CodeEmail);
+                                if (ResultConfirmation == false)
                                 {
-                                    MessageBox.Show("Неверный код!","Диалоговое окно",MessageBoxButton.OK);
+                                    MessageBox.Show("Неправильный формат электронной почты", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                                 else
                                 {
-                                    vMWindowRegisterStud.AddInfoStudentInDB(textbox_Ima.Text, textbox_Fam.Text, textbox_Otc.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, textbox_PhoneRod.Text, combobox_Cours.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, textbox_TextMe.Text, combobox_Group.Text);
-                                    MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
-                                    windowSign.Show();
-                                    Close();
-                                }  
+                                    WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(CodeEmail);
+                                    windowConfirmationEmail.ShowDialog();
+
+                                    if (windowConfirmationEmail.ResultConfirmation == true)
+                                    {
+                                        vMWindowRegisterStud.AddInfoStudentInDB(textbox_Ima.Text, textbox_Fam.Text, textbox_Otc.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, textbox_PhoneRod.Text, combobox_Cours.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, textbox_TextMe.Text, combobox_Group.Text);
+                                        MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
+                                        windowSign.Show();
+                                        Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Регистрация не выполнена", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Question);
+                                    }
+                                }
                             }
                             else
                             {
@@ -117,6 +128,17 @@ namespace ReAvix_2022.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void textbox_Phone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

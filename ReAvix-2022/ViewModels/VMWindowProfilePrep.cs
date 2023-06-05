@@ -30,10 +30,8 @@ namespace ReAvix_2022.ViewModels
         public string Group { get; set; }
         public string DataRosh { get; set; }
         public string InfoMe { get; set; }
-        public string DopPredmet { get; set; }
         public string Spec { get; set; }
         public string VedEllipse { get; set; }
-        public string VedPredmetTwo { get; set; }
 
 
         public VMWindowProfilePrep(int NumberPrep)
@@ -79,7 +77,6 @@ namespace ReAvix_2022.ViewModels
             CommandSql.CommandText = $"select [Фамилия] + ' ' + [Имя] + ' ' + Отчество as FIO from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep} group by [Фамилия],[Имя],Отчество ";
             FI = (string)CommandSql.ExecuteScalar();
 
-
             CommandSql.CommandText = $"select [Номер_Телефона] from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
             Phone = (string)CommandSql.ExecuteScalar();
 
@@ -113,7 +110,6 @@ namespace ReAvix_2022.ViewModels
             CommandSql.CommandText = $"select [Краткая_Информация]  from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
             InfoMe = (string)CommandSql.ExecuteScalar();
 
-
             CommandSql.CommandText = $"select [Специальность]  from [Преподаватели] where [Номер_Преподавателя] = {NomerPrep}";
             Spec = (string)CommandSql.ExecuteScalar();
 
@@ -122,9 +118,7 @@ namespace ReAvix_2022.ViewModels
 
 
             _Connection.Close();
-
         }
-
 
         public string AddImage(out string Url)
         {

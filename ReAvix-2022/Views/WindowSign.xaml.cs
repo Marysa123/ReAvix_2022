@@ -62,7 +62,7 @@ namespace ReAvix_2022
             }
             catch (Exception)
             {
-                MessageBox.Show("Нет соединения с сервером.","Диалоговое окно");
+                MessageBox.Show("Нет соединения с сервером.","Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 

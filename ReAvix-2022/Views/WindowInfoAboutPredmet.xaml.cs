@@ -57,5 +57,10 @@ namespace ReAvix_2022.Views
             };  
             ContainerGrid.Children.Add(cartesianChart); // Добавление графика в Grid
         }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

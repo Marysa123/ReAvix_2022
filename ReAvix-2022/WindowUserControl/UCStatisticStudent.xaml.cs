@@ -52,14 +52,10 @@ namespace ReAvix_2022.WindowUserControl
         {
             WindowAddNotes windowAddNotes = new WindowAddNotes(NumberSt: NumberStudent); // ВЫзов окна добаления заметок
             windowAddNotes.ShowDialog();
-        }
-
-        private void UpdateNotes_MouseDown(object sender, MouseButtonEventArgs e) //Событие Обновления Заметок
-        {
             modelsNotes.AddNotes(NumberStudent); // Вызов метода и передача номера студента
             BorderMain.ItemsSource = modelsNotes.MainBorders; // Устанавливает новые значения 
-
         }
+
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Environment.Exit(0);
@@ -75,8 +71,27 @@ namespace ReAvix_2022.WindowUserControl
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет предметов", "Диалоговое окно");
+                MessageBox.Show("В списке нет предметов", "Диалоговое окно",MessageBoxButton.OK,MessageBoxImage.Error);
             }
+        }
+
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            vMWindowStatisticStudent.AddPredmetAll(out List<Grid> MassivGridOut);
+
+            MassivNomerPred = vMWindowStatisticStudent.MassivNomerPredmet;
+            PanelPredmet.ItemsSource = MassivGridOut;
+        }
+
+        private void Label_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+
+            vMWindowStatisticStudent.AddPredmet(out List<Grid> MassivGridOut);
+
+            MassivNomerPred = vMWindowStatisticStudent.MassivNomerPredmet;
+            PanelPredmet.ItemsSource = MassivGridOut;
+
         }
     }
 }

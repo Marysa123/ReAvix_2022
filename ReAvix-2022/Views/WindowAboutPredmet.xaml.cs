@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -62,7 +63,7 @@ namespace ReAvix_2022.Views
                 CommandSql.CommandText = $"delete Предметы_Преподавателя where Номер_Предмета = {NumberPred}";
                 _Connection.Open();
                 CommandSql.ExecuteNonQuery();
-                MessageBox.Show("Успешное удаление предмета!", "Диалоговое окно");
+                MessageBox.Show("Успешное удаление предмета!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
         }
@@ -74,7 +75,7 @@ namespace ReAvix_2022.Views
             _Connection.Open();
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             _Connection.Close(); // Закрытие подключения
-            MessageBox.Show("Предмет успешно изменен.", "Диалоговое окно");
+            MessageBox.Show("Предмет успешно изменен.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void button_DownloadKTP_Click(object sender, RoutedEventArgs e)
@@ -108,7 +109,7 @@ namespace ReAvix_2022.Views
             }
             if (AdressKTP == null)
             {
-                MessageBox.Show("Не заполнен документ!");
+                MessageBox.Show("Не заполнен документ!","Диалоговое окно",MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             var data = File.ReadAllBytes(AdressKTP);
@@ -122,7 +123,7 @@ namespace ReAvix_2022.Views
             _Connection.Close(); // Закрытие подключения
             button_AddDocKTP.IsEnabled = false;
 
-            MessageBox.Show("Документ успешно добавлен.", "Диалоговое окно");
+            MessageBox.Show("Документ успешно добавлен.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void button_AddDocFOS_Click(object sender, RoutedEventArgs e)
@@ -136,7 +137,7 @@ namespace ReAvix_2022.Views
             }
             if (AdressFOS == null)
             {
-                MessageBox.Show("Не заполнен документ!");
+                MessageBox.Show("Не заполнен документ!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             var dataTwo = File.ReadAllBytes(AdressFOS);
@@ -150,7 +151,7 @@ namespace ReAvix_2022.Views
             _Connection.Close(); // Закрытие подключения
             button_AddDocFOS.IsEnabled = false;
 
-            MessageBox.Show("Документ успешно добавлен.", "Диалоговое окно");
+            MessageBox.Show("Документ успешно добавлен.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void button_DownloadMen_Click(object sender, RoutedEventArgs e)
@@ -174,7 +175,7 @@ namespace ReAvix_2022.Views
             }
             if (AdressDOC == null)
             {
-                MessageBox.Show("Не заполнен документ!");
+                MessageBox.Show("Не заполнен документ!", "Диалоговое окно",MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             var dataThree = File.ReadAllBytes(AdressDOC);
@@ -188,7 +189,18 @@ namespace ReAvix_2022.Views
             _Connection.Close(); // Закрытие подключения
             button_AddDocMen.IsEnabled = false;
 
-            MessageBox.Show("Документ успешно добавлен.", "Диалоговое окно");
+            MessageBox.Show("Документ успешно добавлен.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void textbox_KolTime_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

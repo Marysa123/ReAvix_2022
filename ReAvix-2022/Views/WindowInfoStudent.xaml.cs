@@ -67,7 +67,7 @@ namespace ReAvix_2022.Views
                 vMWindowAboutDos.CheckSkils(IndexItem, out int Index);
                 if (Index == 1)
                 {
-                    MessageBox.Show("Этот элемент удален.", "Диалоговое окно");
+                    MessageBox.Show("Этот элемент удален.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ namespace ReAvix_2022.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет достижений", "Диалоговое окно");
+                MessageBox.Show("В списке нет достижений", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -96,7 +96,7 @@ namespace ReAvix_2022.Views
                 vMWindowAboutSkils.CheckSkils(IndexItem, out int Index);
                 if (Index == 1)
                 {
-                    MessageBox.Show("Этот элемент удален.", "Диалоговое окно");
+                    MessageBox.Show("Этот элемент удален.", "Диалоговое окно",MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -116,7 +116,7 @@ namespace ReAvix_2022.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет навыков", "Диалоговое окно");
+                MessageBox.Show("В списке нет навыков", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -131,9 +131,14 @@ namespace ReAvix_2022.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет предметов", "Диалоговое окно");
+                MessageBox.Show("В списке нет предметов", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

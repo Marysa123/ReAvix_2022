@@ -52,7 +52,7 @@ namespace ReAvix_2022.WindowUserControl
             }
             catch (Exception)
             {
-                MessageBox.Show("В списке нет студентов", "Диалоговое окно");
+                MessageBox.Show("В списке нет студентов", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

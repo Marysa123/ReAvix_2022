@@ -24,19 +24,6 @@
             </Image.Style>
         </Image>
         <Label Content="Предметы вашей группы" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
-
-        <Label Content="Обновить" Name="button_Update" MouseDown="button_Update_MouseDown" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 225 35" Height="40" FontFamily="Corbel Light" Cursor="Hand">
-            <Label.Style>
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="Foreground" Value="White"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
-                            <Setter Property="Foreground" Value="#3AFFDC"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Label.Style>
-        </Label>
         <Border x:Name="border_AddPredmets" MouseDown="border_AddPredmets_MouseDown" BorderThickness="2" Width="130" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 85 25" Cursor="Hand">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

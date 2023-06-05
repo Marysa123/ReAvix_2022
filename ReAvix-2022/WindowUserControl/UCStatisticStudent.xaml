@@ -133,21 +133,12 @@
 
         <materialDesign:TransitioningContent Grid.Row="1" HorizontalAlignment="Center" OpeningEffectsOffset="0:0:0"
               OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:1.0}">
-            <Label Content="Обновить" Name="button_Update" Grid.Row="1" MouseDown="UpdateNotes_MouseDown" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="160 0 5 160" Height="40" FontFamily="Bahnschrift Light SemiCondensed" Cursor="Hand">
-            <Label.Style>
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="Foreground" Value="White"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
-                            <Setter Property="Foreground" Value="#3AFFDC"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Label.Style>
-        </Label>
         </materialDesign:TransitioningContent>
 
-        <Label Grid.Column="1" Grid.ColumnSpan="2" Content="Статистика по вашим предметам за текущий месяц" Foreground="White" FontSize="26" HorizontalAlignment="Left" Margin="15 0 0 5" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="2" Content="Статистика по вашим предметам" Foreground="White" FontSize="26" HorizontalAlignment="Left" Margin="15 0 0 5" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="2" Content="за текущий месяц" Foreground="#FF31F1FF" Cursor="Hand" MouseDown="Label_MouseDown_1" FontSize="26" HorizontalAlignment="Center" Margin="35 0 50 5" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
+
+        <Label Grid.Column="1" Grid.ColumnSpan="2" Content="| За все время" Foreground="#FF31F1FF" Cursor="Hand" MouseDown="Label_MouseDown" FontSize="26" HorizontalAlignment="Center" Margin="385 0 50 5" VerticalAlignment="Bottom" Height="40" FontFamily="Bahnschrift Light SemiCondensed"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.RowSpan="2" Margin="10 132 0 0">
             <ListBox x:Name="PanelPredmet" MouseDoubleClick="PanelPredmet_MouseDoubleClick">

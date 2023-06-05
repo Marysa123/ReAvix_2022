@@ -13,8 +13,9 @@ namespace ReAvix_2022.ViewModels
 
         public VMWindowRegisterStud()
         {
-            GetInfoGroup();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
+            GetInfoGroup();
+            CommandSql.Connection = _Connection;
         }
         public void AddInfoStudentInDB(string Ima, string Fam, string Otch, string Login, string Password, string Mail, string NomerTel, string NomerTelRod, string Course, string Pol, string Date, string Adress, string InfoMe, string NomerGroup)
         {
@@ -60,7 +61,6 @@ namespace ReAvix_2022.ViewModels
         {
             _Connection.Open();
             CommandSql.CommandText = $"select [Логин] from [Студенты] where [Логин] = '{LoginOne}'";
-            CommandSql.Connection = _Connection;
             string LoginTwo = (string)CommandSql.ExecuteScalar();
 
             if (LoginOne == LoginTwo)
@@ -78,15 +78,17 @@ namespace ReAvix_2022.ViewModels
                     _Connection.Close();
                     return result = false;
                 }
+                else
+                {
+                    _Connection.Close();
+                    return result = true;
+                }
             }
-            _Connection.Close();
-            return result = true;
         }
         public bool ValidateInfoStudentEmail(string EmailOne, out bool result)
         {
             _Connection.Open();
             CommandSql.CommandText = $"select [E_mail] from [Студенты] where [E_mail] = '{EmailOne}'";
-            CommandSql.Connection = _Connection;
             string EmailTwo = (string)CommandSql.ExecuteScalar();
 
             if (EmailOne == EmailTwo)
@@ -94,14 +96,27 @@ namespace ReAvix_2022.ViewModels
                 _Connection.Close();
                 return result = false;
             }
-            _Connection.Close();
-            return result = true;
+            else
+            {
+                CommandSql.CommandText = $"select [E_mail] from [Преподаватели] where [E_mail] = '{EmailOne}'";
+                string EmailThree = (string)CommandSql.ExecuteScalar();
+
+                if (EmailOne == EmailThree)
+                {
+                    _Connection.Close();
+                    return result = false;
+                }
+                else
+                {
+                    _Connection.Close();
+                    return result = true;
+                }
+            }
         }
         public bool ValidateInfoStudentPhone(string PhoneOne, out bool result)
         {
             _Connection.Open();
             CommandSql.CommandText = $"select [Номер_Телефона] from [Студенты] where [Номер_Телефона] = '{PhoneOne}'";
-            CommandSql.Connection = _Connection;
             string PhoneTwo = (string)CommandSql.ExecuteScalar();
 
             if (PhoneOne == PhoneTwo)
@@ -109,8 +124,22 @@ namespace ReAvix_2022.ViewModels
                 _Connection.Close();
                 return result = false;
             }
-            _Connection.Close();
-            return result = true;
+            else
+            {
+                CommandSql.CommandText = $"select [Номер_Телефона] from [Преподаватели] where [Номер_Телефона] = '{PhoneOne}'";
+                string PhoneThree = (string)CommandSql.ExecuteScalar();
+
+                if (PhoneOne == PhoneThree)
+                {
+                    _Connection.Close();
+                    return result = false;
+                }
+                else
+                {
+                    _Connection.Close();
+                    return result = true;
+                }
+            }
         }
 
         public List<Группа> GetGroup { get; set; }

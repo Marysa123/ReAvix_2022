@@ -43,14 +43,33 @@ namespace ReAvix_2022.Views
             {
                 EmailUser = textbox_Email.Text;
                 Close();
-                WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(textbox_Email.Text);
-                windowConfirmationEmail.ShowDialog();
-                if (windowConfirmationEmail.ResultConfirmation == true)
+                VMWindowConfirmationEmail VMwindowConfirmationEmail = new VMWindowConfirmationEmail();
+                VMwindowConfirmationEmail.ConfirmationEmail(EmailUser, out bool ResultConfirmation,out int CodeEmail);
+                if (ResultConfirmation == false)
                 {
-                    WindowChangePassword windowChangePassword = new WindowChangePassword(EmailUser);
-                    windowChangePassword.ShowDialog();
+                    MessageBox.Show("Неправильный формат электронной почты", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(CodeEmail);
+                    windowConfirmationEmail.ShowDialog();
+
+                    if (windowConfirmationEmail.ResultConfirmation == true)
+                    {
+                        WindowChangePassword windowChangePassword = new WindowChangePassword(EmailUser);
+                        windowChangePassword.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Смена пароля не выполнена", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Question);
+                    }
                 }
             }
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

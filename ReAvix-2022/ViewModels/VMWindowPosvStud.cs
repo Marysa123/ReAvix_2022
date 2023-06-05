@@ -14,8 +14,7 @@ namespace ReAvix_2022.ViewModels
     {
         SqlConnection _Connection = new SqlConnection(); //Создание экземпляров
         SqlCommand sqlCommand = new SqlCommand();
-         public System.Data.DataTable dataTableFour;
-        UCPosvStud uCPosvStud = new UCPosvStud();
+        public System.Data.DataTable dataTableFour;
 
         public int NumberPrep { get; set; }
         public string NameGroup { get; set; }
@@ -50,7 +49,7 @@ namespace ReAvix_2022.ViewModels
                         sqlCommand.CommandText = $"update Пропуски set [Уважительные_Пропуски] = 0,[Неуважительные_Пропуски] = 0, [Пропуски_по_болезни] = 0 where [FK_Номер_Студента] = {MassivNomerStudent[i]}";
                         sqlCommand.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Пропуски успешно стёрты.", "Диалоговое окно");
+                    MessageBox.Show("Пропуски успешно стёрты.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     UpdateOmissions();
 
@@ -68,7 +67,7 @@ namespace ReAvix_2022.ViewModels
             _Connection.Close();
             _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
 
-            sqlCommand.CommandText = $"select FK_Номер_Студента as 'Номер Студента',[Фамилия] + ' ' + [Имя] AS ФИО, Уважительные_Пропуски as 'Уважительные пропуски',Неуважительные_пропуски as 'Неуважительные пропуски',Пропуски_по_болезни as 'Пропуски по болезни' from [Пропуски],[Студенты] where FK_Номер_Студента = [Номер_Студента] and [FK_Номер_Группы] = '{NameGroup}' order by Уважительные_Пропуски desc";
+            sqlCommand.CommandText = $"select FK_Номер_Студента as 'Н',[Фамилия] + ' ' + [Имя] AS [Фамилия и имя], Уважительные_Пропуски as 'Уважительные пропуски',Неуважительные_пропуски as 'Неуважительные пропуски',Пропуски_по_болезни as 'Пропуски по болезни' from [Пропуски],[Студенты] where FK_Номер_Студента = [Номер_Студента] and [FK_Номер_Группы] = '{NameGroup}' order by Уважительные_Пропуски desc";
             SqlDataAdapter sqlDataAdapterFour = new SqlDataAdapter(sqlCommand);
             sqlCommand.Connection = _Connection;
             dataTableFour = new System.Data.DataTable("Студенты");

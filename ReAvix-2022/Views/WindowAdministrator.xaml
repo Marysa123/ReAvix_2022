@@ -8,13 +8,13 @@
         xmlns:local1="clr-namespace:ReAvix_2022.ViewModels" 
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         mc:Ignorable="d"
-        Title="WindowAdministrator" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
+        Title="Главвное окно администратора" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
     <Window.Resources>
         <DataTemplate x:Name="UCAddNewsAdmin" DataType="{x:Type local1:VMWindowAdministrator}">
             <windowusercontrol:UCAddNewsAdmin DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition/>
@@ -45,7 +45,7 @@
             </Border>
             <Image Source="/Resources/Images/icon_Logo.png" Grid.Column="0" Grid.Row="0" Height="95" Width="95"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Height="50" Name="button_AddNews" Width="250" Cursor="Hand" MouseDown="button_AddNews_MouseDown">
-            <Image Name="icon_Home" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+            <Image Name="icon_Home" Height="40" HorizontalAlignment="Right" Width="40" Margin="10 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/Resources/Images/icon_AddNewsV1.png"/>
@@ -72,7 +72,7 @@
             </TextBlock>
 
             <TextBlock Grid.Row="2" Grid.Column="0" Height="50" Name="button_AddInfoAdmin" Width="250" Cursor="Hand" MouseDown="button_AddInfoAdmin_MouseDown">
-            <Image Name="icon_Info" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+            <Image Name="icon_Info" Height="40" HorizontalAlignment="Right" Width="40" Margin="10 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStud.png"/>
@@ -84,9 +84,9 @@
                         </Style>
                     </Image.Style>
                 </Image>
-                <Label Height="30" Content="Группы, кружки, категории" FontSize="17px" Margin="5 0 0 5">
-                    <Label.Style>
-                        <Style TargetType="{x:Type Label}">
+                <TextBlock Height="45" Text="Группы, кружки, категории" Width="125" FontSize="17px" TextWrapping="Wrap" Margin="10 0 0 0">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Foreground" Value="#1A9699"/>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoAdmin}" Value="true">
@@ -94,12 +94,12 @@
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
-                    </Label.Style>
-                </Label>
+                    </TextBlock.Style>
+                </TextBlock>
             </TextBlock>
 
             <TextBlock Grid.Row="3" Grid.Column="0" Height="50" Name="button_AddInfoPredmetsAndSpec" Width="250" Cursor="Hand" MouseDown="button_AddInfoPredmetsAndSpec_MouseDown">
-            <Image Name="icon_InfoPredmetsAndSpec" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+            <Image Name="icon_InfoPredmetsAndSpec" Height="40" HorizontalAlignment="Right" Width="40" Margin="10 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/Resources/Images/icon_AddInfoStud.png"/>
@@ -111,9 +111,9 @@
                         </Style>
                     </Image.Style>
                 </Image>
-                <Label Height="30" Content="Предметы, специальности" FontSize="17px" Margin="5 0 0 5">
-                    <Label.Style>
-                        <Style TargetType="{x:Type Label}">
+                <TextBlock Height="45" Text="Предметы, специальности" Width="110" TextWrapping="Wrap" FontSize="17px" Margin="10 0 0 0">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Foreground" Value="#1A9699"/>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_AddInfoPredmetsAndSpec}" Value="true">
@@ -121,12 +121,12 @@
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
-                    </Label.Style>
-                </Label>
+                    </TextBlock.Style>
+                </TextBlock>
             </TextBlock>
 
             <TextBlock Grid.Row="4" Grid.Column="0" Height="50" Name="button_InfoPrepod" Width="250" Cursor="Hand" MouseDown="button_InfoPrepod_MouseDown">
-            <Image Name="icon_InfoPrepod" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+            <Image Name="icon_InfoPrepod" Height="40" HorizontalAlignment="Right" Width="40" Margin="10 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/Resources/Images/icon_TeacherAdminWindowV2.png"/>
@@ -152,8 +152,8 @@
                 </Label>
             </TextBlock>
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_InfoStudents" Width="250" Cursor="Hand" MouseDown="button_InfoStudents_MouseDown">
-            <Image Name="icon_InfoStudents" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+            <TextBlock Grid.Row="5" Grid.Column="0" Height="50" Name="button_InfoStudents" Visibility="Hidden" Width="250" Cursor="Hand" MouseDown="button_InfoStudents_MouseDown">
+            <Image Name="icon_InfoStudents" Height="40" HorizontalAlignment="Right" Width="40" Margin="10 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/Resources/Images/icon_StudentsAdminWindowV2.png"/>
@@ -179,8 +179,8 @@
                 </Label>
             </TextBlock>
 
-            <TextBlock Grid.Row="6" Grid.Column="0" Height="50" Name="button_InfoStatisticCollege" Width="250" Cursor="Hand" MouseDown="button_InfoStatisticCollege_MouseDown">
-            <Image Name="icon_InfoStatistic" Height="40" HorizontalAlignment="Right" Width="40" Margin="0 4 0 0">
+            <TextBlock Grid.Row="6" Grid.Column="0" Height="50" Name="button_InfoStatisticCollege" Visibility="Hidden" Width="250" Cursor="Hand" MouseDown="button_InfoStatisticCollege_MouseDown">
+            <Image Name="icon_InfoStatistic" Height="40" HorizontalAlignment="Right" Width="40" Margin="10 4 0 0">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="/Resources/Images/icon_StatisticAdminWindowV2.png"/>

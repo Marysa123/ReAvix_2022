@@ -21,35 +21,32 @@ namespace ReAvix_2022.Views
     /// </summary>
     public partial class WindowConfirmationEmail : Window
     {
-        VMWindowConfirmationEmail windowConfirmationEmail = new VMWindowConfirmationEmail();
 
-        public int CodeCinfirmnationEmail { get; set; }
         public bool ResultConfirmation { get; set; }
-
-        public WindowConfirmationEmail(string Email)
+        public int CodeEmail { get; set; }
+        public WindowConfirmationEmail(int CodeEmail)
         {
             InitializeComponent();
 
-            windowConfirmationEmail.ConfirmationEmail(Email,out int Code);
-            CodeCinfirmnationEmail = Code;
+            this.CodeEmail = CodeEmail;
         }
 
         private void icon_Exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            ResultConfirmation = false;
             Close();
         }
 
         private void button_Confirmation_Click(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(textbox_Code.Text) == CodeCinfirmnationEmail)
+            try
             {
-                ResultConfirmation = true;
-                this.Close();
+                ConfirmationPassEmail(int.Parse(textbox_Code.Text), out bool ResultPass);
+                ResultConfirmation = ResultPass;
             }
-            else
+            catch (Exception)
             {
-                ResultConfirmation = false;
-                MessageBox.Show("Неверный код!", "Диалоговое окно", MessageBoxButton.OK);
+                MessageBox.Show("Введите корректный код!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         
@@ -58,6 +55,24 @@ namespace ReAvix_2022.Views
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+        public void ConfirmationPassEmail(int Code, out bool ResultConfirmation)
+        {
+            if (CodeEmail == Code)
+            {
+                ResultConfirmation = true;
+                Close();
+            }
+            else
+            {
+                ResultConfirmation = false;
+                MessageBox.Show("Неверный код!", "Диалоговое окно", MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

@@ -176,6 +176,11 @@
             and the start point of the second arc.
             </summary>
         </member>
+        <member name="T:MaterialDesignThemes.Wpf.Converters.CursorConverter">
+            <summary>
+            Value converter that uses the Cursor from the bound property if set, otherwise it returns the <see cref="P:MaterialDesignThemes.Wpf.Converters.CursorConverter.FallbackCursor"/>.
+            </summary>
+        </member>
         <member name="T:MaterialDesignThemes.Wpf.Converters.HintProxyFabricConverter">
             <summary>
             Converter for <see cref="T:MaterialDesignThemes.Wpf.SmartHint"/> control. Can be extended by <see cref="M:MaterialDesignThemes.Wpf.HintProxyFabric.RegisterBuilder(System.Func{System.Windows.Controls.Control,System.Boolean},System.Func{System.Windows.Controls.Control,MaterialDesignThemes.Wpf.IHintProxy})"/> method.
@@ -909,6 +914,16 @@
             Provides full information about a palette.
             </summary>
         </member>
+        <member name="M:MaterialDesignThemes.Wpf.PasswordBoxAssist.HandlePasswordChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles changes to the 'Password' attached property.
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.PasswordBoxAssist.PasswordBoxPasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handle the 'PasswordChanged'-event on the PasswordBox
+            </summary>
+        </member>
         <member name="T:MaterialDesignThemes.Wpf.Plane3D">
             <summary>
             View a control on a 3D plane.    
@@ -1118,6 +1133,16 @@
         <member name="P:MaterialDesignThemes.Wpf.PopupBox.PopupUniformCornerRadius">
             <summary>
             Get or sets the corner radius of the popup card.
+            </summary>
+        </member>
+        <member name="F:MaterialDesignThemes.Wpf.PopupBox.PopupElevationProperty">
+            <summary>
+            Gets or sets the elevation of the popup card.
+            </summary>
+        </member>
+        <member name="P:MaterialDesignThemes.Wpf.PopupBox.PopupElevation">
+            <summary>
+            Gets or sets the elevation of the popup card.
             </summary>
         </member>
         <member name="P:MaterialDesignThemes.Wpf.PopupBox.PopupPlacementMethod">

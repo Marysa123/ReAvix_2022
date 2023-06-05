@@ -55,8 +55,13 @@ namespace ReAvix_2022.Views
         private void button_DeleteDosStud_Click(object sender, RoutedEventArgs e)
         {
             vMWindowAboutDos.DeleteDos();
-            MessageBox.Show("Достижение успешно удалено.", "Диалоговое окно");
+            MessageBox.Show("Достижение успешно удалено.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

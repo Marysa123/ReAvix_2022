@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
-        Title="WindowInfoAboutPredmet" Height="650" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" DataContext="VMWindowInfoAboutPredmet" Background="Transparent" AllowsTransparency="True">
-    <Grid>
+        Title="Окно с информацией о предмете" Height="650" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" DataContext="VMWindowInfoAboutPredmet" Background="Transparent" AllowsTransparency="True">
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.8*"/>
             <ColumnDefinition/>

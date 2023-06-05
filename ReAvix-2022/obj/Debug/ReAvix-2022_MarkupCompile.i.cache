@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\App.xaml
-39438798313
+40-1932753715
 12-2048617159
-93468251226
-152-906507625
-Resources\Styles\ButtonStyle.xaml;Resources\Styles\ButtonStyleDelete.xaml;Views\WindowAboutDos.xaml;Views\WindowAboutPredmet.xaml;Views\WindowAboutSkils.xaml;Views\WindowAddDos.xaml;Views\WindowAddInfoPredmetsPrep.xaml;Views\WindowAddNotes.xaml;Views\WindowAddNotesPrep.xaml;Views\WindowAddSkils.xaml;Views\WindowAdministrator.xaml;Views\WindowChangePassword.xaml;Views\WindowConfirmationEmail.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowInfoStudent.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowPasswordRecovery.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCAddInfoAdministrator.xaml;WindowUserControl\UCAddInfoPredmetsAndSpec.xaml;WindowUserControl\UCAddInfoStudentPrep.xaml;WindowUserControl\UCAddNewsAdmin.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCInfoPrepodAdmin.xaml;WindowUserControl\UCInfoStudentsAdmin.xaml;WindowUserControl\UCListNews.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCPosvStud.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticCollegeAdmin.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;WindowUserControl\UCAddPredmetsPrep.xaml;
+95-121243496
+150164381548
+Resources\Styles\ButtonStyle.xaml;Resources\Styles\ButtonStyleDelete.xaml;Views\WindowAboutDos.xaml;Views\WindowAboutPredmet.xaml;Views\WindowAboutPrepodAdmin.xaml;Views\WindowAboutSkils.xaml;Views\WindowAddDos.xaml;Views\WindowAddInfoPredmetsPrep.xaml;Views\WindowAddNotes.xaml;Views\WindowAddNotesPrep.xaml;Views\WindowAddSkils.xaml;Views\WindowAdministrator.xaml;Views\WindowChangePassword.xaml;Views\WindowConfirmationEmail.xaml;Views\WindowInfoAboutPredmet.xaml;Views\WindowInfoStudent.xaml;Views\WindowMainPrep.xaml;Views\WindowMainStudent.xaml;Views\WindowPasswordRecovery.xaml;Views\WindowRegisterPrep.xaml;Views\WindowRegisterStud.xaml;Views\WindowSign.xaml;WindowUserControl\UCAddInfoAdministrator.xaml;WindowUserControl\UCAddInfoPredmetsAndSpec.xaml;WindowUserControl\UCAddInfoStudentPrep.xaml;WindowUserControl\UCAddNewsAdmin.xaml;WindowUserControl\UCDosStudent.xaml;WindowUserControl\UCInfoPrepodAdmin.xaml;WindowUserControl\UCInfoStudentsAdmin.xaml;WindowUserControl\UCListNews.xaml;WindowUserControl\UCListStudentsPrep.xaml;WindowUserControl\UCMainPrep.xaml;WindowUserControl\UCMainStudent.xaml;WindowUserControl\UCPosvStud.xaml;WindowUserControl\UCProfilePrep.xaml;WindowUserControl\UCProfileStudent.xaml;WindowUserControl\UCStatisticCollegeAdmin.xaml;WindowUserControl\UCStatisticGroupPrep.xaml;WindowUserControl\UCStatisticStudent.xaml;WindowUserControl\UCAddPredmetsPrep.xaml;
 
-False
+True
 

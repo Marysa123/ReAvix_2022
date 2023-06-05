@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
         mc:Ignorable="d"
-        Title="WindowAboutDos" Height="600" Width="1200" DataContext="VMWindowAboutDos" WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="Окно просмотра информации о достижении" Height="600" Width="1200" DataContext="VMWindowAboutDos" WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition/>

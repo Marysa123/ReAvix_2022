@@ -30,18 +30,6 @@
         </Image>
         <Label Grid.Row="0" Content="Ваши навыки" Foreground="White" FontSize="24" HorizontalAlignment="Left" Margin="30 30 0 0" VerticalAlignment="Top" Height="40" FontFamily="Bahnschrift Light Condensed"/>
 
-        <Label Content="Обновить" Name="button_Update" Grid.Row="0" MouseDown="button_Update_MouseDown" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 225 15" Height="40" FontFamily="Corbel Light" Cursor="Hand">
-            <Label.Style>
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="Foreground" Value="White"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
-                            <Setter Property="Foreground" Value="#3AFFDC"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Label.Style>
-        </Label>
         <Border x:Name="border_AddSliks" MouseDown="border_AddSliks_MouseDown" BorderThickness="2" Width="130" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 85 5" Cursor="Hand">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -92,18 +80,7 @@
                 </ListBox.ItemsPanel>
             </ListBox>
         </ScrollViewer>
-        <Label Content="Обновить" Name="button_UpdateDos" Grid.Row="1" MouseDown="button_UpdateDos_MouseDown" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 225 45" Height="40" FontFamily="Corbel Light" Cursor="Hand">
-            <Label.Style>
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="Foreground" Value="White"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_UpdateDos}" Value="true">
-                            <Setter Property="Foreground" Value="#3AFFDC"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Label.Style>
-        </Label>
+     
         <Border x:Name="border_AddDos" MouseDown="border_AddDos_MouseDown" Grid.Row="1" BorderThickness="2" Width="130" Height="60" CornerRadius="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 85 35" Cursor="Hand">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

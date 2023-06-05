@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
-        Title="WindowRegisterStud" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
+        Title="Окно регистрации студента" Height="980" Width="1800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" FontFamily="Calibri Light">
     <Window.DataContext>
         <local1:VMWindowRegisterStud/>
     </Window.DataContext>
 
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <!--#region Задний фон окна-->
         <Border CornerRadius="20" Grid.Column="1">
             <Border.Background>
@@ -102,19 +102,19 @@
                     <TextBox Grid.Column="0" Name="textbox_Login" BorderBrush="#689ADD" Grid.Row="3" Margin="0 0 0 20" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Логин*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region TextBox "Пароль"-->
-                    <PasswordBox x:Name="textbox_Password" BorderBrush="#689ADD" Margin="0 0 0 20" Foreground="Black" FontSize="20" Grid.Row="4" Grid.Column="0" Height="45" Width="350" materialDesign:HintAssist.Hint="Пароль*:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <PasswordBox x:Name="textbox_Password" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" BorderBrush="#689ADD" Margin="0 0 0 20" Foreground="Black" FontSize="20" Grid.Row="4" Grid.Column="0" Height="60" Width="350" materialDesign:HintAssist.Hint="Пароль*:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region  TextBox "Повторите пароль"-->
-                    <PasswordBox x:Name="textbox_VerifityPassword"  BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20" Grid.Row="5" Grid.Column="0" Height="45" Width="350" Foreground="Black" materialDesign:HintAssist.Hint="Подтвердите пароль*:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <PasswordBox x:Name="textbox_VerifityPassword" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" BorderBrush="#689ADD" Margin="0 0 0 40" FontSize="20" Grid.Row="5" Grid.Column="0" Height="60" Width="350" Foreground="Black" materialDesign:HintAssist.Hint="Подтвердите пароль*:" materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region TextBox "E-Mail"-->
                     <TextBox Name="textbox_EMail" materialDesign:TextFieldAssist.LeadingIcon="MailboxOpenUp" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="0" BorderBrush="#689ADD" FontSize="20" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="E-mail*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region TextBox "Номер телефона"-->
-                    <TextBox Name="textbox_Phone" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.PrefixText="+7" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="1" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Номер телефона*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
+                    <TextBox Name="textbox_Phone" PreviewTextInput="textbox_Phone_PreviewTextInput" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.PrefixText="+7" materialDesign:TextFieldAssist.LeadingIconSize="25" materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="1" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Номер телефона*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2"/>
                     <!--#endregion-->
                     <!--#region TextBox "Номер тлефона родителей"-->
-                    <TextBox Name="textbox_PhoneRod" materialDesign:TextFieldAssist.LeadingIcon="Phone" materialDesign:TextFieldAssist.PrefixText="+7" materialDesign:TextFieldAssist.LeadingIconSize="25"  materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="2" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Номер телефона родителя*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
+                    <TextBox Name="textbox_PhoneRod" materialDesign:TextFieldAssist.LeadingIcon="Phone" PreviewTextInput="textbox_Phone_PreviewTextInput" materialDesign:TextFieldAssist.PrefixText="+7" materialDesign:TextFieldAssist.LeadingIconSize="25"  materialDesign:TextFieldAssist.HasLeadingIcon="True" Grid.Column="1" Grid.Row="2" BorderBrush="#689ADD" Margin="0 0 0 20" FontSize="20"  materialDesign:TransitionAssist.DisableTransitions="True" MaxLength="10" Foreground="Black" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Номер телефона родителя*:" Height="60" Width="350" materialDesign:TextFieldAssist.UnderlineBrush="#187AFD" materialDesign:HintAssist.Foreground="Black" BorderThickness="0 0 0 2" Cursor="Arrow"/>
                     <!--#endregion-->
                     <!--#region Надпись "Ваша группа"-->
                     <Label Grid.Column="1" Grid.Row="3" Width="144" Height="35" Content="Ваша группа:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Left" Margin="80 0 0 80"/>
@@ -148,13 +148,8 @@
                           Background="#594A4A"
                           FontSize="20"
                           Grid.Column="1"
-                          Grid.Row="4">
-                        <RadioButton.IsChecked>
-                            <Binding
-                              Path="Tag"
-                              RelativeSource="{RelativeSource Self}">
-                            </Binding>
-                        </RadioButton.IsChecked>
+                          Grid.Row="4"
+                          IsChecked="True">
                     </RadioButton>
                     <!--#endregion-->
                     <!--#region RadioButton "Женский"-->
@@ -172,19 +167,13 @@
                           Grid.Row="4"
                           Width="120"
                           Margin="0 20 200 20">
-                        <RadioButton.IsChecked>
-                            <Binding
-                              Path="Tag"
-                              RelativeSource="{RelativeSource Self}">
-                            </Binding>
-                        </RadioButton.IsChecked>
                     </RadioButton>
                     <!--#endregion-->
                     <!--#region Надпись "Дата рождения"-->
                     <Label Grid.Column="1" Grid.Row="4" Width="170" Height="35" Content="Дата рождения:" FontSize="22" Foreground="#403F3F" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80 0 0 0" Grid.RowSpan="1"/>
                     <!--#endregion-->
                     <!--#region ComboBox "День"-->
-                    <ComboBox Name="combobox_Day"  Margin="80 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="70" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                    <ComboBox Name="combobox_Day"  Margin="80 0 0 40" IsReadOnly="True" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" Foreground="Black" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="70" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
                         <ComboBoxItem IsSelected="True" Content="1" />
                         <ComboBoxItem Content="2" />
                         <ComboBoxItem Content="3" />
@@ -220,7 +209,7 @@
                     </ComboBox>
                     <!--#endregion-->
                     <!--#region ComboBox "Месяц"-->
-                    <ComboBox Name="combobox_Montch" Margin="160 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="120" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                    <ComboBox Name="combobox_Montch" Margin="160 0 0 40" IsReadOnly="True" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="120" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
                         <ComboBoxItem IsSelected="True" Content="Январь" />
                         <ComboBoxItem  Content="Февраль" />
                         <ComboBoxItem  Content="Март" />
@@ -229,6 +218,7 @@
                         <ComboBoxItem  Content="Июнь" />
                         <ComboBoxItem  Content="Июль" />
                         <ComboBoxItem  Content="Август" />
+                        <ComboBoxItem  Content="Сентябрь" />
                         <ComboBoxItem  Content="Октябрь" />
                         <ComboBoxItem  Content="Ноябрь" />
                         <ComboBoxItem  Content="Декабрь" />
@@ -236,8 +226,9 @@
                     </ComboBox>
                     <!--#endregion-->
                     <!--#region ComboBox "Год"-->
-                    <ComboBox Name="combobox_Year" Margin="290 0 0 40" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="105" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
-                        <ComboBoxItem IsSelected="True" Content="2022" />
+                    <ComboBox Name="combobox_Year" Margin="290 0 0 40" IsReadOnly="True" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed" materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Grid.Column="1" Grid.Row="5" Width="105" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" >
+                        <ComboBoxItem IsSelected="True" Content="2023" />
+                        <ComboBoxItem Content="2022" />
                         <ComboBoxItem Content="2021" />
                         <ComboBoxItem Content="2020" />
                         <ComboBoxItem Content="2019" />
@@ -294,6 +285,16 @@
                         <ComboBoxItem Content="1968" />
                         <ComboBoxItem Content="1967" />
                         <ComboBoxItem Content="1966" />
+                        <ComboBoxItem Content="1965" />
+                        <ComboBoxItem Content="1964" />
+                        <ComboBoxItem Content="1963" />
+                        <ComboBoxItem Content="1962" />
+                        <ComboBoxItem Content="1961" />
+                        <ComboBoxItem Content="1960" />
+                        <ComboBoxItem Content="1959" />
+                        <ComboBoxItem Content="1958" />
+                        <ComboBoxItem Content="1957" />
+                        <ComboBoxItem Content="1956" />
 
                     </ComboBox>
                     <!--#endregion-->

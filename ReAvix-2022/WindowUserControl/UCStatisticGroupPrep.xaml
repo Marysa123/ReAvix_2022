@@ -35,7 +35,7 @@
         <TextBlock Text="{Binding Path=GoodTime}" Grid.Row="0" FontSize="22" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Width="300" Height="30" Margin="40 50 0 0" FontFamily="Bahnschrift Light" />
         <TextBlock Text="{Binding Path=Date}" Grid.Row="0" FontSize="20" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#949292" Width="370" Height="30" Margin="40 80 0 0" FontFamily="Bahnschrift Light"/>
 
-        <Border Background="#21335B" CornerRadius="5" Margin="30,135,30,230" Grid.RowSpan="2">
+        <Border Background="#21335B" CornerRadius="5" Margin="30,135,30,245" Grid.RowSpan="2">
             <Border.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
             </Border.BitmapEffect>
@@ -45,7 +45,7 @@
             </Grid>
         </Border>
 
-        <Border Background="#21335B" CornerRadius="5" Margin="0,135,60,259" Grid.RowSpan="2" Grid.Column="1">
+        <Border Background="#21335B" CornerRadius="5" Margin="0,135,60,245" Grid.RowSpan="2" Grid.Column="1">
             <Border.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" ShadowDepth="15" Softness="10"/>
             </Border.BitmapEffect>
@@ -130,20 +130,155 @@
             </Border.BitmapEffect>
         </Border>
         <Label Content="Ваши заметки" Grid.Row="1" Foreground="White" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0" Height="30" FontFamily="Bahnschrift Light SemiCondensed"/>
-        <Label Content="Обновить" Name="button_Update" Grid.Row="2" MouseDown="button_Update_MouseDown" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="160 0 0 85" Height="40" FontFamily="Bahnschrift Light SemiCondensed" Cursor="Hand">
-            <Label.Style>
-                <Style TargetType="{x:Type Label}">
-                    <Setter Property="Foreground" Value="White"/>
+
+        <Grid Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Center" Grid.RowSpan="2" Grid.Row="0" Margin="200 115 0 0">
+            <Border Height="90" x:Name="cardOne" Width="300" Grid.Column="0" Grid.Row="0"  CornerRadius="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 20 0 0">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="#032863"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardOne}" Value="true">
+                                <Setter Property="Background" Value="#5370FF"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+                </Border.BitmapEffect>
+                <Grid>
+                    <TextBlock Text="Количество студентов в группе: " Height="54" Width="220" TextWrapping="Wrap" FontSize="18" HorizontalAlignment="Left" Margin="10 0 0 0"  Foreground="White"  FontFamily="Bahnschrift"/>
+                    <Border HorizontalAlignment="Right" Height="50" Margin="0 0 40 0">
+                        <Label Name="label_KolvoStudent" Content="{Binding KolvoStudent}" FontSize="32" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
+                        <Border.Style>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="BorderThickness" Value="0 0 0 3"/>
+                                <Setter Property="CornerRadius" Value="0.5"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="BorderBrush" Value="#00DBCE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Height="90" x:Name="cardTwo" Width="300" Grid.Column="0" Grid.Row="0"  CornerRadius="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 120 0 0">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="#032863"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardTwo}" Value="true">
+                                <Setter Property="Background" Value="#5370FF"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+                </Border.BitmapEffect>
+                <Grid>
+                    <TextBlock Text="Скачать список группы: " TextWrapping="Wrap" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"  Foreground="White"  FontFamily="Bahnschrift"/>
+                    <Image Width="35" Height="35" Cursor="Hand" Source="/Resources/Images/icon_ListStudent.png" HorizontalAlignment="Right" Margin="0 0 32 0" Name="button_ListStudent" MouseDown="button_ListStudent_MouseDown"/>
+                    <DataGrid Visibility="Hidden" Name="GridListStudent" HorizontalAlignment="Left" AutoGenerateColumns="True"/>
+                </Grid>
+            </Border>
+            <Border Height="90" x:Name="cardThree" Width="300" Grid.Column="0" Grid.Row="0"  CornerRadius="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 220 0 0">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="#032863"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardThree}" Value="true">
+                                <Setter Property="Background" Value="#5370FF"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+                </Border.BitmapEffect>
+                <Grid>
+                    <TextBlock Text="Скачать список отличников группы: " TextWrapping="Wrap" Width="200" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"  Foreground="White"  FontFamily="Bahnschrift"/>
+                    <Image Width="35" Height="35" Cursor="Hand" Source="/Resources/Images/icon_ListStudent.png" HorizontalAlignment="Right" Margin="0 0 32 0" Name="button_ListOtclStudent" MouseDown="button_ListOtclStudent_MouseDown"/>
+                    <DataGrid Visibility="Hidden" Name="GridListOtclStudent" HorizontalAlignment="Left" AutoGenerateColumns="True"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <Border Height="90" x:Name="cardFor" Width="200" Grid.Column="2" Grid.Row="0" CornerRadius="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,136,0,0">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="#032863"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=button_Update}" Value="true">
-                            <Setter Property="Foreground" Value="#3AFFDC"/>
+                        <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardFor}" Value="true">
+                            <Setter Property="Background" Value="#5370FF"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </Label.Style>
-        </Label>
-        <!--<ComboBox Name="combobox_Fio" Margin="479,243,0,21" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Width="262" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Column="1" Grid.ColumnSpan="2"/>-->
-        <!--<ComboBox Name="combobox_Predmet" Margin="290,243,0,21" HorizontalContentAlignment="Left" BorderBrush="Black" FontFamily="Bahnschrift SemiLight Condensed"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" HorizontalAlignment="Left"  FontSize="20" Width="144" Height="70" Background="#FFFFFF"  Style="{StaticResource MaterialDesignFilledComboBox}" Grid.Column="2"/>-->
-        <!--<Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="1" x:Name="ContainerGrid" Margin="20"/>-->
+            </Border.Style>
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <Grid>
+                <TextBlock Text="Список троечников группы: " TextWrapping="Wrap" Width="200" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"  Foreground="White"  FontFamily="Bahnschrift"/>
+                <Image Width="35" Height="35" Cursor="Hand" Source="/Resources/Images/icon_ListStudent.png" HorizontalAlignment="Left" Margin="105 40 0 0" Name="button_ListNoYlStudent" MouseDown="button_ListNoYlStudent_MouseDown"/>
+                <DataGrid Visibility="Hidden" Name="GridListNoYlStudent" HorizontalAlignment="Left" AutoGenerateColumns="True"/>
+            </Grid>
+        </Border>
+        
+        <Expander ExpandDirection="Left" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0 100 0 30" Padding="10 10 20 20">
+            <Expander.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop
+                        Color="#0D1C32"
+                        Offset="0"/>
+                    <GradientStop
+                        Color="#01132F"
+                        Offset="1"/>
+                </LinearGradientBrush>
+            </Expander.Background>
+            <Expander.Header>
+                <TextBlock
+                    Foreground="White"
+                    RenderTransformOrigin=".5,.5"
+                    Text="Средние значения по каждому предмету"
+                    FontSize="18">     
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform
+                            Angle="90" />
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Label Grid.Column="1" Content="Cредние значения по каждому предмету" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="22" Height="35" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Label Grid.Column="1" Content="на текущий месяц" Grid.Row="1" MouseDown="Label_MouseDown" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Center" Grid.ColumnSpan="2" Foreground="#FF31F1FF" FontSize="22" Height="35" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <Label Grid.Column="2" Content="| За все время" Grid.Row="1" VerticalAlignment="Top" MouseDown="Label_MouseDown_1" Cursor="Hand" HorizontalAlignment="Left" Foreground="#FF31F1FF"  FontSize="22" Height="35" FontFamily="Bahnschrift Light SemiCondensed"/>
+                <DataGrid IsReadOnly="True" Height="400" Margin="0,10,0,0" Width="740" HorizontalAlignment="Left" Name="ListOchenokStudent"/>
+                <TextBox Width="225" Height="50" TextChanged="textbox_SearchFam_TextChanged" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:HintAssist.Hint="По фамилии:" Margin="10 10 0 0" FontSize="22" Foreground="White" TextAlignment="Center" HorizontalContentAlignment="Left" x:Name="textbox_SearchFam" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                <TextBox Width="225" Height="50" TextChanged="textbox_SearchIma_TextChanged" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:HintAssist.Hint="По имени:" Margin="10 10 0 0" FontSize="22" Foreground="White" TextAlignment="Center" HorizontalContentAlignment="Left" x:Name="textbox_SearchIma"  Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                <ComboBox Width="250" Height="50" materialDesign:HintAssist.Hint="Название предмета:" SelectionChanged ="textbox_SearchPredmet_SelectionChanged" IsReadOnly="True" Margin="20 10 0 0" FontSize="22" Foreground="Black" Background="White" HorizontalContentAlignment="Left" Name="textbox_SearchPredmet" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
+                <Image Width="35" Height="35" Cursor="Hand" Source="/Resources/Images/icon_ListStudent.png" HorizontalAlignment="Right" Margin="20 0 32 0" Name="button_List" MouseDown="button_List_MouseDown"/>
+            </WrapPanel>
+        </Expander>
     </Grid>
 </UserControl>

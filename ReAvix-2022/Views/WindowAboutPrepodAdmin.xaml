@@ -1,0 +1,160 @@
+﻿<Window x:Class="ReAvix_2022.Views.WindowAboutPrepodAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReAvix_2022.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Окно с информацией о классном руководителе" Height="820" Width="1300" Background="Transparent" FontFamily="Bahnschrift Light Condensed" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" >
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="10" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#112035"
+                                      Offset="0"/>
+                    <GradientStop Color="#041B3F"
+                                      Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Image Name="icon_Exit2" Cursor="Hand" Grid.Column="1" Source="/Resources/Images/icon_Exit.png" MouseDown="icon_Exit2_MouseDown" HorizontalAlignment="Right" Margin="0 25 35 0" Width="20" VerticalAlignment="Top" Height="20"/>
+        <Label Content="Окно с информацией о классном руководителе" Margin="20 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="26" Foreground="White"/>
+        <ScrollViewer  Margin="20 70 20 20">
+            <Border CornerRadius="10" Background="White" Margin="0 0 5 0">
+                <StackPanel>
+                    <Image Margin="20 20 20 0" Name="ImagePrep" Height="300" Stretch="Uniform" Cursor="Hand" Source="{Binding SourceIm}"/>
+
+                    <Label Content="{Binding Path=FI}" VerticalAlignment="Top" Margin="20 20 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="30" Height="45" FontFamily="Bahnschrift Light Condensed"/>
+                    <WrapPanel Margin="20 20 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_OldPhone.png"/>
+                        <Label Content="{Binding Path=Phone}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_EMail.png"/>
+                        <Label Content="{Binding Path=Mail}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Сalendar.png"/>
+                        <TextBlock Text="{Binding Path=DataRosh}" Grid.Column="1" VerticalAlignment="Top" Margin="10 5 0 0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="Black" FontSize="22" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Location.png"/>
+                        <TextBlock Text="{Binding Path=Adress}" Grid.Column="1" VerticalAlignment="Top" Margin="10 5 0 0" Width="300" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="Black" FontSize="22" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Age.png"/>
+                        <Label Content="{Binding Path=Age}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="30" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Pol.png"/>
+                        <Label Content="{Binding Path=Pol}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_CardSpec.png"/>
+                        <Label Content="{Binding Path=Spec}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Team.png"/>
+                        <Label Content="{Binding Path=Group}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Ellipse.png"/>
+                        <Label Content="{Binding Path=VedEllipse}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 20 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_InfoPrep.png"/>
+                        <TextBlock Text="{Binding Path=InfoMe}" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10 5 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Login.png"/>
+                        <Label Content="{Binding Path=Login}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 0 20">
+                        <Image Width="35" Height="35" Source="/Resources/Images/icon_Password.png"/>
+                        <Label Content="{Binding Path=Password}" Grid.Column="1" VerticalAlignment="Top" Margin="10 0 0 0" HorizontalAlignment="Left" Foreground="Black" FontSize="22" Height="34" FontFamily="Bahnschrift Light Condensed"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+
+        <Label Content="Краткая информация о группе:" Grid.Column="2" Margin="20 70 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Foreground="White"/>
+        <Grid Grid.Column="2" Margin="0 110 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Height="90" x:Name="cardOne" Width="300" Grid.Column="0" Grid.Row="0"  CornerRadius="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 20 0 0">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="#032863"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardOne}" Value="true">
+                                <Setter Property="Background" Value="#5370FF"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+                </Border.BitmapEffect>
+                <Grid>
+                    <TextBlock Text="Количество студентов в группе: " Height="54" Width="220" TextWrapping="Wrap" FontSize="18" HorizontalAlignment="Left" Margin="10 0 0 0"  Foreground="White" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                    <Border HorizontalAlignment="Right" Height="50" Margin="0 0 40 0">
+                        <Label Name="label_KolvoStudent" Content="{Binding KolvoStudent}" FontSize="36" Foreground="#00F0FF" FontFamily="Bahnschrift Light"/>
+                        <Border.Style>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="BorderThickness" Value="0 0 0 3"/>
+                                <Setter Property="CornerRadius" Value="0.5"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="BorderBrush" Value="#00DBCE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Height="90" x:Name="cardTwo" Width="300" Grid.Column="0" Grid.Row="0"  CornerRadius="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 120 0 0">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="#032863"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMouseOver,ElementName=cardTwo}" Value="true">
+                                <Setter Property="Background" Value="#5370FF"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect 
+                            Color="Black"                 
+                            Direction="320" 
+                            Softness="1" 
+                            ShadowDepth="20" 
+                            Opacity="0.5"/>
+                </Border.BitmapEffect>
+                <Grid>
+                    <TextBlock Text="Скачать список группы: " TextWrapping="Wrap" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"  Foreground="White" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                    <Image Width="35" Height="35" Cursor="Hand" Source="/Resources/Images/icon_ListStudent.png" HorizontalAlignment="Right" Margin="0 0 32 0" Name="button_ListStudent" MouseDown="button_ListStudent_MouseDown"/>
+                    <DataGrid Visibility="Hidden" Name="GridListStudent" HorizontalAlignment="Left" AutoGenerateColumns="True"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

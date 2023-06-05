@@ -106,7 +106,7 @@ namespace ReAvix_2022.WindowUserControl
             _Connection.Open(); 
             if (AdressImageOne == null || AdressImageTwo == null || AdressImageThree == null || textbox_AvtorNew.Text == "" || textbox_KatNew.Text == "" || textbox_MainTextCaption.Text == "" || textbox_TextNew.Text == "")
             {
-                MessageBox.Show("Заполните необходимые данные.", "Диалоговое окно");
+                MessageBox.Show("Заполните необходимые данные.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -124,7 +124,7 @@ namespace ReAvix_2022.WindowUserControl
 
                 CommandSql.ExecuteNonQuery();
                 _Connection.Close();
-                MessageBox.Show("Новость успешно добавлена.", "Диалоговое окно");
+                MessageBox.Show("Новость успешно добавлена.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
                 GetInfoNews();
             }
         }
@@ -147,7 +147,7 @@ namespace ReAvix_2022.WindowUserControl
                 case MessageBoxResult.OK:
                     CommandSql.CommandText = $"delete from Новости where [Номер_Новости] = {textbox_NomerNews.Text}";
                     CommandSql.ExecuteNonQuery();
-                    MessageBox.Show("Новость успешно удалена.","Диалоговое окно");
+                    MessageBox.Show("Новость успешно удалена.","Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
                     GetInfoNews();
                     break;
                 case MessageBoxResult.Cancel:

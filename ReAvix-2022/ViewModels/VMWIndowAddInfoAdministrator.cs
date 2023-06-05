@@ -52,42 +52,42 @@ namespace ReAvix_2022.ViewModels
             {
                 sqlCommand.CommandText = $"insert into Группа (Номер_Группы,Полное_Название_Группы) values ('{NomerGroup}','{DescriptionGroup}')";
                 sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Данные добавлены.", "Диалоговое окно");
+                MessageBox.Show("Данные добавлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Данная группа уже есть списке.", "Диалоговое окно");
+                MessageBox.Show("Данная группа уже есть списке.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         public void AddInfoMugs(string NameMugs)
         {
             sqlCommand.CommandText = $"insert into Кружки (Название_Кружка) values ('{NameMugs}')";
             sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Данные добавлены.", "Диалоговое окно");
+            MessageBox.Show("Данные добавлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public void AddInfoKat(string NameKat)
         {
             sqlCommand.CommandText = $"insert into Категории_Навыка (Название_Категории) values ('{NameKat}')";
             sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Данные добавлены.", "Диалоговое окно");
+            MessageBox.Show("Данные добавлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public void UpdateInfoKat(string NomerKat,string NewNameKat)
         {
             sqlCommand.CommandText = $"update Категории_Навыка set Название_Категории = '{NewNameKat}' WHERE Номер_Категории = {NomerKat}";
             sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Данные обновлены.", "Диалоговое окно");
+            MessageBox.Show("Данные обновлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public void UpdateInfoMugs(string NomerMugs, string NewNameMugs)
         {
             sqlCommand.CommandText = $"update Кружки set Название_Кружка = '{NewNameMugs}' WHERE Номер_Кружка = {NomerMugs}";
             sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Данные обновлены.", "Диалоговое окно");
+            MessageBox.Show("Данные обновлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public void UpdateInfoGroup(string NameGroup,string NewDiscriptionGroup)
         {
             sqlCommand.CommandText = $"update Группа set [Полное_Название_группы] = '{NewDiscriptionGroup}' WHERE Номер_Группы = '{NameGroup}'";
             sqlCommand.ExecuteNonQuery();
-            MessageBox.Show("Данные обновлены.", "Диалоговое окно");
+            MessageBox.Show("Данные обновлены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public void DeleteInfoDataGrid(string NameTable,string NameColumn,string Nomer)
         {
@@ -97,7 +97,7 @@ namespace ReAvix_2022.ViewModels
                 case MessageBoxResult.OK:
                     sqlCommand.CommandText = $"delete from {NameTable} where [{NameColumn}] = '{Nomer}'";
                     sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Данные удалены.", "Диалоговое окно");
+                    MessageBox.Show("Данные удалены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
                     break;
                 case MessageBoxResult.Cancel:
                     break;

@@ -6,8 +6,8 @@
         xmlns:local1="clr-namespace:ReAvix_2022.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="WindowAboutSkils" Height="640" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" DataContext="VMWindowAboutSkils" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
-    <Grid>
+        Title="Окно просмотра информации о навыке" Height="640" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" DataContext="VMWindowAboutSkils" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Border CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

@@ -1,5 +1,7 @@
-﻿using ReAvix_2022.ViewModels;
+﻿using MaterialDesignThemes.Wpf;
+using ReAvix_2022.ViewModels;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -58,18 +60,37 @@ namespace ReAvix_2022.Views
                             vMWindowRegisterPrep.ValidateInfoStudentPhone(PhoneOne: textbox_Phone.Text, out bool resultPhone);
                             if (resultPhone == true)
                             {
-                                WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(textbox_EMail.Text);
-                                windowConfirmationEmail.ShowDialog();
-                                if (windowConfirmationEmail.ResultConfirmation == false)
+                                vMWindowRegisterPrep.ValidateInfoGroup(Group:combobox_OtchGroup.Text,out bool resultGroup);
+                                if (resultGroup == true)
                                 {
-                                    MessageBox.Show("Неверный код!", "Диалоговое окно", MessageBoxButton.OK);
+                                    VMWindowConfirmationEmail VMwindowConfirmationEmail = new VMWindowConfirmationEmail();
+                                    VMwindowConfirmationEmail.ConfirmationEmail(textbox_EMail.Text, out bool ResultConfirmation, out int CodeEmail);
+                                    if (ResultConfirmation == false)
+                                    {
+                                        MessageBox.Show("Неправильный формат электронной почты", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    }
+                                    else
+                                    {
+                                        WindowConfirmationEmail windowConfirmationEmail = new WindowConfirmationEmail(CodeEmail);
+                                        windowConfirmationEmail.ShowDialog();
+
+                                        if (windowConfirmationEmail.ResultConfirmation == true)
+                                        {
+                                            vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
+                                            MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK,MessageBoxImage.Information);
+                                            windowSign.Show();
+                                            Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Регистрация не выполнена", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Question);
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    vMWindowRegisterPrep.AddInfoPrepInDB(textbox_Ima.Text, textbox_Familia.Text, textbox_Otchestvo.Text, textbox_Login.Text, textbox_Password.Password.ToString(), textbox_EMail.Text, textbox_Phone.Text, Pol, $"{combobox_Day.Text + "." + combobox_Montch.Text + "." + combobox_Year.Text}", textbox_Adress.Text, combobox_Spec.Text, textbox_MeText.Text, combobox_Ellips.Text, combobox_OtchGroup.Text);
-                                    MessageBox.Show("Вы успешно зарегистрировались!", "Диалоговое окно", MessageBoxButton.OK);
-                                    windowSign.Show();
-                                    Close();
+                                    combobox_OtchGroup.BorderBrush = Brushes.Red;
+                                    MessageBox.Show("Выберите другой класс!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                             }
                             else
@@ -113,6 +134,17 @@ namespace ReAvix_2022.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void textbox_Phone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace ReAvix_2022.Views
             if (AdressDocument != "")
             {
                 AdressKTP = AdressDocument;
-                MessageBox.Show("Файл успешно добавлен","Диалоговое окно");
+                MessageBox.Show("Файл успешно добавлен","Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -65,7 +65,7 @@ namespace ReAvix_2022.Views
             if (AdressDocument != "")
             {
                 AdressFOS = AdressDocument;
-                MessageBox.Show("Файл успешно добавлен", "Диалоговое окно");
+                MessageBox.Show("Файл успешно добавлен", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -75,7 +75,7 @@ namespace ReAvix_2022.Views
             if (AdressDocument != "")
             {
                 AdressDOC = AdressDocument;
-                MessageBox.Show("Файл успешно добавлен", "Диалоговое окно");
+                MessageBox.Show("Файл успешно добавлен", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -86,7 +86,7 @@ namespace ReAvix_2022.Views
             _Connection.Open(); // Открытие подключения
             if (AdressKTP == null || AdressFOS == null || AdressDOC == null)
             {
-                MessageBox.Show("Не заполнен один из обязательных документов!", "Диалоговое окно");
+                MessageBox.Show("Не заполнен один из обязательных документов!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             var data = File.ReadAllBytes(AdressKTP);
@@ -103,7 +103,7 @@ namespace ReAvix_2022.Views
 
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             _Connection.Close(); // Закрытие подключения
-            MessageBox.Show("Предмет успешно добавлен.", "Диалоговое окно");
+            MessageBox.Show("Предмет успешно добавлен.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
 
@@ -118,6 +118,11 @@ namespace ReAvix_2022.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

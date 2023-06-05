@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         AllowsTransparency="True"
-        Title="WindowSign" Height="800" Width="1200" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="Transparent">
+        Title="Окно авторизации и регистрации" Height="800" Width="1200" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="Transparent">
     <Grid>
         <!--#region Разметка всего окна-->
         <Grid.ColumnDefinitions>
@@ -308,14 +308,16 @@
                 <!--#endregion-->
                 <!--#region ТекстБокс для ввода Пароля-->
                 <materialDesign:PackIcon Foreground="White" Margin="25 0 0 3" Grid.Row="3" Width="35" Height="35" Kind="Key" VerticalAlignment="Center"/>
-                <PasswordBox x:Name="textbox_Password" Grid.Row="3" Height="40" Width="450"
+                <PasswordBox x:Name="textbox_Password" Grid.Row="3" Height="60" Width="450"  
                       materialDesign:HintAssist.Hint="Введите пароль"
                       materialDesign:TextFieldAssist.HasClearButton="True"
+                      materialDesign:HintAssist.Foreground="#707D8C"
                       BorderBrush="#707D8C"
                       CaretBrush="#4BEFD1"
                       BorderThickness=" 0 0 0 2"
                       SelectionBrush="Aqua"
                       FontSize="18"       
+                      Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}"
                       Foreground="#B2B8BD"
                       Background="Transparent"
                       materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>

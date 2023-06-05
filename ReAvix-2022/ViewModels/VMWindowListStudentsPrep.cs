@@ -86,14 +86,14 @@ namespace ReAvix_2022.ViewModels
             {
                 Grid grid = new Grid
                 {
-                    Height = 330,
-                    Width = 290,
+                    Height = 430,
+                    Width = 300,
                 };
 
                 Border border = new Border
                 {
-                    Width = 290,
-                    Height = 330,
+                    Width = 300,
+                    Height = 430,
                     CornerRadius = new System.Windows.CornerRadius(10),
                     Background = LGB,
                     Effect = dropShadowEffect,
@@ -125,20 +125,14 @@ namespace ReAvix_2022.ViewModels
                 }
 
 
-                EllipseGeometry ellipseGeometry = new EllipseGeometry();
-                ellipseGeometry.Center = new Point(110, 100);
-                ellipseGeometry.RadiusX = 90;
-                ellipseGeometry.RadiusY = 90;
-
                 Image popupBox = new Image
                 {
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    Height = 360,
-                    Width = 220,
+                    Height = 300,
+                    Width = 290,
                     VerticalAlignment = VerticalAlignment.Top,
-                    Margin = new Thickness(0, 0, 10, 10),
+                    Margin = new Thickness(0, 10, 0, 10),
                     Source = newBitmapImage,
-                    Clip = ellipseGeometry,
                     Cursor = Cursors.Hand
 
                 };
@@ -193,6 +187,7 @@ namespace ReAvix_2022.ViewModels
                     VerticalAlignment = VerticalAlignment.Bottom,
                     FontFamily = new System.Windows.Media.FontFamily("Bahnschrift Light Condensed"),
                     IsEnabled = false,
+                    Cursor = Cursors.Hand
                 };
 
                 grid.Children.Add(border);

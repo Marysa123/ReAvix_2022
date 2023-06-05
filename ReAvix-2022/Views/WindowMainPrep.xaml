@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         xmlns:windowusercontrol="clr-namespace:ReAvix_2022.WindowUserControl"
         mc:Ignorable="d"
-        Title="WindowMainPrep" Height="1000" Width="1700" WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Главное окно классного руководителя" Height="1000" Width="1700" WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.DataContext>
         <local1:VMWindowMainPrep/>
     </Window.DataContext>
@@ -25,7 +25,7 @@
         <DataTemplate x:Name="UCProfilePrepTemplate" DataType="{x:Type local1:VMWindowProfilePrep}">
             <windowusercontrol:UCProfilePrep DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="UCAddInfoSrudentPrepTemplate" DataType="{x:Type local1:VMWindowAddInfoStudentPrep}">
+        <DataTemplate x:Name="UCAddInfoStudentPrepTemplate" DataType="{x:Type local1:VMWindowAddInfoStudentPrep}">
             <windowusercontrol:UCAddInfoStudentPrep DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="UCPosvStudTemplate" DataType="{x:Type local1:VMWindowPosvStud}">
@@ -36,7 +36,7 @@
         </DataTemplate>
 
     </Window.Resources>
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition/>

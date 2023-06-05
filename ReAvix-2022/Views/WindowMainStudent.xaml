@@ -8,7 +8,7 @@
         xmlns:windowusercontrol="clr-namespace:ReAvix_2022.WindowUserControl"
         xmlns:viewsmodels="clr-namespace:ReAvix_2022.ViewModels"
         mc:Ignorable="d"
-        Title="WindowMainStudent" Height="1000" Width="1700" WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Главное окно студента" Height="1000" Width="1700" WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     
     <Window.DataContext>
         <local1:VMWindowMainStudent />
@@ -30,7 +30,7 @@
             <windowusercontrol:UCListNews DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition/>

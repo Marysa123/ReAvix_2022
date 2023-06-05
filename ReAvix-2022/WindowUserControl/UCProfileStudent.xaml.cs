@@ -30,13 +30,14 @@ namespace ReAvix_2022.WindowUserControl
         {
             InitializeComponent();
 
+            CommandSql.Connection = _Connection; // Инициализация подключения
+            _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
+
             NomerStudent = NumberSt;
             vMWindowProfileStudent = new VMWindowProfileStudent(NomerStudent);
             vMWindowProfileStudent.GetInfoStudent();
             ImagesProfile.Source = vMWindowProfileStudent.newBitmapImage;
             DataContext = vMWindowProfileStudent;
-
-
         }
         string AdressImageOne;
 
@@ -52,26 +53,33 @@ namespace ReAvix_2022.WindowUserControl
                 ImagesProfile.Source = BitmapFrame.Create(new Uri(AdressImageOneOut));
                 AdressImageOne = AdressImageOneOut;
             }
+
         }
 
         private void button_AddDop_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            _Connection.Close();
-            _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
-            _Connection.Open(); // Открытие подключения
+            if (textbox_Fam.Text == "" || textbox_Ima.Text == "" || textbox_Otc.Text == "" || textbox_EMail.Text == "" || textbox_Phone.Text == "" ||  textbox_Adress.Text == "" || textbox_Group.Text == "")
+            {
+                MessageBox.Show("Пустые поля!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            CommandSql.CommandText = $"update [Студенты] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Номер_телефона_Родителей] = '{textbox_PhoneRod.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}' where Номер_Студента = {NomerStudent} "; // Создание запроса
-            CommandSql.Connection = _Connection; // Инициализация подключения
-            CommandSql.ExecuteNonQuery(); // Выполнение запроса
-            vMWindowProfileStudent.GetInfoStudent();
-            _Connection.Close(); // Закрытие подключения
-            MessageBox.Show("Данные успешно измененены.", "Диалоговое окно", MessageBoxButton.OK);
+            }
+            else
+            {
+                _Connection.Close();
+                _Connection.Open(); // Открытие подключения
+
+                CommandSql.CommandText = $"update [Студенты] set [Имя]  = '{textbox_Ima.Text}',[Фамилия] = '{textbox_Fam.Text}',[Отчество] = '{textbox_Otc.Text}',[E_mail] = '{textbox_EMail.Text}',[Номер_Телефона] = '{textbox_Phone.Text}',[Номер_телефона_Родителей] = '{textbox_PhoneRod.Text}',[Адрес] = '{textbox_Adress.Text}',[Краткая_Информация] = '{textbox_DateMe.Text}' where Номер_Студента = {NomerStudent} "; // Создание запроса
+                CommandSql.ExecuteNonQuery(); // Выполнение запроса
+                vMWindowProfileStudent.GetInfoStudent();
+                _Connection.Close(); // Закрытие подключения
+                MessageBox.Show("Данные успешно измененены.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
         }
 
         private void Label_MouseDown(object sender, MouseButtonEventArgs e)
         {
             _Connection.Close();
-            _Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ReAvix_2022.Properties.Settings.Параметр"].ConnectionString; // Строка подключения взятая из параметров проекта
             _Connection.Open(); // Открытие подключения
             CommandSql.CommandText = $"update [Студенты] set Фотография = @images where Номер_Студента = {NomerStudent} "; // Создание запроса
             if (AdressImageOne ==null)
@@ -81,12 +89,13 @@ namespace ReAvix_2022.WindowUserControl
             else
             {
                 var data = File.ReadAllBytes(AdressImageOne);
-                CommandSql.Connection = _Connection; // Инициализация подключения
                 CommandSql.Parameters.Add(new SqlParameter("@images", data));
                 CommandSql.ExecuteNonQuery(); // Выполнение запроса
                 _Connection.Close(); // Закрытие подключения
-                MessageBox.Show("Фотография успешно сохранена.", "Диалоговое окно", MessageBoxButton.OK);
+                MessageBox.Show("Фотография успешно сохранена.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            button_ImageSave.IsEnabled = false;
+            ImagesProfile.IsEnabled = false;
         }
 
         private void icon_Exit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

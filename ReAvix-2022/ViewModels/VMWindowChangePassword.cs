@@ -30,13 +30,13 @@ namespace ReAvix_2022.ViewModels
 
                 CommandSql.CommandText = $"UPDATE Студенты SET Пароль={PasswordChange} WHERE Номер_Студента={Result}";
                 CommandSql.ExecuteNonQuery();
-                MessageBox.Show("Ваш пароль изменен!","Диалоговое окно",MessageBoxButton.OK);
+                MessageBox.Show("Ваш пароль изменен!","Диалоговое окно",MessageBoxButton.OK,MessageBoxImage.Information);
             }
             else
             {
                 CommandSql.CommandText = $"UPDATE Преподаватели SET Пароль={PasswordChange} WHERE Номер_Преподавателя={Result}";
                 CommandSql.ExecuteNonQuery();
-                MessageBox.Show("Ваш пароль изменен!", "Диалоговое окно", MessageBoxButton.OK);
+                MessageBox.Show("Ваш пароль изменен!", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
                 
             }
         }

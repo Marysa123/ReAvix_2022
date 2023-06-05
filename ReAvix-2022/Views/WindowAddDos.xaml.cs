@@ -89,8 +89,13 @@ namespace ReAvix_2022.Views
 
             CommandSql.ExecuteNonQuery(); // Выполнение запроса
             _Connection.Close(); // Закрытие подключения
-            MessageBox.Show("Достижение успешно добавлено.", "Диалоговое окно");
+            MessageBox.Show("Достижение успешно добавлено.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

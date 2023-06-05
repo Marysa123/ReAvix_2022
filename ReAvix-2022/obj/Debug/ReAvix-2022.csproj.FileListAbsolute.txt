@@ -142,6 +142,10 @@ C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowPasswordRecovery.baml
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowChangePassword.g.cs
 C:\Users\dserd\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowChangePassword.baml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ReAvix-2022.exe
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignColors.dll
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\libHarfBuzzSharp.dylib
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\x86\libHarfBuzzSharp.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\x64\libHarfBuzzSharp.dll
@@ -151,8 +155,6 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\x64\libSkiaSharp.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\arm64\libSkiaSharp.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ReAvix-2022.exe.config
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ReAvix-2022.exe
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ReAvix-2022.pdb
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\EntityFramework.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\HarfBuzzSharp.dll
@@ -161,8 +163,6 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\LiveChartsCore.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\LiveChartsCore.SkiaSharpView.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\LiveChartsCore.SkiaSharpView.WPF.dll
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignColors.dll
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\SkiaSharp.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\SkiaSharp.HarfBuzz.dll
@@ -177,9 +177,6 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\System.Memory.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Core.dll
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Platform.dll
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Xaml.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\EntityFramework.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\HarfBuzzSharp.pdb
@@ -194,6 +191,8 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignColors.pdb
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\SkiaSharp.pdb
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\SkiaSharp.xml
@@ -210,10 +209,6 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\System.Memory.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Core.pdb
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Core.xml
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Xaml.pdb
-C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.AssemblyReference.cache
@@ -309,3 +304,6 @@ C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\De
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.csproj.CopyComplete
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.exe
 C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\ReAvix-2022.pdb
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\bin\Debug\ReAvix-2022.pdb
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutPrepodAdmin.g.cs
+C:\Users\Дмитрий\Desktop\Диплом_2022\ReAvix-2022\ReAvix-2022\obj\Debug\Views\WindowAboutPrepodAdmin.baml

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="WindowAddNotes" Height="280" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="Окно добавления заметки" Height="280" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Border CornerRadius="5">
             <Border.Background>
                 <LinearGradientBrush>
