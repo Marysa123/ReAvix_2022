@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         mc:Ignorable="d"
         Title="Окно с информацией о предмете" Height="700" Width="1200" WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>

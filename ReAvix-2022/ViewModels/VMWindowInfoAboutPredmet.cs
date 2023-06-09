@@ -1,7 +1,10 @@
 ﻿using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Drawing.Geometries;
+using LiveChartsCore.SkiaSharpView.Painting;
 using ReAvix_2022.Models;
+using SkiaSharp;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
@@ -109,10 +112,11 @@ namespace ReAvix_2022.ViewModels
             {
                 Series = new ObservableCollection<ISeries>
                 {
-                    new LineSeries<ObservablePoint>
+                    new ScatterSeries<ObservablePoint,RectangleGeometry>
                     {
                         Values = observables,
-                        Fill = null
+                        GeometrySize = 15,
+
                     }
                 };
 

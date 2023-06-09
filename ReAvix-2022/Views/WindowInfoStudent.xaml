@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ReAvix_2022.Views"
         mc:Ignorable="d"
         Title="Личная карточка студента" Height="1000" Width="1542" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition/>

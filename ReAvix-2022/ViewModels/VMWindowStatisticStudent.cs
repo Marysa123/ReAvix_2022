@@ -388,13 +388,13 @@ namespace ReAvix_2022.ViewModels
 
                 };
 
-                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 5 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 5";
                 int Count5 = (int)CommandSql.ExecuteScalar();
-                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 4 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 4";
                 int Count4 = (int)CommandSql.ExecuteScalar();
-                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 3 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 3";
                 int Count3 = (int)CommandSql.ExecuteScalar();
-                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 2 and DATEPART(MONTH,[Дата]) = DATEPART(MONTH,getdate())";
+                CommandSql.CommandText = $"select COUNT(Оценка) from [Оценки] where [FK_Номер_Предмета] = {MassivNomerPredmet[i]} and [FK_Номер_Студента] = {NumberStudent} and [Оценка] = 2";
                 int Count2 = (int)CommandSql.ExecuteScalar();
 
                 seriesCollection = new SeriesCollection

@@ -158,11 +158,7 @@ namespace ReAvix_2022.WindowUserControl
 
                     myRange.Cells.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
 
-                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+            
 
                 }
                 for (int i = 1; i < GridViewOmissions.Columns.Count; i++)
@@ -172,20 +168,13 @@ namespace ReAvix_2022.WindowUserControl
                         TextBlock b = GridViewOmissions.Columns[i].GetCellContent(GridViewOmissions.Items[j]) as TextBlock;
                         Range myRange = (Range)sheet1.Cells[j + 5, i + 1];
                         myRange.Value2 = b.Text;
-                        myRange.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+
                         myRange.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                     }
                 }
 
                 Range rng4 = sheet1.Range[sheet1.Cells[2, 2], sheet1.Cells[GridViewOmissions.Items.Count + 7, 5]];
-                rng4.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
-                rng4.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
-                rng4.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
-                rng4.Borders.get_Item(XlBordersIndex.xlEdgeLeft).LineStyle = XlLineStyle.xlContinuous;
+
 
                 sheet1.Cells[2, 3] = $"Отчёт об посещаемости студентов {NameGroup} группы";
                 Range rng = sheet1.Range[sheet1.Cells[2, 3], sheet1.Cells[2, 4]];

@@ -68,9 +68,5 @@ namespace ReAvix_2022.Views
             DataContext = new UCListNews();
         }
 
-        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
     }
 }

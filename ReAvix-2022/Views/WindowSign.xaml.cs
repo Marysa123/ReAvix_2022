@@ -133,5 +133,10 @@ namespace ReAvix_2022
             WindowPasswordRecovery windowPasswordRecovery = new WindowPasswordRecovery();
             windowPasswordRecovery.ShowDialog();
         }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

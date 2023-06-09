@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Окно с информацией о классном руководителе" Height="820" Width="1300" Background="Transparent" FontFamily="Bahnschrift Light Condensed" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" >
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition/>

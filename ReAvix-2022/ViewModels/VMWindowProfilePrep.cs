@@ -54,7 +54,7 @@ namespace ReAvix_2022.ViewModels
 
             if (getString(Item) == null)
             {
-                BitmapImage bit = new BitmapImage(new Uri("/Resources/Images/_8AyKfK3yIA.jpg", UriKind.Relative));
+                BitmapImage bit = new BitmapImage(new Uri("/Resources/Images/image_Holder (2).png", UriKind.Relative));
                 newBitmapImage = bit;
                 _Connection.Close();
             }

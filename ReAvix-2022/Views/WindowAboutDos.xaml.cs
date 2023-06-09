@@ -58,10 +58,5 @@ namespace ReAvix_2022.Views
             MessageBox.Show("Достижение успешно удалено.", "Диалоговое окно", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
         }
-
-        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
     }
 }

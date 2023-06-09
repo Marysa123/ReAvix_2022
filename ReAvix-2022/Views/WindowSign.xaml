@@ -16,9 +16,9 @@
         </Grid.ColumnDefinitions>
         <!--#endregion-->
         <!--#region Левая часть окна-->
-        <Grid Grid.Column="0" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid Grid.Column="0"  >
             <!--#region Задний фон левой части окна-->
-            <Border Grid.Column="0" CornerRadius="20 0 0 20">
+            <Border Grid.Column="0" CornerRadius="20 0 0 20" MouseLeftButtonDown="Border_MouseLeftButtonDown">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop 

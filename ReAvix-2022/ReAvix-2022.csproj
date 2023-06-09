@@ -678,6 +678,7 @@
     <Resource Include="Resources\Images\icon_AddNewsV2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\image_Holder %282%29.png" />
     <Resource Include="Resources\Images\icon_ListStudent.png" />
     <Resource Include="Resources\Images\icon_InfoPrep.png" />
     <Resource Include="Resources\Images\icon_Login.png" />

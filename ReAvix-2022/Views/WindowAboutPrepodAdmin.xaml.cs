@@ -74,11 +74,6 @@ namespace ReAvix_2022.Views
 
                     myRange.Cells.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
 
-                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
-                    myRange.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
 
                 }
                 for (int i = 0; i < GridListStudent.Columns.Count; i++)
@@ -88,11 +83,7 @@ namespace ReAvix_2022.Views
                         TextBlock b = GridListStudent.Columns[i].GetCellContent(GridListStudent.Items[j]) as TextBlock;
                         Range myRange = (Range)sheet1.Cells[j + 5, i + 1];
                         myRange.Value2 = b.Text;
-                        myRange.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
-                        myRange.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+     
                         myRange.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
                     }
                 }

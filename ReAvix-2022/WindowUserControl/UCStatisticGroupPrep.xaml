@@ -245,31 +245,8 @@
                 <DataGrid Visibility="Hidden" Name="GridListNoYlStudent" HorizontalAlignment="Left" AutoGenerateColumns="True"/>
             </Grid>
         </Border>
-        
-        <Expander ExpandDirection="Left" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0 100 0 30" Padding="10 10 20 20">
-            <Expander.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop
-                        Color="#0D1C32"
-                        Offset="0"/>
-                    <GradientStop
-                        Color="#01132F"
-                        Offset="1"/>
-                </LinearGradientBrush>
-            </Expander.Background>
-            <Expander.Header>
-                <TextBlock
-                    Foreground="White"
-                    RenderTransformOrigin=".5,.5"
-                    Text="Средние значения по каждому предмету"
-                    FontSize="18">     
-                    <TextBlock.LayoutTransform>
-                        <RotateTransform
-                            Angle="90" />
-                    </TextBlock.LayoutTransform>
-                </TextBlock>
-            </Expander.Header>
-            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+
+        <WrapPanel  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Margin="0 100 0 30">
                 <Label Grid.Column="1" Content="Cредние значения по каждому предмету" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="22" Height="35" FontFamily="Bahnschrift Light SemiCondensed"/>
                 <Label Grid.Column="1" Content="на текущий месяц" Grid.Row="1" MouseDown="Label_MouseDown" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Center" Grid.ColumnSpan="2" Foreground="#FF31F1FF" FontSize="22" Height="35" FontFamily="Bahnschrift Light SemiCondensed"/>
                 <Label Grid.Column="2" Content="| За все время" Grid.Row="1" VerticalAlignment="Top" MouseDown="Label_MouseDown_1" Cursor="Hand" HorizontalAlignment="Left" Foreground="#FF31F1FF"  FontSize="22" Height="35" FontFamily="Bahnschrift Light SemiCondensed"/>
@@ -278,7 +255,6 @@
                 <TextBox Width="225" Height="50" TextChanged="textbox_SearchIma_TextChanged" materialDesign:TextFieldAssist.HasClearButton="True"  materialDesign:HintAssist.Hint="По имени:" Margin="10 10 0 0" FontSize="22" Foreground="White" TextAlignment="Center" HorizontalContentAlignment="Left" x:Name="textbox_SearchIma"  Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
                 <ComboBox Width="250" Height="50" materialDesign:HintAssist.Hint="Название предмета:" SelectionChanged ="textbox_SearchPredmet_SelectionChanged" IsReadOnly="True" Margin="20 10 0 0" FontSize="22" Foreground="Black" Background="White" HorizontalContentAlignment="Left" Name="textbox_SearchPredmet" Cursor="Arrow" BorderBrush="White"  materialDesign:TextFieldAssist.UnderlineBrush="#187AFD"/>
                 <Image Width="35" Height="35" Cursor="Hand" Source="/Resources/Images/icon_ListStudent.png" HorizontalAlignment="Right" Margin="20 0 32 0" Name="button_List" MouseDown="button_List_MouseDown"/>
-            </WrapPanel>
-        </Expander>
+        </WrapPanel>
     </Grid>
 </UserControl>

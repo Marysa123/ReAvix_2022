@@ -11,7 +11,7 @@
         <local1:VMWindowRegisterStud/>
     </Window.DataContext>
 
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid  >
         <!--#region Задний фон окна-->
         <Border CornerRadius="20" Grid.Column="1">
             <Border.Background>

@@ -30,7 +30,7 @@
             <windowusercontrol:UCListNews DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition/>
