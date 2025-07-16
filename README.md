@@ -1,4 +1,4 @@
-<img width="574" height="410" alt="image" src="https://github.com/user-attachments/assets/3a5c21e7-cb42-47bc-9c8f-684fba20df9c" /><img width="886" height="602" alt="image" src="https://github.com/user-attachments/assets/b8ae3d30-290a-445f-80e1-e75dd15715ba" /># Проект: ReAvix
+# Проект: ReAvix
 
 Автоматизированная система мониторинга учебных и воспитательных процессов в образовательных организациях.
 
